@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer {
+    @font-face {
+        font-family: 'questrial';
+        src: font-url('./assets/Questrial-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'din-next-lt-pro-bold';
+        src: font-url('./assets/DINNextLTPro-Bold.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'din-next-lt-pro-light';
+        src: font-url('./assets/DINNextLTPro-Light.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'inter-variable';
+        src: font-url('./assets/inter-variable.ttf') format('truetype');
+    }
+}
