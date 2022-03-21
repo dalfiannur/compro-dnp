@@ -8,12 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.180",
+    "@types/greensock": "^1.15.32",
     "gsap": "^3.9.1",
+    "@types/lodash": "^4.14.180",
     "lodash": "^4.17.21",
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "@vitejs/plugin-vue": "^2.2.0",
     "autoprefixer": "^10.4.4",
     "postcss": "^8.4.12",
