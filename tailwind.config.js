@@ -42,6 +42,13 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      primary: '#73c0b8',
+      'primary-light': '#8cc8c0',
+      repair: '#5c84c3',
+      prevent: '#744499',
+      glow: '#f2b979',
+      hydrate: '#63c4b4',
+      'white-smoke': '#f2f2f2'
     }),
     columns: {
       auto: 'auto',
@@ -375,6 +382,10 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      questrial: ['questrial'],
+      'din-next-lt-pro-bold': ['din-next-lt-pro-bold'],
+      'din-next-lt-pro-light': ['din-next-lt-pro-light'],
+      'inter-variable': ['inter-variable']
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
