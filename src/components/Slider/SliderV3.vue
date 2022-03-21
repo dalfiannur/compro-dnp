@@ -1,20 +1,21 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
+import { gsap } from "gsap"
 
 const carouselSlides = reactive([
   {
     img: "bg-1",
-    title: "lorem 1",
+    title: "Lorem 1",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
     img: "bg-2",
-    title: "lorem 2",
+    title: "Lorem 2",
     text: "Walaupun terlihat acak dan seperti tidak memiliki makna khusus, teks ini memiliki beberapa fungsi yang vital. Lorem ipsum berfungsi untuk menghindari terganggunya fokus atau perhatian seseorang ketika sedang membuat layout desain",
   },
   {
     img: "bg-3",
-    title: "lorem 3",
+    title: "Lorem 3",
     text: "Alasan lainnya mengapa sampai saat ini masih menggunakan format teks tersebut karena kalimat ini memiliki penyebaran huruf yang normal dan dinilai merata. Sehingga, penggunaan kalimat tersebut terus digunakan daripada menggunakan kalimat pendek seperti dan semacamnya.",
   },
 ]);
@@ -26,13 +27,18 @@ const loadImage = (path: String) => {
 const currentSlide = ref(3);
 const getSlideCount = ref(carouselSlides.length);
 
+
+
 const nextSlide = () => {
   if (currentSlide.value === getSlideCount.value){
     currentSlide.value = 1;
     return;
   }
   currentSlide.value += 1;
+
+  
 }
+
 const prevSlide = () => {
   if (currentSlide.value === 1){
     currentSlide.value = getSlideCount.value;
@@ -42,6 +48,7 @@ const prevSlide = () => {
 }
 
 
+
 onMounted(() => {
   console.log(getSlideCount.value)
 })
@@ -49,9 +56,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen w-full bg-gray-900">
+  <div class="relative w-full items-center justify-center mx-auto ">
     <div
-      class="relative mx-auto overflow-hidden bg-gray-100"
+      class="absolute flex overflow-hidden bg-gray-100"
       v-for="(slide, index) in carouselSlides" 
       :key="index"
       v-show="currentSlide === index + 1"
@@ -99,22 +106,22 @@ onMounted(() => {
         </button>
       </div>
       <div 
-        class="relative grid grid-cols-2 bg-white place-items-center"
+        class="grid grid-cols-2 bg-gray-100 place-items-center"
       >
-        <div class="h-96">
+        <div class="h-72 lg:h-[30vw] box-content flex items-center md:px-16 lg:px-20">
           <img
-            class="w-full bg-cover bg-center"
+            class="object-cover h-full"
             
             :src="loadImage(slide.img)"
             alt="image"
           />
         </div>
         
-        <div class="flex flex-col justify-center align-middle py-3 pr-20 pl-3">
-          <h1 class="text-3xl">
+        <div class="flex flex-col justify-center align-middle py-3 pr-20">
+          <h1 class="text-4xl font-normal lg:text-5xl">
             {{ slide.title }}
           </h1>
-          <p class="mt-4 text-sm">
+          <p class="mt-4 text-sm font-normal lg:text-base">
             {{ slide.text }}
           </p>
         </div>
