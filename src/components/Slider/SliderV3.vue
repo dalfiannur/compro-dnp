@@ -99,7 +99,7 @@ function Ellipsis(index: number, str: string, size: number) {
 
 <template>
 <div class="flex justify-center w-full">
-  <div class="relative w-full h-[800px] sm:h-[730px] lg:h-[500px]">
+  <div class="relative w-full h-[780px] sm:h-[730px] lg:h-[500px]">
 
     <Transition
       :name="swiper"
@@ -119,8 +119,8 @@ function Ellipsis(index: number, str: string, size: number) {
           />
         </div>
         
-        <div class="flex flex-col justify-between align-middle h-full py-3 px-40 lg:pl-0">
-          <div class="flex mt-10 mb-6">
+        <div class="flex flex-col justify-between align-middle h-full py-3 px-20 sm:px-40 lg:pl-0">
+          <div class="flex mt-4 lg:mt-10 mb-6">
             <p class="text-[#77c6bc]"># B E A U T Y</p>
             <p class="ml-2 text-gray-600">- by Dr Sed</p>
           </div>
