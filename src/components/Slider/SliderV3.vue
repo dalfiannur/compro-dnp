@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted, computed, watch } from "vue";
+import { ref, reactive, onMounted, onBeforeUnmount, computed, watch } from "vue";
 
 const carouselSlides = ref<any[]>([
   {
@@ -31,6 +31,7 @@ const loadImage = (path: String) => {
 
 const currentSlide = ref(0);
 const getSlideCount = ref<number|undefined>(carouselSlides.value.length);
+const slideInterval = ref<any>(0)
 const direction = ref<string>("right")
 
 
@@ -43,17 +44,37 @@ const nextSlide = () => {
   const index = currentSlide.value < dataSlide - 1 ? currentSlide.value + 1 : 0 
   setCurrentSlide(index)
   direction.value = "right"
+  startSlideTimer()
 }
 
 const prevSlide = () => {
   const index = currentSlide.value > 0 ? currentSlide.value - 1 : carouselSlides?.value.length - 1
-    setCurrentSlide(index)
-    direction.value = "left"
+  setCurrentSlide(index)
+  direction.value = "left"
+  startSlideTimer()
 }
+
+function startSlideTimer() {
+    stopSliderTimer()
+    slideInterval.value = setInterval(() => {
+        nextSlide()
+    }, 5000)
+}
+function stopSliderTimer() {
+    clearInterval(slideInterval.value)
+}
+
+onMounted(function () {
+    startSlideTimer()
+})
+onBeforeUnmount(function () {
+    stopSliderTimer()
+})
 
 const swiper = computed(() => {
     return direction.value === 'right' ? 'slide-out' : 'slide-in'
 })
+
 
 
 function load() {
