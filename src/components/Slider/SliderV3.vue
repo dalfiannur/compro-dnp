@@ -141,21 +141,21 @@ function Ellipsis(index: number, str: string, size: number) {
         </div>
         
         <div class="flex flex-col justify-between align-middle h-full py-3 px-20 sm:px-40 lg:pl-0">
-          <div class="flex mt-4 lg:mt-10 mb-6">
+          <div class="flex mt-4 lg:mt-10 mb-6 font-questrial">
             <p class="text-[#77c6bc]"># B E A U T Y</p>
             <p class="ml-2 text-gray-600">- by Dr Sed</p>
           </div>
-          <h1 class="text-4xl font-normal lg:text-4xl xl:text-5xl text-[#77c6bc]">
+          <h1 class="text-4xl font-questrial lg:text-4xl xl:text-5xl text-[#77c6bc]">
             {{ slide.title }}
           </h1>
           <div class="">
-            <p class="mt-8 mb-12 text-sm font-normal text-gray-600 clamp lg:text-base w-full text-justify description">
+            <p class="mt-8 mb-12 text-sm font-questrial text-gray-600 clamp lg:text-base w-full text-justify description">
               {{ slide.text }}
             </p>
           </div>
           
           <div class="flex mb-6 justify-between">
-            <p class="text-base font-normal text-gray-600">
+            <p class="text-base font-questrial text-gray-600">
               {{ slide.date }}
             </p>
             <button class="text-base font-normal text-[#77c6bc]">
