@@ -59,7 +59,7 @@ watch(data, () => {
                 :item="item"
                 :key="index"
                 :category="selectedCategory"
-                @click="$router.push('/product/' + index)"
+                @click="$router.push('/products/' + index)"
             />
         </div>
     </div>
