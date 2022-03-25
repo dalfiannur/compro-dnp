@@ -2,7 +2,7 @@
 //@ts-ignore
 import HelloWorld from './components/HelloWorld.vue'
 //@ts-ignore
-import SliderV3 from './components/Slider/SliderV3.vue'
+import Footer from './components/Footer/Footer.vue'
 //@ts-ignore
 
 </script>
@@ -10,7 +10,7 @@ import SliderV3 from './components/Slider/SliderV3.vue'
 <template>
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
 
-  <SliderV3 />
+  <Footer />
 </template>
 
 <style>
