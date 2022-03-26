@@ -1,87 +1,16 @@
 <script setup lang="ts">
-import { ref, onMounted, reactive } from 'vue'
+import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import { Product } from '../../typings/Product'
 
-const items = ref<any[]>([
-    {
-        id: 1,
-        name: 'Caffein Hydrating',
-        category: {
-            name: 'Hydrate'
-        },
-        images: [
-            {
-                image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
-            },
-            {
-                image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
-            }
-        ]
-    },
-    {
-        id: 2,
-        name: 'Caffein Glow',
-        category: {
-            name: 'Glow'
-        },
-        images: [
-            {
-                image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
-            },
-            {
-                image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
-            }
-        ]
-    },
-    {
-        id: 3,
-        name: 'Caffein Repair',
-        category: {
-            name: 'Repair'
-        },
-        images: [
-            {
-                image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
-            },
-            {
-                image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
-            }
-        ]
-    },
-    {
-        id: 4,
-        name: 'Caffein Hydrating',
-        category: {
-            name: 'Hydrate'
-        },
-        images: [
-            {
-                image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
-            },
-            {
-                image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
-            }
-        ]
-    },
-    {
-        id: 5,
-        name: 'Caffein Prevent',
-        category: {
-            name: 'Prevent'
-        },
-        images: [
-            {
-                image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
-            },
-            {
-                image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
-            }
-        ]
-    }
-])
+interface Prop {
+    items: Product[]
+}
+
+const { items } = defineProps<Prop>()
 
 const activeSlides = ref<number>(2)
-const selectedSlide = ref<any>(items.value[2])
+const selectedSlide = ref<any>(items[2])
 
 const resize = () => {
     const width = document.getElementById('center-wrapper')?.offsetWidth
@@ -130,7 +59,7 @@ const goTo = (key: number) => {
 
 <template>
     <div class="flex justify-center w-full">
-        <div class="relative z-[2] flex items-center w-[28%] bg-hydrate">
+        <div class="relative z-[2] flex items-center w-full md:w-[28%] bg-hydrate">
             <div class="absolute flex justify-center -top-8 left-1/4 right-1/4">
                 <div
                     class="w-full py-4 text-xl font-bold text-center uppercase bg-white border-2 text-primary border-hydrate font-questrial"
@@ -138,10 +67,15 @@ const goTo = (key: number) => {
             </div>
             <div class="relative w-full overflow-hidden" id="center-wrapper">
                 <div class="flex">
-                    <div class="flex-none my-52 selected-slide" v-for="item in items" :key="item">
+                    <div
+                        class="flex-none my-52 selected-slide"
+                        v-for="item in items"
+                        :key="item.name"
+                    >
                         <img
-                            class="object-cover w-full h-full"
+                            class="object-cover w-full h-full cursor-pointer"
                             :src="item.images[0].image_source_url"
+                            @click="$router.push('/products/' + item.id)"
                         />
                     </div>
                 </div>
@@ -161,13 +95,20 @@ const goTo = (key: number) => {
             </div>
         </div>
 
-        <div class="absolute w-full">
+        <div class="absolute hidden w-full md:block">
             <div class="absolute w-1/3 bg-white-smoke top-52 slider-side" />
             <div class="absolute right-0 w-1/3 bg-white-smoke top-52 slider-side" />
             <div class="flex overflow-hidden flex-nowrap">
-                <div class="flex-none w-1/3 slider-item pt-52" v-for="item in items" :key="item">
+                <div
+                    class="flex-none w-1/3 slider-item pt-52"
+                    v-for="item in items"
+                    :key="item.name"
+                >
                     <div class="relative flex justify-center -mt-14 aspect-square side-image">
-                        <img class="object-cover w-full h-full" :src="item.images[1].image_source_url" />
+                        <img
+                            class="object-cover w-full h-full"
+                            :src="item.images[1].image_source_url"
+                        />
                     </div>
                 </div>
             </div>

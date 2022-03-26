@@ -6,7 +6,7 @@ import { gsap } from 'gsap'
 import ProductCard from '../../../components/ProductCard.vue'
 
 // Import Composable
-import useGetProducts from '../composable/useGetProducts'
+import useGetProducts from '../../../composable/useGetProducts'
 
 const emit = defineEmits(['categoryChange'])
 

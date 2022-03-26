@@ -1,5 +1,4 @@
 import { onMounted, ref } from 'vue'
-
 type Category = 'repair' | 'prevent' | 'glow' | 'hydrate'
 
 export default function () {
