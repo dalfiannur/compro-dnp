@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, reactive } from 'vue'
 import { gsap } from 'gsap'
 
 const items = ref<any[]>([
@@ -82,119 +82,45 @@ const items = ref<any[]>([
 
 const activeSlides = ref<number>(2)
 const selectedSlide = ref<any>(items.value[2])
-const imagesWrap = gsap.utils.wrap(items.value)
 
-onMounted(() => {
-    const elements = document.querySelectorAll('.slider-item')
-    gsap.set(elements, { xPercent: -100 })
-    gsap.set(elements[activeSlides.value + 1], { rotation: -10 })
-    gsap.set(elements[activeSlides.value - 1], { rotation: 10 })
-})
-
-const next = (key: number, duration: number = 1) => {
-    selectedSlide.value = imagesWrap(key)
-
-    const elements = document.querySelectorAll('.slider-item')
-
-    if (elements[key + 1]) {
-        gsap.fromTo(elements[key + 1], {
-            scale: 0,
-            duration: 0
-        }, {
-            scale: 1,
-            duration: 1,
-            delay: .2,
-            rotation: -10
-        })
-    }
-
-    if (elements[key - 1]) {
-        gsap.fromTo(elements[key - 1], {
-            y: 100,
-            rotation: 0,
-            duration: 0
-        }, {
-            y: 0,
-            rotation: 10,
-            duration: 1
-        })
-    }
-
-    gsap.to(elements, { xPercent: -((key - 1) * 100), duration })
-    gsap.fromTo(elements[key], {
-        rotation: -10,
-        y: 0
-    }, {
-        rotation: 0,
-        y: 100,
-        duration: 1
-    })
+const resize = () => {
+    const width = document.getElementById('center-wrapper')?.offsetWidth
+    gsap.set('.selected-slide', { xPercent: -(100 * 2), width })
+    gsap.set('.side-image', { width, height: width })
+    const height = document.getElementsByClassName('selected-slide').item(0)?.clientHeight
+    gsap.set('.slider-side', { height })
 }
 
-const prev = (key: number, duration: number = 1) => {
-    console.log(duration)
-    selectedSlide.value = imagesWrap(key)
+onMounted(() => {
+    gsap.set('.slider-item', { xPercent: -100 })
+    resize()
 
-    const elements = document.querySelectorAll('.slider-item')
-
-    if (elements[key - 1]) {
-        gsap.fromTo(elements[key - 1], {
-            scale: 0,
-            duration: 0
-        }, {
-            scale: 1,
-            duration: 1,
-            delay: .2,
-            rotation: 10
-        })
-    }
-
-    if (elements[key + 1]) {
-        gsap.fromTo(elements[key + 1], {
-            y: 100,
-            rotation: 0,
-            duration: 0
-        }, {
-            y: 0,
-            rotation: -10,
-            duration: 1
-        })
-    }
-
-    gsap.to(elements, {
-        xPercent: -((key - 1) * 100),
-        duration
+    window.addEventListener('resize', () => {
+        resize()
     })
+})
 
-    gsap.fromTo(elements[key], {
-        rotation: 10,
-        y: 0
-    }, {
-        rotation: 0,
-        y: 100,
-        duration: 1
+const next = (key: number) => {
+    gsap.to('.slider-item', { xPercent: -((key - 1) * 100), duration: (key - activeSlides.value) })
+    gsap.to('.selected-slide', { xPercent: -(key * 100), duration: (key - activeSlides.value) })
+}
+
+const prev = (key: number) => {
+    gsap.to('.slider-item', {
+        xPercent: -((key - 1) * 100),
+        duration: activeSlides.value - key
+    })
+    gsap.to('.selected-slide', {
+        xPercent: -(100 * key),
+        duration: activeSlides.value - key,
     })
 }
 
 const goTo = (key: number) => {
     if (key >= activeSlides.value) {
         next(key)
-        gsap.fromTo('.selected-slide', {
-            xPercent: 100
-        }, {
-            xPercent: 0,
-            duration: 1
-        })
-
-
     } else {
         prev(key)
-        gsap.fromTo('.selected-slide', {
-            xPercent: -100
-        }, {
-            xPercent: 0,
-            duration: 1
-        })
     }
 
     activeSlides.value = key
@@ -204,18 +130,20 @@ const goTo = (key: number) => {
 
 <template>
     <div class="flex justify-center w-full">
-        <div class="relative z-20 flex items-center mx-24 bg-primary">
+        <div class="relative z-[2] flex items-center w-[28%] bg-hydrate">
             <div class="absolute flex justify-center -top-8 left-1/4 right-1/4">
                 <div
-                    class="w-full py-4 text-xl font-bold text-center uppercase bg-white border-2 text-primary border-primary font-questrial"
+                    class="w-full py-4 text-xl font-bold text-center uppercase bg-white border-2 text-primary border-hydrate font-questrial"
                 >{{ selectedSlide.category.name }}</div>
             </div>
-            <div class="overflow-hidden">
-                <div class="h-96 my-52 aspect-square selected-slide">
-                    <img
-                        class="object-cover w-full h-full"
-                        :src="selectedSlide.images[0].image_source_url"
-                    />
+            <div class="relative w-full overflow-hidden" id="center-wrapper">
+                <div class="flex">
+                    <div class="flex-none my-52 selected-slide" v-for="item in items" :key="item">
+                        <img
+                            class="object-cover w-full h-full"
+                            :src="item.images[0].image_source_url"
+                        />
+                    </div>
                 </div>
             </div>
             <div class="absolute bottom-0 w-full h-[200px] flex flex-col">
@@ -234,12 +162,12 @@ const goTo = (key: number) => {
         </div>
 
         <div class="absolute w-full">
-            <div class="absolute w-1/3 bg-white-smoke h-96 top-52" />
-            <div class="absolute right-0 w-1/3 bg-white-smoke h-96 top-52" />
+            <div class="absolute w-1/3 bg-white-smoke top-52 slider-side" />
+            <div class="absolute right-0 w-1/3 bg-white-smoke top-52 slider-side" />
             <div class="flex overflow-hidden flex-nowrap">
                 <div class="flex-none w-1/3 slider-item pt-52" v-for="item in items" :key="item">
-                    <div class="relative flex justify-center -mt-24 aspect-square">
-                        <img class="absolute w-96 h-96" :src="item.images[1].image_source_url" />
+                    <div class="relative flex justify-center -mt-14 aspect-square side-image">
+                        <img class="object-cover w-full h-full" :src="item.images[1].image_source_url" />
                     </div>
                 </div>
             </div>
