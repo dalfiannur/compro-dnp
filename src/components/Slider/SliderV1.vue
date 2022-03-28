@@ -5,11 +5,13 @@ import SliderButtonV1 from './SliderButtonV1.vue';
 
 const props = defineProps({
     slides: Array as PropType<string[]>,
+    links: Array as PropType<string[]>,
 })
 
 const currentSlide = ref(0)
 const slideInterval = ref(0)
 const direction = ref("right")
+const link = "thisis"
 
 function setCurrentSlide(index: number) {
     currentSlide.value = index
@@ -60,6 +62,7 @@ onBeforeUnmount(function () {
             <SliderItemV1
                 v-for="(slide, index) in slides"
                 :slide="slide"
+                :link="links[index]"
                 :key="`slide-${index}`"
                 :current-slide="currentSlide"
                 :index="index"

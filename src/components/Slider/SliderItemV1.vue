@@ -2,7 +2,7 @@
 import { defineProps, computed } from 'vue'
 
 const props = defineProps({
-    slide: String, currentSlide: Number, index: Number, direction: String
+    slide: String, link: String, currentSlide: Number, index: Number, direction: String
 })
 
 const transitionEffect = computed(() => {
@@ -14,9 +14,9 @@ const transitionEffect = computed(() => {
 
 <template>
     <transition :name="transitionEffect">
-        <div class="absolute" v-show="currentSlide === index">
+        <a class="absolute" :href="link" v-show="currentSlide === index">
             <img :src="slide" :alt="`slide-${index}`" />
-        </div>
+        </a>
     </transition>
 </template>
 
