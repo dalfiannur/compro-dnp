@@ -8,6 +8,8 @@ const props = defineProps({
     links: Array as PropType<string[]>,
 })
 
+const { slides, links } = props
+
 const currentSlide = ref(0)
 const slideInterval = ref(0)
 const direction = ref("right")

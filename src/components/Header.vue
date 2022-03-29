@@ -10,14 +10,15 @@ const search = reactive({
 </script>
 <template>
     <div
+        id="#header"
         class="fixed top-0 left-0 z-20 flex items-center justify-between w-full h-24 px-20 bg-white"
     >
         <div>
-            <img class="object-cover w-20 h-20" />
+            <img class="object-cover h-16" src="/img/logo-black.svg" />
         </div>
 
         <ul class="flex gap-20">
-            <li>
+            <li class="text-inter">
                 <a href="#" @click.prevent @mouseenter="hovered = 0">Products</a>
                 <Transition name="fade">
                     <div
@@ -58,7 +59,7 @@ const search = reactive({
                             <div
                                 class="pl-24 bg-gray-100 w-[380px] h-[300px] py-10"
                             >
-                                <h3 class="text-4xl text-hydrate">Article</h3>
+                                <a href="/articles" @click.prevent="$router.push('/articles')" class="text-4xl text-hydrate">Article</a>
                                 <p class="mt-5 text-gray-500">
                                     Search specific articles and
                                     related products by typing on
@@ -115,7 +116,7 @@ const search = reactive({
                             <div
                                 class="px-24 bg-gray-100 w-[400px] h-full flex flex-col justify-center py-14"
                             >
-                                <h3 class="text-4xl text-hydrate">About Us</h3>
+                                <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About Us</a>
                                 <p class="mt-10 text-justify text-gray-700">
                                     PT Dermedic Phar Este is
                                     established in 2022 as the first

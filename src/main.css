@@ -19,7 +19,7 @@
     }
 
     @font-face {
-        font-family: 'inter-variable';
-        src: url('./assets/fonts/inter-variable.ttf') format('truetype');
+        font-family: 'inter';
+        src: url('./assets/fonts/Inter.ttf') format('truetype');
     }
 }
