@@ -54,7 +54,8 @@ const LoadImages = (path: String) => {
           <a :href="page.route">
             <img
               alt="Placeholder"
-              class="block h-64 w-full"
+              class="block h-64 m-auto"
+              style="width: 450px"
               :src="LoadImages(page.img)"
             />
           </a>
