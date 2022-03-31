@@ -56,10 +56,12 @@ const search = reactive({
                         @mouseleave="hovered = null"
                     >
                         <div class="h-full -ml-24">
-                            <div
-                                class="pl-24 bg-gray-100 w-[380px] h-[300px] py-10"
-                            >
-                                <a href="/articles" @click.prevent="$router.push('/articles')" class="text-4xl text-hydrate">Article</a>
+                            <div class="pl-24 bg-gray-100 w-[380px] h-[300px] py-10">
+                                <a
+                                    href="/articles"
+                                    @click.prevent="$router.push('/articles')"
+                                    class="text-4xl text-hydrate"
+                                >Article</a>
                                 <p class="mt-5 text-gray-500">
                                     Search specific articles and
                                     related products by typing on
@@ -116,7 +118,11 @@ const search = reactive({
                             <div
                                 class="px-24 bg-gray-100 w-[400px] h-full flex flex-col justify-center py-14"
                             >
-                                <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About Us</a>
+                                <a
+                                    href="/about-us"
+                                    @click.prevent="$router.push('/about-us')"
+                                    class="text-4xl text-hydrate"
+                                >About Us</a>
                                 <p class="mt-10 text-justify text-gray-700">
                                     PT Dermedic Phar Este is
                                     established in 2022 as the first
@@ -134,10 +140,16 @@ const search = reactive({
                             </p>
                             <div class="flex gap-5 mt-5">
                                 <div>
-                                    <div class="rounded-full w-14 h-14 bg-hydrate" />
+                                    <a href="https://wa.me/6282261050567?text=Hallo"
+                                        class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate"
+                                    >
+                                        <img src="/img/whatsapp.svg" class="w-8 h-8 text-white" />
+                                    </a>
                                 </div>
                                 <div>
-                                    <div class="rounded-full w-14 h-14 bg-hydrate" />
+                                    <a href="mailto:support@dpelab.id" class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate">
+                                        <img src="/img/mail.svg" class="w-8 h-8 text-white" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
