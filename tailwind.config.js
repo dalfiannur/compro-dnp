@@ -385,7 +385,7 @@ module.exports = {
       questrial: ['questrial'],
       'din-next-lt-pro-bold': ['din-next-lt-pro-bold'],
       'din-next-lt-pro-light': ['din-next-lt-pro-light'],
-      'inter-variable': ['inter-variable']
+      'inter': ['inter']
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],

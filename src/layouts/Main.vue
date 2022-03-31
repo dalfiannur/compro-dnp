@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Header from '../components/Header.vue'
-import Footer from '../components/Footer/Footer.vue'
+import Footer from '../components/Footer.vue'
 </script>
 
 <template>
@@ -8,5 +8,5 @@ import Footer from '../components/Footer/Footer.vue'
     <div class="mt-24">
         <slot />
     </div>
-    <Footer />
+    <Footer class="mt-24" />
 </template>
