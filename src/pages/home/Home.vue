@@ -58,7 +58,7 @@ const articles = ref<any[]>([
     <div id="product-list" class="mt-20">
         <ProductList />
     </div>
-    <div id="how-to-find" class="mt-20">
+    <div id="how-to-find" class="mt-20 mb-20">
         <HowToFind />
     </div>
     <div id="article" class="grid grid-cols-3 gap-10 px-20">
