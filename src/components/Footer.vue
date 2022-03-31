@@ -44,7 +44,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <footer class="text-center text-gray-100 lg:text-left bg-zinc-700">
+  <footer class="mt-20 text-center text-gray-100 lg:text-left bg-zinc-700">
     <div class="py-10 mx-6 text-center md:text-left px-28">
       <div class="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-4">
         <div class="items-center justify-center hidden lg:flex">
