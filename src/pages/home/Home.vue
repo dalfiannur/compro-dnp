@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // Import Components
-// import BannerSlider from '../../components/Slider/SliderV1.vue'
+import BannerSlider from '../../components/Slider/SliderV1/SliderV1.vue'
 import ProductSlider from '../../components/Slider/ProductSlider.vue'
 import ProductList from './components/ProductList.vue'
 import HowToFind from '../../components/HowToFind.vue'
@@ -9,14 +9,11 @@ import ArticleCard from '../../components/ArticleCard.vue'
 
 // Import Composable
 import useGetFeaturedProduct from '../../composable/useGetFeaturedProduct'
-
+import useGetMainBanners from '../../composable/useGetMainBanners'
 
 // Initial Composable
 const { data: featuredProducts } = useGetFeaturedProduct()
-
-// const banners = ref<string[]>([
-//     'https://images.unsplash.com/photo-1648537949908-25fc530b5f7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-// ])
+const { data: mainBanners } = useGetMainBanners()
 
 const articles = ref<any[]>([
     {
@@ -52,10 +49,10 @@ const articles = ref<any[]>([
 
 <template>
     <div id="banner">
-        <!-- <BannerSlider :slides="banners" :links="[]" /> -->
+        <BannerSlider :items="mainBanners" />
     </div>
 
-    <div id="product-slider" class="pt-10">
+    <div id="product-slider">
         <ProductSlider :items="featuredProducts" />
     </div>
     <div id="product-list" class="mt-20">
