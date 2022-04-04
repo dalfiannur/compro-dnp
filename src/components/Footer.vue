@@ -3,14 +3,6 @@ import { ref, reactive, onMounted } from "vue";
 
 const Pages = ref<any[]>([
   {
-    pages: 'About us',
-    route: '/about-us'
-  },
-  {
-    pages: "Career",
-    route: "#",
-  },
-  {
     pages: "Corporate",
     route: "#",
   },
