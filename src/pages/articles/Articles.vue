@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import ArticleCard from '../../components/ArticleCard.vue'
+import SliderV3 from '../../components/Slider/SliderV3.vue';
 
 const articles = new Array<Article>(10).fill({
     img: "bg-1",
@@ -11,7 +12,12 @@ const articles = new Array<Article>(10).fill({
 </script>
 
 <template>
-    <div class="grid grid-cols-3 gap-10 px-20">
-        <ArticleCard v-for="item in articles" :key="item.title" :data="item" />
+    <div>
+        <SliderV3 />
+    </div>
+    <div class="flex justify-center">
+        <div class="grid flex-1 max-w-screen-xl grid-cols-3 gap-10 px-20 mt-10">
+            <ArticleCard v-for="item in articles" :key="item.title" :data="item" />
+        </div>
     </div>
 </template>
