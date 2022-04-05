@@ -48,11 +48,11 @@ const articles = ref<any[]>([
 </script>
 
 <template>
-    <div id="banner">
+    <div id="banner" class="hidden md:block">
         <BannerSlider :items="mainBanners" />
     </div>
 
-    <div id="product-slider">
+    <div id="product-slider" class="pt-10 md:pt-0">
         <ProductSlider :items="featuredProducts" />
     </div>
     <div id="product-list" class="mt-20">
@@ -61,7 +61,7 @@ const articles = ref<any[]>([
     <div id="how-to-find" class="mt-20 mb-20">
         <HowToFind />
     </div>
-    <div id="article" class="grid grid-cols-3 gap-10 px-20">
+    <div id="article" class="grid grid-cols-1 gap-10 px-5 md:px-20 md:grid-cols-3">
         <ArticleCard v-for="item in articles" :data="item" />
     </div>
 </template>

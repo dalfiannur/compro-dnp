@@ -1,162 +1,192 @@
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 
 const hovered = ref<number | null>(null)
+const menu = reactive({
+    open: true
+})
 
 const search = reactive({
     text: '',
     data: []
 })
+
+const onResize = () => {
+    if (window.innerWidth < 600) {
+        menu.open = false
+    }
+}
+
+onMounted(() => {
+    onResize()
+    window.addEventListener('resize', () => {
+        onResize()
+    })
+})
 </script>
 <template>
     <div
         id="#header"
-        class="fixed top-0 left-0 z-20 flex items-center justify-between w-full h-24 px-20 bg-white"
+        class="fixed top-0 left-0 z-20 flex items-center justify-between w-full h-24 px-5 bg-white md:px-20"
     >
         <div>
             <img class="object-cover h-16" src="/img/logo-black.svg" />
         </div>
+        <button class="block md:hidden" @click="menu.open = !menu.open">
+            <img src="/img/hamburger-menu.svg" class="w-10 h-10" />
+        </button>
 
-        <ul class="flex gap-20">
-            <li class="text-inter">
-                <a href="#" @click.prevent @mouseenter="hovered = 0">Products</a>
-                <Transition name="fade">
-                    <div
-                        v-show="hovered === 0"
-                        class="absolute left-0 flex w-full px-20 pb-24 bg-white shadow-lg top-24"
-                        @mouseleave="hovered = null"
-                    >
-                        <div class="w-[320px] -ml-24">
-                            <div class="pl-24 bg-gray-100 w-[380px] h-full flex items-center">
-                                <h3 class="text-4xl text-hydrate">Explore Our Products</h3>
+        <Transition name="fade">
+            <ul
+                class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:p-0 md:gap-20 top-24 md:flex-row md:top-0 md:relative"
+                v-show="menu.open"
+            >
+                <li class="text-inter">
+                    <a href="#" @click.prevent @mouseenter="hovered = 0">Products</a>
+                    <Transition name="fade">
+                        <div
+                            v-show="hovered === 0"
+                            class="absolute left-0 flex w-full px-20 pb-24 bg-white shadow-lg top-24"
+                            @mouseleave="hovered = null"
+                        >
+                            <div class="w-[320px] -ml-24">
+                                <div class="pl-24 bg-gray-100 w-[380px] h-full flex items-center">
+                                    <h3 class="text-4xl text-hydrate">Explore Our Products</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="grid flex-1 grid-cols-4 gap-10 my-10">
-                            <div
-                                class="px-5 py-20 bg-white shadow-custom"
-                                v-for="item in [1, 2, 3, 4]"
-                                :key="item"
-                            >
+                            <div class="grid flex-1 grid-cols-4 gap-10 my-10">
                                 <div
-                                    class="text-justify"
-                                >Caffeine is a powerful natural antioxidant.</div>
-                                <div class="w-full h-1 mt-5 bg-hydrate" />
+                                    class="px-5 py-20 bg-white shadow-custom"
+                                    v-for="item in [1, 2, 3, 4]"
+                                    :key="item"
+                                >
+                                    <div
+                                        class="text-justify"
+                                    >Caffeine is a powerful natural antioxidant.</div>
+                                    <div class="w-full h-1 mt-5 bg-hydrate" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Transition>
-            </li>
+                    </Transition>
+                </li>
 
-            <li>
-                <a href="#" @click.prevent @mouseenter="hovered = 1">Articles</a>
-                <Transition name="fade">
-                    <div
-                        v-show="hovered === 1"
-                        class="absolute left-0 flex w-full px-20 bg-white shadow-lg top-24"
-                        @mouseleave="hovered = null"
-                    >
-                        <div class="h-full -ml-24">
-                            <div class="pl-24 bg-gray-100 w-[380px] h-[300px] py-10">
-                                <a
-                                    href="/articles"
-                                    @click.prevent="$router.push('/articles')"
-                                    class="text-4xl text-hydrate"
-                                >Article</a>
-                                <p class="mt-5 text-gray-500">
-                                    Search specific articles and
-                                    related products by typing on
-                                    search bar
-                                </p>
+                <li>
+                    <a href="#" @click.prevent @mouseenter="hovered = 1">Articles</a>
+                    <Transition name="fade">
+                        <div
+                            v-show="hovered === 1"
+                            class="absolute left-0 flex w-full px-20 bg-white shadow-lg top-24"
+                            @mouseleave="hovered = null"
+                        >
+                            <div class="h-full -ml-24">
+                                <div class="pl-24 bg-gray-100 w-[380px] h-[300px] py-10">
+                                    <a
+                                        href="/articles"
+                                        @click.prevent="$router.push('/articles')"
+                                        class="text-4xl text-hydrate"
+                                    >Article</a>
+                                    <p class="mt-5 text-gray-500">
+                                        Search specific articles and
+                                        related products by typing on
+                                        search bar
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex-1 my-10 -ml-32">
-                            <div class="flex justify-end mt-6 border-t-2 border-hydrate">
-                                <div class="flex">
-                                    <div class="relative">
-                                        <input
-                                            v-model="search.text"
-                                            type="search"
-                                            class="w-[500px] bg-gray-200 h-14 focus:outline-none px-5"
-                                        />
-                                        <transition name="fade">
-                                            <div
-                                                v-show="search.text.length > 3"
-                                                class="absolute w-full p-5 bg-gray-300"
-                                            >
+                            <div class="flex-1 my-10 -ml-32">
+                                <div class="flex justify-end mt-6 border-t-2 border-hydrate">
+                                    <div class="flex">
+                                        <div class="relative">
+                                            <input
+                                                v-model="search.text"
+                                                type="search"
+                                                class="w-[500px] bg-gray-200 h-14 focus:outline-none px-5"
+                                            />
+                                            <transition name="fade">
                                                 <div
-                                                    class="flex items-center justify-between pb-2 border-b-2 border-gray-400"
+                                                    v-show="search.text.length > 3"
+                                                    class="absolute w-full p-5 bg-gray-300"
                                                 >
-                                                    <h3
-                                                        class="text-gray-600"
-                                                    >5 Kandungan Skincare untuk Kulit Sehat dan Glowing</h3>
-                                                    <a class="text-sm text-hydrate">Article</a>
+                                                    <div
+                                                        class="flex items-center justify-between pb-2 border-b-2 border-gray-400"
+                                                    >
+                                                        <h3
+                                                            class="text-gray-600"
+                                                        >5 Kandungan Skincare untuk Kulit Sehat dan Glowing</h3>
+                                                        <a class="text-sm text-hydrate">Article</a>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center justify-between pt-2"
+                                                    >
+                                                        <h3 class="text-gray-600">Caffeine Hydrating</h3>
+                                                        <a class="text-sm text-hydrate">Product</a>
+                                                    </div>
                                                 </div>
-                                                <div class="flex items-center justify-between pt-2">
-                                                    <h3 class="text-gray-600">Caffeine Hydrating</h3>
-                                                    <a class="text-sm text-hydrate">Product</a>
-                                                </div>
-                                            </div>
-                                        </transition>
+                                            </transition>
+                                        </div>
+                                        <button class="text-white w-14 h-14 bg-hydrate">Search</button>
                                     </div>
-                                    <button class="text-white w-14 h-14 bg-hydrate">Search</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </Transition>
-            </li>
+                    </Transition>
+                </li>
 
-            <li>
-                <a href="#" @click.prevent @mouseenter="hovered = 2">About Us</a>
-                <Transition name="fade">
-                    <div
-                        v-show="hovered === 2"
-                        class="absolute left-0 flex w-full px-20 bg-white shadow-lg top-24"
-                        @mouseleave="hovered = null"
-                    >
-                        <div class="-ml-24 cursor-pointer" @click="$router.push('/about-us')">
-                            <div
-                                class="px-24 bg-gray-100 w-[400px] h-full flex flex-col justify-center py-14"
-                            >
-                                <a
-                                    href="/about-us"
-                                    @click.prevent="$router.push('/about-us')"
-                                    class="text-4xl text-hydrate"
-                                >About Us</a>
-                                <p class="mt-10 text-justify text-gray-700">
-                                    PT Dermedic Phar Este is
-                                    established in 2022 as the first
-                                    local brand with premium and
-                                    professional skin care products in
-                                    Indonesia.
+                <li>
+                    <a href="#" @click.prevent @mouseenter="hovered = 2">About Us</a>
+                    <Transition name="fade">
+                        <div
+                            v-show="hovered === 2"
+                            class="absolute left-0 flex w-full px-20 bg-white shadow-lg top-24"
+                            @mouseleave="hovered = null"
+                        >
+                            <div class="-ml-24 cursor-pointer" @click="$router.push('/about-us')">
+                                <div
+                                    class="px-24 bg-gray-100 w-[400px] h-full flex flex-col justify-center py-14"
+                                >
+                                    <a
+                                        href="/about-us"
+                                        @click.prevent="$router.push('/about-us')"
+                                        class="text-4xl text-hydrate"
+                                    >About Us</a>
+                                    <p class="mt-10 text-justify text-gray-700">
+                                        PT Dermedic Phar Este is
+                                        established in 2022 as the first
+                                        local brand with premium and
+                                        professional skin care products in
+                                        Indonesia.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 px-20 py-14">
+                                <h4 class="text-4xl text-hydrate">Want to know more about us?</h4>
+                                <p class="max-w-[460px] mt-5 text-gray-700">
+                                    Caffeine is a powerful antioxidant and anti-aging. While
+                                    combined with green tea and polyphenol, caffeine can also
                                 </p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col flex-1 px-20 py-14">
-                            <h4 class="text-4xl text-hydrate">Want to know more about us?</h4>
-                            <p class="max-w-[460px] mt-5 text-gray-700">
-                                Caffeine is a powerful antioxidant and anti-aging. While
-                                combined with green tea and polyphenol, caffeine can also
-                            </p>
-                            <div class="flex gap-5 mt-5">
-                                <div>
-                                    <a href="https://wa.me/6282261050567?text=Hallo"
-                                        class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate"
-                                    >
-                                        <img src="/img/whatsapp.svg" class="w-8 h-8 text-white" />
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="mailto:support@dpelab.id" class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate">
-                                        <img src="/img/mail.svg" class="w-8 h-8 text-white" />
-                                    </a>
+                                <div class="flex gap-5 mt-5">
+                                    <div>
+                                        <a
+                                            href="https://wa.me/6282261050567?text=Hallo"
+                                            class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate"
+                                        >
+                                            <img src="/img/whatsapp.svg" class="w-8 h-8 text-white" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a
+                                            href="mailto:support@dpelab.id"
+                                            class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate"
+                                        >
+                                            <img src="/img/mail.svg" class="w-8 h-8 text-white" />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </Transition>
-            </li>
-        </ul>
+                    </Transition>
+                </li>
+            </ul>
+        </Transition>
     </div>
 </template>
 

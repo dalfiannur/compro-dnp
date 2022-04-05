@@ -1,21 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 
-const Pages = ref<any[]>([
-  {
-    pages: "Corporate",
-    route: "#",
-  },
-  {
-    pages: "Partnership",
-    route: "#",
-  },
-  {
-    pages: "Have Question",
-    route: "#",
-  }
-]);
-
 const buttonTop = reactive({
   show: false
 })
@@ -38,19 +23,10 @@ onMounted(() => {
 <template>
   <footer class="mt-20 text-center text-gray-100 lg:text-left bg-zinc-700">
     <div class="py-10 mx-6 text-center md:text-left px-28">
-      <div class="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div class="items-center justify-center hidden lg:flex">
           <img src="/img/logo-white.svg" class="w-32" />
         </div>
-        <ul class="mx-auto">
-          <li class="mb-4" v-for="(page, index) in Pages" :key="index">
-            <a
-              :href="page.route"
-              @click.prevent="$router.push(page.route)"
-              class="hover:text-gray-400 hover:underline font-questrial"
-            >{{ page.pages }}</a>
-          </li>
-        </ul>
 
         <div class="mx-auto">
           <h6 class="flex justify-center mb-4 md:justify-start font-questrial">Contact Us</h6>
