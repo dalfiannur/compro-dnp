@@ -12,6 +12,6 @@ const articles = new Array<Article>(10).fill({
 
 <template>
     <div class="grid grid-cols-3 gap-10 px-20">
-        <ArticleCard v-for="item in articles" :key="item.title" :data="item" />
+        <ArticleCard v-for="item in article" :key="item.title" :data="item" />
     </div>
 </template>
