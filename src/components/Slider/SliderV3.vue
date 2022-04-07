@@ -171,13 +171,13 @@ function Ellipsis(index: number, str: string, size: number) {
     <div class="justify-space-beetwen item-center">
       <button
         @click="prevSlide"
-        class="top-1/2 pb-1 absolute left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
+        class="top-[17.5%] sm:top-1/2 pb-1 absolute left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
       >
         &lt;
       </button>
       <button
         @click="nextSlide"
-        class="top-1/2 pb-1 absolute right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
+        class="top-[17.5%] sm:top-1/2 pb-1 absolute right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
       >
         &gt;
       </button>
