@@ -65,7 +65,7 @@ const goTo = (key: number) => {
 </script>
 
 <template>
-  <div class="flex justify-center w-full">
+  <div class="relative flex justify-center w-full">
     <div class="relative z-[2] flex items-center w-full md:w-[28%] bg-hydrate">
       <div class="absolute flex justify-center -top-8 left-1/4 right-1/4">
         <div
@@ -109,5 +109,7 @@ const goTo = (key: number) => {
         </div>
       </div>
     </div>
+
+    <img src="/img/nano.png" class="w-[68px] absolute bottom-5 right-14" />
   </div>
 </template>
