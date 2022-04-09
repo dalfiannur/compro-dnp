@@ -3,10 +3,9 @@ import { ref } from 'vue'
 
 interface Prop {
     item: any;
-    category: string;
 }
 
-const { item, category } = defineProps<Prop>()
+const { item } = defineProps<Prop>()
 const hovered = ref<boolean>(false)
 </script>
 
@@ -18,16 +17,21 @@ const hovered = ref<boolean>(false)
                 :src="item.images[0].image_source_url"
             />
             <div
-                class="absolute top-0 left-0 flex items-center justify-center w-full h-full cursor-pointer"
+                class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
                 :class="{
-                    'hover:bg-repair hover:bg-opacity-70': category === 'repair',
-                    'hover:bg-prevent hover:bg-opacity-70': category === 'prevent',
-                    'hover:bg-glow hover:bg-opacity-70': category === 'glow',
-                    'hover:bg-hydrate hover:bg-opacity-70': category === 'hydrate'
+                    'hover:bg-repair hover:bg-opacity-70': item.category.slug === 'repair',
+                    'hover:bg-prevent hover:bg-opacity-70': item.category.slug === 'prevent',
+                    'hover:bg-glow hover:bg-opacity-70': item.category.slug === 'glow',
+                    'hover:bg-hydrate hover:bg-opacity-70': item.category.slug === 'hydrate'
                 }"
                 @mouseenter="hovered = true"
                 @mouseleave="hovered = false"
             >
+                <img
+                    src="/img/whatsapp.svg"
+                    class="hidden w-14 h-14"
+                    :class="{ '!block': hovered }"
+                />
                 <h5
                     class="hidden text-3xl text-center text-white"
                     :class="{

@@ -38,7 +38,7 @@ onMounted(() => {
 
         <Transition name="fade">
             <ul
-                class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:p-0 md:gap-20 top-24 md:flex-row md:top-0 md:relative"
+                class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-24 md:flex-row md:top-0 md:static"
                 v-show="menu.open"
             >
                 <li class="text-inter">

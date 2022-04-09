@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { gsap } from 'gsap'
 
 // Import Components
@@ -11,15 +11,24 @@ import useGetProducts from '../../../composable/useGetProducts'
 const emit = defineEmits(['categoryChange'])
 
 // Initialization Composable
-const { data, fetcher } = useGetProducts()
+const { data: mix } = useGetProducts()
+const { data: repair } = useGetProducts({ category: 'repair' })
+const { data: prevent } = useGetProducts({ category: 'prevent' })
+const { data: glow } = useGetProducts({ category: 'glow' })
+const { data: hydrate } = useGetProducts({ category: 'hydrate' })
 
-const categories = ref<any[]>(['repair', 'prevent', 'glow', 'hydrate'])
-const selectedCategory = ref<'repair' | 'prevent' | 'glow' | 'hydrate'>('repair')
-
-watch(selectedCategory, (category) => {
-    fetcher(category)
-    emit('categoryChange', category)
+const categories = ref<string[]>(['repair', 'prevent', 'glow', 'hydrate'])
+const selectedCategory = ref<string>('mix')
+const data = computed<any>(() => {
+    return {
+        mix: mix.value,
+        repair: repair.value,
+        prevent: prevent.value,
+        glow: glow.value,
+        hydrate: hydrate.value,
+    }[selectedCategory.value]
 })
+
 watch(data, () => {
     gsap.fromTo('.list-wrapper', {
         y: -50,
@@ -53,12 +62,13 @@ watch(data, () => {
         >{{ item }}</button>
     </div>
     <div class="relative flex justify-center px-10 mt-16 md:px-20 list-wrapper">
-        <div class="grid items-center gap-10 overflow-hidden md:grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 flex-nowrap">
+        <div
+            class="grid items-center gap-10 overflow-hidden md:grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 flex-nowrap"
+        >
             <ProductCard
                 v-for="(item, index) in data"
                 :item="item"
                 :key="index"
-                :category="selectedCategory"
                 @click="$router.push('/products/' + index)"
             />
         </div>
@@ -68,7 +78,12 @@ watch(data, () => {
             <hr />
         </div>
         <div>
-            <a href="/products" @click.prevent="" @click="$router.push('/products')" class="text-xl text-hydrate">See More</a>
+            <a
+                href="/products"
+                @click.prevent
+                @click="$router.push('/products')"
+                class="text-xl text-hydrate"
+            >See More</a>
         </div>
     </div>
 </template>
