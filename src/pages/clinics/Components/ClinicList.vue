@@ -1,11 +1,17 @@
 <script lang="ts" setup>
+import { defineProps } from 'vue'
+// @ts-ignore
 import ClinicItem from './ClinicItem.vue';
+import { Clinic } from '../../../typings/Clinic'
 
-const items = ['1', '2'];
+interface Prop {
+    items: Clinic[]
+}
+
+const props = defineProps<Prop>()
+
 </script>
 
 <template>
-    <div class="w-4/5">
-        <ClinicItem v-for="n in 4"></ClinicItem>
-    </div>
+    <ClinicItem v-for="(item, index) in items" :key="`clinic-${index}`" :data="item" :index="index"></ClinicItem>
 </template>
