@@ -20,6 +20,8 @@ specifiers:
   vue-router: ^4.0.14
   vue-screen: ^2.1.0-beta.1
   vue-tsc: ^0.29.8
+  vue3-gmap-custom-marker: ^0.0.2
+  vue3-google-map: ^0.10.0
 
 dependencies:
   '@types/lodash': 4.14.180
@@ -31,6 +33,8 @@ dependencies:
   vue: 3.2.31
   vue-router: 4.0.14_vue@3.2.31
   vue-screen: 2.1.0-beta.1_vue@3.2.31
+  vue3-gmap-custom-marker: 0.0.2
+  vue3-google-map: 0.10.0_vue@3.2.31
 
 devDependencies:
   '@faker-js/faker': 6.1.2
@@ -100,6 +104,12 @@ packages:
     resolution: {integrity: sha512-QSvmexHCxeRUk1/yKmoEDaWB5Hohjvtim5g2JJwy8S/l0L4b3y/GxSpE6vN4SBoVGGahEQW21uqyRr7EofI35A==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     dev: true
+
+  /@googlemaps/js-api-loader/1.13.11:
+    resolution: {integrity: sha512-8gKvtDYGtUa3Wg2iC0e53jBOiN5UQ1T12RMq66hjmhAtZMRjI7iuoQn1WdUyoTfYJDmYN3HHc+3l+XOT21p3bQ==}
+    dependencies:
+      fast-deep-equal: 3.1.3
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -803,6 +813,10 @@ packages:
 
   /estree-walker/2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
+
+  /fast-deep-equal/3.1.3:
+    resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
+    dev: false
 
   /fast-glob/3.2.11:
     resolution: {integrity: sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==}
@@ -1611,6 +1625,33 @@ packages:
       '@vue/runtime-dom': 3.2.31
       '@vue/server-renderer': 3.2.31_vue@3.2.31
       '@vue/shared': 3.2.31
+    dev: false
+
+  /vue3-gmap-custom-marker/0.0.2:
+    resolution: {integrity: sha512-1eovjVDKdkiruytSu677Aw/CNcghagRYwSO56tSaASg7dyZQyZAW6QGk0JFDGLfY2R7vi79Yb46cNyZ+GHSGvw==}
+    dependencies:
+      vue: 3.2.31
+      vue3-google-map: 0.8.5_vue@3.2.31
+    dev: false
+
+  /vue3-google-map/0.10.0_vue@3.2.31:
+    resolution: {integrity: sha512-MnKGTN7sO8mRfJUJHmyCFne8Em7iBUxlVP7APdWytEbiy/TzE3lXURqCFjm1bH1ILZ9YX4hjZiQe8k4PPdpq3g==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: '3'
+    dependencies:
+      '@googlemaps/js-api-loader': 1.13.11
+      vue: 3.2.31
+    dev: false
+
+  /vue3-google-map/0.8.5_vue@3.2.31:
+    resolution: {integrity: sha512-o4ZauDcyBgrPqmXVCAn8rNxWeDa6baPaj59l9/FyU1VIfh/ZWA1XUGJaHeqaxSsw/D26Q1fs4jec7Qex/YTXFw==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: '3'
+    dependencies:
+      '@googlemaps/js-api-loader': 1.13.11
+      vue: 3.2.31
     dev: false
 
   /with/7.0.2:
