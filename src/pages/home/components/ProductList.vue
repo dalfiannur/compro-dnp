@@ -1,27 +1,30 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import { gsap } from 'gsap'
+import { useRouter } from 'vue-router'
 
 // Import Components
 import ProductCard from '../../../components/ProductCard.vue'
 
 // Import Composable
 import useGetProducts from '../../../composable/useGetProducts'
+import useGetProductSeries from '../../../composable/useGetProductSeries';
 
 const emit = defineEmits(['categoryChange'])
 
 // Initialization Composable
-const { data: mix } = useGetProducts()
+const router = useRouter()
+const { data: series } = useGetProductSeries()
 const { data: repair } = useGetProducts({ category: 'repair' })
 const { data: prevent } = useGetProducts({ category: 'prevent' })
 const { data: glow } = useGetProducts({ category: 'glow' })
 const { data: hydrate } = useGetProducts({ category: 'hydrate' })
 
 const categories = ref<string[]>(['repair', 'prevent', 'glow', 'hydrate'])
-const selectedCategory = ref<string>('mix')
+const selectedCategory = ref<string>('series')
 const data = computed<any>(() => {
     return {
-        mix: mix.value,
+        series: series.value,
         repair: repair.value,
         prevent: prevent.value,
         glow: glow.value,
@@ -29,8 +32,18 @@ const data = computed<any>(() => {
     }[selectedCategory.value]
 })
 
+const isSeries = computed<boolean>(() => selectedCategory.value === 'series')
+
+const onProductClick = (index: number) => {
+    if (isSeries.value) {
+        selectedCategory.value = categories.value[index]
+    } else {
+        router.push('/products/' + index)
+    }
+}
+
 watch(data, () => {
-    gsap.fromTo('.list-wrapper', {
+    gsap.fromTo('.product-list-wrapper', {
         y: -50,
         opacity: 0
     }, {
@@ -61,7 +74,7 @@ watch(data, () => {
             @click="selectedCategory = item"
         >{{ item }}</button>
     </div>
-    <div class="relative flex justify-center px-10 mt-16 md:px-20 list-wrapper">
+    <div class="relative flex justify-center px-10 mt-16 md:px-20 product-list-wrapper">
         <div
             class="grid items-center gap-10 overflow-hidden md:grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 flex-nowrap"
         >
@@ -69,7 +82,7 @@ watch(data, () => {
                 v-for="(item, index) in data"
                 :item="item"
                 :key="index"
-                @click="$router.push('/products/' + index)"
+                @click="() => onProductClick(index)"
             />
         </div>
     </div>

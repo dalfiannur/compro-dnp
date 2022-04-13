@@ -13,7 +13,6 @@ const LoadImages = (path: String) => {
   <article
     class="
       flex flex-col
-      w-10/12
       mx-auto
       my-8
       overflow-hidden

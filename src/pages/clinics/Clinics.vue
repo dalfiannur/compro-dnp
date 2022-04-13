@@ -24,14 +24,14 @@ const searchedClinics = computed(() => {
 </script>
 
 <template>
-    <div class="flex w-full items-center bg-gradient-hydrate h-72">
-        <h2 class="text-6xl m-auto text-white">Clinics Near You</h2>
+    <div class="flex w-full items-center bg-gradient-hydrate h-48 sm:h-72">
+        <h2 class="text-5xl sm:text-6xl m-auto text-white">Clinics Near You</h2>
     </div>
     <div class="flex flex-col lg:flex-row">
         <div class="w-full lg:w-4/5">
             <!-- Search -->
             <div class="flex justify-center">
-                <div class="input-group relative flex items-stretch w-full ml-16 mt-7 mb-5">
+                <div class="input-group relative flex items-stretch w-full ml-6 sm:ml-16 mt-7 mb-5">
                     <img class="w-5" src="/img/search.svg" />
                     <input
                         type="search"
@@ -40,7 +40,7 @@ const searchedClinics = computed(() => {
                         placeholder="Cari Klinik / Dermatologist"
                     />
                     <button
-                        class="btn inline-block font-questrial text-gray-600 mr-10 pt-0.5 w-40 h-11 border border-gray-500"
+                        class="btn inline-block font-questrial text-sm sm:text-base text-gray-600 mr-5 sm:mr-10 pt-0.5 w-28 sm:w-40 h-11 border border-gray-500"
                         type="button"
                     >Terdekat</button>
                 </div>

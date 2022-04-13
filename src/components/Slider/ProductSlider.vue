@@ -104,7 +104,7 @@ const goTo = (key: number) => {
       <div class="flex overflow-hidden flex-nowrap">
         <div class="flex-none w-1/3 slider-item pt-52" v-for="item in items" :key="item.name">
           <div class="relative flex justify-center -mt-14 aspect-square side-image">
-            <img class="object-cover w-full h-full" :src="item.images[1].image_source_url" />
+            <img class="object-cover w-full h-full" src="/img/prevent-antioxidant-resveratrol-a.png" />
           </div>
         </div>
       </div>

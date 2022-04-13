@@ -15,7 +15,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -27,7 +27,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -39,7 +39,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -51,7 +51,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -65,7 +65,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -77,7 +77,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -89,7 +89,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -101,7 +101,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -115,7 +115,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -127,7 +127,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -139,7 +139,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -151,7 +151,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -165,7 +165,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -177,7 +177,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -189,7 +189,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -201,7 +201,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -216,7 +216,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -228,7 +228,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -240,7 +240,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },
@@ -252,7 +252,7 @@ export default function (option?: Option) {
                 },
                 images: [
                     {
-                        image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png'
+                        imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
                     }
                 ]
             },

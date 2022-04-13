@@ -12,7 +12,7 @@ export default function () {
             },
             images: [
                 {
-                    image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
+                    image_source_url: '/img/bottle_box.png',
                 },
                 {
                     image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
@@ -27,7 +27,7 @@ export default function () {
             },
             images: [
                 {
-                    image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
+                    image_source_url: '/img/bottle_box.png',
                 },
                 {
                     image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
@@ -42,7 +42,7 @@ export default function () {
             },
             images: [
                 {
-                    image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
+                    image_source_url: '/img/bottle_box.png',
                 },
                 {
                     image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
@@ -57,7 +57,7 @@ export default function () {
             },
             images: [
                 {
-                    image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
+                    image_source_url: '/img/bottle_box.png',
                 },
                 {
                     image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
@@ -72,7 +72,7 @@ export default function () {
             },
             images: [
                 {
-                    image_source_url: 'https://www.emenacpackaging.co.uk/wp-content/uploads/2019/05/Serum-Boxes-Wholesale.png',
+                    image_source_url: '/img/bottle_box.png',
                 },
                 {
                     image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
