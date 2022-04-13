@@ -32,7 +32,7 @@ const transitionEffect = computed(() => {
             </div>
             <div class="relative flex items-end justify-end h-full">
                 <img
-                    :src="data.source"
+                    :src="data.imageSourceUrl"
                     :alt="`slide-${index}`"
                     class="block h-full"
                 />

@@ -7,14 +7,18 @@ interface Prop {
 
 const { item } = defineProps<Prop>()
 const hovered = ref<boolean>(false)
+
+const getIcon = (category: string) => {
+    return `/img/${category.toLowerCase()}.svg`
+}
 </script>
 
 <template>
-    <div class="flex-none slider-item">
+    <div class="flex-none">
         <div class="relative p-10 bg-white-smoke">
             <img
                 class="object-cover w-full aspect-ratio filter"
-                :src="item.images[0].image_source_url"
+                :src="item.images[0].imageSourceUrl"
             />
             <div
                 class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
@@ -28,7 +32,7 @@ const hovered = ref<boolean>(false)
                 @mouseleave="hovered = false"
             >
                 <img
-                    src="/img/whatsapp.svg"
+                    :src="getIcon(item.category.slug)"
                     class="hidden w-14 h-14"
                     :class="{ '!block': hovered }"
                 />
