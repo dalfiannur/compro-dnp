@@ -1,0 +1,34 @@
+<script lang="ts" setup>
+import { ref } from "vue";
+import ArticleCard from "../../../components/ArticleCard.vue";
+import { articles } from '../../../data/articles'
+
+const sortBy = ref<string>('latest')
+</script>
+
+<template>
+  <div class="flex justify-center p-2 mx-auto my-12 md:p-4">
+    <div class="justify-between flex-1 p-2 md:p-6 text-slate-600">
+      <div class="flex flex-wrap justify-between py-1 md:py-3 text-slate-600">
+        <p class="text-3xl font-inter">Articles</p>
+        <div class="flex flex-wrap items-center justify-between text-xl font-questrial">
+          <a class="pr-3 hover:text-hydrate" href="#" @click.prevent="sortBy = 'latest'"
+            :class="{ 'text-hydrate': sortBy === 'latest' }">
+            Latest
+          </a>
+          <p class="px-8 text-2xl">|</p>
+          <a class="pl-3 hover:text-hydrate" href="#" @click.prevent="sortBy = 'popular'"
+            :class="{ 'text-hydrate': sortBy === 'popular' }">Popular</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3">
+        <ArticleCard v-for="(page, index) in articles" :key="index" :data="page" />
+      </div>
+      <div class="flex flex-wrap justify-between w-full gap-4 p-2 sm:p-0">
+        <span class="flex-1 my-auto border border-hydrate"></span>
+        <a class="text-hydrate" href="#"> See More </a>
+      </div>
+    </div>
+  </div>
+</template>
