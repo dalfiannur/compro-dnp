@@ -16,7 +16,7 @@ const articles = new Array<Article>(10).fill({
         <SliderV3 />
     </div>
     <div class="flex justify-center">
-        <div class="grid flex-1 max-w-screen-xl gap-10 px-20 mt-10 grid-md-cols-1 md:grid-cols-3">
+        <div class="grid flex-1 max-w-screen-xl gap-10 px-20 mt-10 grid-md-cols-1 md:grid-cols-2">
             <ArticleCard v-for="item in articles" :key="item.title" :data="item" />
         </div>
     </div>

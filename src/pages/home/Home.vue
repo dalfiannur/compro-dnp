@@ -10,12 +10,14 @@ import ArticleCard from "../../components/ArticleCard.vue";
 // Import Composable
 import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
 import useGetMainBanners from "../../composable/useGetMainBanners";
-import useGetArticles from "../../composable/useGetArticles";
+import useGetTopArticles from "../../composable/useGetTopArticles";
+import useGetLatestArticles from "../../composable/useGetLatestArticles";
 
 // Initial Composable
 const { data: featuredProducts } = useGetFeaturedProduct();
 const { data: mainBanners } = useGetMainBanners();
-const { data: articles } = useGetArticles();
+const { data: TopArticles } = useGetTopArticles();
+const { data: LatestArticles } = useGetLatestArticles();
 </script>
 
 <template>
@@ -33,16 +35,41 @@ const { data: articles } = useGetArticles();
     <HowToFind />
   </div>
 
-  <div class="my-12 mx-auto px-8 md:px-12">
-    <div class="flex flex-wrap justify-between py-1 md:py-3 text-slate-600">
-      <p class="text-3xl">Articles</p>
-      <div class="flex flex-wrap justify-between items-center text-xl">
+  <div class="my-12 mx-auto justify-center flex">
+    <div class="flex-1 max-w-screen-2xl justify-between py-1 md:py-3 text-slate-600">
+      <p class="text-3xl m-auto md:m-0">Top Articles</p>
+      <!-- <div class="flex flex-wrap justify-between items-center text-xl pr-0 md:pr-12 sm:pr-12">
         <a class="pr-3 hover:text-hydrate" href="#">Latest</a>
         <p class="text-2xl">|</p>
         <a class="pl-3 hover:text-hydrate" href="#">Popular</a>
+      </div> -->
+      <div id="article" class="grid grid-cols-1 gap-10 md:grid-cols-3 p-1">
+        <ArticleCard
+          v-for="(page, index) in TopArticles"
+          :key="index"
+          :data="page"
+        />
       </div>
-      <div id="article" class="grid grid-cols-1 gap-10 px-5 md:px-20 md:grid-cols-3">
-        <ArticleCard v-for="(page, index) in articles" :key="index" :data="page"/>
+      <div class="flex flex-wrap gap-4 justify-between w-full mx-4">
+        <span class="border flex-1 border-hydrate my-auto"></span>
+        <a class="text-hydrate" href="#"> See More </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-12 mx-auto justify-center flex">
+    <div class="flex-1 max-w-screen-2xl justify-between py-1 md:py-3 text-slate-600">
+      <p class="text-3xl m-auto md:m-0">Latest Articles</p>
+      <div id="article" class="grid grid-cols-1 gap-10 md:grid-cols-3 p-1">
+        <ArticleCard
+          v-for="(page, index) in LatestArticles"
+          :key="index"
+          :data="page"
+        />
+      </div>
+      <div class="flex flex-wrap gap-4 justify-between w-full mx-4">
+        <span class="border flex-1 border-hydrate my-auto"></span>
+        <a class="text-hydrate" href="#"> See More </a>
       </div>
     </div>
   </div>

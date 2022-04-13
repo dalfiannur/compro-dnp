@@ -1,4 +1,4 @@
-interface Article {
+interface TopArticle {
     route: string;
     img: string;
     title: string;

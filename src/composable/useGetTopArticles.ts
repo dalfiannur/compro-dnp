@@ -1,7 +1,7 @@
 import { onMounted, ref } from 'vue'
 
 export default function () {
-    const data = ref<Article[]>([])
+    const data = ref<TopArticle[]>([])
 
     onMounted(() => {
         data.value = [
@@ -13,14 +13,14 @@ export default function () {
                 route: "#",
             },
             {
-                img: "bg-2",
+                img: "bg-1",
                 title: "5 Kandungan Skincare untuk Kulit Sehat dan Glowing",
                 author: "Dr. Eri",
                 time: "22/02/2022",
                 route: "#",
             },
             {
-                img: "bg-3",
+                img: "bg-1",
                 title: "Bahaya Skincare Share in Jar, Hindari Memakai Produk ini",
                 author: "Dr. David",
                 time: "22/02/2022",
