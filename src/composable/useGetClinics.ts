@@ -7,35 +7,35 @@ export default function () {
 
     onMounted(() => {
         data.value.push({
-            name: 'Klinik Dr. Andalia',
+            name: 'Klinik Dr. Andalia Putri',
             location: 'Jakarta Pusat - 2.2 km',
         })
         data.value.push({
-            name: 'Klinik Dr. Budi',
+            name: 'Klinik Dr. Budi Hariono',
             location: 'Jakarta Pusat - 2.2 km',
         })
         data.value.push({
-            name: 'Klinik Dr. Vebi',
+            name: 'Klinik Dr. Vebi Muslimawati',
             location: 'Jakarta Pusat - 2.2 km',
         })
         data.value.push({
-            name: 'Klinik Dr. Augie',
+            name: 'Klinik Dr. Augie Widyotriatmo',
             location: 'Jakarta Pusat - 2.2 km',
         })
         data.value.push({
-            name: 'Klinik Dr. Iwan',
+            name: 'Klinik Dr. Iwan Sanjaya',
             location: 'Jakarta Pusat - 2.2 km',
         })
         data.value.push({
-            name: 'Klinik Dr. Endang',
+            name: 'Klinik Dr. Endang Desiantara',
             location: 'Jakarta Pusat - 2.2 km',
         })
         data.value.push({
-            name: 'Klinik Dr. Suprianto',
+            name: 'Klinik Dr. Suprianto Sudarsono',
             location: 'Jakarta Pusat - 2.2 km',
         })
         data.value.push({
-            name: 'Klinik Dr. Dimas',
+            name: 'Klinik Dr. Dimas Aditya',
             location: 'Jakarta Pusat - 2.2 km',
         })
     })
