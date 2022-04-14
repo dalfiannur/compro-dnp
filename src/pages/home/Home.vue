@@ -1,21 +1,25 @@
 <script setup lang="ts">
-import { ref } from "vue";
 // Import Components
 import BannerSlider from "../../components/Slider/SliderV1/SliderV1.vue";
 import ProductSlider from "../../components/Slider/ProductSlider.vue";
 import ProductList from "./components/ProductList.vue";
 import HowToFind from "../../components/HowToFind.vue";
-import ArticleCard from "../../components/ArticleCard.vue";
+
+import ArticleSection from "./components/ArticleSection.vue";
 
 // Import Composable
 import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
-import useGetMainBanners from "../../composable/useGetMainBanners";
-import useGetArticles from "../../composable/useGetArticles";
+import useGetQueries from "../../composable/useGetQueries";
+import { MainBanner } from "../../typings/MainBanner";
 
 // Initial Composable
 const { data: featuredProducts } = useGetFeaturedProduct();
-const { data: mainBanners } = useGetMainBanners();
-const { data: articles } = useGetArticles();
+// const { data: mainBanners } = useGetMainBanners();
+
+// Initial Composable
+
+const { data: mainBanners } = useGetQueries<MainBanner>('main-banners');
+
 </script>
 
 <template>
@@ -33,17 +37,5 @@ const { data: articles } = useGetArticles();
     <HowToFind />
   </div>
 
-  <div class="my-12 mx-auto px-8 md:px-12">
-    <div class="flex flex-wrap justify-between py-1 md:py-3 text-slate-600">
-      <p class="text-3xl">Articles</p>
-      <div class="flex flex-wrap justify-between items-center text-xl">
-        <a class="pr-3 hover:text-hydrate" href="#">Latest</a>
-        <p class="text-2xl">|</p>
-        <a class="pl-3 hover:text-hydrate" href="#">Popular</a>
-      </div>
-      <div id="article" class="grid grid-cols-1 gap-10 px-5 md:px-20 md:grid-cols-3">
-        <ArticleCard v-for="(page, index) in articles" :key="index" :data="page"/>
-      </div>
-    </div>
-  </div>
+  <ArticleSection />
 </template>
