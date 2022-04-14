@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // Import Components
+// @ts-ignore
 import SliderV2 from '../../components/Slider/SliderV2/SliderV2.vue'
+// @ts-ignore
 import ProductBanner from './components/ProductBanner.vue';
 import useGetSliderV2 from '../../composable/useGetSliderV2'
 
