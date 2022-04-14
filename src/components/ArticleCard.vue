@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Prop {
-  data: Article;
+  data: TopArticle;
 }
 const { data } = defineProps<Prop>();
 
@@ -16,12 +16,13 @@ const LoadImages = (path: String) => {
       mx-auto
       my-8
       overflow-hidden
+      font-din-next-lt-pro-light 
       hover:text-emerald-400
+      bg-white-smoke
       grayscale
       hover:grayscale-0
       duration-200
     "
-    style="background-color: rgb(236 237 239)"
   >
     <div class="w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
       <a :href="data.route">

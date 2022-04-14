@@ -17,9 +17,9 @@ const { data: LatestArticles } = useGetLatestArticles();
   <div>
     <SliderV3 />
   </div>
-  
-   <div class="my-12 mx-auto p-2 md:p-4 justify-center flex">
-    <div class="flex-1 justify-between p-2 md:p-6 text-slate-600">
+
+   <div class="my-12 mx-auto p-2 md:p-4 justify-center font-din-next-lt-pro-light flex">
+    <div class="flex-1 justify-between p-2 md:p-6 text-gray-1">
       <p class="text-3xl text-center md:text-left">Top Articles</p>
       <!-- <div class="flex flex-wrap justify-between items-center text-xl pr-0 md:pr-12 sm:pr-12">
   <div class="px-8 mx-auto my-12 md:px-12">
@@ -44,8 +44,8 @@ const { data: LatestArticles } = useGetLatestArticles();
     </div>
   </div>
 
-  <div class="my-12 mx-auto p-2 md:p-4 justify-center flex">
-    <div class="flex-1 justify-between p-2 md:p-6 text-slate-600">
+  <div class="my-12 mx-auto p-2 md:p-4 justify-center font-din-next-lt-pro-light flex">
+    <div class="flex-1 justify-between p-2 md:p-6 text-gray-1">
       <p class="text-3xl text-center md:text-left">Latest Articles</p>
       <div id="article" class="grid grid-cols-1 gap-20 md:grid-cols-3 p-1">
         <ArticleCard

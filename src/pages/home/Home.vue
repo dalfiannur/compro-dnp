@@ -1,10 +1,5 @@
 <script setup lang="ts">
 // Import Components
-import BannerSlider from "../../components/Slider/SliderV1/SliderV1.vue";
-import ProductSlider from "../../components/Slider/ProductSlider.vue";
-import ProductList from "./components/ProductList.vue";
-import HowToFind from "../../components/HowToFind.vue";
-import ArticleCard from "../../components/ArticleCard.vue";
 
 // Import Composable
 import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
@@ -17,9 +12,6 @@ const { data: featuredProducts } = useGetFeaturedProduct();
 const { data: mainBanners } = useGetMainBanners();
 const { data: TopArticles } = useGetTopArticles();
 const { data: LatestArticles } = useGetLatestArticles();
-import useGetArticles from "../../composable/useGetArticles";
-import useGetQueries from "../../composable/useGetQueries";
-import { MainBanner } from "../../typings/MainBanner";
 
 // Initial Composable
 
