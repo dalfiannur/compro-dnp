@@ -75,9 +75,9 @@ onMounted(() => {
 </script>
 <template>
     <div id="#header" class="fixed top-0 left-0 z-20 flex items-center justify-between w-full h-24 px-20 bg-white">
-        <div>
+        <a href="#" @click.prevent="$router.push('/')">
             <img class="object-cover h-16" src="/img/logo-black.svg" />
-        </div>
+        </a>
         <button class="block md:hidden" @click="menu.open = !menu.open">
             <img src="/img/hamburger-menu.svg" class="w-10 h-10" />
         </button>
