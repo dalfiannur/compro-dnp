@@ -84,14 +84,14 @@ function Ellipsis(index: number, str: string) {
       </div>
     </div>
 
-    <div class="absolute flex right-12 lg:left-36">
+    <div class="absolute flex right-4 sm:right-8 lg:left-36">
       <div class="sm:mx-2.5">
-        <img src="/img/hydrate.svg" class="w-14">
+        <img src="/img/hydrate.svg" class="w-8 sm:w-14">
       </div>
     </div>
     
     <div class="items-center lg:flex text-center lg:text-left lg:ml-64">
-      <h2 v-html="item[0].title" class="description text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white" />
+      <h2 v-html="item[0].title" class="description text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white" />
               
       <p v-html="item[0].text" class="description text-lg lg:text-xl xl:text-3xl font-questrial font-normal text-white mt-6 lg:ml-12" />
       
