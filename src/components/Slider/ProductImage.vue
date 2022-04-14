@@ -5,19 +5,19 @@
                 <div class="flex">
                     <div
                         class="flex-none w-full h-full selected-slide"
-                        v-for="item in items"
+                        v-for="item in featuredProducts"
                         :key="item.id"
                     >
                         <img
                             class="object-cover cursor-pointer aspect-square"
-                            :src="loadImage(item.img)"
+                            :src="item.images[1].image_source_url"
                         />
                     </div>
                 </div>
 
                 <div class="flex items-center justify-center flex-1">
                     <div
-                        v-for="(item, index) in items"
+                        v-for="(item, index) in featuredProducts"
                         :key="item.id"
                         class="flex items-center justify-center w-full h-3 border border-[#77c6bc] cursor-pointer"
                         @click="goTo(index)"
@@ -45,24 +45,28 @@
 import { ref } from "vue";
 import { gsap } from "gsap";
 
-const items = ref<any[]>([
-    {
-        id: 1,
-        img: "bg-1",
-    },
-    {
-        id: 2,
-        img: "bg-2",
-    },
-    {
-        id: 3,
-        img: "bg-3",
-    },
-    {
-        id: 4,
-        img: "bg-2"
-    }
-]);
+import useGetFeaturedProduct from '../../composable/useGetFeaturedProduct';
+
+const { data: featuredProducts } = useGetFeaturedProduct()
+
+// const items = ref<any[]>([
+//     {
+//         id: 1,
+//         img: "bg-1",
+//     },
+//     {
+//         id: 2,
+//         img: "bg-2",
+//     },
+//     {
+//         id: 3,
+//         img: "bg-3",
+//     },
+//     {
+//         id: 4,
+//         img: "bg-2"
+//     }
+// ]);
 
 const loadImage = (path: String) => {
     return "/img/" + path + ".jpg";
@@ -85,7 +89,7 @@ const prev = (key: number) => {
 };
 
 const nextSlide = () => {
-    if (activeSlides.value === items.value.length - 1) {
+    if (activeSlides.value === featuredProducts.value.length - 1) {
         activeSlides.value = 0;
     }
     else {
@@ -96,7 +100,7 @@ const nextSlide = () => {
 
 const prevSlide = () => {
     if (activeSlides.value === 0) {
-        activeSlides.value = items.value.length - 1
+        activeSlides.value = featuredProducts.value.length - 1
     }
     else {
         activeSlides.value--

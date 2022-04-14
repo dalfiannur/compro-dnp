@@ -120,7 +120,7 @@ function Ellipsis(index: number, str: string, size: number) {
 
 <template>
 <div class="flex justify-center w-full">
-  <div class="relative w-full h-[780px] sm:h-[730px] lg:h-[500px]">
+  <div class="relative w-full h-[780px] sm:h-[730px] lg:h-[500px] overflow-hidden">
 
     <Transition
       :name="swiper"
@@ -130,7 +130,7 @@ function Ellipsis(index: number, str: string, size: number) {
     >
       
       <div 
-        class="absolute left-0 top-0 w-full h-full grid grid-cols-1 lg:grid-cols-2 bg-gray-100 place-items-center overflow-hidden"
+        class="absolute top-0 left-0 grid w-full h-full grid-cols-1 overflow-hidden bg-gray-100 lg:grid-cols-2 place-items-center"
       >
         <div class="h-72 lg:h-[500px] box-content flex items-center md:px-12 lg:px-6 xl:px-16">
           <img
@@ -140,8 +140,8 @@ function Ellipsis(index: number, str: string, size: number) {
           />
         </div>
         
-        <div class="flex flex-col justify-between align-middle h-full py-3 px-20 sm:px-40 lg:pl-0">
-          <div class="flex mt-4 lg:mt-10 mb-6 font-questrial">
+        <div class="flex flex-col justify-between h-full px-20 py-3 align-middle sm:px-40 lg:pl-0">
+          <div class="flex mt-4 mb-6 lg:mt-10 font-questrial">
             <p class="text-[#77c6bc]"># B E A U T Y</p>
             <p class="ml-2 text-gray-600">- by Dr Sed</p>
           </div>
@@ -149,13 +149,13 @@ function Ellipsis(index: number, str: string, size: number) {
             {{ slide.title }}
           </h1>
           <div class="">
-            <p class="mt-8 mb-12 text-sm font-questrial text-gray-600 clamp lg:text-base w-full text-justify description">
+            <p class="w-full mt-8 mb-12 text-sm text-justify text-gray-600 font-questrial clamp lg:text-base description">
               {{ slide.text }}
             </p>
           </div>
           
-          <div class="flex mb-6 justify-between">
-            <p class="text-base font-questrial text-gray-600">
+          <div class="flex justify-between mb-6">
+            <p class="text-base text-gray-600 font-questrial">
               {{ slide.date }}
             </p>
             <button class="text-base font-normal text-[#77c6bc]">
@@ -171,13 +171,13 @@ function Ellipsis(index: number, str: string, size: number) {
     <div class="justify-space-beetwen item-center">
       <button
         @click="prevSlide"
-        class="top-1/2 pb-1 absolute left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
+        class="top-[17.5%] sm:top-1/2 pb-1 absolute left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
       >
         &lt;
       </button>
       <button
         @click="nextSlide"
-        class="top-1/2 pb-1 absolute right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
+        class="top-[17.5%] sm:top-1/2 pb-1 absolute right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
       >
         &gt;
       </button>

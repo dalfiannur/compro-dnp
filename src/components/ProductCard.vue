@@ -3,31 +3,39 @@ import { ref } from 'vue'
 
 interface Prop {
     item: any;
-    category: string;
 }
 
-const { item, category } = defineProps<Prop>()
+const { item } = defineProps<Prop>()
 const hovered = ref<boolean>(false)
+
+const getIcon = (category: string) => {
+    return `/img/${category.toLowerCase()}.svg`
+}
 </script>
 
 <template>
-    <div class="flex-none slider-item">
+    <div class="flex-none">
         <div class="relative p-10 bg-white-smoke">
             <img
                 class="object-cover w-full aspect-ratio filter"
-                :src="item.images[0].image_source_url"
+                :src="item.images[0].imageSourceUrl"
             />
             <div
-                class="absolute top-0 left-0 flex items-center justify-center w-full h-full cursor-pointer"
+                class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
                 :class="{
-                    'hover:bg-repair hover:bg-opacity-70': category === 'repair',
-                    'hover:bg-prevent hover:bg-opacity-70': category === 'prevent',
-                    'hover:bg-glow hover:bg-opacity-70': category === 'glow',
-                    'hover:bg-hydrate hover:bg-opacity-70': category === 'hydrate'
+                    'hover:bg-repair hover:bg-opacity-70': item.category.slug === 'repair',
+                    'hover:bg-prevent hover:bg-opacity-70': item.category.slug === 'prevent',
+                    'hover:bg-glow hover:bg-opacity-70': item.category.slug === 'glow',
+                    'hover:bg-hydrate hover:bg-opacity-70': item.category.slug === 'hydrate'
                 }"
                 @mouseenter="hovered = true"
                 @mouseleave="hovered = false"
             >
+                <img
+                    :src="getIcon(item.category.slug)"
+                    class="hidden w-14 h-14"
+                    :class="{ '!block': hovered }"
+                />
                 <h5
                     class="hidden text-3xl text-center text-white"
                     :class="{
