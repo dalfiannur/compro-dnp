@@ -44,7 +44,7 @@ import ProductImage from "../../../components/Slider/ProductImage.vue";
             </li>
           </ul>
           <div class="my-12">
-            <div class="flex items-center ml-5"><img src="/img/checkbox.svg" class="w-10"><p class="text-hydrate ml-4">Skin Concern</p></div>
+            <div class="flex items-center ml-0 sm:ml-5"><img src="/img/checkbox.svg" class="w-10"><p class="text-hydrate ml-4">Skin Concern</p></div>
             <ul class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 list-disc ml-24 mt-2">
               <li>Aging</li>
               <li>Discoloration</li>
@@ -52,7 +52,7 @@ import ProductImage from "../../../components/Slider/ProductImage.vue";
             </ul>
           </div>
           <div>
-            <div class="flex items-center ml-5"><img src="/img/checkbox.svg" class="w-10"><p class="text-hydrate ml-4">Skin Type</p></div>
+            <div class="flex items-center ml-0 sm:ml-5"><img src="/img/checkbox.svg" class="w-10"><p class="text-hydrate ml-4">Skin Type</p></div>
             <ul class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 list-disc ml-24 mt-2">
               <li>All Skin Type</li>
             </ul>
