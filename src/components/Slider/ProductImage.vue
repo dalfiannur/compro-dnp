@@ -79,7 +79,7 @@ const goTo = (key: number) => {
 
 <template>
     <div class="flex justify-center w-full px-10">
-        <div class="relative h-full w-full sm:w-[600px] lg:w-[500px] bg-white-smoke justify-center items-center">
+        <div class="relative h-full w-full sm:w-[600px] lg:w-[350px] xl:w-[450px] 2xl:w-[600px] bg-white-smoke justify-center items-center">
             <div class="w-full justify-center">
                 <div class="flex aspect-square overflow-hidden">
                     <div
@@ -108,12 +108,12 @@ const goTo = (key: number) => {
             <div class="hidden lg:flex">
                 <button
                     @click="prevSlide"
-                    class="top-60 pb-1 absolute -left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
+                    class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
                 >&lt;
                 </button>
                 <button
                     @click="nextSlide"
-                    class="top-60 pb-1 absolute -right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
+                    class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
                 >&gt;
                 </button>
             </div>
