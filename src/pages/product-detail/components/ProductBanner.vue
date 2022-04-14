@@ -85,15 +85,15 @@ function Ellipsis(index: number, str: string) {
     </div>
 
     <div class="absolute flex right-12 lg:left-36">
-      <div class="mx-2.5">
-        logo
+      <div class="sm:mx-2.5">
+        <img src="/img/hydrate.svg" class="w-14">
       </div>
     </div>
     
     <div class="items-center lg:flex text-center lg:text-left lg:ml-64">
-      <h2 v-html="item[$route.params.id - 1].title" class="description text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white" />
+      <h2 v-html="item[0].title" class="description text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white" />
               
-      <p v-html="item[$route.params.id - 1].text" class="description text-lg lg:text-xl xl:text-3xl font-questrial font-normal text-white mt-6 lg:ml-12" />
+      <p v-html="item[0].text" class="description text-lg lg:text-xl xl:text-3xl font-questrial font-normal text-white mt-6 lg:ml-12" />
       
     </div>
   </div>

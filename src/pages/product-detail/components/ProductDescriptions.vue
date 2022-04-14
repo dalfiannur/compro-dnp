@@ -8,10 +8,14 @@ import ProductImage from "../../../components/Slider/ProductImage.vue";
     <div>
       <ProductImage class="mt-12 lg:hidden" />
     </div>
-    <div class="flex mt-20">
+    <div class="flex mt-20 font-questrial text-gray-1">
       <div class="">
-        <div class="flex mx-28 lg:mr-10 mb-16">
-          <h1>Description</h1>
+        <div class="flex mx-0 lg:mr-10 mb-10">
+          <div class="">
+            <img src="/img/halfarrow.svg" class="w-20" />
+          </div>
+          <h1 class="text-2xl mx-8 text-hydrate">Description</h1>
+          <hr />
         </div>
         <div class="mx-28 lg:mr-10 text-justify">
           <div>
@@ -39,48 +43,67 @@ import ProductImage from "../../../components/Slider/ProductImage.vue";
               UV-induced skin damage and premature aging.
             </li>
           </ul>
-          <div>
-            <div>Skin Concern</div>
-            <ul class="list-disc ml-5">
+          <div class="my-12">
+            <div class="flex items-center ml-5"><img src="/img/checkbox.svg" class="w-10"><p class="text-hydrate ml-4">Skin Concern</p></div>
+            <ul class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 list-disc ml-24 mt-2">
               <li>Aging</li>
               <li>Discoloration</li>
               <li>Dehydrated</li>
             </ul>
           </div>
           <div>
-            <div>Skin Type</div>
-            <ul class="list-disc ml-5">
+            <div class="flex items-center ml-5"><img src="/img/checkbox.svg" class="w-10"><p class="text-hydrate ml-4">Skin Type</p></div>
+            <ul class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 list-disc ml-24 mt-2">
               <li>All Skin Type</li>
             </ul>
           </div>
         </div>
       </div>
-      
+
       <div>
         <ProductImage class="hidden lg:block lg:mr-28" />
       </div>
     </div>
 
-    <div class="mt-20">
-      <div class="flex mx-28 lg:mr-10 mb-16">
-        <h1>Description</h1>
-      </div>
-      <div class="flex mx-28 gap-12">
+    <div class="mt-20 font-questrial text-gray-1">
+      <div class="flex mx-0 lg:mr-10 mb-10">
         <div class="">
-          <p>Category</p>
+          <img src="/img/halfarrow.svg" class="w-20" />
+        </div>
+        <h1 class="text-2xl mx-8 text-hydrate">Details</h1>
+      </div>
+      <div class="flex flex-wrap mx-28 gap-12 items-center">
+        <div class="">
+          <p class="text-hydrate">Category</p>
           <p>Glow</p>
         </div>
         <div class="">
-          <p>SKU</p>
+          <p class="text-hydrate">SKU</p>
           <p>10 mL, 30mL</p>
         </div>
         <div class="">
-          <p>Key Ingredients</p>
+          <p class="text-hydrate">Key Ingredients</p>
           <p>Vitamin C, Vitamin E, Ferulic Acid</p>
         </div>
-        <div>
-          Product Value
+        <div class="flex items-center"><img src="/img/star.svg" class="w-6 mr-4"> Product Value</div>
+      </div>
+    </div>
+
+    <div class="my-20 font-questrial text-gray-1">
+      <div class="flex mx-0 lg:mr-10 mb-10">
+        <div class="">
+          <img src="/img/halfarrow.svg" class="w-20" />
         </div>
+        <h1 class="text-2xl mx-8 text-hydrate">How To Use</h1>
+      </div>
+      <div class="mx-28">
+        <ul class="list-disc text-justify ml-4">
+          <li>Apply 4-5 drops to the face, neck, and chest every morning. Use on
+          clean skin before moisturizer and other DPE Lab products. Layer with a
+          broad-spectrum SPF 50+ sunscreen for better protection against free
+          radicals</li>
+          
+        </ul>
       </div>
     </div>
   </div>
