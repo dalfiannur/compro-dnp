@@ -62,9 +62,7 @@ const goTo = (key: number) => {
               <img class="w-full cursor-pointer max-h-[400px]" :src="item.images[0].image_source_url"
                 @click="$router.push('/products/' + item.id)" />
             </div>
-
           </div>
-
         </div>
         <div class="flex-1 flex flex-col justify-center items-center w-full px-5 mt-[7%]">
           <div class="text-3xl font-bold text-center text-white">{{ selectedSlide.name }}</div>

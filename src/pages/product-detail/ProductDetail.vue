@@ -3,17 +3,21 @@ import { ref } from 'vue'
 // Import Components
 import SliderV2 from '../../components/Slider/SliderV2/SliderV2.vue'
 import ProductBanner from './components/ProductBanner.vue';
+import ProductDescriptions from './components/ProductDescriptions.vue';
 import useGetSliderV2 from '../../composable/useGetSliderV2'
+import useGetFeaturedProduct from '../../composable/useGetFeaturedProduct';
 
 const { data: sliderv2 } = useGetSliderV2()
+const { data: featuredProducts } = useGetFeaturedProduct();
+
 </script>
 
 <template>
     <div>
-        <ProductBanner />
+        <ProductBanner :item="featuredProducts" />
     </div>
     <div>
-        <h1>Product Detail</h1>
+        <ProductDescriptions />
     </div>
     <div id="banner">
         <SliderV2 :items="sliderv2" />

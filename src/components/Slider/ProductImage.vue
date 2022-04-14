@@ -1,46 +1,3 @@
-<template>
-    <div class="flex justify-center w-full">
-        <div class="relative h-auto w-[500px] justify-center items-center">
-            <div class="h-full w-full justify-center overflow-hidden">
-                <div class="flex">
-                    <div
-                        class="flex-none w-full h-full selected-slide"
-                        v-for="item in featuredProducts"
-                        :key="item.id"
-                    >
-                        <img
-                            class="object-cover cursor-pointer aspect-square"
-                            :src="item.images[1].image_source_url"
-                        />
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-center flex-1">
-                    <div
-                        v-for="(item, index) in featuredProducts"
-                        :key="item.id"
-                        class="flex items-center justify-center w-full h-3 border border-[#77c6bc] cursor-pointer"
-                        @click="goTo(index)"
-                    >
-                        <div v-if="activeSlides === index" class="w-full h-full bg-[#77c6bc]" />
-                    </div>
-                </div>
-            </div>
-            <button
-                @click="prevSlide"
-                class="top-60 pb-1 absolute -left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
-            >&lt;
-            </button>
-            <button
-                @click="nextSlide"
-                class="top-60 pb-1 absolute -right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
-            >&gt;
-            </button>
-            
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 import { ref } from "vue";
 import { gsap } from "gsap";
@@ -119,3 +76,49 @@ const goTo = (key: number) => {
 };
 
 </script>
+
+<template>
+    <div class="flex justify-center w-full px-10">
+        <div class="relative h-full w-full sm:w-[600px] lg:w-[500px] bg-white-smoke justify-center items-center">
+            <div class="w-full justify-center">
+                <div class="flex aspect-square overflow-hidden">
+                    <div
+                        class="flex-none w-full h-full p-12 selected-slide"
+                        v-for="item in featuredProducts"
+                        :key="item.id"
+                    >
+                        <img
+                            class="object-cover cursor-pointer w-full aspect-square"
+                            :src="item.images[1].image_source_url"
+                        />
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center flex-1 bg-white">
+                    <div
+                        v-for="(item, index) in featuredProducts"
+                        :key="item.id"
+                        class="flex items-center justify-center w-full h-3 border border-hydrate cursor-pointer"
+                        @click="goTo(index)"
+                    >
+                        <div v-if="activeSlides === index" class="w-full h-full bg-[#77c6bc]" />
+                    </div>
+                </div>
+            </div>
+            <div class="hidden lg:flex">
+                <button
+                    @click="prevSlide"
+                    class="top-60 pb-1 absolute -left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
+                >&lt;
+                </button>
+                <button
+                    @click="nextSlide"
+                    class="top-60 pb-1 absolute -right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
+                >&gt;
+                </button>
+            </div>
+           
+            
+        </div>
+    </div>
+</template>
