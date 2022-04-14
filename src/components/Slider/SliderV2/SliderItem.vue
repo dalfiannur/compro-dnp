@@ -21,13 +21,8 @@ const transitionEffect = computed(() => {
 
 <template>
     <transition :name="transitionEffect">
-        <div
-            class="absolute m-12"
-            v-show="currentSlide === index"
-        >
-            <div class="relative flex items-end justify-end h-full">
-                <img :src="data.source" :alt="`slide-${index}`" class="block h-full" />
-            </div>
+        <div class="absolute mx-6 sm:mx-12 top-1/2 -translate-y-1/2" v-show="currentSlide === index">
+            <img :src="data.source" :alt="`slide-${index}`"  />
         </div>
     </transition>
 </template>
@@ -41,18 +36,18 @@ const transitionEffect = computed(() => {
 }
 .slide-in-enter-from {
     margin: 15px;
-    transform: translateX(-100%);
+    transform: translate(-100%,-55%);
 }
 .slide-in-leave-to {
     margin: 15px;
-    transform: translateX(100%);
+    transform: translate(100%,-55%);
 }
 .slide-out-enter-from {
     margin: 15px;
-    transform: translateX(100%);
+    transform: translate(100%,-55%);
 }
 .slide-out-leave-to {
     margin: 15px;
-    transform: translateX(-100%);
+    transform: translate(-100%,-55%);
 }
 </style>
