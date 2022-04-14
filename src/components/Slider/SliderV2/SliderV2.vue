@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, defineProps, toRefs, onBeforeUnmount, onMounted } from 'vue'
+// @ts-ignore
 import SliderItem from './SliderItem.vue';
+// @ts-ignore
 import SliderButton from './SliderButton.vue';
 import { SliderV2 } from '../../../typings/SliderV2'
 
@@ -9,12 +11,13 @@ interface Prop {
 }
 
 const props = defineProps<Prop>()
-
 const { items } = toRefs(props)
-
 const currentSlide = ref(0)
 const slideInterval = ref<NodeJS.Timer>()
 const direction = ref("right")
+
+const banner = ref("")
+const bannerWidth = ref(0)
 
 function setCurrentSlide(index: number) {
     currentSlide.value = index
@@ -51,6 +54,10 @@ function stopSliderTimer() {
 
 onMounted(function () {
     // startSlideTimer()
+    setTimeout(() => {
+        bannerWidth.value = banner.value.offsetWidth / 1.96;
+        console.log(bannerWidth.value)
+    }, 500);
 })
 
 onBeforeUnmount(function () {
@@ -61,7 +68,11 @@ onBeforeUnmount(function () {
 
 <template>
     <div class="flex justify-center">
-        <div class="relative w-full min-h-[730px] overflow-hidden bg-neutral-100">
+        <div
+            ref="banner"
+            class="relative w-full overflow-hidden bg-neutral-100"
+            :style="`height: ${bannerWidth}px;`"
+        >
             <SliderItem
                 v-for="(item, index) in items"
                 :data="item"
