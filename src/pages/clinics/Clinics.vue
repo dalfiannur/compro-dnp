@@ -24,14 +24,14 @@ const searchedClinics = computed(() => {
 </script>
 
 <template>
-    <div class="flex w-full items-center bg-gradient-hydrate h-48 sm:h-72">
-        <h2 class="text-5xl sm:text-6xl m-auto text-white">Clinics Near You</h2>
+    <div class="flex items-center w-full h-48 bg-gradient-hydrate sm:h-72">
+        <h2 class="m-auto text-5xl text-white sm:text-6xl">Clinics Near You</h2>
     </div>
     <div class="flex flex-col lg:flex-row">
-        <div class="w-full lg:w-4/5">
+        <div class="flex-1">
             <!-- Search -->
             <div class="flex justify-center">
-                <div class="input-group relative flex items-stretch w-full ml-6 sm:ml-16 mt-7 mb-5">
+                <div class="relative flex items-stretch w-full mb-5 ml-6 input-group sm:ml-16 mt-7">
                     <img class="w-5" src="/img/search.svg" />
                     <input
                         type="search"
@@ -50,7 +50,7 @@ const searchedClinics = computed(() => {
                 <ClinicList :items="searchedClinics"></ClinicList>
             </div>
         </div>
-        <Maps></Maps>
+        <Maps />
     </div>
 </template>
 

@@ -1,18 +1,31 @@
 <script lang="ts" setup>
-import { GoogleMap, Marker } from "vue3-google-map";
-// import GmapCustomMarker from 'vue3-gmap-custom-marker';
+import Mapbox from 'mapbox-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
-const center = { lat: -6.918943, lng: 107.770734 };
-const markerOptions = { position: center};
+import { onMounted } from 'vue';
+
+const center = [107.770734, -6.918943]
+
+onMounted(() => {
+    Mapbox.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN as string
+    const map = new Mapbox.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [center[0], center[1]],
+        zoom: 9
+    }).addControl(new Mapbox.AttributionControl({
+        customAttribution: 'Map design by me'
+    }));
+
+    new Mapbox.Marker()
+        .setLngLat([center[0], center[1]])
+        .addTo(map)
+})
+
 </script>
 
 <template>
-    <GoogleMap
-        api-key="AIzaSyBSwLyhWi09hwk6ttamHsmoAnK2M3Fwp8Y"
-        style="width: 100%; height: 700px"
-        :center="center"
-        :zoom="15"
-    >
-        <Marker :options="markerOptions" />
-    </GoogleMap>
+    <div class="flex-1 h-[700px] relative overflow-hidden">
+        <div id="map" class="w-full h-full" />
+    </div>
 </template>

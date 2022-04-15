@@ -3,7 +3,7 @@ import { MainBanner } from "../typings/MainBanner";
 import faker from '@faker-js/faker'
 
 export default function () {
-  const data = ref<MainBanner[]>([])
+  const data = ref<any[]>([])
 
   onMounted(() => {
     for (let i of [1, 2, 3, 4, 5]) {

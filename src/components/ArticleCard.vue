@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Article } from '../typings/Article'
+
 interface Prop {
   data: Article;
 }
@@ -11,38 +13,29 @@ const LoadImages = (path: String) => {
 
 <template>
   <article
-    class="
-      flex flex-col
-      mx-auto
-      my-8
-      overflow-hidden
-      hover:text-emerald-400
-      grayscale
-      hover:grayscale-0
-      duration-200
-    "
+    class="flex flex-col mx-auto my-8 overflow-hidden duration-200  hover:text-emerald-400 grayscale hover:grayscale-0"
     style="background-color: rgb(236 237 239)"
   >
     <div class="w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
       <a :href="data.route">
         <img
           alt="Placeholder"
-          class="block m-auto w-full"
+          class="block w-full m-auto"
           :src="LoadImages(data.img)"
         />
       </a>
     </div>
-    <header class="flex flex-1 justify-between w-full p-2 leading-tight md:p-4">
-      <h1 class="text-base my-auto md:text-lg ms:my-0 sm:text-lg sm:my-0">
+    <header class="flex justify-between flex-1 w-full p-2 leading-tight md:p-4">
+      <h1 class="my-auto text-base md:text-lg ms:my-0 sm:text-lg sm:my-0">
         <p class>{{ data.title }}</p>
       </h1>
     </header>
 
-    <footer class="flex items-end justify-between leading-none p-1 md:p-3 sm:p-4">
-      <p class="text-black p-2 text-xs md:text-sm sm:text-sm">
+    <footer class="flex items-end justify-between p-1 leading-none md:p-3 sm:p-4">
+      <p class="p-2 text-xs text-black md:text-sm sm:text-sm">
         by {{ data.author }} - {{ data.time }}
       </p>
-      <a class="no-underline text-emerald-400 text-center p-2" :href="data.route">
+      <a class="p-2 text-center no-underline text-emerald-400" :href="data.route">
         <span class>Read More</span>
       </a>
     </footer>
