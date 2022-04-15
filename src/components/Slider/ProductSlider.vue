@@ -60,15 +60,13 @@ const goTo = (key: number) => {
             {{ selectedSlide.category.name }}</div>
         </div>
         <div class="relative w-full flex items-end overflow-hidden h-[75%]">
-          <div class="relative flex justify-center w-full h-full overflow-hidden">
-            <Transition :name="slideTo" v-for="(item, index) in items" :key="item.name">
-              <div v-show="index === active" class="absolute top-0 flex flex-col justify-end w-[80%] h-full">
-                <img class="w-full cursor-pointer" :src="item.images[0].image_source_url"
-                  @click="$router.push('/products/' + item.id)" />
-              </div>
-            </Transition>
+          <div class="relative flex justify-center w-full h-full max-h-[400px] overflow-hidden">
+            <div class="absolute top-0 flex flex-col justify-end h-full selected-slide" v-for="item in items"
+              :key="item.name">
+              <img class="w-full cursor-pointer max-h-[400px]" :src="item.images[0].image_source_url"
+                @click="$router.push('/products/' + item.id)" />
+            </div>
           </div>
-
         </div>
         <div class="flex-1 flex flex-col justify-center items-center w-full px-5 mt-[7%]">
           <div class="text-3xl font-bold text-center text-white md:text-3xl lg:text-4xl">{{ selectedSlide.name }}</div>

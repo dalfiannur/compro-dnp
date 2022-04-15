@@ -22,12 +22,20 @@ const routes: RouteRecordRaw[] = [
         component: () => import('./pages/articles/Articles.vue')
     },
     {
+        path: '/pagination',
+        component: () => import('./pages/articles/Pagination.vue')
+    },
+    {
         path: '/articles/:id',
         component: () => import('./pages/article-detail/ArticleDetail.vue')
     },
     {
         path: '/clinics',
         component: () => import('./pages/clinics/Clinics.vue')
+    },
+    {
+        path: '/product-line-up',
+        component: () => import('./pages/product-line-up/ProductLineUp.vue')
     }
 ]
 
