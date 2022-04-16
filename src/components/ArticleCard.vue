@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Article } from '../typings/Article'
+import { Article } from "../typings/Article";
 
 interface Prop {
-  data: TopArticle;
+  data: Article;
 }
 const { data } = defineProps<Prop>();
 
-const LoadImages = (path: String) => {
-  return "/img/" + path + ".jpg";
+const createLink = () => {
+  return "/articles/" + data.slug;
 };
 </script>
 
@@ -17,12 +17,8 @@ const LoadImages = (path: String) => {
     style="background-color: rgb(236 237 239)"
   >
     <div class="w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
-      <a :href="data.route">
-        <img
-          alt="Placeholder"
-          class="block w-full m-auto"
-          :src="LoadImages(data.img)"
-        />
+      <a :href="createLink()" @click.prevent="$router.push('/articles/' + data.slug)">
+        <img alt="Placeholder" class="block w-full m-auto" :src="data.thumbnailUrl" />
       </a>
     </div>
     <header class="flex justify-between flex-1 w-full p-2 leading-tight md:p-4">
@@ -33,9 +29,14 @@ const LoadImages = (path: String) => {
 
     <footer class="flex items-end justify-between p-1 leading-none md:p-3 sm:p-4">
       <p class="p-2 text-xs text-black md:text-sm sm:text-sm">
-        by {{ data.author }} - {{ data.time }}
+        by {{ data.user.name }} -
+        {{ new Date(data.createdAt).toLocaleDateString("ID-id") }}
       </p>
-      <a class="p-2 text-center no-underline text-emerald-400" :href="data.route">
+      <a
+        class="p-2 text-center no-underline text-emerald-400"
+        :href="createLink()"
+        @click.prevent="$router.push('/articles/' + data.slug)"
+      >
         <span class>Read More</span>
       </a>
     </footer>

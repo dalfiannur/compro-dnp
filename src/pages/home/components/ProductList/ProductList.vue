@@ -136,7 +136,7 @@ const handleCardClick = (item: Product) => {
         :key="index"
         @click="handleCardClick(data[index])"
         @mouseenter="cardHoverHandler(data[index])"
-        @mouseleave="cardBlurHandler(data[index])"
+        @mouseleave="cardBlurHandler()"
       />
     </div>
   </div>

@@ -118,7 +118,9 @@ onMounted(() => {
                                                     </div>
                                                 </Transition>
                                             </div>
-                                            <button class="w-14 h-14 bg-hydrate">S</button>
+                                            <button class="flex items-center justify-center w-14 h-14 bg-hydrate">
+                                                <img src="/img/search.svg" class="w-8 h-8" />
+                                            </button>
                                         </div>
                                     </div>
 
@@ -167,7 +169,9 @@ onMounted(() => {
                                                 </div>
                                             </transition>
                                         </div>
-                                        <button class="text-white w-14 h-14 bg-hydrate">Search</button>
+                                        <button class="flex items-center justify-center text-white w-14 h-14 bg-hydrate">
+                                            <img src="/img/search.svg" class="w-8 h-8" />
+                                        </button>
                                     </div>
                                 </div>
                             </div>

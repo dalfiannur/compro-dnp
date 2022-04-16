@@ -1,34 +1,31 @@
 <script lang="ts" setup>
-// Import Composable
-import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
-import useGetTopArticles from "../../composable/useGetTopArticles";
-import useGetLatestArticles from "../../composable/useGetLatestArticles";
-
 // Import Components
 import SliderV3 from "../../components/Slider/SliderV3.vue";
 import HowToFind from "../../components/HowToFind.vue";
 import ArticleCard from "../../components/ArticleCard.vue";
+import useGetQueries from "../../composable/useGetQueries";
+import { Article } from "../../typings/Article";
 
 
 // Initial Composable
-const { data: featuredProducts } = useGetFeaturedProduct();
-const { data: TopArticles } = useGetTopArticles();
-const { data: LatestArticles } = useGetLatestArticles();
+const { data: featured } = useGetQueries<Article>('articles');
+const { data: TopArticles } = useGetQueries<Article>('articles');
+const { data: LatestArticles } =useGetQueries<Article>('articles');
 
 </script>
 
 <template>
   <div>
-    <SliderV3 />
+    <SliderV3 :data="featured" />
   </div>
 
-   <div class="my-12 mx-auto p-2 md:p-4 justify-center flex">
-    <div class="flex-1 justify-between p-2 md:p-6 font-din-next-lt-pro-light text-gray-1">
+   <div class="flex justify-center p-2 mx-auto my-12 md:p-4">
+    <div class="justify-between flex-1 p-2 md:p-6 font-din-next-lt-pro-light text-gray-1">
       <p class="text-3xl text-center md:text-left">Top Articles</p>
       <div id="article" class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3">
         <ArticleCard
           v-for="(page, index) in TopArticles"
-          :key="index"
+          :key="page.slug"
           :data="page"
         />
       </div>
@@ -39,8 +36,8 @@ const { data: LatestArticles } = useGetLatestArticles();
     </div>
   </div>
 
-  <div class="my-12 mx-auto p-2 md:p-4 justify-center flex">
-    <div class="flex-1 justify-between p-2 md:p-6 font-din-next-lt-pro-light text-gray-1">
+  <div class="flex justify-center p-2 mx-auto my-12 md:p-4">
+    <div class="justify-between flex-1 p-2 md:p-6 font-din-next-lt-pro-light text-gray-1">
       <p class="text-3xl text-center md:text-left">Latest Articles</p>
       <div id="article" class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3">
         <ArticleCard
