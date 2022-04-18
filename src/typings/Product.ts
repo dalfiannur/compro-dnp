@@ -1,10 +1,13 @@
 export interface Product {
     id: number;
     name: string;
+    slug: string;
+    usedAs: string;
     category: {
         name: string;
+        slug: string;
     };
     images: {
-        image_source_url: string;
+        imageSourceUrl: string;
     }[]
 }

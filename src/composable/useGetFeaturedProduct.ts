@@ -7,75 +7,90 @@ export default function () {
         {
             id: 1,
             name: 'Caffein Hydrating',
+            slug: 'caffein-hydrating',
+            usedAs: '',
             category: {
-                name: 'Hydrate'
+                name: 'Hydrate',
+                slug: 'hydrate'
             },
             images: [
                 {
-                    image_source_url: '/img/bottle_box.png',
+                    imageSourceUrl: '/img/bottle_box.png',
                 },
                 {
-                    image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
+                    imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png',
                 }
             ]
         },
         {
             id: 2,
             name: 'Caffein Glow',
+            slug: 'caffein-glow',
+            usedAs: '',
             category: {
-                name: 'Glow'
+                name: 'Glow',
+                slug: 'glow'
             },
             images: [
                 {
-                    image_source_url: '/img/bottle_box.png',
+                    imageSourceUrl: '/img/bottle_box.png',
                 },
                 {
-                    image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
+                    imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png',
                 }
             ]
         },
         {
             id: 3,
             name: 'Caffein Repair',
+            slug: 'caffein-repair',
+            usedAs: '',
             category: {
-                name: 'Repair'
+                name: 'Repair',
+                slug: 'repair'
             },
             images: [
                 {
-                    image_source_url: '/img/bottle_box.png',
+                    imageSourceUrl: '/img/bottle_box.png',
                 },
                 {
-                    image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
+                    imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png',
                 }
             ]
         },
         {
             id: 4,
             name: 'Caffein Hydrating',
+            slug: 'Caffein Hydrating',
+            usedAs: '',
             category: {
-                name: 'Hydrate'
+                name: 'Hydrate',
+                slug: 'hydrate'
             },
             images: [
                 {
-                    image_source_url: '/img/bottle_box.png',
+                    imageSourceUrl: '/img/bottle_box.png',
                 },
                 {
-                    image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
+                    imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png',
                 }
             ]
         },
         {
             id: 5,
             name: 'Caffein Prevent',
+            slug: 'caffein-prevent',
+            usedAs: '',
             category: {
-                name: 'Prevent'
+                name: 'Prevent',
+                slug: 'prevent',
             },
             images: [
                 {
-                    image_source_url: '/img/bottle_box.png',
+                    imageSourceUrl: '/img/bottle_box.png',
                 },
                 {
-                    image_source_url: 'https://shawellnessclinic.com/sha-boutique/wp-content/uploads/2017/09/wls_v1_serum.png',
+                    imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png',
                 }
             ]
         }

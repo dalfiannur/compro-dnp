@@ -1,9 +1,28 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import ArticleCard from "../../../components/ArticleCard.vue";
-import { articles } from '../../../data/articles'
+import useGetQueries from "../../../composable/useGetQueries";
+import { Article } from "../../../typings/Article";
 
-const sortBy = ref<string>('latest')
+const sortBy = ref<string>("latest");
+
+const query = new URLSearchParams();
+const { data: articles } = useGetQueries<Article>("articles", {
+  perPage: 3,
+  query,
+});
+
+const sortPopular = () => {
+  sortBy.value = "popular";
+  query.set("sortBy", "createdAt");
+  query.set("asc", "true");
+};
+
+const sortLatest = () => {
+  sortBy.value = "latest";
+  query.set("sortBy", "createdAt");
+  query.set("asc", "false");
+};
 </script>
 
 <template>
@@ -12,13 +31,22 @@ const sortBy = ref<string>('latest')
       <div class="flex flex-wrap justify-between py-1 md:py-3 text-slate-600">
         <p class="text-3xl font-inter">Articles</p>
         <div class="flex flex-wrap items-center justify-between text-xl font-questrial">
-          <a class="pr-3 hover:text-hydrate" href="#" @click.prevent="sortBy = 'latest'"
-            :class="{ 'text-hydrate': sortBy === 'latest' }">
+          <a
+            class="pr-3 hover:text-hydrate"
+            href="#"
+            @click.prevent="sortLatest"
+            :class="{ 'text-hydrate': sortBy === 'latest' }"
+          >
             Latest
           </a>
           <p class="px-8 text-2xl">|</p>
-          <a class="pl-3 hover:text-hydrate" href="#" @click.prevent="sortBy = 'popular'"
-            :class="{ 'text-hydrate': sortBy === 'popular' }">Popular</a>
+          <a
+            class="pl-3 hover:text-hydrate"
+            href="#"
+            @click.prevent="sortPopular"
+            :class="{ 'text-hydrate': sortBy === 'popular' }"
+            >Popular</a
+          >
         </div>
       </div>
 
@@ -27,7 +55,13 @@ const sortBy = ref<string>('latest')
       </div>
       <div class="flex flex-wrap justify-between w-full gap-4 p-2 sm:p-0">
         <span class="flex-1 my-auto border border-hydrate"></span>
-        <a class="text-hydrate" href="#"> See More </a>
+        <a
+          href="/articles"
+          @click.prevent="$router.push('/articles')"
+          class="text-hydrate"
+        >
+          See More
+        </a>
       </div>
     </div>
   </div>

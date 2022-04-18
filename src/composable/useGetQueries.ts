@@ -1,13 +1,18 @@
 import { onMounted, ref } from "vue";
 import useAxios from "./useAxios";
 
-export default function useGetQueries<T>(path: string) {
-  const axios = useAxios();
+interface Option {
+  query?: URLSearchParams
+  perPage?: number
+}
 
+export default function useGetQueries<T>(path: string, option?: Option) {
+  const axios = useAxios();
   const data = ref<T[]>([])
   const page = ref<number>(1)
   const pages = ref<number>(0)
-  const perPage = ref<number>(5)
+  const perPage = ref<number>(option?.perPage ?? 10)
+  const query = ref<URLSearchParams>(option?.query ?? new URLSearchParams())
 
   const isError = ref<boolean>(false)
   const isLoading = ref<boolean>(false)
@@ -24,11 +29,18 @@ export default function useGetQueries<T>(path: string) {
     return Math.ceil(total / perPage.value)
   }
 
+  const setQuery = (q: URLSearchParams) => {
+    query.value = q
+  }
+
   const fetcher = () => {
     isLoading.value = true;
     isError.value = false;
 
-    axios.get(path)
+    query.value.set('page', page.value.toString())
+    query.value.set('perPage', perPage.value.toString())
+
+    axios.get(path + '?' + query.value.toString())
       .then((response) => response.data)
       .then((result) => {
         data.value = result.data
@@ -72,6 +84,7 @@ export default function useGetQueries<T>(path: string) {
     perPage,
     isError,
     isLoading,
+    setQuery,
     fetcher,
     setPage,
     setPerPage,

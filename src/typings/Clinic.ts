@@ -1,4 +1,7 @@
 export interface Clinic {
+    id: number;
     name: string;
-    location: string;
+    address: string;
+    longitude: number;
+    latitude: number;
 }

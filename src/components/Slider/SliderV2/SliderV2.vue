@@ -16,7 +16,7 @@ const currentSlide = ref(0)
 const slideInterval = ref<NodeJS.Timer>()
 const direction = ref("right")
 
-const banner = ref("")
+const banner = ref<any>()
 const bannerWidth = ref(0)
 
 function setCurrentSlide(index: number) {
