@@ -12,12 +12,12 @@ import ProductImage from "../../../components/Slider/ProductImage.vue";
       <div class="">
         <div class="flex mx-0 lg:mr-10 mb-10">
           <div class="">
-            <img src="/img/halfarrow.svg" class="w-20" />
+            <img src="/img/halfarrow.svg" class="w-16 sm:w-20" />
           </div>
           <h1 class="text-2xl mx-8 text-hydrate">Description</h1>
           <hr />
         </div>
-        <div class="mx-28 lg:mr-10 text-justify">
+        <div class="mx-24 sm:mx-28 lg:mr-10 text-justify">
           <div>
             Blue light has the highest energy on the visible light spectrum, and
             it's all around us. From the sun, TV screens, laptops, and also
@@ -68,11 +68,11 @@ import ProductImage from "../../../components/Slider/ProductImage.vue";
     <div class="mt-20 font-questrial text-gray-1">
       <div class="flex mx-0 lg:mr-10 mb-10">
         <div class="">
-          <img src="/img/halfarrow.svg" class="w-20" />
+          <img src="/img/halfarrow.svg" class="w-16 sm:w-20" />
         </div>
         <h1 class="text-2xl mx-8 text-hydrate">Details</h1>
       </div>
-      <div class="flex flex-wrap mx-28 gap-12 items-center">
+      <div class="flex flex-wrap mx-24 sm:mx-28 gap-12 items-center">
         <div class="">
           <p class="text-hydrate">Category</p>
           <p>Glow</p>
@@ -92,11 +92,11 @@ import ProductImage from "../../../components/Slider/ProductImage.vue";
     <div class="my-20 font-questrial text-gray-1">
       <div class="flex mx-0 lg:mr-10 mb-10">
         <div class="">
-          <img src="/img/halfarrow.svg" class="w-20" />
+          <img src="/img/halfarrow.svg" class="w-16 sm:w-20" />
         </div>
         <h1 class="text-2xl mx-8 text-hydrate">How To Use</h1>
       </div>
-      <div class="mx-28">
+      <div class="mx-24 sm:mx-28">
         <ul class="list-disc text-justify ml-4">
           <li>Apply 4-5 drops to the face, neck, and chest every morning. Use on
           clean skin before moisturizer and other DPE Lab products. Layer with a

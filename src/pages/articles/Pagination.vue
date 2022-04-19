@@ -35,8 +35,8 @@ const { data: ArticlePagination } = useGetArticlePagination();
     </div>
   </div>
 
-  <footer class="bg-hydrate w-full h-[150px]">
-    <div class="flex flex-wrap justify-between gap-4 px-12">
+  <div class="bg-hydrate w-full h-[150px] items-center">
+    <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
       <span class="flex-1 my-auto border-[1.5px] bg-white border-white hidden md:block"></span>
       <div class="m-0">
         <button class="text-white w-8 h-8 pr-4 text-lg" data-v-4e44e668> &lt; </button>
@@ -48,7 +48,7 @@ const { data: ArticlePagination } = useGetArticlePagination();
         <button class="text-white w-8 h-8 pl-4 text-lg" data-v-4e44e668> &gt; </button>
       </div>
     </div>
-  </footer>
+  </div>
 
   <div id="how-to-find" class="">
     <HowToFind />
