@@ -85,6 +85,6 @@ onMounted(() => {
     @click="scrollToTop"
     class="fixed items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg none md:flex bottom-24 right-16"
   >
-    <img src="/img/top.svg" class="w-5 h-5" />
+    <img src="/img/top.svg" class="w-5 h-5 m-auto" />
   </button>
 </template>
