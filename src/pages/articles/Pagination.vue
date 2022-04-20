@@ -16,7 +16,6 @@ import { Article } from "../../typings/Article";
 const { data: featuredProducts } = useGetFeaturedProduct();
 const { data: ArticlePagination } = useGetArticlePagination();
 
-
 const sortBy = ref<string>("latest");
 
 const query = new URLSearchParams();
@@ -113,28 +112,117 @@ const sortLatest = () => {
     </div>
   </div>
 
-<div class="bg-hydrate w-full h-[70px] items-center">
-    <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
-      <span
-        class="
-          flex-1
-          my-auto
-          border-[1.5px]
-          bg-white
-          border-white
-          hidden
-          md:block
-        "
-      ></span>
-      <div class="m-0">
-        <button class="text-white w-8 h-8 pr-4 text-lg" data-v-4e44e668>
-          &lt;
-        </button>
+  <div class="py-4">
+    <div class="w-full h-[70px] items-center">
+      <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
+        <p class="text-xl text-repair">R E P A I R</p>
+        <p class="text-repair w-8 h-8 pl-2 text-2xl md:text-3xl" data-v-4e44e668>
+          &#709;
+        </p>
+        <span class=" flex-1 my-auto border-[1px] bg-repair border-repair"></span>
       </div>
     </div>
+
+    <div class="grid grid-cols-1 gap-10 overflow-hidden p-1 md:grid-cols-4 justify-between items-center">
+      
+      <div class="w-full grayscale hover:grayscale-0">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <p class="text-repair text-center">Refined Night Serum</p>
+      </div>
+
+      <div class="w-full grayscale hover:grayscale-0">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <p class="text-repair text-center">Skin Tranquility</p>
+      </div>
+
+    </div>
+
   </div>
+
+  <div class="py-4">
+    <div class="w-full h-[70px] items-center">
+      <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
+        <p class="text-xl text-prevent">P R E V E N T</p>
+        <p class="text-prevent w-8 h-8 pl-2 text-2xl md:text-3xl" data-v-4e44e668>
+          &#709;
+        </p>
+        <span class=" flex-1 my-auto border-[1px] bg-prevent border-prevent"></span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 overflow-hidden p-1 md:grid-cols-4 justify-between items-center">
+      
+      <div class="w-full grayscale hover:grayscale-0">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <p class="text-prevent text-center">Refined Night Serum</p>
+      </div>
+      
+      <div class="w-full grayscale hover:grayscale-0">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <p class="text-prevent text-center">Skin Tranquility</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="py-4">
+    <div class="w-full h-[70px] items-center">
+      <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
+        <p class="text-xl text-glow">G L O W</p>
+        <p class="text-glow w-8 h-8 pl-2 text-2xl md:text-3xl" data-v-4e44e668>
+          &#709;
+        </p>
+        <span class=" flex-1 my-auto border-[1px] bg-glow border-glow"></span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 overflow-hidden p-1 md:grid-cols-4 justify-between items-center">
+      
+      <div class="w-full grayscale hover:grayscale-0">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <p class="text-glow text-center">Refined Night Serum</p>
+      </div>
+      
+      <div class="w-full grayscale hover:grayscale-0">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <p class="text-glow text-center">Skin Tranquility</p>
+      </div>
+
+    </div>
+
+  </div>
+
+    <div class="py-4">
+    <div class="w-full h-[70px] items-center">
+      <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
+        <p class="text-xl text-hydrate">H Y D R A T E</p>
+        <p class="text-hydrate w-8 h-8 pl-2 text-2xl md:text-3xl" data-v-4e44e668>
+          &#709;
+        </p>
+        <span class=" flex-1 my-auto border-[1px] bg-hydrate border-hydrate"></span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10  overflow-hidden p-1 md:grid-cols-4 justify-between items-center">
+      
+      <div class="w-full grayscale hover:grayscale-0">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <p class="text-hydrate text-center">Refined Night Serum</p>
+      </div>
+      
+      <div class="w-full grayscale hover:grayscale-0">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <p class="text-hydrate text-center">Skin Tranquility</p>
+      </div>
+
+    </div>
+
+  </div>
+
 
   <div id="how-to-find" class="">
     <HowToFind />
   </div>
+
 </template>
