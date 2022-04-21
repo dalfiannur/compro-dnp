@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, defineProps, toRefs, onBeforeUnmount, onMounted } from 'vue'
+//@ts-ignore
 import SliderItem from './SliderItem.vue';
+//@ts-ignore
 import SliderButton from './SliderButton.vue';
 import { MainBanner } from '../../../typings/MainBanner'
 
@@ -15,38 +17,48 @@ const { items } = toRefs(props)
 const currentSlide = ref(0)
 const slideInterval = ref<NodeJS.Timer>()
 const direction = ref("right")
+let isSliding = false;
 
 function setCurrentSlide(index: number) {
     currentSlide.value = index
 }
 
 function prev() {
-    const index = currentSlide.value > 0 ? currentSlide.value - 1 : items.value.length - 1
-    setCurrentSlide(index)
-    direction.value = "left"
-    startSlideTimer()
-}
-
-function _next() {
-    const index = currentSlide.value < items.value.length - 1 ? currentSlide.value + 1 : 0
-    setCurrentSlide(index)
-    direction.value = "right"
+    if (isSliding != true) {
+        const index = currentSlide.value > 0 ? currentSlide.value - 1 : items.value.length - 1
+        setCurrentSlide(index)
+        direction.value = "left"
+        sliding()
+        startSlideTimer()
+    }
 }
 
 function next() {
-    _next()
-    startSlideTimer()
+    if (isSliding != true) {
+        const index = currentSlide.value < items.value.length - 1 ? currentSlide.value + 1 : 0
+        setCurrentSlide(index)
+        direction.value = "right"
+        sliding()
+        startSlideTimer()
+    }
 }
 
 function startSlideTimer() {
     stopSliderTimer()
     slideInterval.value = setInterval(() => {
         next()
-    }, 5000)
+    }, 6000)
 }
 
 function stopSliderTimer() {
     clearInterval(slideInterval.value!)
+}
+
+function sliding() {
+    isSliding = true;
+    setTimeout(function () {
+        isSliding = false;
+    }, 1000);
 }
 
 onMounted(function () {
@@ -62,14 +74,8 @@ onBeforeUnmount(function () {
 <template>
     <div class="flex justify-center">
         <div class="relative w-full min-h-[555px] overflow-hidden">
-            <SliderItem
-                v-for="(item, index) in items"
-                :data="item"
-                :key="`slide-${index}`"
-                :current-slide="currentSlide"
-                :index="index"
-                :direction="direction"
-            ></SliderItem>
+            <SliderItem v-for="(item, index) in items" :data="item" :key="`slide-${index}`"
+                :current-slide="currentSlide" :index="index" :direction="direction"></SliderItem>
             <SliderButton @prev="prev" @next="next"></SliderButton>
         </div>
     </div>
