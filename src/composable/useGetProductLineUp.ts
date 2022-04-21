@@ -1,17 +1,37 @@
 import { onMounted, ref } from 'vue'
 
 export default function () {
-    const data = ref<ProductLineUp[]>([])
+    const data = ref<ProductRepair[]>([])
 
     onMounted(() => {
         data.value = [
-            {
-                img: "bottle-box",
+            {              
+                img: "bottle_box",
                 type: "repair",
                 product: "Refined Night Serum",
               },
               {
-                img: "bottle-box",
+                img: "bottle_box",
+                type: "repair",
+                product: "Skin Tranquility",
+              },
+              {              
+                img: "bottle_box",
+                type: "repair",
+                product: "Refined Night Serum",
+              },
+              {
+                img: "bottle_box",
+                type: "repair",
+                product: "Skin Tranquility",
+              },
+              {              
+                img: "bottle_box",
+                type: "repair",
+                product: "Refined Night Serum",
+              },
+              {
+                img: "bottle_box",
                 type: "repair",
                 product: "Skin Tranquility",
               },
@@ -20,3 +40,4 @@ export default function () {
   
     return { data }
   }
+

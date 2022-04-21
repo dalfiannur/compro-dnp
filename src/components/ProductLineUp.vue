@@ -1,25 +1,28 @@
 <script setup lang="ts">
-import { ProductLineUp } from "../typings/productLineUp";
+import { ProductLineUp } from "../typings/ProductLineUp";
 
 interface Prop {
-  data: ProductLineUp;
+  data: ProductRepair;
 }
 const { data } = defineProps<Prop>();
 const loadImage = (path: String) => {
-  return "/img/" + path + ".jpg";
+  return "/img/" + path + ".png";
 };
+
 </script>
 
 <template>
-
-    <div class="w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
-      <img alt="Placeholder" class="block w-full m-auto" :src="loadImage(data.img)" />
+  <div
+    class="relative flex-none h-fit my-6 overflow-hidden duration-200 hover:text-repair grayscale hover:grayscale-0"
+  >
+    <div class="w-full aspect-square md:aspect-video bg-gray-200">
+      <img class="block w-[360px] h-[435px] m-auto hover:bg-repair p-6" 
+        :src="loadImage(data.img)"
+      />
     </div>
-
-    <header class="flex justify-center flex-1 w-full p-2 leading-tight md:p-4">
-      <h1 class="my-auto text-base md:text-lg ms:my-0 sm:text-lg sm:my-0">
-        <p class>{{ data.product }}</p>
-      </h1>
-    </header>
+    <h1 class="text-base pt-6 font-questrial text-center md:text-lg">
+      <p class>{{ data.product }}</p>
+    </h1>
+  </div>
 
 </template>

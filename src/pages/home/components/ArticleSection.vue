@@ -28,20 +28,20 @@ const sortLatest = () => {
 <template>
   <div class="flex justify-center p-2 mx-auto my-12 md:p-4">
     <div class="justify-between flex-1 p-2 md:p-6 text-slate-600">
-      <div class="flex flex-wrap justify-between py-1 md:py-3 text-slate-600">
-        <p class="text-3xl font-inter">Articles</p>
-        <div class="flex flex-wrap items-center justify-between text-xl font-questrial">
+      <div class="md:flex md:flex-wrap justify-center md:justify-between py-1 md:py-3 text-slate-600">
+        <p class="text-3xl font-inter pb-4 md:pb-0 text-center">Articles</p>
+        <div class="flex flex-wrap items-center justify-center md:justify-between text-xl font-questrial">
           <a
-            class="pr-3 hover:text-hydrate"
+            class="pr-0 md:pr-3 hover:text-hydrate"
             href="#"
             @click.prevent="sortLatest"
             :class="{ 'text-hydrate': sortBy === 'latest' }"
           >
             Latest
           </a>
-          <p class="px-8 text-2xl">|</p>
+          <p class="px-4 text-2xl">|</p>
           <a
-            class="pl-3 hover:text-hydrate"
+            class="pl-0 md:pl-3 hover:text-hydrate"
             href="#"
             @click.prevent="sortPopular"
             :class="{ 'text-hydrate': sortBy === 'popular' }"
