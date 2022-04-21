@@ -126,12 +126,12 @@ const sortLatest = () => {
     <div class="grid grid-cols-1 gap-10 overflow-hidden p-1 md:grid-cols-4 justify-between items-center">
       
       <div class="w-full grayscale hover:grayscale-0">
-        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="/img/bottle_box.png">
         <p class="text-repair text-center">Refined Night Serum</p>
       </div>
 
       <div class="w-full grayscale hover:grayscale-0">
-        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="/img/bottle_box.png">
         <p class="text-repair text-center">Skin Tranquility</p>
       </div>
 
@@ -153,12 +153,12 @@ const sortLatest = () => {
     <div class="grid grid-cols-1 gap-10 overflow-hidden p-1 md:grid-cols-4 justify-between items-center">
       
       <div class="w-full grayscale hover:grayscale-0">
-        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="/img/bottle_box.png">
         <p class="text-prevent text-center">Refined Night Serum</p>
       </div>
       
       <div class="w-full grayscale hover:grayscale-0">
-        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="/img/bottle_box.png">
         <p class="text-prevent text-center">Skin Tranquility</p>
       </div>
 
@@ -180,12 +180,12 @@ const sortLatest = () => {
     <div class="grid grid-cols-1 gap-10 overflow-hidden p-1 md:grid-cols-4 justify-between items-center">
       
       <div class="w-full grayscale hover:grayscale-0">
-        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="/img/bottle_box.png">
         <p class="text-glow text-center">Refined Night Serum</p>
       </div>
       
       <div class="w-full grayscale hover:grayscale-0">
-        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="/img/bottle_box.png">
         <p class="text-glow text-center">Skin Tranquility</p>
       </div>
 
@@ -207,12 +207,12 @@ const sortLatest = () => {
     <div class="grid grid-cols-1 gap-10  overflow-hidden p-1 md:grid-cols-4 justify-between items-center">
       
       <div class="w-full grayscale hover:grayscale-0">
-        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="/img/bottle_box.png">
         <p class="text-hydrate text-center">Refined Night Serum</p>
       </div>
       
       <div class="w-full grayscale hover:grayscale-0">
-        <img class="block p-4 m-auto aspect-square md:aspect-video" src="../../../public/img/bottle_box.png">
+        <img class="block p-4 m-auto aspect-square md:aspect-video" src="/img/bottle_box.png">
         <p class="text-hydrate text-center">Skin Tranquility</p>
       </div>
 
