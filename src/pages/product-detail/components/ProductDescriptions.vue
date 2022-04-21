@@ -1,12 +1,6 @@
 <script setup lang="ts">
-  import {ref} from "vue";
-  import ProductImage from "../../../components/Slider/ProductImage.vue";
-  import {Product} from "../../../typings/Product";
-
-  type Prop = {
-    data?: Product
-  }
-  const {data} = defineProps<Prop>()
+import { ref } from "vue";
+import ProductImage from "../../../components/Slider/ProductImage.vue";
 </script>
 
 <template>
@@ -18,7 +12,7 @@
       <div class="">
         <div class="flex mx-0 lg:mr-10 mb-10">
           <div class="">
-            <img src="/img/halfarrow.svg" class="w-20"/>
+            <img src="/img/halfarrow.svg" class="w-16 sm:w-20" />
           </div>
           <h1 class="text-2xl mx-8 text-hydrate">Description</h1>
           <hr/>
@@ -54,11 +48,11 @@
     <div class="mt-20 font-questrial text-gray-1">
       <div class="flex mx-0 lg:mr-10 mb-10">
         <div class="">
-          <img src="/img/halfarrow.svg" class="w-20"/>
+          <img src="/img/halfarrow.svg" class="w-16 sm:w-20" />
         </div>
         <h1 class="text-2xl mx-8 text-hydrate">Details</h1>
       </div>
-      <div class="flex flex-wrap mx-28 gap-12 items-center">
+      <div class="flex flex-wrap mx-24 sm:mx-28 gap-12 items-center">
         <div class="">
           <p class="text-hydrate">Category</p>
           <p>{{data.category.name}}</p>
@@ -78,7 +72,7 @@
     <div class="my-20 font-questrial text-gray-1">
       <div class="flex mx-0 lg:mr-10 mb-10">
         <div class="">
-          <img src="/img/halfarrow.svg" class="w-20"/>
+          <img src="/img/halfarrow.svg" class="w-16 sm:w-20" />
         </div>
         <h1 class="text-2xl mx-8 text-hydrate">How To Use</h1>
       </div>
