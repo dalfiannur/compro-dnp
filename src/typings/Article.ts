@@ -7,6 +7,10 @@ export interface Article {
   isFeatured: boolean;
   thumbnail: string;
   thumbnailUrl: string;
-  createdAt: Date;
+  createdAt: string;
   user: User;
+  tags: {
+    id: number;
+    name: string;
+  }[]
 }

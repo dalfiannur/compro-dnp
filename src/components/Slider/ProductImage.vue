@@ -2,9 +2,13 @@
 import { ref } from "vue";
 import { gsap } from "gsap";
 
-import useGetFeaturedProduct from '../../composable/useGetFeaturedProduct';
+import useGetQueries from "../../composable/useGetQueries";
+import {Product} from "../../typings/Product";
 
-const { data: featuredProducts } = useGetFeaturedProduct()
+const { data: featuredProducts } = useGetQueries<Product>('product', {
+    perPage: 5,
+    autoFetch: true
+});
 
 // const items = ref<any[]>([
 //     {
@@ -117,8 +121,8 @@ const goTo = (key: number) => {
                 >&gt;
                 </button>
             </div>
-           
-            
+
+
         </div>
     </div>
 </template>

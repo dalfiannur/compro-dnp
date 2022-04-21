@@ -12,7 +12,7 @@ import HowToFind from '../../components/HowToFind.vue'
             <div
                 class="flex flex-col md:flex-row w-full max-w-screen-xl gap-10 md:gap-20 mx-8 sm:mx-16 md:mx-32 lg:mx-40">
                 <div class="flex-1">
-                    <h4 class="text-2xl text-hydrate font-questrial">
+                    <h4 class="text-2xl text-hydrate font-questrial text-center sm:text-left">
                         Our
                         <br />Promise
                     </h4>
@@ -24,9 +24,8 @@ import HowToFind from '../../components/HowToFind.vue'
                         physicians to deliver this experience to their patients
                     </p>
                 </div>
-
                 <div class="flex-1">
-                    <h4 class="text-2xl text-hydrate font-questrial">
+                    <h4 class="text-2xl text-hydrate font-questrial text-center sm:text-left">
                         Expertise In beauty
                         <br />&amp; personal Care
                     </h4>

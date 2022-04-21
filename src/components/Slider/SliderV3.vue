@@ -7,39 +7,13 @@ interface Prop {
 }
 
 const { data } = defineProps<Prop>();
-const carouselSlides = ref<any[]>([
-  {
-    id: 1,
-    img: "bg-1",
-    title: "Pori Pori Wajahmu Besar? Ikuti Cara Ini Untuk Mengecilkannya",
-    text:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-    date: "20/05/2021",
-  },
-  {
-    id: 2,
-    img: "bg-2",
-    title: "Pori Pori Wajahmu Besar? Ikuti Cara Ini Untuk Mengecilkannya",
-    text:
-      "Walaupun terlihat acak dan seperti tidak memiliki makna khusus, teks ini memiliki beberapa fungsi yang vital. Lorem ipsum berfungsi untuk menghindari terganggunya fokus atau perhatian seseorang ketika sedang membuat layout desain",
-    date: "20/05/2021",
-  },
-  {
-    id: 3,
-    img: "bg-3",
-    title: "Pori Pori Wajahmu Besar? Ikuti Cara Ini Untuk Mengecilkannya",
-    text:
-      "Alasan lainnya mengapa sampai saat ini masih menggunakan format teks tersebut karena kalimat ini memiliki penyebaran huruf yang normal dan dinilai merata. Sehingga, penggunaan kalimat tersebut terus digunakan daripada menggunakan kalimat pendek seperti dan semacamnya.",
-    date: "20/05/2021",
-  },
-]);
 
 const loadImage = (path: String) => {
   return "/img/" + path + ".jpg";
 };
 
 const currentSlide = ref(0);
-const getSlideCount = ref<number | undefined>(carouselSlides.value.length);
+const getSlideCount = ref<number | undefined>(data.length);
 const slideInterval = ref<any>(0);
 const direction = ref<string>("right");
 
@@ -57,7 +31,7 @@ const nextSlide = () => {
 
 const prevSlide = () => {
   const index =
-    currentSlide.value > 0 ? currentSlide.value - 1 : carouselSlides?.value.length - 1;
+    currentSlide.value > 0 ? currentSlide.value - 1 : data.length - 1;
   setCurrentSlide(index);
   direction.value = "left";
   startSlideTimer();
@@ -112,7 +86,7 @@ function Ellipsis(index: number, str: string, size: number) {
     return 200;
   }).then((num) => {
     if (str.length <= num()) {
-      return carouselSlides.value[index].text;
+      return data[index].content;
     }
 
     const word = str.slice(0, num()).split(" ");

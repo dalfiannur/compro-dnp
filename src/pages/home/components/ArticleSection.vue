@@ -8,8 +8,9 @@ const sortBy = ref<string>("latest");
 
 const query = new URLSearchParams();
 const { data: articles } = useGetQueries<Article>("articles", {
-  perPage: 3,
+  perPage: 6,
   query,
+  autoFetch: true
 });
 
 const sortPopular = () => {

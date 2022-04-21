@@ -45,7 +45,5 @@ watch(
 </script>
 
 <template>
-  <div class="flex-1 h-[700px] relative overflow-hidden">
-    <div id="map" class="w-full h-full" />
-  </div>
+  <div id="map" class="w-full h-full" />
 </template>

@@ -34,11 +34,12 @@ const showMap = (clinic: Clinic) => {
 </script>
 
 <template>
-  <div class="flex items-center w-full h-48 bg-gradient-hydrate sm:h-72">
-    <h2 class="m-auto text-5xl text-white sm:text-6xl">Clinics Near You</h2>
+  <div class="flex items-center w-full h-40 bg-gradient-hydrate sm:h-72">
+    <h2 class="m-auto text-4xl text-white sm:text-6xl">Clinics Near You</h2>
   </div>
-  <div class="flex flex-col lg:flex-row">
-    <div class="flex-1 max-w-[800px]">
+  <div class="flex flex-col-reverse lg:flex-row h-min">
+    <!-- Clinic List -->
+    <div class="w-full lg:w-1/2">
       <!-- Search -->
       <div class="flex justify-center">
         <div class="relative flex items-stretch w-full mb-5 ml-6 input-group sm:ml-16 mt-7">
@@ -59,7 +60,8 @@ const showMap = (clinic: Clinic) => {
           @show="showMap(item)" />
       </div>
     </div>
-    <Maps :location="location" />
+    <!-- Maps -->
+    <Maps class="w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[700px]" relative :location="location" />
   </div>
 </template>
 

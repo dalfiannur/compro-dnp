@@ -9,9 +9,9 @@ interface Prop {
     direction: string;
 }
 
-const props = defineProps<Prop>()
+const props = defineProps<Prop>();
 
-const { direction, data } = toRefs(props)
+const { direction, data } = toRefs(props);
 
 const transitionEffect = computed(() => {
     return direction.value === 'right' ? 'slide-out' : 'slide-in'
@@ -28,7 +28,7 @@ const transitionEffect = computed(() => {
         >
             <div class="absolute left-0 flex flex-col justify-center h-full max-w-[60%] pl-[15%]">
                 <h2 class="text-6xl text-white font-din-next-lt-pro-light">{{ data.title }}</h2>
-                <h2 class="mt-5 text-3xl text-white font-din-next-lt-pro-light">{{ data.sub_title }}</h2>
+                <h2 class="mt-5 text-3xl text-white font-din-next-lt-pro-light">{{ data.subTitle }}</h2>
             </div>
             <div class="relative flex items-end justify-end h-full">
                 <img
