@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-// Import Composable
-import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
 import useGetArticlePagination from "../../composable/useGetArticlePagination";
 
 // Import Components
@@ -8,14 +6,12 @@ import SliderV3 from "../../components/Slider/SliderV3.vue";
 import HowToFind from "../../components/HowToFind.vue";
 import ArticleCard from "../../components/ArticleCard.vue";
 
-// Initial Composable
-const { data: featuredProducts } = useGetFeaturedProduct();
 const { data: ArticlePagination } = useGetArticlePagination();
 </script>
 
 <template>
   <div>
-    <SliderV3 />
+<!--    <SliderV3 />-->
   </div>
 
   <div class="my-12 mx-auto p-2 md:p-4 justify-center flex">
@@ -26,11 +22,11 @@ const { data: ArticlePagination } = useGetArticlePagination();
         <a class="pl-5 hover:text-hydrate" href="/#">Popular</a>
       </div>
       <div id="article" class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3">
-        <ArticleCard
-          v-for="(page, index) in ArticlePagination"
-          :key="index"
-          :data="page"
-        />
+<!--        <ArticleCard-->
+<!--          v-for="(page, index) in ArticlePagination"-->
+<!--          :key="index"-->
+<!--          :data="page"-->
+<!--        />-->
       </div>
     </div>
   </div>
