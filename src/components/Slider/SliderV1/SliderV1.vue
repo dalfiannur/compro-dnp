@@ -8,38 +8,38 @@ interface Prop {
     items: MainBanner[]
 }
 
-const props = defineProps<Prop>()
+const props = defineProps<Prop>();
 
-const { items } = toRefs(props)
+const { items } = toRefs(props);
 
-const currentSlide = ref(0)
-const slideInterval = ref<NodeJS.Timer>()
-const direction = ref("right")
+const currentSlide = ref(0);
+const slideInterval = ref<NodeJS.Timer>();
+const direction = ref("right");
 
 function setCurrentSlide(index: number) {
     currentSlide.value = index
 }
 
 function prev() {
-    const index = currentSlide.value > 0 ? currentSlide.value - 1 : items.value.length - 1
-    setCurrentSlide(index)
-    direction.value = "left"
+    const index = currentSlide.value > 0 ? currentSlide.value - 1 : items.value.length - 1;
+    setCurrentSlide(index);
+    direction.value = "left";
     startSlideTimer()
 }
 
 function _next() {
-    const index = currentSlide.value < items.value.length - 1 ? currentSlide.value + 1 : 0
-    setCurrentSlide(index)
+    const index = currentSlide.value < items.value.length - 1 ? currentSlide.value + 1 : 0;
+    setCurrentSlide(index);
     direction.value = "right"
 }
 
 function next() {
-    _next()
+    _next();
     startSlideTimer()
 }
 
 function startSlideTimer() {
-    stopSliderTimer()
+    stopSliderTimer();
     slideInterval.value = setInterval(() => {
         next()
     }, 5000)
@@ -51,7 +51,7 @@ function stopSliderTimer() {
 
 onMounted(function () {
     // startSlideTimer()
-})
+});
 
 onBeforeUnmount(function () {
     stopSliderTimer()

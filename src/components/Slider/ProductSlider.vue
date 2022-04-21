@@ -9,7 +9,6 @@ interface Prop {
 const { items } = defineProps<Prop>();
 
 const activeSlides = ref<number>(2);
-const selectedSlide = ref<any>(items[2]);
 const active = ref<number>(2);
 const slideTo = ref<string>("next");
 
@@ -55,11 +54,11 @@ const goTo = (key: number) => {
     <div class="absolute top-0 bottom-0 left-0 right-0 z-[4] flex justify-center">
       <div class="w-full md:w-[32%] h-full px-0 md:px-5">
         <div class="flex flex-col justify-between h-full bg-hydrate">
-          <div class="absolute flex justify-center -top-8 left-1/4 right-1/4">
+          <div class="absolute flex justify-center -top-8 w-[20%] mx-[5%]">
             <div
               class="w-full py-4 text-xl font-bold text-center uppercase bg-white border-2 text-primary border-hydrate font-questrial"
             >
-              {{ selectedSlide.category.name }}
+              {{ items[active]?.category?.name }}
             </div>
           </div>
           <div class="relative w-full flex items-end overflow-hidden h-[75%]">
@@ -86,7 +85,7 @@ const goTo = (key: number) => {
             <div
               class="text-3xl font-bold text-center text-white md:text-3xl lg:text-4xl"
             >
-              {{ selectedSlide.name }}
+              {{ items[active]?.name }}
             </div>
             <div
               class="flex items-center justify-between flex-1 w-full max-w-[280px] mt-5"

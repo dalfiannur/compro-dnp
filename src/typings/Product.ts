@@ -1,8 +1,12 @@
 export interface Product {
     id: number;
     name: string;
+    sku: string;
     slug: string;
     usedAs: string;
+    howToUse: string;
+    description: string;
+    keyingredient: string;
     category: {
         name: string;
         slug: string;
@@ -10,4 +14,6 @@ export interface Product {
     images: {
         imageSourceUrl: string;
     }[]
+    skinTypes: any[]
+    skinConcerns: any[]
 }
