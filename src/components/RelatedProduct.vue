@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const items = ref<any[]>([
     {
@@ -61,13 +61,17 @@ const items = ref<any[]>([
         </div>
         <div class="flex flex-wrap lg:mx-20 justify-center gap-6">
             <div class="w-72" v-for="(item, index) in items" :key="index">
-                <div class="">
+                <div class="font-questrial">
                     <div class="aspect-square w-full bg-white-smoke">
                         <img class="p-8" :src="item.images[0].imageSourceUrl" alt="">
                     </div>
+                    <div class="flex lg:hidden w-fuull h-20 items-center justify-center gap-5 bg-hydrate">
+                        <img class="w-12" src="/img/hydrate.svg" />
+                        <p class="description text-white">Dark spot reducer with triple action</p>
+                    </div>
                 </div>
                 <div class="my-8">
-                    <p class="font-questrial text-center text-gray-1">{{item.name}}</p>
+                    <p class="font-questrial text-center text-2xl lg:text-xl text-gray-1">{{item.name}}</p>
                 </div>
             </div>
         </div>

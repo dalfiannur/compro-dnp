@@ -21,7 +21,7 @@ const { data: featuredProducts } = useGetFeaturedProduct();
 
 <template>
     <div>
-        <ProductBanner :item="featuredProducts" />
+        <ProductBanner />
     </div>
     <div>
         <ProductDescriptions />
