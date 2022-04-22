@@ -59,7 +59,21 @@ export default function useGetProductSeries() {
           imageSourceUrl: '/img/hydrate-series.png'
         }
       ]
-    }
+    },
+    {
+      id: 4,
+      name: 'Preserve Series',
+      slug: 'preserve-series',
+      category: {
+        slug: 'preserve',
+        name: 'Preserve'
+      },
+      images: [
+        {
+          imageSourceUrl: '/img/hydrate-series.png'
+        }
+      ]
+    },
   ])
 
   return {
