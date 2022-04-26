@@ -16,7 +16,7 @@ import HowToFind from '../../components/HowToFind.vue'
                         Our
                         <br />Promise
                     </h4>
-                    <p class="mt-6 text-gray-500 font-questrial text-justify">
+                    <p class="mt-6 text-gray-500 font-questrial text-center sm:text-justify">
                         PT Dermedic Phar Este is established in 2022 as the first local brand
                         with premium and professional skin care products in Indonesia. Our
                         mission is to improve people’s skin health by providing the most
@@ -29,7 +29,7 @@ import HowToFind from '../../components/HowToFind.vue'
                         Expertise In beauty
                         <br />&amp; personal Care
                     </h4>
-                    <p class="mt-6 text-gray-500 font-questrial text-justify">
+                    <p class="mt-6 text-gray-500 font-questrial text-center sm:text-justify">
                         With our expertise in research &amp; innovation, we are committed to
                         continuously improve and provide the best service and products to
                         all of our customers. We are the expert’s choice for physician and
