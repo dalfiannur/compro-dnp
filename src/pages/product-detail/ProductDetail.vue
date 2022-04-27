@@ -14,7 +14,7 @@
   import { useRoute } from 'vue-router';
 
   const route = useRoute();
-  const {data: product, fetcher} = useGetQuery<Product>('product');
+  const {fetcher, data: product} = useGetQuery<Product>('product');
   const {data: sliderv2} = useGetSliderV2();
 
   onMounted(() => {
