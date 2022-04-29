@@ -23,28 +23,39 @@ repairQuery.set("category", "repair");
 const { data: repair } = useGetQueries<Product>("product", {
   autoFetch: true,
   query: repairQuery,
-  perPage: 4,
+  perPage: 5,
 });
 
 const preventQuery = new URLSearchParams();
 preventQuery.set("category", "prevent");
 const { data: prevent } = useGetQueries<Product>("product", {
+  autoFetch: true,
   query: preventQuery,
-  perPage: 4,
+  perPage: 5,
 });
 
 const glowQuery = new URLSearchParams();
 glowQuery.set("category", "glow");
 const { data: glow } = useGetQueries<Product>("product", {
+  autoFetch: true,
   query: glowQuery,
-  perPage: 4,
+  perPage: 5,
 });
 
 const hydrateQuery = new URLSearchParams();
 hydrateQuery.set("category", "hydrate");
 const { data: hydrate } = useGetQueries<Product>("product", {
+  autoFetch: true,
   query: hydrateQuery,
-  perPage: 4,
+  perPage: 5,
+});
+
+const preserveQuery = new URLSearchParams();
+preserveQuery.set("category", "preserve");
+const { data: preserve } = useGetQueries<Product>("product", {
+  autoFetch: true,
+  query: preserveQuery,
+  perPage: 5,
 });
 
 const data = computed<Product[]>(() => {
@@ -54,6 +65,7 @@ const data = computed<Product[]>(() => {
     prevent: prevent.value,
     glow: glow.value,
     hydrate: hydrate.value,
+    preserve: preserve.value
   }[selectedCategory.value] as Product[];
 });
 
@@ -116,9 +128,9 @@ const handleCardClick = (item: Product) => {
 </script>
 
 <template>
-  <div class="sm:px-0 md:px-20 grid grid-cols-4 justify-between sm:gap-0 md:gap-[40px]">
+  <div class="sm:px-0 md:px-20 grid grid-cols-5 justify-between sm:gap-0 md:gap-[40px]">
     <Button
-      v-for="item in ['repair', 'prevent', 'glow', 'hydrate']"
+      v-for="item in ['repair', 'prevent', 'glow', 'hydrate', 'preserve']"
       :key="item"
       :text="item"
       :category="item"
@@ -130,10 +142,10 @@ const handleCardClick = (item: Product) => {
   </div>
   <div class="relative flex justify-center px-10 mt-16 md:px-20 product-list-wrapper">
     <div
-      class="grid items-center gap-10 overflow-hidden md:grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 flex-nowrap items-wrapper"
+      class="grid items-center gap-10 overflow-hidden md:grid-cols-5 xs:grid-cols-1 sm:grid-cols-2 flex-nowrap items-wrapper"
     >
       <ProductCard
-        v-for="index in [0, 1, 2, 3]"
+        v-for="index in [0, 1, 2, 3, 4]"
         :item="data[index]"
         :key="index"
         @click="handleCardClick(data[index])"

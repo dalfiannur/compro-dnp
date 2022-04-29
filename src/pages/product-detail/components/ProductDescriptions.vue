@@ -4,9 +4,10 @@ import ProductImage from "../../../components/Slider/ProductImage.vue";
 import {Product} from "../../../typings/Product";
 
 type Prop = {
-  data?: Product
+  data?: Product;
 }
-const { data } = defineProps<Prop>();
+
+const { data } = defineProps<Prop>()
 </script>
 
 <template>
@@ -29,7 +30,7 @@ const { data } = defineProps<Prop>();
             <div class="flex items-center ml-0 sm:ml-5"><img src="/img/checkbox.svg" class="w-10">
               <p class="text-repair ml-4">Skin Concern</p></div>
             <ul class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 list-disc ml-24 mt-2">
-              <li v-for="item in data.skinConcerns">
+              <li v-for="item in data.skinConcerns" :key="item.id">
                 {{item.name}}
               </li>
             </ul>
@@ -38,7 +39,7 @@ const { data } = defineProps<Prop>();
             <div class="flex items-center ml-0 sm:ml-5"><img src="/img/checkbox.svg" class="w-10">
               <p class="text-repair ml-4">Skin Type</p></div>
             <ul class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 list-disc ml-24 mt-2">
-              <li v-for="item in data.skinTypes">
+              <li v-for="item in data.skinTypes" :key="item.id">
                 {{item.name}}
               </li>
             </ul>

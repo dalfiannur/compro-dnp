@@ -2,7 +2,7 @@
 import { ref } from "vue";
 
 // Import Composable
-import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
+// import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
 import useGetArticlePagination from "../../composable/useGetArticlePagination";
 import { Article } from "../../typings/Article";
 
@@ -18,6 +18,7 @@ const sortBy = ref<string>("latest");
 
 const query = new URLSearchParams();
 const { data: articles } = useGetQueries<Article>("articles", {
+  autoFetch: true,
   perPage: 3,
   query,
 });
@@ -37,7 +38,7 @@ const sortLatest = () => {
 
 <template>
   <div>
-<!--    <SliderV3 />-->
+    <SliderV3 :data="articles" />
   </div>
 
   <div class="my-12 mx-auto p-2 md:p-4 justify-center flex">

@@ -37,17 +37,25 @@
     <Transition name="fade">
       <ul
         class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-24 md:flex-row md:top-0 md:static"
-        v-show="menu.open">
+        v-show="menu.open"
+      >
         <li>
-          <a href="#" @click.prevent @mouseenter="hovered = 0"
-             class="font-semibold text-gray-600 font-din-next-lt-pro-light">Products</a>
-          <ProductSection :hovered="hovered" @mouseleave="onMouseLeave" />
+          <a
+            href="#"
+            @click.prevent
+            @mouseenter="hovered = 0"
+            class="font-semibold text-gray-600 font-din-next-lt-pro-light"
+          >
+            Products
+          </a>
+
+          <ProductSection :hovered="hovered" @mouseleave="onMouseLeave"/>
         </li>
 
         <li>
           <a href="#" @click.prevent @mouseenter="hovered = 1"
              class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
-          <ArticleSection :hovered="hovered" @mouseleave="onMouseLeave" />
+          <ArticleSection :hovered="hovered" @mouseleave="onMouseLeave"/>
         </li>
 
         <li>
