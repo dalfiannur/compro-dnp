@@ -11,6 +11,7 @@ import Button from "./Button.vue";
 import useGetProductSeries from "../../../../composable/useGetProductSeries";
 import useGetQueries from "../../../../composable/useGetQueries";
 import { Product } from "../../../../typings/Product";
+import LayoutCard from "./LayoutCard.vue";
 
 const emit = defineEmits(["categoryChange"]);
 
@@ -140,20 +141,21 @@ const handleCardClick = (item: Product) => {
       @mouseleave="handleButtonBlur"
     />
   </div>
-  <div class="relative flex justify-center px-10 mt-16 md:px-20 product-list-wrapper">
-    <div
+  <!-- <div class="relative flex justify-center px-10 mt-16 md:px-20 product-list-wrapper"> -->
+    <!-- <div
       class="grid items-center gap-10 overflow-hidden md:grid-cols-5 xs:grid-cols-1 sm:grid-cols-2 flex-nowrap items-wrapper"
-    >
-      <ProductCard
+    > -->
+      <!-- <ProductCard
         v-for="index in [0, 1, 2, 3, 4]"
         :item="data[index]"
         :key="index"
         @click="handleCardClick(data[index])"
         @mouseenter="cardHoverHandler(data[index])"
         @mouseleave="cardBlurHandler()"
-      />
-    </div>
-  </div>
+      /> -->
+      <LayoutCard :items="data" />
+    <!-- </div> -->
+  <!-- </div> -->
   <div class="flex items-center gap-10 px-20 mt-10">
     <div class="flex-1">
       <hr />
