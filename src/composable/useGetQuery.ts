@@ -16,6 +16,8 @@ export default function useGetQuery<T>(path: string){
     isLoading.value = true;
     isError.value = false;
 
+    console.log(path + idOrSlug)
+
     axios.get(path + '/' + idOrSlug)
       .then((response) => response.data)
       .then((result) => {

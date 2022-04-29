@@ -1,68 +1,49 @@
 <script setup lang="ts">
-import {ref, onMounted} from "vue"
+import {ref, toRefs , watch, computed} from "vue"
 import {Product} from "../../../typings/Product";
 
 type Prop = {
-  data?: Product
+  data: Product
 }
-const { data } = defineProps<Prop>();
+const prop = defineProps<Prop>();
 
-const item = ref<any[]>([
-  {
-    id: 1,
-    title: "Tranex & Kojic with B3",
-    text: "Dark spot reducer with triple action",
-  },
-  {
-    id: 2,
-    title: "Pytho Hydro",
-    text: "Hydrate and snoothe the skin with natural ingredients",
-  }
-])
+const { data } = toRefs(prop)
+
+// const data = ref<any[]>([
+//   {
+//     id: 1,
+//     name: "Tranex & Kojic with B3",
+//     text: "Dark spot reducer with triple action",
+//   },
+//   {
+//     id: 2,
+//     name: "Pytho Hydro",
+//     text: "Hydrate and snoothe the skin with natural ingredients",
+//   }
+// ])
+const input = ref<any>(null)
+
+const productName = computed(() => {
+  return Ellipsis(data.value.name)
+})
+
+const productUsedAs = computed(() => {
+  return Ellipsis(data.value.usedAs)
+})
 
 function load() {
-  document.querySelectorAll('.description').forEach((item, index) => {
-    item.innerHTML = Ellipsis(index, item.innerHTML)
-
-    // Ellipsis(index, item.innerHTML).then((text) => {
-    //   item.innerHTML = text
-    // })
-  })
+  if (input.value) {
+    input.value.innerHTML
+    console.log(input.value.innerHTML)
+  }
 }
 
-onMounted(() => {
+watch(data, () => {
   load()
 })
 
-function Ellipsis(index: number, str: string) {
-  // const textLength = str.length
-  // return Promise.resolve(() => {
-  //   if (textLength >= 2){
-  //     return textLength/2;
-  //   }
-  //   return 1
-  // }).then((num) => {
-  //   if (str.length <= num()) {
-  //     return item.value[index].text
-  //   }
-
-  //   var stringLength = ref(0)
-  //   const word1 = str.split(' ').filter(item => {
-  //     item.length <= 20
-  //     stringLength.value = stringLength.value + item.length
-  //     if (stringLength.value <= 20){
-  //       return true
-  //     }
-  //     return false
-  //   })
-  //   str.split(' ')
-
-  //   const word2 = str.slice(num(), str.length).split(' ')
-  //   console.log("ths is " + word2)
-
-  //   return word1.join(' ') + '<br>' + word2.join(' ')
-  // })
-
+function Ellipsis(str: string) {
+  
   const lenStr = str.length
   const word = str.split(' ')
 
@@ -77,6 +58,7 @@ function Ellipsis(index: number, str: string) {
   console.log(" Word1 " + word)
   return word.join(' ')
 }
+
 </script>
 
 <template>
@@ -98,15 +80,15 @@ function Ellipsis(index: number, str: string) {
       <div class="sm:mx-2.5">
         <img
           :src="`/img/${data.category.slug}.svg`"
-          class="w-8 sm:w-14"
+          class="w-8 sm:w-14 border sm:border-2 lg:border-[3px] rounded-full border-white"
         />
       </div>
     </div>
 
     <div class="items-center lg:flex text-center lg:text-left lg:ml-64">
-      <h2 v-text="data.name" class="description text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white max-w-[420px]" />
+      <h2 v-html="productName" ref="productName" class="name text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white max-w-[420px]" />
 
-      <p v-html="data.usedAs" class="description text-lg lg:text-xl xl:text-3xl font-questrial font-normal text-white mt-6 lg:ml-12" />
+      <p v-html="productUsedAs" class="usedAs text-lg lg:text-xl xl:text-3xl font-questrial font-normal text-white mt-6 lg:ml-12" />
 
     </div>
   </div>
