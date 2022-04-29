@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import ProductImage from "../../../components/Slider/ProductImage.vue";
+import {Product} from "../../../typings/Product";
+
+type Prop = {
+  data?: Product;
+}
+
+const { data } = defineProps<Prop>()
 </script>
 
 <template>

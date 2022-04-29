@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProductLineUp } from "../typings/ProductLineUp";
+  import {ProductRepair} from "../typings/ProductLineUp";
 
 interface Prop {
   data: ProductRepair;
@@ -16,7 +16,7 @@ const loadImage = (path: String) => {
     class="relative flex-none h-fit my-6 overflow-hidden duration-200 hover:text-repair grayscale hover:grayscale-0"
   >
     <div class="w-full aspect-square md:aspect-video bg-gray-200">
-      <img class="block w-[360px] h-[435px] m-auto hover:bg-repair p-6" 
+      <img class="block w-[360px] h-[435px] m-auto hover:bg-repair p-6"
         :src="loadImage(data.img)"
       />
     </div>
