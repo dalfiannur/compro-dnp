@@ -14,7 +14,7 @@ const { data } = defineProps<Prop>();
     <div>
       <ProductImage class="mt-12 lg:hidden"/>
     </div>
-    <div class="flex mt-20 font-questrial text-gray-1">
+    <div class="flex mt-20 font-questrial">
       <div class="">
         <div class="flex mx-0 lg:mr-10 mb-10">
           <div class="">
@@ -51,7 +51,7 @@ const { data } = defineProps<Prop>();
       </div>
     </div>
 
-    <div class="mt-20 font-questrial text-gray-1">
+    <div class="mt-20 font-questrial">
       <div class="flex mx-0 lg:mr-10 mb-10">
         <div class="">
           <img src="/img/halfarrow.svg" class="w-16 sm:w-20" />
@@ -75,7 +75,7 @@ const { data } = defineProps<Prop>();
       </div>
     </div>
 
-    <div class="my-20 font-questrial text-gray-1">
+    <div class="my-20 font-questrial">
       <div class="flex mx-0 lg:mr-10 mb-10">
         <div class="">
           <img src="/img/halfarrow.svg" class="w-16 sm:w-20" />

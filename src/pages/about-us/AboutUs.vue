@@ -16,7 +16,7 @@ import HowToFind from '../../components/HowToFind.vue'
                         Our
                         <br />Promise
                     </h4>
-                    <p class="mt-6 text-gray-500 font-questrial text-center sm:text-justify">
+                    <p class="mt-6 text-baseColor font-questrial text-center sm:text-justify">
                         PT Dermedic Phar Este is established in 2022 as the first local brand
                         with premium and professional skin care products in Indonesia. Our
                         mission is to improve people’s skin health by providing the most
@@ -29,7 +29,7 @@ import HowToFind from '../../components/HowToFind.vue'
                         Expertise In beauty
                         <br />&amp; personal Care
                     </h4>
-                    <p class="mt-6 text-gray-500 font-questrial text-center sm:text-justify">
+                    <p class="mt-6 text-baseColor font-questrial text-center sm:text-justify">
                         With our expertise in research &amp; innovation, we are committed to
                         continuously improve and provide the best service and products to
                         all of our customers. We are the expert’s choice for physician and
@@ -55,11 +55,11 @@ import HowToFind from '../../components/HowToFind.vue'
                 <img src="/img/logo-blue.svg" class="w-[115px]" />
             </div>
             <div class="w-full md:w-60">
-                <p class="text-sm font-bold font-din-next-lt-pro-bold text-gray-500">
+                <p class="text-sm font-bold font-din-next-lt-pro-bold text-baseColor">
                     For more info and references,
                     please contact us:
                 </p>
-                <p class="mt-3 text-sm font-din-next-lt-pro-light text-gray-500">
+                <p class="mt-3 text-sm font-din-next-lt-pro-light text-baseColor">
                     PT Dermedic Phar Este <br>
                     Jl. Kerkof No. 182, Leuwigajah, <br>
                     Kec. Cimahi Selatan, Kota Cimahi 40532 <br>

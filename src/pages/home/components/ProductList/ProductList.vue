@@ -109,7 +109,8 @@ const handleCardClick = (item: Product) => {
     selectedCategory.value = item.category.slug;
     transition()
   } else {
-    router.push("/products/" + item.slug);
+    // router.push("/products/" + item.slug);
+    window.location.href = "/products/" + item.slug
   }
 };
 </script>
@@ -149,7 +150,7 @@ const handleCardClick = (item: Product) => {
       <a
         href="/products"
         @click.prevent
-        @click="$router.push('/products')"
+        @click="$router.push('/product-line-up')"
         class="text-xl text-hydrate"
         >See More</a
       >

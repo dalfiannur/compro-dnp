@@ -22,7 +22,7 @@ watch([selectedCategory, category], ([a, b]) => {
 </script>
 <template>
   <button
-    class="flex-1 py-3 font-bold tracking-[5px] uppercase md:border-2 h-14 text-gray-500 border-gray-500"
+    class="flex-1 py-3 font-questrial tracking-[5px] uppercase md:border h-14 border-baseColor"
     :class="{
       [`!border-${hoverCategory} !text-${hoverCategory}`]:
         selectedCategory !== category &&

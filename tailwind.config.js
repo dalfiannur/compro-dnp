@@ -49,6 +49,7 @@ module.exports = {
       glow: '#f7bf6f',
       hydrate: '#63c4b4',
       'white-smoke': '#f2f2f2',
+      'baseColor': '#818181',
       'gray-1': '#666867',
       preserve: '#ae1857'
     }),

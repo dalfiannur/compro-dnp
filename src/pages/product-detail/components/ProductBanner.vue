@@ -86,9 +86,9 @@ function Ellipsis(str: string) {
     </div>
 
     <div class="items-center lg:flex text-center lg:text-left lg:ml-64">
-      <h2 v-html="productName" ref="productName" class="name text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white max-w-[420px]" />
+      <h2 v-html="productName" class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white max-w-[420px]" />
 
-      <p v-html="productUsedAs" class="usedAs text-lg lg:text-xl xl:text-3xl font-questrial font-normal text-white mt-6 lg:ml-12" />
+      <p v-html="productUsedAs" class="text-lg lg:text-xl xl:text-3xl font-questrial font-normal text-white mt-6 lg:ml-12" />
 
     </div>
   </div>

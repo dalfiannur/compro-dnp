@@ -27,7 +27,7 @@
     <ProductBanner :data="product"/>
   </div>
   <div>
-    <ProductDescriptions :data="product"/>
+    <ProductDescriptions class="text-baseColor" :data="product"/>
   </div>
   <div id="banner">
     <SliderV2 :items="sliderv2"/>
