@@ -24,11 +24,11 @@ watch([selectedCategory, category], ([a, b]) => {
   <button
     class="flex-1 py-3 font-bold tracking-[5px] uppercase md:border-2 h-14 text-gray-500 border-gray-500"
     :class="{
-      [`!border-${hoverCategory} !text-${hoverCategory}`]:
+      [`border-${hoverCategory} text-${hoverCategory}`]:
         selectedCategory !== category &&
         (isHovered || hovered) &&
         hoverCategory === category,
-      [`!border-${selectedCategory} bg-${selectedCategory} !text-white`]:
+      [`border-${selectedCategory} bg-${selectedCategory} text-white`]:
         selectedCategory === category,
     }"
     @mouseenter="hovered = true"
@@ -37,3 +37,15 @@ watch([selectedCategory, category], ([a, b]) => {
     {{ text }}
   </button>
 </template>
+
+<style scoped lang="scss">
+  $categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
+  @each $category in $categories {
+    .border-#{$category} {
+      border-color: theme('colors.' + $category);
+    }
+  }
+  .text-white {
+    color: theme('colors.white');
+  }
+</style>

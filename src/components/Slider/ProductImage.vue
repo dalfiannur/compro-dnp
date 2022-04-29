@@ -102,22 +102,22 @@ const goTo = (key: number) => {
                     <div
                         v-for="(item, index) in featuredProducts"
                         :key="item.id"
-                        class="flex items-center justify-center w-full h-3 border cursor-pointer border-hydrate"
+                        class="flex items-center justify-center w-full h-3 border cursor-pointer border-repair"
                         @click="goTo(index)"
                     >
-                        <div v-if="activeSlides === index" class="w-full h-full bg-[#77c6bc]" />
+                        <div v-if="activeSlides === index" class="w-full h-full bg-repair" />
                     </div>
                 </div>
             </div>
             <div class="hidden lg:flex">
                 <button
                     @click="prevSlide"
-                    class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -left-6 h-10 w-10 text-[#77c6bc] border border-[#77c6bc]"
+                    class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -left-6 h-10 w-10 text-repair border border-repair"
                 >&lt;
                 </button>
                 <button
                     @click="nextSlide"
-                    class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -right-6 h-10 w-10 border text-[#77c6bc] border-[#77c6bc]"
+                    class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -right-6 h-10 w-10 border text-repair border-repair"
                 >&gt;
                 </button>
             </div>

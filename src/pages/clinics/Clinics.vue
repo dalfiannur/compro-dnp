@@ -9,7 +9,9 @@ import ClinicItem from './Components/ClinicItem.vue';
 import useGetQueries from "../../composable/useGetQueries";
 import { Clinic } from "../../typings/Clinic";
 
-const { data: clinics } = useGetQueries<Clinic>("clinics");
+const { data: clinics } = useGetQueries<Clinic>("clinics", {
+  autoFetch: true
+});
 
 type Location = {
   longitude?: string
