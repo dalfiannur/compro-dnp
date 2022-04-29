@@ -22,7 +22,9 @@ const getIcon = (category: string) => {
 <template>
   <div
     class="relative flex items-start flex-none h-full border border-white"
-    :class="{ ['!border-' + hoverCategory]: isHovered && isSeries && hoverCategory === item?.category.slug, }"
+    :class="{ 
+      ['border-' + hoverCategory]: isHovered && isSeries && hoverCategory === item?.category.slug,
+    }"
     @mouseenter="innerHovered = true"
     @mouseleave="innerHovered = false"
   >
@@ -78,3 +80,16 @@ const getIcon = (category: string) => {
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+$categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
+
+@each $category in $categories {
+  .text-#{$category} {
+    color: theme('colors.' + $category);
+  }
+  .border-#{$category} {
+    border-color: theme('colors.' + $category);
+  }
+}
+</style>

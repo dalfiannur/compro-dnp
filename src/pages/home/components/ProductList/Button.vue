@@ -44,6 +44,9 @@ watch([selectedCategory, category], ([a, b]) => {
     .border-#{$category} {
       border-color: theme('colors.' + $category);
     }
+    .text-#{$category} {
+      color: theme('colors.' + $category);
+    }
   }
   .text-white {
     color: theme('colors.white');

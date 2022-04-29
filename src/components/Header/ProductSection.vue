@@ -89,7 +89,7 @@
             @mouseenter="show = index"
           />
         </div>
-        <div class="absolute top-0 right-[0px] flex gap-10 -left-[80px] hidden md:block">
+        <div class="absolute top-0 right-[0px] gap-10 -left-[80px] hidden md:flex">
           <div class="h-20 basis-1/4"/>
           <div class="basis-3/4">
             <div class="flex order-2 w-full h-20 col-span-3">
