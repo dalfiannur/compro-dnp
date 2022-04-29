@@ -40,9 +40,7 @@ const getIcon = (category: string) => {
         <div
           class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
           :class="{
-            ['bg-' + selectedCategory]:
-              innerHovered && !isSeries && hoverCategory === item?.category.slug,
-            'bg-opacity-70': !isSeries && isHovered,
+            ['bg-' + selectedCategory + '-hover']:innerHovered && !isSeries,
           }"
         >
           <img
@@ -83,6 +81,7 @@ const getIcon = (category: string) => {
 
 <style lang="scss" scoped>
 $categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
+$preserve: '#ae1857';
 
 @each $category in $categories {
   .text-#{$category} {
@@ -93,6 +92,14 @@ $categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
   }
   .bg-#{$category} {
     background-color: theme('colors.' + $category);
+  }
+  .bg-#{$category}-hover {
+    --color-repair: rgba(92, 132, 195, .7);
+    --color-prevent: rgb(113, 70, 155, .7);
+    --color-glow: rgba(247, 191, 111, .7);
+    --color-hydrate: rgba(99, 196, 180, .7);
+    --color-preserve: rgba(174, 24, 87, .7);
+    background-color: var(--color-#{$category});
   }
 }
 </style>

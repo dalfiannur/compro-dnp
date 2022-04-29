@@ -92,10 +92,10 @@ const transition = () => {
   })
 }
 
-const cardHoverHandler = (item: Product) => {
-  if (item) {
+const cardHoverHandler = (category: string) => {
+  if (category) {
     isHovered.value = true;
-    hoverCategory.value = item.category.slug;
+    hoverCategory.value = category;
   }
 };
 const cardBlurHandler = () => {
@@ -153,7 +153,12 @@ const handleCardClick = (item: Product) => {
         @mouseenter="cardHoverHandler(data[index])"
         @mouseleave="cardBlurHandler()"
       /> -->
-      <LayoutCard :items="data" />
+      <LayoutCard 
+        :items="data" 
+        @click="handleCardClick"
+        @hover="cardHoverHandler"
+        @blur="cardBlurHandler"
+      />
     <!-- </div> -->
   <!-- </div> -->
   <div class="flex items-center gap-10 px-20 mt-10">

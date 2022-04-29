@@ -23,3 +23,8 @@
         src: url('./assets/fonts/Inter.ttf') format('truetype');
     }
 }
+
+:root {
+    --color-repair: '92 132 195';
+    --color-hydrate: '99 196 180'
+}
