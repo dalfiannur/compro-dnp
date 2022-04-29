@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue'
-import { ProductLineUp } from "../typings/ProductLineUp";
+import { ProductRepair } from "../typings/ProductLineUp";
 
 interface Prop {
   data: ProductRepair;
