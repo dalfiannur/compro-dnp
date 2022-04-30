@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, ref, toRefs } from "vue";
-import { Product } from "../typings/Product";
+import { Product } from "../../../../typings/Product";
 
 interface Prop {
   item?: Product;
@@ -21,28 +21,26 @@ const getIcon = (category: string) => {
 
 <template>
   <div
-    class="relative flex items-start flex-none h-full border border-white"
+    class="relative flex items-start flex-none border border-white w-full"
     :class="{ 
       ['border-' + hoverCategory]: isHovered && isSeries && hoverCategory === item?.category.slug,
     }"
     @mouseenter="innerHovered = true"
     @mouseleave="innerHovered = false"
   >
-    <div v-if="item">
+    <div v-if="item" class="w-full">
       <div
-        class="relative p-10 aspect-[4/5]"
+        class="relative p-10 h-[450px] w-full flex justify-center items-center"
         :class="{ 'bg-white-smoke': isSeries, ['bg-' + selectedCategory]: !isSeries, }"
       >
         <img
-          class="object-cover w-full h-full filter"
+          class="object-cover h-[360px] filter"
           :src="item.images[0].imageSourceUrl"
         />
         <div
           class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
           :class="{
-            ['bg-' + selectedCategory]:
-              innerHovered && !isSeries && hoverCategory === item?.category.slug,
-            'bg-opacity-70': !isSeries && isHovered,
+            ['bg-' + selectedCategory + '-hover']:innerHovered && !isSeries,
           }"
         >
           <img
@@ -83,6 +81,7 @@ const getIcon = (category: string) => {
 
 <style lang="scss" scoped>
 $categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
+$preserve: '#ae1857';
 
 @each $category in $categories {
   .text-#{$category} {
@@ -90,6 +89,17 @@ $categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
   }
   .border-#{$category} {
     border-color: theme('colors.' + $category);
+  }
+  .bg-#{$category} {
+    background-color: theme('colors.' + $category);
+  }
+  .bg-#{$category}-hover {
+    --color-repair: rgba(92, 132, 195, .7);
+    --color-prevent: rgb(113, 70, 155, .7);
+    --color-glow: rgba(247, 191, 111, .7);
+    --color-hydrate: rgba(99, 196, 180, .7);
+    --color-preserve: rgba(174, 24, 87, .7);
+    background-color: var(--color-#{$category});
   }
 }
 </style>

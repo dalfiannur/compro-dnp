@@ -42,7 +42,16 @@ watch([selectedCategory, category], ([a, b]) => {
   $categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
   @each $category in $categories {
     .border-#{$category} {
+      --tw-bg-opacity: 1;
       border-color: theme('colors.' + $category);
+    }
+    .text-#{$category} {
+      --tw-bg-opacity: 1;
+      color: theme('colors.' + $category);
+    }
+    .bg-#{$category} {
+      --tw-bg-opacity: 1;
+      background-color: theme('colors.' + $category);
     }
   }
   .text-white {

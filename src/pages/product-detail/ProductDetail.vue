@@ -23,7 +23,7 @@
 </script>
 
 <template>
-  <div>
+  <div v-if="product">
     <ProductBanner :data="product"/>
   </div>
   <div>
