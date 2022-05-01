@@ -9,18 +9,6 @@ const prop = defineProps<Prop>();
 
 const { data } = toRefs(prop)
 
-// const data = ref<any[]>([
-//   {
-//     id: 1,
-//     name: "Tranex & Kojic with B3",
-//     text: "Dark spot reducer with triple action",
-//   },
-//   {
-//     id: 2,
-//     name: "Pytho Hydro",
-//     text: "Hydrate and snoothe the skin with natural ingredients",
-//   }
-// ])
 const input = ref<any>(null)
 
 const productName = computed(() => {
@@ -80,7 +68,7 @@ function Ellipsis(str: string) {
       <div class="sm:mx-2.5">
         <img
           :src="`/img/${data.category.slug}.svg`"
-          class="w-8 sm:w-14 border sm:border-2 lg:border-[3px] rounded-full border-white"
+          class="w-8 sm:w-14"
         />
       </div>
     </div>

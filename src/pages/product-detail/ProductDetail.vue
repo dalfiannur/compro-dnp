@@ -7,6 +7,7 @@
   import HowToFind from '../../components/HowToFind.vue';
   // @ts-ignore
   import ProductBanner from './components/ProductBanner.vue';
+  // @ts-ignore
   import ProductDescriptions from './components/ProductDescriptions.vue';
   import useGetSliderV2 from '../../composable/useGetSliderV2'
   import useGetQuery from "../../composable/useGetQuery";

@@ -48,7 +48,7 @@ const getIcon = (category: string) => {
           <img
             v-if="!isSeries"
             :src="getIcon(item.category.slug)"
-            class="hidden w-14 h-14 border sm:border-2 lg:border-[3px] rounded-full border-white"
+            class="hidden w-14 h-14"
             :class="{ '!block': innerHovered }"
           />
           <h5
