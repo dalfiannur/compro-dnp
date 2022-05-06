@@ -4,7 +4,7 @@ import HowToFind from '../../components/HowToFind.vue'
 
 <template>
     <div>
-        <div class="flex items-center bg-banner pl-12 pr-36 sm:px-28 h-72 sm:h-96 w-full bg-cover bg-bottom">
+        <div class="flex items-center bg-banner pl-12 pr-36 sm:px-36 h-80 sm:h-[30rem] w-full bg-cover bg-bottom">
             <h2 class="text-5xl sm:text-6xl font-inter text-white">About Us</h2>
         </div>
 

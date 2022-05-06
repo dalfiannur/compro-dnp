@@ -27,7 +27,7 @@
   <div v-if="product">
     <ProductBanner :data="product"/>
   </div>
-  <div>
+  <div v-if="product">
     <ProductDescriptions class="text-baseColor" :data="product"/>
   </div>
   <div id="banner">
