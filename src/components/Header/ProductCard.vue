@@ -7,8 +7,9 @@ const { item } = defineProps<Prop>()
 </script>
 <template>
   <div class="relative h-full px-5 pt-32 bg-white pb-14 shadow-custom">
-    <div class="text-lg text-gray-600 font-inter">
-      <span>{{ item.title }}</span> | Series</div>
+    <a href="/product-line-up" class="text-lg text-gray-600 font-inter">
+      <span>{{ item.title }}</span> | Series
+    </a>
     <div
       class="w-full h-1 my-5"
       :class="{
@@ -16,6 +17,7 @@ const { item } = defineProps<Prop>()
         'bg-prevent': item.title.toLowerCase() === 'prevent',
         'bg-glow': item.title.toLowerCase() === 'glow',
         'bg-hydrate': item.title.toLowerCase() === 'hydrate',
+        'bg-preserve': item.title.toLowerCase() === 'preserve',
       }"
     />
     <ul class="text-justify text-gray-600">

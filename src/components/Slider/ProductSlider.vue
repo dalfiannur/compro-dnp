@@ -74,11 +74,13 @@ const goTo = (key: number) => {
             <div class="text-3xl font-bold text-center text-white md:text-3xl lg:text-4xl">
               {{ items[active]?.name }}
             </div>
-            <div class="flex items-center justify-between flex-1 w-full max-w-[280px] mt-5">
-              <div v-for="(item, index) in items" :key="item.id"
-                class="flex items-center justify-center w-10 h-10 border-2 border-white cursor-pointer"
+            <div class="flex items-center justify-between flex-1 w-full max-w-[200px] mt-5">
+              <div 
+                v-for="(item, index) in items" 
+                :key="item.id"
+                class="flex items-center justify-center w-6 h-6 border-2 border-white cursor-pointer"
                 @click="goTo(index)">
-                <div v-if="activeSlides === index" class="w-6 h-6 bg-white" />
+                <div v-if="activeSlides === index" class="w-3 h-3 bg-white" />
               </div>
             </div>
           </div>

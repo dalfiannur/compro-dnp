@@ -14,10 +14,9 @@ const createLink = () => {
 <template>
   <article
     class="flex flex-col mx-auto my-8 overflow-hidden duration-200 hover:text-emerald-400 grayscale hover:grayscale-0"
-    style="background-color: rgb(236 237 239)"
-  >
+    style="background-color: rgb(236 237 239)">
     <div class="w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
-      <a :href="createLink()" @click.prevent="$router.push('/articles/' + data.slug)">
+      <a :href="createLink()">
         <img alt="Placeholder" class="block w-full m-auto" :src="data.thumbnailUrl" />
       </a>
     </div>
@@ -32,11 +31,7 @@ const createLink = () => {
         by {{ data.user.name }} -
         {{ new Date(data.createdAt).toLocaleDateString("ID-id") }}
       </p>
-      <a
-        class="p-2 text-center no-underline text-emerald-400"
-        :href="createLink()"
-        @click.prevent="$router.push('/articles/' + data.slug)"
-      >
+      <a class="p-2 text-center no-underline text-emerald-400" :href="createLink()">
         <span class>Read More</span>
       </a>
     </footer>

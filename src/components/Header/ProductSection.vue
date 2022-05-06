@@ -50,6 +50,15 @@
         'Antioxidant C Sylmarin',
         'Tranex & Kojic with B3'
       ]
+    },
+    {
+      title: 'PRESERVE',
+      usedAs: [
+        'Caffeine Hydrating',
+        'Phyto Hydro',
+        'Antioxidant C Sylmarin',
+        'Tranex & Kojic with B3'
+      ]
     }
   ];
 
@@ -77,11 +86,11 @@
     >
       <div class="w-full md:w-[360px] -ml-24">
         <div class="flex items-center h-full pl-24 bg-gray-100">
-          <h3 class="text-4xl text-hydrate">Explore Our Products</h3>
+          <a href="/product-line-up" class="text-4xl text-hydrate">Explore Our Products</a>
         </div>
       </div>
       <div class="relative flex-1">
-        <div class="grid flex-1 w-full h-full grid-cols-2 md:grid-cols-4 gap-5 md:gap-10 pb-10">
+        <div class="grid flex-1 w-full h-full grid-cols-2 md:grid-cols-5 gap-5 md:gap-10 pb-10">
           <ProductCard
             v-for="(item, index) in productSeries"
             :key="item.title"
