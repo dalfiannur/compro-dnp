@@ -13,7 +13,7 @@ const createLink = () => {
 
 <template>
   <article
-    class="flex flex-col mx-auto my-8 overflow-hidden duration-200 hover:text-emerald-400 grayscale hover:grayscale-0"
+    class="flex flex-col mx-auto overflow-hidden duration-200 hover:text-emerald-400 grayscale hover:grayscale-0"
     style="background-color: rgb(236 237 239)">
     <div class="w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
       <a :href="createLink()">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { gsap } from "gsap";
 
 import useGetQueries from "../../composable/useGetQueries";
@@ -79,6 +79,9 @@ const goTo = (key: number) => {
     activeSlides.value = key;
 };
 
+
+const category = computed(() => featuredProducts.value.length > 0 ? featuredProducts.value[0].category.slug : 'series')
+
 </script>
 
 <template>
@@ -103,6 +106,7 @@ const goTo = (key: number) => {
                         v-for="(item, index) in featuredProducts"
                         :key="item.id"
                         class="flex items-center justify-center w-full h-3 border cursor-pointer border-repair"
+                        :class="[]"
                         @click="goTo(index)"
                     >
                         <div v-if="activeSlides === index" class="w-full h-full bg-repair" />
@@ -126,3 +130,22 @@ const goTo = (key: number) => {
         </div>
     </div>
 </template>
+
+<style lang="scss" scoped>
+$categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
+
+@each $category in $categories {
+  .text-#{$category} {
+    --tw-bg-opacity: 1;
+    color: theme('colors.' + $category);
+  }
+  .border-#{$category} {
+    --tw-bg-opacity: 1;
+    border-color: theme('colors.' + $category);
+  }
+  .bg-#{$category} {
+    --tw-bg-opacity: 1;
+    background-color: theme('colors.' + $category);
+  }
+}
+</style>
