@@ -6,7 +6,7 @@ interface Prop {
 const { item } = defineProps<Prop>()
 </script>
 <template>
-  <div class="relative h-full px-5 pt-32 bg-white pb-14 shadow-custom">
+  <div class="relative h-full px-5 pt-10 xl:pt-32 bg-white pb-6 shadow-custom">
     <a href="/product-line-up" class="text-lg text-gray-600 font-inter">
       <span>{{ item.title }}</span> | Series
     </a>

@@ -82,15 +82,15 @@
     <div
       v-show="hovered === 0"
       @mouseleave="search = ''"
-      class="absolute left-0 flex flex-col md:flex-row w-full px-5 md:px-20 bg-white shadow-lg top-24"
+      class="absolute left-0 flex flex-col xl:flex-row w-full px-5 xl:px-20 bg-white shadow-lg top-24"
     >
-      <div class="w-full md:w-[360px] -ml-24">
+      <div class="w-full xl:w-[360px] -ml-24">
         <div class="flex items-center h-full pl-24 bg-gray-100">
           <a href="/product-line-up" class="text-4xl text-hydrate">Explore Our Products</a>
         </div>
       </div>
       <div class="relative flex-1">
-        <div class="grid flex-1 w-full h-full grid-cols-2 md:grid-cols-5 gap-5 md:gap-10 pb-10">
+        <div class="grid flex-1 w-full h-full grid-cols-2 xl:grid-cols-5 gap-5 xl:gap-10 pb-10">
           <ProductCard
             v-for="(item, index) in productSeries"
             :key="item.title"
@@ -98,7 +98,7 @@
             @mouseenter="show = index"
           />
         </div>
-        <div class="absolute top-0 right-[0px] gap-10 -left-[80px] hidden md:flex">
+        <div class="absolute top-0 right-[0px] gap-10 -left-[80px] hidden xl:flex">
           <div class="h-20 basis-1/4"/>
           <div class="basis-3/4">
             <div class="flex order-2 w-full h-20 col-span-3">
