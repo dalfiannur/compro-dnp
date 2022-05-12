@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import { useRouter } from "vue-router";
 
 // Import Components
-import ProductCard from "../../../../components/ProductCard.vue";
 import Button from "./Button.vue";
 
 // Import Composable
@@ -129,50 +128,20 @@ const handleCardClick = (item: Product) => {
 </script>
 
 <template>
-  <div class="sm:px-0 md:px-20 grid grid-cols-5 justify-between sm:gap-0 md:gap-[40px]">
-    <Button
-      v-for="item in ['repair', 'prevent', 'glow', 'hydrate', 'preserve']"
-      :key="item"
-      :text="item"
-      :category="item"
-      :selected="selectedCategory"
-      @click="handleButtonClick(item)"
-      @mouseenter="handleButtonHover(item)"
-      @mouseleave="handleButtonBlur"
-    />
+  <div class="sm:px-5 lg:px-20 grid grid-cols-2 md:grid-cols-5 justify-between sm:gap-0 md:gap-5 lg:gap-[40px]">
+    <Button v-for="item in ['repair', 'prevent', 'glow', 'hydrate', 'preserve']" :key="item" :text="item"
+      :category="item" :selected="selectedCategory" @click="handleButtonClick(item)"
+      @mouseenter="handleButtonHover(item)" @mouseleave="handleButtonBlur" />
   </div>
-  <!-- <div class="relative flex justify-center px-10 mt-16 md:px-20 product-list-wrapper"> -->
-    <!-- <div
-      class="grid items-center gap-10 overflow-hidden md:grid-cols-5 xs:grid-cols-1 sm:grid-cols-2 flex-nowrap items-wrapper"
-    > -->
-      <!-- <ProductCard
-        v-for="index in [0, 1, 2, 3, 4]"
-        :item="data[index]"
-        :key="index"
-        @click="handleCardClick(data[index])"
-        @mouseenter="cardHoverHandler(data[index])"
-        @mouseleave="cardBlurHandler()"
-      /> -->
-      <LayoutCard 
-        :items="data" 
-        @click="handleCardClick"
-        @hover="cardHoverHandler"
-        @blur="cardBlurHandler"
-      />
-    <!-- </div> -->
-  <!-- </div> -->
+
+  <LayoutCard :items="data" @click="handleCardClick" @hover="cardHoverHandler" @blur="cardBlurHandler" />
   <div class="flex items-center gap-10 px-20 mt-10">
     <div class="flex-1">
       <hr />
     </div>
     <div>
-      <a
-        href="/products"
-        @click.prevent
-        @click="$router.push('/product-line-up')"
-        class="text-xl text-hydrate"
-        >See More</a
-      >
+      <a href="/product-line-up" class="text-xl text-hydrate">See
+        More</a>
     </div>
   </div>
 </template>

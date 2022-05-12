@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, toRefs } from 'vue';
 import ProductCard from './ProductCard.vue';
+import SingleCard from './SingleCard.vue';
 
 interface Prop {
   items: any[]
@@ -16,62 +17,62 @@ const category = computed(() => items.value.length > 0 ? items.value[0].category
 </script>
 
 <template>
-  <div class="px-20 mt-10">
+  <div class="px-5 lg:px-20 mt-10">
     <!-- 1 -->
-    <div v-if="items.length === 1" class="flex gap-10">
-      <div 
-        class="w-1/4 h-[450px]"
-        :class="['bg-' + category]"
-      />
-      <div class="w-2/4">
-        <ProductCard :item="items[0]" @click="$emit('click', items[0])" />
+    <div v-if="items.length === 1" class="grid grid-cols-4 gap-10">
+      <div class="flex flex-col justify-end">
+        <div class="flex-1" :class="['bg-' + category]" />
+        <div class="h-14 mt-10 w-full" />
       </div>
-      <div 
-        class="w-1/4 h-[450px]"
-        :class="['bg-' + category]"
-      />
+      <div class="col-span-2">
+        <SingleCard :item="items[0]" @click="$emit('click', items[0])" />
+      </div>
+      <div class="flex flex-col justify-end">
+        <div class="flex-1" :class="['bg-' + category]" />
+        <div class="h-14 mt-10 w-full" />
+      </div>
     </div>
 
     <!-- 2 -->
-    <div v-else-if="items.length === 2" class="flex gap-10">
-      <div 
-        class="w-1/4 h-[450px]"
-        :class="['bg-' + category]"
-      />
-      <div class="w-1/4" v-for="item in items" :key="item.slug">
+    <div v-else-if="items.length === 2" class="grid grid-cols-4 gap-10">
+      <div class="flex flex-col justify-end">
+        <div class="flex-1" :class="['bg-' + category]" />
+        <div class="h-14 mt-10 w-full" />
+      </div>
+      <div class="w-full" v-for="item in items" :key="item.slug">
         <ProductCard :item="item" @click="$emit('click', item)" />
       </div>
-      <div 
-        class="w-1/4 h-[450px]"
-        :class="['bg-' + category]"
-      />
+      <div class="flex flex-col justify-end">
+        <div class="flex-1" :class="['bg-' + category]" />
+        <div class="h-14 mt-10 w-full" />
+      </div>
     </div>
 
     <!-- 3 -->
-    <div v-else-if="items.length === 3" class="flex gap-10">
-      <div 
-        class="w-1/6 h-[450px]" 
-        :class="['bg-' + category]"
-      />
-      <div class="w-1/4" v-for="item in items" :key="item.slug">
+    <div v-else-if="items.length === 3" class="grid grid-cols-5 gap-10">
+      <div class="flex flex-col justify-end">
+        <div class="flex-1" :class="['bg-' + category]" />
+        <div class="h-14 mt-10 w-full" />
+      </div>
+      <div class="" v-for="item in items" :key="item.slug">
         <ProductCard :item="item" @click="$emit('click', item)" />
       </div>
-      <div 
-        class="w-1/6 h-[450px]" 
-        :class="['bg-' + category]"
-      />
+      <div class="flex flex-col justify-end">
+        <div class="flex-1" :class="['bg-' + category]" />
+        <div class="h-14 mt-10 w-full" />
+      </div>
     </div>
 
     <!-- 4 -->
-    <div v-else-if="items.length === 4" class="flex gap-10">
+    <div v-else-if="items.length === 4" class="flex flex-wrap gap-10">
       <div class="w-1/4" v-for="item in items" :key="item.slug">
         <ProductCard :item="item" @click="$emit('click', item)" />
       </div>
     </div>
 
     <!-- 5 -->
-    <div v-else-if="items.length === 5" class="flex gap-10">
-      <div class="w-1/5" v-for="item in items" :key="item.slug">
+    <div v-else-if="items.length === 5" class="grid grid-cols-2 md:grid-cols-5 gap-5 lg:gap-10">
+      <div class="w-full mb-0 md:mb-5" v-for="item in items" :key="item.slug">
         <ProductCard 
           :item="item" 
           @click="$emit('click', item)"
