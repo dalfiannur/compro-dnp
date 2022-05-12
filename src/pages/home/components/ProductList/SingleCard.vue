@@ -24,8 +24,8 @@ const getIcon = (category: string) => {
     ['border-' + hoverCategory]: isHovered && isSeries && hoverCategory === item?.category.slug,
   }" @mouseenter="innerHovered = true" @mouseleave="innerHovered = false">
     <div v-if="item" class="w-full">
-      <div class="relative p-1 w-full flex justify-center items-center py-10" :class="['bg-' + selectedCategory]">
-        <img class="w-[210px] aspect-square filter" :src="item.images[0].imageSourceUrl" />
+      <div class="relative w-full flex justify-center items-center py-[20%] max-h-[450px]" :class="['bg-' + selectedCategory]">
+        <img class="w-full max-h-[400px] object-contain aspect-square filter" :src="item.images[0].imageSourceUrl" />
         <div class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
           :class="{ ['bg-' + selectedCategory + '-hover']: innerHovered }">
           <img v-if="!isSeries" :src="getIcon(item.category.slug)"
