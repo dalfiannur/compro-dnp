@@ -64,11 +64,11 @@ function Ellipsis(str: string) {
       </div>
     </div>
 
-    <div class="absolute flex right-4 sm:right-8 lg:left-36">
+    <div class="absolute flex right-4 sm:right-8 lg:left-32">
       <div class="sm:mx-2.5">
         <img
           :src="`/img/${data.category.slug}.svg`"
-          class="w-8 sm:w-14"
+          class="w-10 sm:w-16"
         />
       </div>
     </div>
