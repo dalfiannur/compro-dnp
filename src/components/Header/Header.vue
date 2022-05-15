@@ -26,7 +26,7 @@
   })
 </script>
 <template>
-  <div id="#header" class="fixed top-0 left-0 z-20 flex items-center justify-between w-full h-24 px-20 bg-white">
+  <div id="#header" class="fixed top-0 left-0 z-20 flex items-center justify-between w-full pt-14 pb-8 px-20 bg-white">
     <a href="#" @click.prevent="$router.push('/')">
       <img class="object-cover h-16" src="/img/logo-black.svg"/>
     </a>

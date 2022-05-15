@@ -6,7 +6,7 @@ interface Prop {
 const { item } = defineProps<Prop>()
 </script>
 <template>
-  <div class="relative h-full px-5 pt-10 xl:pt-32 bg-white pb-6 shadow-custom">
+  <div class="relative h-full px-5 pt-5 xl:pt-32 bg-white pb-2 md:pb-6 shadow-custom">
     <a href="/product-line-up" class="text-lg text-gray-600 font-inter">
       <span>{{ item.title }}</span> | Series
     </a>
@@ -20,7 +20,7 @@ const { item } = defineProps<Prop>()
         'bg-preserve': item.title.toLowerCase() === 'preserve',
       }"
     />
-    <ul class="text-justify text-gray-600">
+    <ul class="hidden xl:block text-justify text-gray-600">
       <li v-for="used in item.usedAs" :key="used">
         {{ used }}
       </li>

@@ -126,7 +126,11 @@
                 </div>
               </transition>
             </div>
-            <button class="flex items-center justify-center text-white w-14 h-14 bg-hydrate">
+            <button 
+              :href="'/search'" 
+              @click.prevent="$router.push('/search')" 
+              class="flex items-center justify-center text-white w-14 h-14 bg-hydrate"
+            >
               <img src="/img/search.svg" class="w-8 h-8"/>
             </button>
           </div>
