@@ -21,8 +21,8 @@ const createLink = () => {
       </a>
     </div>
     <header class="flex justify-between flex-1 w-full p-2 leading-tight md:p-4">
-      <h1 class="my-auto text-base md:text-lg ms:my-0 sm:text-lg sm:my-0">
-        <p class>{{ data.title }}</p>
+      <h1 class="my-auto text-base md:text-2xl ms:my-0 sm:text-lg sm:my-0">
+        <p class="px-3">{{ data.title }}</p>
       </h1>
     </header>
 
