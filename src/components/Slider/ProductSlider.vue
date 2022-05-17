@@ -62,9 +62,9 @@ const goTo = (key: number) => {
 </script>
 
 <template>
-  <div class="relative flex justify-center w-full pt-[150%] md:pt-[65vh] xl:pt-[65vh]">
+  <div class="relative flex justify-center w-full pt-[150%] md:pt-[65vh] xl:pt-[75vh]">
     <div class="absolute top-0 bottom-0 left-0 right-0 z-[4] flex justify-center">
-      <div class="w-full md:w-[32%] md:min-w-[350px] md:max-w-[400px] h-full px-0 md:px-5">
+      <div class="w-full md:w-[32%] md:min-w-[350px] md:max-w-[500px] h-full px-0 md:px-5">
         <div class="flex flex-col justify-between h-full bg-hydrate">
           <div class="absolute flex justify-center -top-6 left-0 right-0">
             <div
