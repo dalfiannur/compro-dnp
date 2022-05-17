@@ -46,7 +46,7 @@
   <Transition name="fade">
     <div
       v-show="hovered === 1"
-      class="absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg top-24"
+      class="absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg top-32"
     >
       <div class="block lg:hidden flex-1 mt-5">
         <div class="flex justify-center mt-6 border-t-2 border-hydrate">

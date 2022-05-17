@@ -47,6 +47,8 @@ function Ellipsis(str: string) {
   return word.join(' ')
 }
 
+console.log(data.value.category.slug)
+
 </script>
 
 <template>
@@ -82,6 +84,21 @@ function Ellipsis(str: string) {
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
+$categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
 
+@each $category in $categories {
+  .text-#{$category} {
+    --tw-bg-opacity: 1;
+    color: theme('colors.' + $category);
+  }
+  .border-#{$category} {
+    --tw-bg-opacity: 1;
+    border-color: theme('colors.' + $category);
+  }
+  .bg-#{$category} {
+    --tw-bg-opacity: 1;
+    background-color: theme('colors.' + $category);
+  }
+}
 </style>

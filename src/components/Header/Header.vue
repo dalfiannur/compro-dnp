@@ -61,7 +61,7 @@
           <a href="#" @click.prevent="hovered = hovered === 2?null:2"
              class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
           <Transition name="fade">
-            <div v-show="hovered === 2" class="font-questrial absolute left-0 flex w-full px-20 bg-white shadow-lg top-24">
+            <div v-show="hovered === 2" class="font-questrial absolute left-0 flex w-full px-20 bg-white shadow-lg top-32">
               <div class="-ml-24 cursor-pointer" @click="$router.push('/about-us')">
                 <div class="px-24 bg-gray-100 w-[400px] h-full flex flex-col justify-center py-14">
                   <a href="/about-us" @click.prevent="$router.push('/about-us')"
