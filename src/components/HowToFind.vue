@@ -3,17 +3,17 @@
 </script>
 
 <template>
-    <div class="bg-no-repeat bg-cover wrapper h-[720px]">
+    <div class="bg-no-repeat bg-cover wrapper xl:h-[540px] 2xl:h-[720px]">
         <div
             class="flex flex-col items-end justify-between h-full p-10 md:p-20 md:flex-row wrapper__inner"
         >
             <div>
-                <h4 class="text-5xl text-hydrate font-questrial">How to find our products</h4>
+                <h4 class="xl:text-5xl 2xl:text-6xl text-hydrate font-questrial">How to find our products</h4>
                 <p
-                    class="mt-5 font-semibold text-gray-400 font-questrial text-lg"
+                    class="xl:text-lg 2xl:text-2xl mt-5 xl:mt-8 font-medium text-gray-400 font-questrial"
                 >Our products are exclusively available through our partner clinics and dermatologies.</p>
                 <p
-                    class="font-semibold text-gray-400 font-questrial text-lg"
+                    class="xl:text-lg 2xl:text-2xl font-medium text-gray-400 font-questrial"
                 >Please make sure to consult with our physician to get the best experience with our product.</p>
             </div>
             <div class="flex items-center w-full md:w-fit">

@@ -22,7 +22,7 @@ const { data: featuredProducts } = useGetQueries<Product>('product', {
 </script>
 
 <template>
-  <div id="banner" class="hidden md:block">
+  <div id="banner" class="">
     <BannerSlider :items="mainBanners" />
   </div>
 
@@ -32,7 +32,7 @@ const { data: featuredProducts } = useGetQueries<Product>('product', {
   <div id="product-list" class="mt-20 text-baseColor">
     <ProductList />
   </div>
-  <div id="how-to-find" class="mt-20 mb-20">
+  <div id="how-to-find" class="mt-20">
     <HowToFind />
   </div>
 

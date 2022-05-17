@@ -13,9 +13,9 @@ const createLink = () => {
 
 <template>
   <article
-    class="flex flex-col mx-auto overflow-hidden duration-200 text-gray-500 hover:text-emerald-400 grayscale hover:grayscale-0"
+    class="articles flex flex-col mx-auto overflow-hidden duration-200 hover:text-emerald-400"
     style="background-color: rgb(236 237 239)">
-    <div class="w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
+    <div class="images w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
       <a :href="createLink()">
         <img alt="Placeholder" class="block w-full m-auto" :src="data.thumbnailUrl" />
       </a>
@@ -27,13 +27,24 @@ const createLink = () => {
     </header>
 
     <footer class="flex items-end justify-between p-1 leading-none md:p-3 sm:p-4">
-      <p class="p-2 px-3 text-xs md:text-sm sm:text-sm">
+      <p class="p-2 text-xs text-gray-1 md:text-sm sm:text-sm">
         by {{ data.user.name }} -
         {{ new Date(data.createdAt).toLocaleDateString("ID-id") }}
       </p>
-      <a class="p-2 px-3 text-center no-underline text-emerald-400" :href="createLink()">
-        <span class>Read More</span>
+      <a class="p-2 text-center no-underline text-emerald-400" :href="createLink()">
+        <span>Read More</span>
       </a>
     </footer>
   </article>
 </template>
+
+<style scoped>
+.articles .images a img {
+  filter: grayscale(1);
+  transition: .5s;
+}
+.articles:hover .images a img {
+  filter: grayscale(0);
+  transition: .5s;
+}
+</style>

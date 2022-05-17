@@ -26,7 +26,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div id="#header" class="fixed top-0 left-0 z-20 flex items-center justify-between w-full h-24 px-20 bg-white">
+  <div id="#header" class="fixed top-0 left-0 z-20 flex items-center justify-between w-full pt-14 pb-8 px-20 bg-white">
     <a href="#" @click.prevent="$router.push('/')">
       <img class="object-cover h-16" src="/img/logo-black.svg" />
     </a>
@@ -39,26 +39,28 @@ onMounted(() => {
         class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-24 md:flex-row md:top-0 md:static"
         v-show="menu.open">
         <li>
-          <a href="#" @click.prevent @mouseenter="hovered = 0"
-            class="font-semibold text-gray-600 font-din-next-lt-pro-light">
+          <a
+            href="#"
+            @click.prevent="hovered = hovered === 0?null:0"
+            class="font-semibold text-gray-600 font-din-next-lt-pro-light"
+          >
             Products
           </a>
 
-          <ProductSection :hovered="hovered" @mouseleave="onMouseLeave" />
+          <ProductSection :hovered="hovered"/>
         </li>
 
         <li>
-          <a href="#" @click.prevent @mouseenter="hovered = 1"
-            class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
-          <ArticleSection :hovered="hovered" @mouseleave="onMouseLeave" />
+          <a href="#" @click.prevent="hovered = hovered === 1?null:1"
+             class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
+          <ArticleSection :hovered="hovered"/>
         </li>
 
         <li>
-          <a href="#" @click.prevent @mouseenter="hovered = 2"
-            class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
+          <a href="#" @click.prevent="hovered = hovered === 2?null:2"
+             class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
           <Transition name="fade">
-            <div v-show="hovered === 2" class="absolute left-0 flex w-full px-20 bg-white shadow-lg top-24"
-              @mouseleave="hovered = null">
+            <div v-show="hovered === 2" class="font-questrial absolute left-0 flex w-full px-20 bg-white shadow-lg top-24">
               <div class="-ml-24 cursor-pointer" @click="$router.push('/about-us')">
                 <div class="px-24 bg-gray-100 w-[400px] h-full flex flex-col justify-center py-14">
                   <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About

@@ -27,7 +27,7 @@ const sortLatest = () => {
 </script>
 
 <template>
-  <div class="flex justify-center p-2 mx-auto my-12 md:p-4">
+  <div class="flex justify-center p-2 mx-auto mb-12 md:p-4">
     <div class="justify-between flex-1 p-2 md:p-6 text-slate-600">
       <div class="md:flex md:flex-wrap justify-center md:justify-between py-1 md:py-3 text-slate-600">
         <p class="text-3xl font-inter pb-4 md:pb-0 text-center">Articles</p>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, computed, toRefs } from 'vue'
+import { ref, defineProps, computed, toRefs, watch } from 'vue'
 import { MainBanner } from '../../../typings/MainBanner'
 
 interface Prop {
@@ -12,6 +12,40 @@ interface Prop {
 const props = defineProps<Prop>();
 
 const { direction, data } = toRefs(props);
+
+const input = ref<any>(null)
+
+const dataTitle = computed(() => {
+  return Ellipsis(data.value.title)
+})
+
+function load() {
+  if (input.value) {
+    input.value.innerHTML
+    console.log(input.value.innerHTML)
+  }
+}
+
+watch(data, () => {
+  load()
+})
+
+function Ellipsis(str: string) {
+  
+  const lenStr = str.length
+  const word = str.split(' ')
+
+  let count = 0;
+  for (let i = 0; i < word.length; i++)   {
+      count += word[i].length
+      if ( count > lenStr / 2) {
+          word[i] += "<br>"
+          break
+      }
+  }
+  console.log(" Word1 " + word)
+  return word.join(' ')
+}
 
 const transitionEffect = computed(() => {
     return direction.value === 'right' ? 'slide-out' : 'slide-in'
@@ -26,9 +60,9 @@ const transitionEffect = computed(() => {
             :href="data.link"
             v-show="currentSlide === index"
         >
-            <div class="absolute left-0 flex flex-col justify-center h-full max-w-[60%] pl-[15%]">
-                <h2 class="text-6xl text-white font-din-next-lt-pro-light">{{ data.title }}</h2>
-                <h2 class="mt-5 text-3xl text-white font-din-next-lt-pro-light">{{ data.subTitle }}</h2>
+            <div class="absolute left-0 flex flex-col justify-center h-full max-w-[60%] pl-[12%]">
+                <h2 class="md:text-5xl xl:text-6xl text-white font-din-next-lt-pro-light" v-html="dataTitle" ></h2>
+                <h2 class="mt-5 text-sm md:text-2xl xl:text-3xl text-white font-din-next-lt-pro-light">{{ data.subTitle }}</h2>
             </div>
             <div class="relative flex items-end justify-end h-full">
                 <img

@@ -30,7 +30,7 @@ const getIcon = (category: string) => {
   >
     <div v-if="item" class="w-full">
       <div
-        class="relative w-full flex justify-center items-center py-[50%] max-h-[450px]"
+        class="relative w-full flex justify-center items-center py-[50%] max-h-[300px]"
         :class="{ 'bg-white-smoke': isSeries, ['bg-' + selectedCategory]: !isSeries, }"
       >
         <img

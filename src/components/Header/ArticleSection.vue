@@ -47,7 +47,6 @@
     <div
       v-show="hovered === 1"
       class="absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg top-24"
-      @mouseleave="search = null"
     >
       <div class="block lg:hidden flex-1 mt-5">
         <div class="flex justify-center mt-6 border-t-2 border-hydrate">
@@ -125,7 +124,11 @@
                 </div>
               </transition>
             </div>
-            <button class="flex items-center justify-center text-white w-14 h-14 bg-hydrate">
+            <button 
+              :href="'/search'" 
+              @click.prevent="$router.push('/search')" 
+              class="flex items-center justify-center text-white w-14 h-14 bg-hydrate"
+            >
               <img src="/img/search.svg" class="w-8 h-8"/>
             </button>
           </div>
