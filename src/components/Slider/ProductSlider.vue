@@ -56,8 +56,8 @@ const goTo = (key: number) => {
         <div class="flex flex-col justify-between h-full bg-hydrate">
           <div class="absolute flex justify-center -top-6 left-0 right-0">
             <div
-              class="w-full py-2 text-xl font-bold text-center uppercase bg-white border-2 text-primary border-hydrate font-questrial w-[100%] max-w-[150px]">
-              {{ items[active]?.category?.name }}
+              class="w-full py-2 text-xl tracking-[10px] text-center uppercase bg-white border-2 text-primary border-hydrate font-questrial w-[100%] max-w-[200px]">
+              {{ String(items[active]?.category?.name).trim() }}
             </div>
           </div>
           <div class="relative w-full flex items-end overflow-hidden h-[75%]">
@@ -71,7 +71,7 @@ const goTo = (key: number) => {
             </div>
           </div>
           <div class="flex-1 flex flex-col justify-center items-center w-full px-5 mt-[7%]">
-            <div class="text-3xl font-bold text-center text-white md:text-3xl lg:text-4xl">
+            <div class="text-3xl text-center text-white md:text-3xl lg:text-4xl">
               {{ items[active]?.name }}
             </div>
             <div class="flex items-center justify-between flex-1 w-full max-w-[200px] mt-5">

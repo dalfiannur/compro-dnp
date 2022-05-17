@@ -66,7 +66,6 @@
                   <a
                     v-if="articles[0]"
                     :href="'/articles/' + articles[0].slug"
-                    @click.prevent="$router.push('/articles/' + articles[0].slug)"
                     class="flex items-center justify-between pb-2 border-b-2 border-gray-400"
                   >
                     <h3 class="text-gray-600">{{ articles[0]. title }}</h3>
@@ -80,7 +79,7 @@
               </transition>
             </div>
             <button class="flex items-center justify-center text-white w-14 h-14 bg-hydrate">
-              <img src="/img/search.svg" class="w-8 h-8"/>
+              <img src="/img/search.svg" class="w-5 h-5"/>
             </button>
           </div>
         </div>

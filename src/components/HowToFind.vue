@@ -8,12 +8,12 @@
             class="flex flex-col items-end justify-between h-full p-10 md:p-20 md:flex-row wrapper__inner"
         >
             <div>
-                <h4 class="text-6xl text-hydrate font-questrial">How to find our products</h4>
+                <h4 class="text-5xl text-hydrate font-questrial">How to find our products</h4>
                 <p
-                    class="mt-5 font-semibold text-gray-400 font-questrial"
+                    class="mt-5 font-semibold text-gray-400 font-questrial text-lg"
                 >Our products are exclusively available through our partner clinics and dermatologies.</p>
                 <p
-                    class="font-semibold text-gray-400 font-questrial"
+                    class="font-semibold text-gray-400 font-questrial text-lg"
                 >Please make sure to consult with our physician to get the best experience with our product.</p>
             </div>
             <div class="flex items-center w-full md:w-fit">

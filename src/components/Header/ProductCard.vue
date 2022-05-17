@@ -20,7 +20,7 @@ const { item } = defineProps<Prop>()
         'bg-preserve': item.title.toLowerCase() === 'preserve',
       }"
     />
-    <ul class="text-justify text-gray-600">
+    <ul class="text-gray-600 sm:text-sm md:text-md">
       <li v-for="used in item.usedAs" :key="used">
         {{ used }}
       </li>
