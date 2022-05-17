@@ -42,28 +42,26 @@
         <li>
           <a
             href="#"
-            @click.prevent
-            @mouseenter="hovered = 0"
+            @click.prevent="hovered = hovered === 0?null:0"
             class="font-semibold text-gray-600 font-din-next-lt-pro-light"
           >
             Products
           </a>
 
-          <ProductSection :hovered="hovered" @mouseleave="onMouseLeave"/>
+          <ProductSection :hovered="hovered"/>
         </li>
 
         <li>
-          <a href="#" @click.prevent @mouseenter="hovered = 1"
+          <a href="#" @click.prevent="hovered = hovered === 1?null:1"
              class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
-          <ArticleSection :hovered="hovered" @mouseleave="onMouseLeave"/>
+          <ArticleSection :hovered="hovered"/>
         </li>
 
         <li>
-          <a href="#" @click.prevent @mouseenter="hovered = 2"
+          <a href="#" @click.prevent="hovered = hovered === 2?null:2"
              class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
           <Transition name="fade">
-            <div v-show="hovered === 2" class="absolute left-0 flex w-full px-20 bg-white shadow-lg top-24"
-                 @mouseleave="hovered = null">
+            <div v-show="hovered === 2" class="font-questrial absolute left-0 flex w-full px-20 bg-white shadow-lg top-24">
               <div class="-ml-24 cursor-pointer" @click="$router.push('/about-us')">
                 <div class="px-24 bg-gray-100 w-[400px] h-full flex flex-col justify-center py-14">
                   <a href="/about-us" @click.prevent="$router.push('/about-us')"
