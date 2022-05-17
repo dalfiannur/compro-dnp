@@ -64,11 +64,11 @@ const goTo = (key: number) => {
 <template>
   <div class="relative flex justify-center w-full pt-[150%] md:pt-[65vh] xl:pt-[65vh]">
     <div class="absolute top-0 bottom-0 left-0 right-0 z-[4] flex justify-center">
-      <div class="w-full md:w-[32%] md:min-w-[350px] h-full px-0 md:px-5">
+      <div class="w-full md:w-[32%] md:min-w-[350px] md:max-w-[400px] h-full px-0 md:px-5">
         <div class="flex flex-col justify-between h-full bg-hydrate">
           <div class="absolute flex justify-center -top-6 left-0 right-0">
             <div
-              class="w-full py-3 sm:text-xs md:text-sm xl:text-sm font-light text-center uppercase bg-white border-2 text-primary tracking-[0.5em] border-hydrate font-questrial md:max-w-[150px] lg:max-w-[175px] xl:max-w-[210px]">
+              class="w-full py-3 sm:text-xs md:text-sm xl:text-sm font-light text-center uppercase bg-white border text-primary tracking-[0.5em] border-hydrate font-questrial md:max-w-[150px] lg:max-w-[175px] xl:max-w-[210px]">
               {{ items[active]?.category?.name }}
             </div>
           </div>
@@ -82,15 +82,15 @@ const goTo = (key: number) => {
               </Transition>
             </div>
           </div>
-          <div class="flex-1 flex flex-col justify-center items-center w-full px-5 mt-[7%]">
-            <div class="text-3xl font-normal text-center text-white md:text-xl lg:text-2xl xl:text-4xl">
+          <div class="flex-1 flex flex-col justify-center items-center w-full px-5 my-[7%]">
+            <div class="text-3xl font-normal font-questrial text-center text-white md:text-3xl">
               {{ items[active]?.name }}
             </div>
             <div class="flex items-center justify-between flex-1 w-full max-w-[200px] mt-5">
               <div 
                 v-for="(item, index) in items" 
                 :key="item.id"
-                class="flex items-center justify-center w-6 h-6 border-2 border-white cursor-pointer"
+                class="flex items-center justify-center w-6 h-6 border border-white cursor-pointer"
                 @click="goTo(index)">
                 <div v-if="activeSlides === index" class="w-3 h-3 bg-white" />
               </div>
