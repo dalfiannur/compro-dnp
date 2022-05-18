@@ -26,5 +26,5 @@
 
 :root {
     --color-repair: '92 132 195';
-    --color-hydrate: '99 196 180'
+    --color-hydrate: rgb(99,196,180);
 }
