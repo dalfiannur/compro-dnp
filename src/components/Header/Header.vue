@@ -39,28 +39,26 @@ onMounted(() => {
         class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-24 md:flex-row md:top-0 md:static"
         v-show="menu.open">
         <li>
-          <a
-            href="#"
-            @click.prevent="hovered = hovered === 0?null:0"
-            class="font-semibold text-gray-600 font-din-next-lt-pro-light"
-          >
+          <a href="#" @click.prevent="hovered = hovered === 0 ? null : 0"
+            class="font-semibold text-gray-600 font-din-next-lt-pro-light">
             Products
           </a>
 
-          <ProductSection :hovered="hovered"/>
+          <ProductSection :hovered="hovered" />
         </li>
 
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 1?null:1"
-             class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
-          <ArticleSection :hovered="hovered"/>
+          <a href="#" @click.prevent="hovered = hovered === 1 ? null : 1"
+            class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
+          <ArticleSection :hovered="hovered" />
         </li>
 
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 2?null:2"
-             class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
+          <a href="#" @click.prevent="hovered = hovered === 2 ? null : 2"
+            class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
           <Transition name="fade">
-            <div v-show="hovered === 2" class="font-questrial absolute left-0 flex w-full px-20 bg-white shadow-lg top-32">
+            <div v-show="hovered === 2"
+              class="font-questrial absolute left-0 flex w-full px-20 bg-white shadow-lg top-32">
               <div class="-ml-24 cursor-pointer" @click="$router.push('/about-us')">
                 <div class="px-24 bg-gray-100 w-[400px] h-full flex flex-col justify-center py-14">
                   <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About
@@ -88,7 +86,7 @@ onMounted(() => {
                     </a>
                   </div>
                   <div>
-                    <a href="mailto:support@dpelab.id"
+                    <a target="_blank" href="mailto:support@dpelab.id"
                       class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate">
                       <img src="/img/mail.svg" class="w-8 h-8 text-white" />
                     </a>
