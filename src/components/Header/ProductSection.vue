@@ -81,7 +81,6 @@
   <Transition name="fade">
     <div
       v-show="hovered === 0"
-      @mouseleave="search = ''"
       class="absolute left-0 flex flex-col xl:flex-row w-full px-0 xl:px-20 bg-white shadow-lg lg:top-32"
     >
       <div class="w-full xl:w-[360px] xl:-ml-24">
@@ -92,10 +91,9 @@
       <div class="relative flex-1">
         <div class="grid flex-1 w-full px-5 xl:px-0 h-full grid-cols-2 xl:grid-cols-5 gap-5 xl:gap-10 pb-10">
           <ProductCard
-            v-for="(item, index) in productSeries"
+            v-for="(item) in productSeries"
             :key="item.title"
             :item="item"
-            @mouseenter="show = index"
           />
         </div>
         <div class="absolute top-0 right-[0px] gap-10 -left-[80px] hidden xl:flex">
@@ -132,7 +130,7 @@
                 </Transition>
               </div>
               <button class="flex items-center justify-center w-14 h-14 bg-hydrate">
-                <img src="/img/search.svg" class="w-8 h-8"/>
+                <img src="/img/search.svg" class="w-5 h-5 ml-1"/>
               </button>
             </div>
           </div>

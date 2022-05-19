@@ -71,7 +71,7 @@
 
 <template>
   <div class="flex justify-center">
-    <div class="relative w-full min-h-[555px] overflow-hidden">
+    <div class="relative w-full h-[60vh] max-h-[200px] md:max-h-[none] overflow-hidden">
       <SliderItem
         v-for="(item, index) in items"
         :data="item"

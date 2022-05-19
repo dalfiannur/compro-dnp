@@ -46,8 +46,7 @@
   <Transition name="fade">
     <div
       v-show="hovered === 1"
-      class="absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg top-24"
-      @mouseleave="search = null"
+      class="absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg top-32"
     >
       <div class="block lg:hidden flex-1 mt-5">
         <div class="flex justify-center mt-6 border-t-2 border-hydrate">
@@ -66,7 +65,6 @@
                   <a
                     v-if="articles[0]"
                     :href="'/articles/' + articles[0].slug"
-                    @click.prevent="$router.push('/articles/' + articles[0].slug)"
                     class="flex items-center justify-between pb-2 border-b-2 border-gray-400"
                   >
                     <h3 class="text-gray-600">{{ articles[0]. title }}</h3>
@@ -80,7 +78,7 @@
               </transition>
             </div>
             <button class="flex items-center justify-center text-white w-14 h-14 bg-hydrate">
-              <img src="/img/search.svg" class="w-8 h-8"/>
+              <img src="/img/search.svg" class="w-5 h-5"/>
             </button>
           </div>
         </div>

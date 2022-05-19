@@ -13,27 +13,38 @@ const createLink = () => {
 
 <template>
   <article
-    class="flex flex-col mx-auto overflow-hidden duration-200 hover:text-emerald-400 grayscale hover:grayscale-0"
+    class="articles flex flex-col mx-auto overflow-hidden duration-200 hover:text-emerald-400"
     style="background-color: rgb(236 237 239)">
-    <div class="w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
+    <div class="images w-full h-1/2 md:h-fit sm:h-fit aspect-square md:aspect-video">
       <a :href="createLink()">
         <img alt="Placeholder" class="block w-full m-auto" :src="data.thumbnailUrl" />
       </a>
     </div>
     <header class="flex justify-between flex-1 w-full p-2 leading-tight md:p-4">
-      <h1 class="my-auto text-base md:text-lg ms:my-0 sm:text-lg sm:my-0">
-        <p class>{{ data.title }}</p>
+      <h1 class="my-auto text-base md:text-2xl ms:my-0 sm:text-lg sm:my-0">
+        <p class="px-3">{{ data.title }}</p>
       </h1>
     </header>
 
-    <footer class="flex flex-col items-end justify-between p-1 leading-none md:p-3 sm:p-4">
+    <footer class="flex items-end justify-between p-1 leading-none md:p-3 sm:p-4">
       <p class="p-2 text-xs text-black md:text-sm sm:text-sm">
         by {{ data.user.name }} -
         {{ new Date(data.createdAt).toLocaleDateString("ID-id") }}
       </p>
       <a class="p-2 text-center no-underline text-emerald-400" :href="createLink()">
-        <span class>Read More</span>
+        <span>Read More</span>
       </a>
     </footer>
   </article>
 </template>
+
+<style scoped>
+.articles .images a img {
+  filter: grayscale(1);
+  transition: .5s;
+}
+.articles:hover .images a img {
+  filter: grayscale(0);
+  transition: .5s;
+}
+</style>

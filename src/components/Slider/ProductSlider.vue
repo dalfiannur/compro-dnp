@@ -11,13 +11,14 @@ const { items } = defineProps<Prop>();
 const activeSlides = ref<number>(2);
 const active = ref<number>(2);
 const slideTo = ref<string>("next");
+let timeout: NodeJS.Timer
 
 const next = (key: number) => {
   slideTo.value = "next";
   const loop = () => {
     if (active.value < key) {
       active.value = active.value + 1;
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         loop();
       }, 1000);
     }
@@ -30,7 +31,7 @@ const prev = (key: number) => {
   const loop = () => {
     if (active.value > key) {
       active.value = active.value - 1;
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         loop();
       }, 1000);
     }
@@ -38,25 +39,36 @@ const prev = (key: number) => {
   loop();
 };
 
+let running = false;
+
 const goTo = (key: number) => {
+  clearTimeout (timeout)
+  if (running) {
+    return
+  } else{
+    running = true
+  }
+
+
   if (key >= activeSlides.value) {
     next(key);
   } else {
     prev(key);
-  }
+  } 
+  running = false
 
   activeSlides.value = key;
 };
 </script>
 
 <template>
-  <div class="relative flex justify-center w-full pt-[150%] md:pt-[50%] max-h-[500px]">
+  <div class="relative flex justify-center w-full pt-[150%] md:pt-[65vh] xl:pt-[75vh]">
     <div class="absolute top-0 bottom-0 left-0 right-0 z-[4] flex justify-center">
-      <div class="w-full md:w-[32%] h-full px-0 md:px-5">
+      <div class="w-full md:w-[32%] md:min-w-[350px] md:max-w-[500px] h-full px-0 md:px-5">
         <div class="flex flex-col justify-between h-full bg-hydrate">
           <div class="absolute flex justify-center -top-6 left-0 right-0">
             <div
-              class="w-full py-2 text-xl font-bold text-center uppercase bg-white border-2 text-primary border-hydrate font-questrial w-[100%] max-w-[150px]">
+              class="w-full py-3 sm:text-xs md:text-sm xl:text-sm font-light text-center uppercase bg-white border text-primary tracking-[0.5em] border-hydrate font-questrial md:max-w-[150px] lg:max-w-[175px] xl:max-w-[210px]">
               {{ items[active]?.category?.name }}
             </div>
           </div>
@@ -64,21 +76,21 @@ const goTo = (key: number) => {
             <div class="relative flex justify-center w-full h-full max-h-[400px] overflow-hidden">
               <Transition :name="slideTo" v-for="(item, index) in items" :key="item.name">
                 <div v-show="active === index" class="absolute top-0 flex flex-col justify-end h-full selected-slide">
-                  <img class="w-full cursor-pointer max-h-[400px]" :src="item.images[1].imageSourceUrl"
+                  <img class="h-[40vh] cursor-pointer max-h-[400px]" :src="item.images[1].imageSourceUrl"
                     @click="$router.push('/products/' + item.id)" />
                 </div>
               </Transition>
             </div>
           </div>
-          <div class="flex-1 flex flex-col justify-center items-center w-full px-5 mt-[7%]">
-            <div class="text-3xl font-bold text-center text-white md:text-3xl lg:text-4xl">
+          <div class="flex-1 flex flex-col justify-center items-center w-full px-5 my-[7%]">
+            <div class="text-3xl font-normal font-questrial text-center text-white md:text-3xl">
               {{ items[active]?.name }}
             </div>
             <div class="flex items-center justify-between flex-1 w-full max-w-[200px] mt-5">
               <div 
                 v-for="(item, index) in items" 
                 :key="item.id"
-                class="flex items-center justify-center w-6 h-6 border-2 border-white cursor-pointer"
+                class="flex items-center justify-center w-6 h-6 border border-white cursor-pointer"
                 @click="goTo(index)">
                 <div v-if="activeSlides === index" class="w-3 h-3 bg-white" />
               </div>
@@ -89,11 +101,11 @@ const goTo = (key: number) => {
     </div>
 
     <div class="absolute top-0 bottom-0 left-0 hidden w-1/3 md:block">
-      <div class="h-[75%] flex items-end overflow-hidden">
+      <div class="h-[55vh] flex items-end overflow-hidden">
         <div class="w-full h-[65%] bg-white-smoke max-h-[500px] relative flex justify-center">
           <Transition :name="slideTo + '-left-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index === active" :src="item.images[0].imageSourceUrl"
-              class="absolute h-[90%] cursor-pointer max-h-[550px] slide-left"
+              class="absolute h-[40vh] cursor-pointer max-h-[550px] slide-left"
               @click="$router.push('/products/' + items[0].id)" />
           </Transition>
         </div>
@@ -101,11 +113,11 @@ const goTo = (key: number) => {
     </div>
 
     <div class="absolute top-0 bottom-0 right-0 hidden w-1/3 md:block">
-      <div class="h-[75%] flex items-end overflow-hidden">
+      <div class="h-[55vh] flex items-end overflow-hidden">
         <div class="w-full h-[65%] bg-white-smoke max-h-[500px] relative flex justify-center">
           <Transition :name="slideTo + '-right-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index === active" :src="item.images[0].imageSourceUrl"
-              class="absolute h-[90%] cursor-pointer max-h-[550px] slide-right"
+              class="absolute h-[40vh] cursor-pointer max-h-[550px] slide-right"
               @click="$router.push('/products/' + items[0].id)" />
           </Transition>
         </div>
