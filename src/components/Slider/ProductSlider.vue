@@ -42,10 +42,10 @@ const prev = (key: number) => {
 let running = false;
 
 const goTo = (key: number) => {
-  clearTimeout (timeout)
+  clearTimeout(timeout)
   if (running) {
     return
-  } else{
+  } else {
     running = true
   }
 
@@ -54,7 +54,7 @@ const goTo = (key: number) => {
     next(key);
   } else {
     prev(key);
-  } 
+  }
   running = false
 
   activeSlides.value = key;
@@ -62,7 +62,7 @@ const goTo = (key: number) => {
 </script>
 
 <template>
-  <div class="relative flex justify-center w-full pt-[150%] md:pt-[65vh] xl:pt-[75vh]">
+  <div class="relative flex justify-center w-full pt-[150%] md:pt-[75vh]">
     <div class="absolute top-0 bottom-0 left-0 right-0 z-[4] flex justify-center">
       <div class="w-full md:w-[32%] md:min-w-[350px] md:max-w-[500px] h-full px-0 md:px-5">
         <div class="flex flex-col justify-between h-full bg-hydrate">
@@ -87,9 +87,7 @@ const goTo = (key: number) => {
               {{ items[active]?.name }}
             </div>
             <div class="flex items-center justify-between flex-1 w-full max-w-[200px] mt-5">
-              <div 
-                v-for="(item, index) in items" 
-                :key="item.id"
+              <div v-for="(item, index) in items" :key="item.id"
                 class="flex items-center justify-center w-6 h-6 border border-white cursor-pointer"
                 @click="goTo(index)">
                 <div v-if="activeSlides === index" class="w-3 h-3 bg-white" />
@@ -100,24 +98,24 @@ const goTo = (key: number) => {
       </div>
     </div>
 
-    <div class="absolute top-0 bottom-0 left-0 hidden w-1/3 md:block">
+    <div class="absolute top-0 bottom-0 left-0 hidden w-[30%] md:block">
       <div class="h-[55vh] flex items-end overflow-hidden">
-        <div class="w-full h-[65%] bg-white-smoke max-h-[500px] relative flex justify-center">
+        <div class="w-[100%] h-[60%] bg-white-smoke max-h-[500px] relative flex justify-end">
           <Transition :name="slideTo + '-left-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index === active" :src="item.images[0].imageSourceUrl"
-              class="absolute h-[40vh] cursor-pointer max-h-[550px] slide-left"
+              class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-left -mb-24"
               @click="$router.push('/products/' + items[0].id)" />
           </Transition>
         </div>
       </div>
     </div>
 
-    <div class="absolute top-0 bottom-0 right-0 hidden w-1/3 md:block">
+    <div class="absolute top-0 bottom-0 right-0 hidden w-[30%] md:block">
       <div class="h-[55vh] flex items-end overflow-hidden">
-        <div class="w-full h-[65%] bg-white-smoke max-h-[500px] relative flex justify-center">
+        <div class="w-full h-[60%] bg-white-smoke max-h-[500px] relative flex justify-start">
           <Transition :name="slideTo + '-right-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index === active" :src="item.images[0].imageSourceUrl"
-              class="absolute h-[40vh] cursor-pointer max-h-[550px] slide-right"
+              class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-right -mb-24"
               @click="$router.push('/products/' + items[0].id)" />
           </Transition>
         </div>
