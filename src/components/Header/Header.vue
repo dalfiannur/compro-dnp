@@ -14,9 +14,9 @@ const onResize = () => {
   }
 };
 
-const onMouseLeave = () => {
-  hovered.value = null
-};
+// const onMouseLeave = () => {
+//   hovered.value = null
+// };
 
 onMounted(() => {
   onResize();
@@ -40,25 +40,24 @@ onMounted(() => {
         class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-[9.3rem] md:flex-row lg:top-0 md:static"
         v-show="menu.open">
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 0 ? null : 0"
+          <a href="#" @click.prevent="hovered = hovered === 0 ? null : 0" @mouseover="hovered = 0"
             class="font-semibold text-gray-600 font-din-next-lt-pro-light">
             Products
           </a>
-
-          <ProductSection :hovered="hovered" />
+          <ProductSection :hovered="hovered" @mouseover="hovered = 0" @mouseleave="hovered = null" />
         </li>
 
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 1 ? null : 1"
+          <a href="#" @click.prevent="hovered = hovered === 1 ? null : 1" @mouseover="hovered = 1"
             class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
-          <ArticleSection :hovered="hovered" />
+          <ArticleSection :hovered="hovered" @mouseover="hovered = 1" @mouseleave="hovered = null" />
         </li>
 
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 2 ? null : 2"
+          <a href="#" @click.prevent="hovered = hovered === 2 ? null : 2" @mouseover="hovered = 2"
             class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
           <Transition name="fade">
-            <div v-show="hovered === 2"
+            <div v-show="hovered === 2" @mouseleave="hovered = null"
               class="font-questrial absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg lg:top-32">
               <div class="lg:-ml-24 cursor-pointer" @click="$router.push('/about-us')">
                 <div class="px-5 lg:px-20 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
