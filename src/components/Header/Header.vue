@@ -26,7 +26,8 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div id="#header" class="fixed top-0 left-0 z-20 flex items-center justify-between w-full pt-14 md:pt-14 pb-8 px-20 bg-white">
+  <div id="#header"
+    class="fixed top-0 left-0 z-20 flex items-center justify-between w-full pt-14 md:pt-14 pb-8 px-20 bg-white">
     <a href="#" @click.prevent="$router.push('/')">
       <img class="object-cover h-16" src="/img/logo-black.svg" />
     </a>
@@ -60,10 +61,10 @@ onMounted(() => {
             <div v-show="hovered === 2"
               class="font-questrial absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg lg:top-32">
               <div class="lg:-ml-24 cursor-pointer" @click="$router.push('/about-us')">
-                <div class="px-5 lg:px-24 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
+                <div class="px-5 lg:px-20 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
                   <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About
                     Us</a>
-                  <p class="mt-10 text-justify text-gray-700">
+                  <p class="mt-5 text-baseColor text-justify">
                     PT Dermedic Phar Este is
                     established in 2022 as the first
                     local brand with premium and
@@ -74,21 +75,21 @@ onMounted(() => {
               </div>
               <div class="flex flex-col flex-1 px-5 lg:px-20 py-5 lg:py-14">
                 <h4 class="text-4xl text-hydrate">Want to know more about us?</h4>
-                <p class="max-w-[460px] mt-5 text-gray-700">
+                <p class="max-w-[460px] mt-5 text-baseColor">
                   Caffeine is a powerful antioxidant and anti-aging. While
                   combined with green tea and polyphenol, caffeine can also
                 </p>
                 <div class="flex gap-5 mt-5">
                   <div>
                     <a target="_blank" href="https://wa.me/6282261050567?text=Hallo"
-                      class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate">
+                      class="flex items-center justify-center rounded-full w-[52px] h-[52px] bg-hydrate">
                       <img src="/img/whatsapp.svg" class="w-8 h-8 text-white" />
                     </a>
                   </div>
                   <div>
                     <a target="_blank" href="mailto:support@dpelab.id"
-                      class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate">
-                      <img src="/img/mail.svg" class="w-8 h-8 text-white" />
+                      class="flex items-center justify-center rounded-full w-[52px] h-[52px] bg-hydrate">
+                      <img src="/img/mail.svg" class="w-6 h-6 text-white" />
                     </a>
                   </div>
                 </div>
