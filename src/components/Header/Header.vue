@@ -14,9 +14,9 @@ const onResize = () => {
   }
 };
 
-const onMouseLeave = () => {
-  hovered.value = null
-};
+// const onMouseLeave = () => {
+//   hovered.value = null
+// };
 
 onMounted(() => {
   onResize();
@@ -26,7 +26,8 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div id="#header" class="fixed top-0 left-0 z-20 flex items-center justify-between w-full pt-14 md:pt-14 pb-8 px-20 bg-white">
+  <div id="#header"
+    class="fixed top-0 left-0 z-20 flex items-center justify-between w-full pt-14 md:pt-14 pb-8 px-20 bg-white">
     <a href="#" @click.prevent="$router.push('/')">
       <img class="object-cover h-16" src="/img/logo-black.svg" />
     </a>
@@ -39,31 +40,35 @@ onMounted(() => {
         class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-[9.3rem] md:flex-row lg:top-0 md:static"
         v-show="menu.open">
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 0 ? null : 0"
+          <a href="#" @click.prevent="hovered = hovered === 0 ? null : 0" @mouseover="hovered = 0"
             class="font-semibold text-gray-600 font-din-next-lt-pro-light">
             Products
           </a>
-
-          <ProductSection :hovered="hovered" />
+          <ProductSection :hovered="hovered" @mouseover="hovered = 0" @mouseleave="hovered = null" />
         </li>
 
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 1 ? null : 1"
+          <a href="#" @click.prevent="hovered = hovered === 1 ? null : 1" @mouseover="hovered = 1"
             class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
-          <ArticleSection :hovered="hovered" />
+          <ArticleSection :hovered="hovered" @mouseover="hovered = 1" @mouseleave="hovered = null" />
         </li>
 
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 2 ? null : 2"
+          <a href="#" @click.prevent="hovered = hovered === 2 ? null : 2" @mouseover="hovered = 2"
             class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
           <Transition name="fade">
-            <div v-show="hovered === 2"
+            <div v-show="hovered === 2" @mouseleave="hovered = null"
               class="font-questrial absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg lg:top-32">
               <div class="lg:-ml-24 cursor-pointer" @click="$router.push('/about-us')">
+<<<<<<< HEAD
                 <div class="px-5 lg:px-24 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
                   <a href="/about-us" class="text-4xl text-hydrate">About
+=======
+                <div class="px-5 lg:px-20 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
+                  <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About
+>>>>>>> 66b7945f20b30ceb3ecc947bf4391224950c072b
                     Us</a>
-                  <p class="mt-10 text-justify text-gray-700">
+                  <p class="mt-5 text-baseColor text-justify">
                     PT Dermedic Phar Este is
                     established in 2022 as the first
                     local brand with premium and
@@ -74,21 +79,21 @@ onMounted(() => {
               </div>
               <div class="flex flex-col flex-1 px-5 lg:px-20 py-5 lg:py-14">
                 <h4 class="text-4xl text-hydrate">Want to know more about us?</h4>
-                <p class="max-w-[460px] mt-5 text-gray-700">
+                <p class="max-w-[460px] mt-5 text-baseColor">
                   Caffeine is a powerful antioxidant and anti-aging. While
                   combined with green tea and polyphenol, caffeine can also
                 </p>
                 <div class="flex gap-5 mt-5">
                   <div>
                     <a target="_blank" href="https://wa.me/6282261050567?text=Hallo"
-                      class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate">
+                      class="flex items-center justify-center rounded-full w-[52px] h-[52px] bg-hydrate">
                       <img src="/img/whatsapp.svg" class="w-8 h-8 text-white" />
                     </a>
                   </div>
                   <div>
                     <a target="_blank" href="mailto:support@dpelab.id"
-                      class="flex items-center justify-center rounded-full w-14 h-14 bg-hydrate">
-                      <img src="/img/mail.svg" class="w-8 h-8 text-white" />
+                      class="flex items-center justify-center rounded-full w-[52px] h-[52px] bg-hydrate">
+                      <img src="/img/mail.svg" class="w-6 h-6 text-white" />
                     </a>
                   </div>
                 </div>
