@@ -41,35 +41,23 @@ onMounted(() => {
 
         <div class="mx-auto">
           <h6 class="flex justify-center mb-4 md:justify-start font-questrial">Follow Us</h6>
-          <a
-            href="#!"
-            type="button"
-            class="m-1 leading-normal text-black uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9"
-          >
+          <a target="_blank" href="https://www.facebook.com/" type="button"
+            class="m-1 leading-normal text-black uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
             <img src="/img/facebook.svg" />
           </a>
 
-          <a
-            href="#!"
-            type="button"
-            class="m-1 leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9"
-          >
+          <a target="_blank" href="https://www.instagram.com/" type="button"
+            class="m-1 leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
             <img src="/img/instagram.svg" />
           </a>
 
-          <a
-            href="#!"
-            type="button"
-            class="m-1 leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9"
-          >
+          <a target="_blank" href="http://twitter.com/" type="button"
+            class="m-1 leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
             <img src="/img/twitter.svg" />
           </a>
 
-          <a
-            href="#!"
-            type="button"
-            class="m-1 leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9"
-          >
+          <a target="_blank" href="https://www.youtube.com/" type="button"
+            class="m-1 leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
             <img src="/img/youtube.svg" />
           </a>
         </div>
@@ -80,11 +68,8 @@ onMounted(() => {
     </div>
   </footer>
 
-  <button
-    v-if="buttonTop.show"
-    @click="scrollToTop"
-    class="fixed items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg none flex bottom-24 right-16"
-  >
+  <button v-if="buttonTop.show" @click="scrollToTop"
+    class="fixed items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg none flex bottom-24 right-16">
     <img src="/img/top.svg" class="w-5 h-5 m-auto" />
   </button>
 </template>

@@ -47,14 +47,14 @@ function Ellipsis(str: string) {
   return word.join(' ')
 }
 
-console.log(data.value.category.slug)
+console.log(data.value.category)
 
 </script>
 
 <template>
   <div
     v-if="data"
-    class="relative py-5 bg-hydrate flex items-center justify-center lg:justify-start h-80 lg:h-96 w-full flex-grow"
+    class="relative py-5 flex items-center justify-center lg:justify-start h-80 lg:h-96 w-full flex-grow"
     :class="['bg-' + data.category.slug]"
   >
 

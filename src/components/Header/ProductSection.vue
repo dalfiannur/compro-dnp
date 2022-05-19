@@ -81,7 +81,7 @@
   <Transition name="fade">
     <div
       v-show="hovered === 0"
-      class="absolute left-0 flex flex-col xl:flex-row w-full px-0 xl:px-20 bg-white shadow-lg lg:top-32"
+      class="absolute left-0 flex flex-col xl:flex-row w-full px-0 xl:px-20 bg-white shadow-lg top-14 lg:top-32"
     >
       <div class="w-full xl:w-[360px] xl:-ml-24">
         <div class="flex items-center h-full pl-4 sm:pl-9 py-4 xl:pl-24 xl:py-0 bg-gray-100">
@@ -89,16 +89,15 @@
         </div>
       </div>
       <div class="relative flex-1">
-        <div class="grid flex-1 w-full px-5 xl:px-0 h-full grid-cols-2 xl:grid-cols-5 gap-5 xl:gap-10 pb-10">
+        <div class="grid flex-1 w-full px-5 xl:px-0 h-full grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 gap-5 xl:gap-10 xl:pt-14 pb-10">
           <ProductCard
             v-for="(item) in productSeries"
             :key="item.title"
             :item="item"
           />
         </div>
-        <div class="absolute top-0 right-[0px] gap-10 -left-[80px] hidden xl:flex">
-          <div class="h-20 basis-1/4"/>
-          <div class="basis-3/4">
+        <div class="absolute top-0 right-[0px] gap-10 left-1 hidden xl:flex">
+          <div class="basis-full">
             <div class="flex order-2 w-full h-20 col-span-3">
               <div class="relative flex-1 h-14 bg-white-smoke">
                 <input

@@ -12,17 +12,16 @@ import useGetProductLineUp from "../../composable/useGetProductLineUp";
 
 // Initial Composable
 const { data: ProductRepair } = useGetProductLineUp();
-
 </script>
 
 <template>
-<!-- REPAIR -->
+  <!-- REPAIR -->
   <div class="flex flex-col justify-center">
     <div class="w-full h-[100px] items-center">
       <div
         class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
       >
-        <p class="text-xl text-repair">R E P A I R</p>
+        <p class="text-xl text-repair tracking-[.5em]">REPAIR</p>
         <p
           class="text-repair w-8 h-8 pl-2 text-2xl md:text-3xl"
           data-v-4e44e668
@@ -36,246 +35,255 @@ const { data: ProductRepair } = useGetProductLineUp();
     </div>
 
     <div class="my-6 overflow-auto mx-auto">
-      <div class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl">
-        
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+      <div
+        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
+      >
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
-
-        <ProductLineUp v-for="(page, index) in ProductRepair" :key="index" :data="page" />
-      
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+        <ProductLineUp
+          v-for="(page, index) in ProductRepair"
+          :key="index"
+          :data="page"
+        />
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<!-- PREVENT -->
+  <!-- PREVENT -->
   <div class="flex flex-col justify-center">
     <div class="w-full h-[100px] items-center">
       <div
         class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
       >
-        <p class="text-xl text-repair">R E P A I R</p>
+        <p class="text-xl text-prevent tracking-[.5em]">PREVENT</p>
         <p
-          class="text-repair w-8 h-8 pl-2 text-2xl md:text-3xl"
+          class="text-prevent w-8 h-8 pl-2 text-2xl md:text-3xl"
           data-v-4e44e668
         >
           &#709;
         </p>
         <span
-          class="flex-1 my-auto border-[1px] bg-repair border-repair"
+          class="flex-1 my-auto border-[1px] bg-prevent border-prevent"
         ></span>
       </div>
     </div>
 
     <div class="my-6 overflow-auto mx-auto">
-      <div class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl">
-        
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+      <div
+        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
+      >
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
-
-        <ProductLineUp v-for="(page, index) in ProductRepair" :key="index" :data="page" />
-      
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+        <ProductLineUp
+          v-for="(page, index) in ProductRepair"
+          :key="index"
+          :data="page"
+        />
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
       </div>
     </div>
   </div>
 
-
-<!-- GLOW -->
+  <!-- GLOW -->
   <div class="flex flex-col justify-center">
     <div class="w-full h-[100px] items-center">
       <div
         class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
       >
-        <p class="text-xl text-repair">R E P A I R</p>
-        <p
-          class="text-repair w-8 h-8 pl-2 text-2xl md:text-3xl"
-          data-v-4e44e668
-        >
+        <p class="text-xl text-glow tracking-[.5em]">GLOW</p>
+        <p class="text-glow w-8 h-8 pl-2 text-2xl md:text-3xl" data-v-4e44e668>
           &#709;
         </p>
-        <span
-          class="flex-1 my-auto border-[1px] bg-repair border-repair"
-        ></span>
+        <span class="flex-1 my-auto border-[1px] bg-glow border-glow"></span>
       </div>
     </div>
 
     <div class="my-6 overflow-auto mx-auto">
-      <div class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl">
-        
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+      <div
+        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
+      >
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
-
-        <ProductLineUp v-for="(page, index) in ProductRepair" :key="index" :data="page" />
-      
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+        <ProductLineUp
+          v-for="(page, index) in ProductRepair"
+          :key="index"
+          :data="page"
+        />
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<!-- HYDRATE -->
+  <!-- HYDRATE -->
   <div class="flex flex-col justify-center">
     <div class="w-full h-[100px] items-center">
       <div
         class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
       >
-        <p class="text-xl text-repair">R E P A I R</p>
+        <p class="text-xl text-hydrate tracking-[.5em]">HYDRATE</p>
         <p
-          class="text-repair w-8 h-8 pl-2 text-2xl md:text-3xl"
+          class="text-hydrate w-8 h-8 pl-2 text-2xl md:text-3xl"
           data-v-4e44e668
         >
           &#709;
         </p>
         <span
-          class="flex-1 my-auto border-[1px] bg-repair border-repair"
+          class="flex-1 my-auto border-[1px] bg-hydrate border-hydrate"
         ></span>
       </div>
     </div>
 
     <div class="my-6 overflow-auto mx-auto">
-      <div class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl">
-        
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+      <div
+        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
+      >
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
-
-        <ProductLineUp v-for="(page, index) in ProductRepair" :key="index" :data="page" />
-      
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+        <ProductLineUp
+          v-for="(page, index) in ProductRepair"
+          :key="index"
+          :data="page"
+        />
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<!-- PRESERVE -->
+  <!-- PRESERVE -->
   <div class="flex flex-col justify-center">
     <div class="w-full h-[100px] items-center">
       <div
         class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
       >
-        <p class="text-xl text-repair">R E P A I R</p>
+        <p class="text-xl text-preserve tracking-[.5em]">PRESERVE</p>
         <p
-          class="text-repair w-8 h-8 pl-2 text-2xl md:text-3xl"
+          class="text-preserve w-8 h-8 pl-2 text-2xl md:text-3xl"
           data-v-4e44e668
         >
           &#709;
         </p>
         <span
-          class="flex-1 my-auto border-[1px] bg-repair border-repair"
+          class="flex-1 my-auto border-[1px] bg-preserve border-preserve"
         ></span>
       </div>
     </div>
 
     <div class="my-6 overflow-auto mx-auto">
-      <div class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl">
-        
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+      <div
+        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
+      >
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
-
-        <ProductLineUp v-for="(page, index) in ProductRepair" :key="index" :data="page" />
-      
-        <div class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]">
+        <ProductLineUp
+          v-for="(page, index) in ProductRepair"
+          :key="index"
+          :data="page"
+        />
+        <div
+          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
+        >
           <div class="w-full aspect-square md:aspect-video bg-gray-200">
-          
             <img
               alt="Placeholder"
               id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible "
+              class="w-[320px] h-[385px] p-6 invisible"
               src="/img/bottle_box.png"
             />
-
           </div>
         </div>
       </div>
@@ -301,5 +309,4 @@ const { data: ProductRepair } = useGetProductLineUp();
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
 </style>
