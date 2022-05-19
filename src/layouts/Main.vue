@@ -6,7 +6,7 @@ import Footer from "../components/Footer.vue";
 <template>
   <div>
     <Header />
-    <div class="mt-36">
+    <div class="mt-32 md:mt-36">
       <slot />
     </div>
     <Footer />

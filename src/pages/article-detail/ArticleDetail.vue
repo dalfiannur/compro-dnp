@@ -28,7 +28,7 @@ const generateDate = (dateString: string) => {
 <template>
   <div v-if="data" class="flex justify-center">
     <div class="flex-1 max-w-screen-xl">
-      <div class="pt-10 text-center font-questrial">
+      <div class="pt-10 text-center text-gray-1 font-questrial">
         <h1>Published {{ generateDate(data.createdAt) }} - by {{ data.user.name }}</h1>
       </div>
       <div class="pt-5 font-questrial text-hydrate text-xl md:text-6xl text-center">
@@ -43,29 +43,29 @@ const generateDate = (dateString: string) => {
       </div>
       <div class="pt-10 flex justify-center">
         <div class="flex-1 max-w-screen-lg">
-          <div class="pt-5 text-justify" v-html="data.content" />
+          <div class="pt-5 text-justify text-baseColor font-questrial" v-html="data.content" />
         </div>
       </div>
       <div class="pt-10 flex gap-5 justify-center items-center">
-        <h6 class="flex justify-center md:justify-start font-questrial">Share this article</h6>
+        <h6 class="flex justify-center md:justify-start text-baseColor font-questrial">Share this article</h6>
         <div class="flex gap-2">
           <a href="#!" type="button"
-            class="leading-normal text-black uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
+            class="leading-normal uppercase transition duration-150 ease-in-out hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
             <img src="/img/facebook.svg" />
           </a>
 
           <a href="#!" type="button"
-            class="leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
+            class="leading-normal uppercase transition duration-150 ease-in-out hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
             <img src="/img/instagram.svg" />
           </a>
 
           <a href="#!" type="button"
-            class="leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
+            class="leading-normal uppercase transition duration-150 ease-in-out hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
             <img src="/img/twitter.svg" />
           </a>
 
           <a href="#!" type="button"
-            class="leading-normal uppercase transition duration-150 ease-in-out border-2 border-black rounded-full hover:border-gray-300 hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
+            class="leading-normal uppercase transition duration-150 ease-in-out hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
             <img src="/img/youtube.svg" />
           </a>
         </div>

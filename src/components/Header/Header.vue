@@ -27,21 +27,21 @@ onMounted(() => {
 </script>
 <template>
   <div id="#header"
-    class="fixed top-0 left-0 z-20 flex items-center justify-between w-full pt-14 md:pt-14 pb-8 px-20 bg-white">
+    class="fixed top-0 left-0 z-20 flex items-center justify-center md:justify-between w-full py-10 md:pt-14 md:pb-8 px-20 bg-white">
     <a href="#" @click.prevent="$router.push('/')">
-      <img class="object-cover h-16" src="/img/logo-black.svg" />
+      <img class="object-cover h-12 md:h-14" src="/img/logo-black.svg" />
     </a>
-    <button class="block md:hidden" @click="menu.open = !menu.open">
-      <img src="/img/hamburger-menu.svg" class="w-10 h-10" />
+    <button class="absolute left-[8vw] md:hidden" @click="menu.open = !menu.open">
+      <img src="/img/hamburger-menu.svg" class="w-7 h-7" />
     </button>
 
     <Transition name="fade">
       <ul
-        class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-[9.3rem] md:flex-row lg:top-0 md:static"
+        class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-28 md:flex-row lg:top-0 md:static"
         v-show="menu.open">
         <li>
           <a href="#" @click.prevent="hovered = hovered === 0 ? null : 0" @mouseover="hovered = 0"
-            class="font-semibold text-gray-600 font-din-next-lt-pro-light">
+            class="font-semibold text-gray-1 font-din-next-lt-pro-light">
             Products
           </a>
           <ProductSection :hovered="hovered" @mouseover="hovered = 0" @mouseleave="hovered = null" />
@@ -49,24 +49,19 @@ onMounted(() => {
 
         <li>
           <a href="#" @click.prevent="hovered = hovered === 1 ? null : 1" @mouseover="hovered = 1"
-            class="font-semibold text-gray-600 font-din-next-lt-pro-light">Articles</a>
+            class="font-semibold text-gray-1 font-din-next-lt-pro-light">Articles</a>
           <ArticleSection :hovered="hovered" @mouseover="hovered = 1" @mouseleave="hovered = null" />
         </li>
 
         <li>
           <a href="#" @click.prevent="hovered = hovered === 2 ? null : 2" @mouseover="hovered = 2"
-            class="font-semibold text-gray-600 font-din-next-lt-pro-light">About Us</a>
+            class="font-semibold text-gray-1 font-din-next-lt-pro-light">About Us</a>
           <Transition name="fade">
             <div v-show="hovered === 2" @mouseleave="hovered = null"
               class="font-questrial absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg lg:top-32">
               <div class="lg:-ml-24 cursor-pointer" @click="$router.push('/about-us')">
-<<<<<<< HEAD
                 <div class="px-5 lg:px-24 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
                   <a href="/about-us" class="text-4xl text-hydrate">About
-=======
-                <div class="px-5 lg:px-20 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
-                  <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About
->>>>>>> 66b7945f20b30ceb3ecc947bf4391224950c072b
                     Us</a>
                   <p class="mt-5 text-baseColor text-justify">
                     PT Dermedic Phar Este is

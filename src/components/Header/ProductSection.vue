@@ -129,7 +129,7 @@
                 </Transition>
               </div>
               <button class="flex items-center justify-center w-14 h-14 bg-hydrate">
-                <img src="/img/search.svg" class="w-5 h-5 ml-1"/>
+                <img src="/img/search.svg" class="w-6 h-6 ml-1"/>
               </button>
             </div>
           </div>
