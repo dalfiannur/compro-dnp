@@ -29,11 +29,8 @@ watch(data, () => {
 
 <template>
   <div v-if="data">
-    <div>
-      <ProductImage :data="data" class="mt-12 lg:hidden"/>
-    </div>
-    <div class="flex mt-20 font-questrial">
-      <div class="">
+    <div class="flex flex-col-reverse md:flex-row mt-20 font-questrial">
+      <div class="flex-1">
         <div class="flex mx-0 lg:mr-10 mb-10">
           <div class="mt-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-12 lg:ml-10" :class="['fill-' + data.category.slug]" viewBox="0 0 90.39 17.58">
@@ -74,9 +71,8 @@ watch(data, () => {
         </div>
       </div>
 
-      <div>
-        <ProductImage class="hidden lg:block lg:mr-28"/>
-      </div>
+      
+      <ProductImage :data="data" class="lg:block "/>
     </div>
 
     <div class="mt-20 font-questrial">

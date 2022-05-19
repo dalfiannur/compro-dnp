@@ -6,21 +6,20 @@ import {Product} from "../../typings/Product";
 import { useRoute } from "vue-router";
 import useGetQuery from "../../composable/useGetQuery";
 
-const route = useRoute();
-const {fetcher, data} = useGetQuery<Product>('product');
-onMounted(() => {
-    fetcher(route.params.slug as string)
-})
+// const route = useRoute();
+// const {fetcher, data} = useGetQuery<Product>('product');
+// onMounted(() => {
+//     fetcher(route.params.slug as string)
+// })
 
-console.log(data)
 
-// type Prop = {
-//   data: Product
-// }
+type Prop = {
+  data: Product
+}
 
-// const prop = defineProps<Prop>();
+const prop = defineProps<Prop>();
 
-// const { data } = toRefs(prop)
+const { data } = toRefs(prop)
 
 
 // const items = ref<any[]>([
@@ -91,12 +90,14 @@ const goTo = (key: number) => {
 
     activeSlides.value = key;
 };
-
+onMounted(() => {
+  console.log(data.value?.images)
+})
 </script>
 
 <template>
-    <div class="flex justify-center w-full px-10" v-if="data">
-        <div class="relative h-full w-full sm:w-[600px] lg:w-[350px] xl:w-[450px] 2xl:w-[600px] bg-white-smoke justify-center items-center">
+    <div class="flex justify-center w-full h-full px-10 md:w-[300px] lg:w-[350px] xl:w-[450px] 2xl:w-[600px]" v-if="data">
+        <div class="relative h-full w-full bg-white-smoke justify-center items-center">
             <div class="justify-center w-full">
                 <div class="flex overflow-hidden aspect-square">
                     <div
@@ -128,13 +129,13 @@ const goTo = (key: number) => {
                 <button
                     @click="prevSlide"
                     class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -left-6 h-10 w-10 text-repair border border-repair"
-                    :class="['border-' + data?.category.slug + ' ' + 'text-' + data?.category.slug]"
+                    :class="['border-' + data?.category?.slug + ' ' + 'text-' + data?.category?.slug]"
                 >&lt;
                 </button>
                 <button
                     @click="nextSlide"
                     class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -right-6 h-10 w-10 border text-repair border-repair"
-                    :class="['border-' + data?.category.slug + ' ' + 'text-' + data?.category.slug]"
+                    :class="['border-' + data?.category?.slug + ' ' + 'text-' + data?.category?.slug]"
                 >&gt;
                 </button>
             </div>

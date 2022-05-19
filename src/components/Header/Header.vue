@@ -61,7 +61,7 @@ onMounted(() => {
               class="font-questrial absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg lg:top-32">
               <div class="lg:-ml-24 cursor-pointer" @click="$router.push('/about-us')">
                 <div class="px-5 lg:px-24 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
-                  <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About
+                  <a href="/about-us" class="text-4xl text-hydrate">About
                     Us</a>
                   <p class="mt-10 text-justify text-gray-700">
                     PT Dermedic Phar Este is
