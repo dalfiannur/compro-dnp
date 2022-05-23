@@ -96,18 +96,19 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex justify-center w-full h-full px-10 md:w-[300px] lg:w-[350px] xl:w-[450px] 2xl:w-[600px]" v-if="data">
-        <div class="relative h-full w-full bg-white-smoke justify-center items-center">
+    <div class="flex justify-center w-full h-full px-10 lg:w-[400px] xl:w-[500px] 2xl:w-[600px]" v-if="data">
+        <div class="relative h-full w-[500px] sm:w-full bg-white-smoke justify-center items-center">
+
             <div class="justify-center w-full">
-                <div class="flex overflow-hidden aspect-square">
+                <div class="flex overflow-hidden w-full sm:h-[500px] lg:h-full aspect-square">
                     <div
-                        class="flex-none w-full h-full p-12 selected-slide"
+                        class="flex-none justify-center w-full h-full p-12 selected-slide"
                         v-for="item in data?.images"
                         :key="item.imageSourceUrl"
                         :class="['border-' + data?.category.slug]"
                     >
                         <img
-                            class="object-cover w-full cursor-pointer aspect-square"
+                            class="object-cover h-full cursor-pointer aspect-square"
                             :src="item.imageSourceUrl"
                         />
                     </div>
@@ -125,16 +126,17 @@ onMounted(() => {
                     </div>
                 </div>
             </div>
+
             <div class="hidden lg:flex">
                 <button
                     @click="prevSlide"
-                    class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -left-6 h-10 w-10 text-repair border border-repair"
+                    class="top-40 xl:top-52 2xl:top-64 pb-1 absolute -left-6 h-10 w-10 text-repair border border-repair"
                     :class="['border-' + data?.category?.slug + ' ' + 'text-' + data?.category?.slug]"
                 >&lt;
                 </button>
                 <button
                     @click="nextSlide"
-                    class="top-40 xl:top-52 2xl:top-72 pb-1 absolute -right-6 h-10 w-10 border text-repair border-repair"
+                    class="top-40 xl:top-52 2xl:top-64 pb-1 absolute -right-6 h-10 w-10 border text-repair border-repair"
                     :class="['border-' + data?.category?.slug + ' ' + 'text-' + data?.category?.slug]"
                 >&gt;
                 </button>
