@@ -4,6 +4,7 @@ import useGetQueries from "../../composable/useGetQueries";
 import { Article } from "../../typings/Article";
 import { Product } from "../../typings/Product";
 import ArticleSection from "../home/components/ArticleSection.vue";
+import SearchResultArticle from "../../components/SearchResultArticle.vue";
 import SearchResultProduct from "../../components/SearchResultProduct.vue"
 
 type Prop = {
@@ -47,9 +48,10 @@ const handleSearch = (e: KeyboardEvent) => {
 <template>
   <!-- Header -->
   <div
-    class="flex items-center bg-banner px-8 lg:px-20 h-60 w-full justify-center md:justify-between flex-col md:flex-row gap-8">
-    <h2 class="text-4xl md:text-6xl text-center md:text-left font-inter text-white w-full md:w-[40%]">Search Results</h2>
-    <div class="flex flex-1">
+    class="flex items-center bg-banner px-10 lg:px-20 h-60 w-full justify-center md:justify-between flex-col md:flex-row gap-8">
+    <h2 class="text-4xl md:text-5xl lg:text-6xl text-center md:text-left font-inter text-white w-full md:w-[40%]">Search Results
+    </h2>
+    <div class="flex w-full md:w-[60%]">
       <div class="relative w-full">
         <input v-model="search" type="search" placeholder="Search..."
           class="w-full bg-white h-14 focus:outline-none px-5" @keyup="handleSearch" />
@@ -75,25 +77,25 @@ const handleSearch = (e: KeyboardEvent) => {
     </div>
   </div>
   <!-- Content -->
-  <div class="h-full flex bg-white-smoke">
+  <div class="h-full flex flex-col md:flex-row bg-white-smoke">
     <!-- Sidebar -->
-    <div class="h-full w-[30%] font-questrial text-gray-1 p-8 md:p-16 lg:p-20">
+    <div class="h-full w-full md:w-[25%] lg:w-[30%] flex flex-row md:flex-col justify-center gap-12 font-questrial text-gray-1 p-8 md:p-10 lg:p-20">
       <div>
         <h3 class="font-inter text-2xl">
           Sort by
         </h3>
-        <ul class="flex flex-col gap-2 mt-6">
+        <ul class="flex flex-col text-center md:text-left gap-2 mt-6">
           <li><a href="">Newest</a></li>
           <li><a href="">Oldest</a></li>
           <li><a href="">Most Popular</a></li>
           <li><a href="">Least Popular</a></li>
         </ul>
       </div>
-      <div class="mt-12">
+      <div>
         <h3 class="font-inter text-2xl">
           Category
         </h3>
-        <ul class="flex flex-col gap-2 mt-6">
+        <ul class="flex flex-col text-center md:text-left gap-2 mt-6">
           <li><a href="">Newest</a></li>
           <li><a href="">Oldest</a></li>
           <li><a href="">Most Popular</a></li>
@@ -102,14 +104,17 @@ const handleSearch = (e: KeyboardEvent) => {
       </div>
     </div>
     <!-- Search Result -->
-    <div class="h-full bg-white flex-1 p-8 md:p-16 lg:p-20">
-      <h2 class="text-2xl text-hydrate font-inter">Product</h2>
-      <SearchResultProduct />
-      <SearchResultProduct />
-      <div>
+    <div class="h-full flex-1 ">
+      <div class="bg-white p-8 md:p-10 lg:p-20">
+        <h2 class="text-2xl text-hydrate font-inter">Product</h2>
+        <SearchResultProduct />
+        <SearchResultProduct />
+      </div>
+      <div class="bg-gray-50 p-8 md:p-16 lg:p-20">
+        <h2 class="text-2xl text-hydrate font-inter">Articles</h2>
+        <SearchResultArticle />
       </div>
     </div>
-    <!-- <div class="h-[500px]">f</div> -->
   </div>
 
 </template>
