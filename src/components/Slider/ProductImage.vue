@@ -102,7 +102,7 @@ onMounted(() => {
             <div class="justify-center w-full">
                 <div class="flex overflow-hidden w-full sm:h-[500px] lg:h-full aspect-square">
                     <div
-                        class="flex-none justify-center w-full h-full p-12 selected-slide"
+                        class="flex flex-none justify-center w-full h-full p-12 selected-slide"
                         v-for="item in data?.images"
                         :key="item.imageSourceUrl"
                         :class="['border-' + data?.category.slug]"

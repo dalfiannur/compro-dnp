@@ -1,28 +1,29 @@
 <script setup lang="ts">
 interface Prop {
-  item: any
+  data: any[]
+  title: string
 }
 
-const { item } = defineProps<Prop>()
+const { data, title } = defineProps<Prop>()
 </script>
 <template>
-  <div class="relative h-full px-5 pt-5 2xl:pt-32 bg-white pb-2 md:pb-6 shadow-custom">
+  <div class="relative h-full px-5 pt-5 2xl:pt-32 bg-white pb-2 md:pb-6 border shadow-custom">
     <a href="/product-line-up" class="text-lg text-gray-600 font-inter">
-      <span>{{ item.title }}</span> | Series
+      <span>{{ title }}</span> | Series
     </a>
     <div
       class="w-full h-1 my-5"
       :class="{
-        'bg-repair': item.title.toLowerCase() === 'repair',
-        'bg-prevent': item.title.toLowerCase() === 'prevent',
-        'bg-glow': item.title.toLowerCase() === 'glow',
-        'bg-hydrate': item.title.toLowerCase() === 'hydrate',
-        'bg-preserve': item.title.toLowerCase() === 'preserve',
+        'bg-repair': title.toLowerCase() === 'repair',
+        'bg-prevent': title.toLowerCase() === 'prevent',
+        'bg-glow': title.toLowerCase() === 'glow',
+        'bg-hydrate': title.toLowerCase() === 'hydrate',
+        'bg-preserve': title.toLowerCase() === 'preserve',
       }"
     />
     <ul class="hidden xl:block text-justify text-gray-600">
-      <li v-for="used in item.usedAs" :key="used">
-        {{ used }}
+      <li v-for="used in data" :key="used">
+        <a :href="'/products/' + used.slug">{{ used.name }}</a>
       </li>
     </ul>
   </div>
@@ -30,6 +31,6 @@ const { item } = defineProps<Prop>()
 
 <style scoped>
 .shadow-custom {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
 }
 </style>

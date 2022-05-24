@@ -18,49 +18,89 @@
     autoFetch: false
   });
 
-  const productSeries = [
-    {
-      title: 'REPAIR',
-      usedAs: [
-        'Skin Tranquilty',
-        'Refine Night'
-      ]
-    },
-    {
-      title: 'PREVENT',
-      usedAs: [
-        'Antioxidant Antaxhanthin',
-        'Antioxidant Resveratrol',
-      ]
-    },
-    {
-      title: 'GLOW',
-      usedAs: [
-        'C & E with Ferulic',
-        'Antioxidant C Ferulic',
-        'Antioxidant C Sylmarin',
-        'Tranex & Kojic with B3'
-      ]
-    },
-    {
-      title: 'HYDRATE',
-      usedAs: [
-        'Caffeine Hydrating',
-        'Phyto Hydro',
-        'Antioxidant C Sylmarin',
-        'Tranex & Kojic with B3'
-      ]
-    },
-    {
-      title: 'PRESERVE',
-      usedAs: [
-        'Caffeine Hydrating',
-        'Phyto Hydro',
-        'Antioxidant C Sylmarin',
-        'Tranex & Kojic with B3'
-      ]
-    }
-  ];
+  // const productSeries = [
+  //   {
+  //     title: 'REPAIR',
+  //     usedAs: [
+  //       'Skin Tranquilty',
+  //       'Refine Night'
+  //     ]
+  //   },
+  //   {
+  //     title: 'PREVENT',
+  //     usedAs: [
+  //       'Antioxidant Antaxhanthin',
+  //       'Antioxidant Resveratrol',
+  //     ]
+  //   },
+  //   {
+  //     title: 'GLOW',
+  //     usedAs: [
+  //       'C & E with Ferulic',
+  //       'Antioxidant C Ferulic',
+  //       'Antioxidant C Sylmarin',
+  //       'Tranex & Kojic with B3'
+  //     ]
+  //   },
+  //   {
+  //     title: 'HYDRATE',
+  //     usedAs: [
+  //       'Caffeine Hydrating',
+  //       'Phyto Hydro',
+  //       'Antioxidant C Sylmarin',
+  //       'Tranex & Kojic with B3'
+  //     ]
+  //   },
+  //   {
+  //     title: 'PRESERVE',
+  //     usedAs: [
+  //       'Caffeine Hydrating',
+  //       'Phyto Hydro',
+  //       'Antioxidant C Sylmarin',
+  //       'Tranex & Kojic with B3'
+  //     ]
+  //   }
+  // ];
+
+  const repairQuery = new URLSearchParams();
+  repairQuery.set("category", "repair");
+  const { data: repair } = useGetQueries<Product>("product", {
+    autoFetch: true,
+    query: repairQuery,
+    perPage: 5,
+  });
+
+  const preventQuery = new URLSearchParams();
+  preventQuery.set("category", "prevent");
+  const { data: prevent } = useGetQueries<Product>("product", {
+    autoFetch: true,
+    query: preventQuery,
+    perPage: 5,
+  });
+
+  const glowQuery = new URLSearchParams();
+  glowQuery.set("category", "glow");
+  const { data: glow } = useGetQueries<Product>("product", {
+    autoFetch: true,
+    query: glowQuery,
+    perPage: 5,
+  });
+
+  const hydrateQuery = new URLSearchParams();
+  hydrateQuery.set("category", "hydrate");
+  const { data: hydrate } = useGetQueries<Product>("product", {
+    autoFetch: true,
+    query: hydrateQuery,
+    perPage: 5,
+  });
+
+  const preserveQuery = new URLSearchParams();
+  preserveQuery.set("category", "preserve");
+  const { data: preserve } = useGetQueries<Product>("product", {
+    autoFetch: true,
+    query: preserveQuery,
+    perPage: 5,
+  });
 
   let timeout: any;
   const handleSearch = (e: KeyboardEvent) => {
@@ -91,9 +131,24 @@
       <div class="relative flex-1">
         <div class="grid flex-1 w-full px-5 xl:px-0 h-full grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 gap-5 xl:gap-10 xl:pt-14 pb-10">
           <ProductCard
-            v-for="(item) in productSeries"
-            :key="item.title"
-            :item="item"
+            :data="repair"
+            title="Repair"
+          />
+          <ProductCard
+            :data="prevent"
+            title="Prevent"
+          />
+          <ProductCard
+            :data="glow"
+            title="Glow"
+          />
+          <ProductCard
+            :data="hydrate"
+            title="Hydrate"
+          />
+          <ProductCard
+            :data="preserve"
+            title="Preserve"
           />
         </div>
         <div class="absolute top-0 right-[0px] gap-10 left-1 hidden xl:flex">
