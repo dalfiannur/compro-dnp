@@ -70,7 +70,7 @@ watch(data, () => {
           </div>
         </div>
       </div>
-      <ProductImage :data="data" class="lg:block mb-10 lg:mb-0"/>
+      <ProductImage :data="data" class="lg:block mb-10 lg:mb-0 lg:mr-20 xl:mr-24"/>
     </div>
 
     <div class="mt-20 font-questrial">

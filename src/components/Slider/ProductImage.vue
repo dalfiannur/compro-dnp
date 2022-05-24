@@ -96,7 +96,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex justify-center w-full h-full px-10 lg:w-[400px] xl:w-[500px] 2xl:w-[600px]" v-if="data">
+    <div class="flex justify-center w-full h-full px-10 lg:w-[450px] xl:w-[550px] 2xl:w-[700px]" v-if="data">
         <div class="relative h-full w-[500px] sm:w-full bg-white-smoke justify-center items-center">
 
             <div class="justify-center w-full">
@@ -141,7 +141,6 @@ onMounted(() => {
                 >&gt;
                 </button>
             </div>
-
 
         </div>
     </div>

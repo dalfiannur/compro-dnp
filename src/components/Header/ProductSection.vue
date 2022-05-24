@@ -97,7 +97,8 @@
           />
         </div>
         <div class="absolute top-0 right-[0px] gap-10 left-1 hidden xl:flex">
-          <div class="basis-full">
+          <div class="h-20 basis-[15.5%]"/>
+          <div class="basis-[84.5%]">
             <div class="flex order-2 w-full h-20 col-span-3">
               <div class="relative flex-1 h-14 bg-white-smoke">
                 <input
@@ -129,6 +130,9 @@
                 </Transition>
               </div>
               <button class="flex items-center justify-center w-14 h-14 bg-hydrate">
+                <div>
+                
+                </div>
                 <img src="/img/search.svg" class="w-6 h-6 ml-[0.35rem] mt-[0.15rem]"/>
               </button>
             </div>

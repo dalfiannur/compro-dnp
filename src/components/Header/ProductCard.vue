@@ -30,6 +30,6 @@ const { item } = defineProps<Prop>()
 
 <style scoped>
 .shadow-custom {
-    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
 }
 </style>
