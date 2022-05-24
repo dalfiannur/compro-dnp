@@ -3,6 +3,8 @@ import { toRefs, ref } from 'vue'
 import useGetQueries from "../../composable/useGetQueries";
 import { Article } from "../../typings/Article";
 import { Product } from "../../typings/Product";
+import ArticleSection from "../home/components/ArticleSection.vue";
+import SearchResultProduct from "../../components/SearchResultProduct.vue"
 
 type Prop = {
   hovered: number | null
@@ -45,9 +47,9 @@ const handleSearch = (e: KeyboardEvent) => {
 <template>
   <!-- Header -->
   <div
-    class="flex items-center bg-banner px-8 lg:px-24 h-60 w-full justify-center md:justify-between flex-col md:flex-row gap-8">
-    <h2 class="text-4xl md:text-6xl text-center md:text-left font-inter text-white w-full md:w-1/3">Search Result</h2>
-    <div class="flex w-full md:w-2/3">
+    class="flex items-center bg-banner px-8 lg:px-20 h-60 w-full justify-center md:justify-between flex-col md:flex-row gap-8">
+    <h2 class="text-4xl md:text-6xl text-center md:text-left font-inter text-white w-full md:w-[40%]">Search Results</h2>
+    <div class="flex flex-1">
       <div class="relative w-full">
         <input v-model="search" type="search" placeholder="Search..."
           class="w-full bg-white h-14 focus:outline-none px-5" @keyup="handleSearch" />
@@ -73,11 +75,11 @@ const handleSearch = (e: KeyboardEvent) => {
     </div>
   </div>
   <!-- Content -->
-  <div class="flex">
-    <!-- Side -->
-    <div class="h-full w-1/5 flex-nono font-questrial bg-white-smoke text-gray-500 px-16 py-16">
+  <div class="h-full flex bg-white-smoke">
+    <!-- Sidebar -->
+    <div class="h-full w-[30%] font-questrial text-gray-1 p-8 md:p-16 lg:p-20">
       <div>
-        <h3 class="font-inter text-xl">
+        <h3 class="font-inter text-2xl">
           Sort by
         </h3>
         <ul class="flex flex-col gap-2 mt-6">
@@ -88,7 +90,7 @@ const handleSearch = (e: KeyboardEvent) => {
         </ul>
       </div>
       <div class="mt-12">
-        <h3 class="font-inter text-xl">
+        <h3 class="font-inter text-2xl">
           Category
         </h3>
         <ul class="flex flex-col gap-2 mt-6">
@@ -100,10 +102,14 @@ const handleSearch = (e: KeyboardEvent) => {
       </div>
     </div>
     <!-- Search Result -->
-    <div class="h-full bg-white flex-1">
-      <h2>Product</h2>
+    <div class="h-full bg-white flex-1 p-8 md:p-16 lg:p-20">
+      <h2 class="text-2xl text-hydrate font-inter">Product</h2>
+      <SearchResultProduct />
+      <SearchResultProduct />
+      <div>
+      </div>
     </div>
-
+    <!-- <div class="h-[500px]">f</div> -->
   </div>
 
 </template>
