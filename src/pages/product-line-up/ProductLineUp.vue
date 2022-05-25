@@ -1,312 +1,200 @@
-<script setup lang="ts">
-import { ref } from "vue";
-// Import Composable
-import useGetFeaturedProduct from "../../composable/useGetProductLineUp";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
+<script lang="ts" setup>
+import { computed, provide, ref, watch } from "vue";
+import { gsap } from "gsap";
+import { useRouter } from "vue-router";
 
 // Import Components
-// @ts-ignore
-import SliderV4 from "../../components/Slider/SliderV4/SliderV4.vue";
-import ProductLineUp from "../../components/ProductLineUp.vue";
-import useGetProductLineUp from "../../composable/useGetProductLineUp";
+import Button from "../home/components/ProductList/Button.vue";
 
-// Initial Composable
-const { data: ProductRepair } = useGetProductLineUp();
+// Import Composable
+import useGetProductSeries from "../../composable/useGetProductSeries";
+import useGetQueries from "../../composable/useGetQueries";
+import { Product } from "../../typings/Product";
+import LineupCard from "./LineupCard.vue";
+
+const emit = defineEmits(["categoryChange"]);
+
+// Initialization Composable
+const router = useRouter();
+const { data: series } = useGetProductSeries();
+
+const { data: featuredProducts } = useGetQueries<Product>('product', {
+  autoFetch: true,
+  perPage: 5
+});
+
+const repairQuery = new URLSearchParams();
+repairQuery.set("category", "repair");
+const { data: repair } = useGetQueries<Product>("product", {
+  autoFetch: true,
+  query: repairQuery,
+  perPage: 5,
+});
+
+const preventQuery = new URLSearchParams();
+preventQuery.set("category", "prevent");
+const { data: prevent } = useGetQueries<Product>("product", {
+  autoFetch: true,
+  query: preventQuery,
+  perPage: 5,
+});
+
+const glowQuery = new URLSearchParams();
+glowQuery.set("category", "glow");
+const { data: glow } = useGetQueries<Product>("product", {
+  autoFetch: true,
+  query: glowQuery,
+  perPage: 5,
+});
+
+const hydrateQuery = new URLSearchParams();
+hydrateQuery.set("category", "hydrate");
+const { data: hydrate } = useGetQueries<Product>("product", {
+  autoFetch: true,
+  query: hydrateQuery,
+  perPage: 5,
+});
+
+const preserveQuery = new URLSearchParams();
+preserveQuery.set("category", "preserve");
+const { data: preserve } = useGetQueries<Product>("product", {
+  autoFetch: true,
+  query: preserveQuery,
+  perPage: 5,
+});
+
+const data = computed<Product[]>(() => {
+  return {
+    series: series.value,
+    repair: repair.value,
+    prevent: prevent.value,
+    glow: glow.value,
+    hydrate: hydrate.value,
+    preserve: preserve.value
+  }[selectedCategory.value] as Product[];
+});
+
+const isHovered = ref<boolean>(false);
+provide("isHovered", isHovered);
+
+const hoverCategory = ref<string>("");
+provide("hoverCategory", hoverCategory);
+
+const selectedCategory = ref<string>("series");
+provide("selectedCategory", selectedCategory);
+
+const isSeries = ref<boolean>(true);
+provide("isSeries", isSeries);
+
+const transition = () => {
+  gsap.fromTo('.items-wrapper', {
+    y: -100,
+    opacity: 0
+  }, {
+    y: 0,
+    opacity: 1
+  })
+}
+
+const cardHoverHandler = (category: string) => {
+  if (category) {
+    isHovered.value = true;
+    hoverCategory.value = category;
+  }
+};
+const cardBlurHandler = () => {
+  isHovered.value = false;
+  hoverCategory.value = "";
+};
+const handleButtonClick = (slug: string) => {
+  isSeries.value = false;
+  selectedCategory.value = slug;
+  transition()
+};
+const handleButtonHover = (slug: string) => {
+  isHovered.value = true;
+  hoverCategory.value = slug;
+};
+const handleButtonBlur = () => {
+  isHovered.value = false;
+  hoverCategory.value = "";
+};
+const handleCardClick = (item: Product) => {
+  if (isSeries.value) {
+    isSeries.value = false;
+    selectedCategory.value = item.category.slug;
+    transition()
+  } else {
+    // router.push("/products/" + item.slug);
+    window.location.href = "/products/" + item.slug
+  }
+};
+const SelectData : {[key: string] : any} = {
+  repair,
+  prevent,
+  glow,
+  hydrate,
+  preserve
+}
+
 </script>
 
 <template>
-  <!-- REPAIR -->
-  <div class="flex flex-col justify-center">
-    <div class="w-full h-[100px] items-center">
+<div v-for="item in data" :key="item.slug">
+  <div class="w-full h-[100px] items-center">
       <div
         class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
       >
-        <p class="text-xl text-repair tracking-[.5em]">REPAIR</p>
+        <p class="text-xl uppercase tracking-[.5em]"
+        :class="[ 'text-' + item.category.slug ]"
+        >
+          {{ item.category.name }}
+        </p>
         <p
-          class="text-repair w-8 h-8 pl-2 text-2xl md:text-3xl"
+          class="w-8 h-8 pl-2 text-2xl md:text-3xl"
+          :class="[ 'text-' + item.category.slug ]"
           data-v-4e44e668
         >
           &#709;
         </p>
         <span
-          class="flex-1 my-auto border-[1px] bg-repair border-repair"
+          class="flex-1 my-auto border-[1px]"
+          :class="[ 'border-' + item.category.slug ]"
         ></span>
       </div>
     </div>
 
-    <div class="my-6 overflow-auto mx-auto">
-      <div
-        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
-      >
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-        <ProductLineUp
-          v-for="(page, index) in ProductRepair"
-          :key="index"
-          :data="page"
-        />
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-      </div>
+  <LineupCard :items="SelectData[item.category.slug]" @hover="cardHoverHandler" @blur="cardBlurHandler"/>
+  <div class="flex items-center gap-10 px-20 mt-10">
+    <div class="flex-1">
+      <hr />
     </div>
+
   </div>
-
-  <!-- PREVENT -->
-  <div class="flex flex-col justify-center">
-    <div class="w-full h-[100px] items-center">
-      <div
-        class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
-      >
-        <p class="text-xl text-prevent tracking-[.5em]">PREVENT</p>
-        <p
-          class="text-prevent w-8 h-8 pl-2 text-2xl md:text-3xl"
-          data-v-4e44e668
-        >
-          &#709;
-        </p>
-        <span
-          class="flex-1 my-auto border-[1px] bg-prevent border-prevent"
-        ></span>
-      </div>
-    </div>
-
-    <div class="my-6 overflow-auto mx-auto">
-      <div
-        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
-      >
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-        <ProductLineUp
-          v-for="(page, index) in ProductRepair"
-          :key="index"
-          :data="page"
-        />
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- GLOW -->
-  <div class="flex flex-col justify-center">
-    <div class="w-full h-[100px] items-center">
-      <div
-        class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
-      >
-        <p class="text-xl text-glow tracking-[.5em]">GLOW</p>
-        <p class="text-glow w-8 h-8 pl-2 text-2xl md:text-3xl" data-v-4e44e668>
-          &#709;
-        </p>
-        <span class="flex-1 my-auto border-[1px] bg-glow border-glow"></span>
-      </div>
-    </div>
-
-    <div class="my-6 overflow-auto mx-auto">
-      <div
-        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
-      >
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-        <ProductLineUp
-          v-for="(page, index) in ProductRepair"
-          :key="index"
-          :data="page"
-        />
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HYDRATE -->
-  <div class="flex flex-col justify-center">
-    <div class="w-full h-[100px] items-center">
-      <div
-        class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
-      >
-        <p class="text-xl text-hydrate tracking-[.5em]">HYDRATE</p>
-        <p
-          class="text-hydrate w-8 h-8 pl-2 text-2xl md:text-3xl"
-          data-v-4e44e668
-        >
-          &#709;
-        </p>
-        <span
-          class="flex-1 my-auto border-[1px] bg-hydrate border-hydrate"
-        ></span>
-      </div>
-    </div>
-
-    <div class="my-6 overflow-auto mx-auto">
-      <div
-        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
-      >
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-        <ProductLineUp
-          v-for="(page, index) in ProductRepair"
-          :key="index"
-          :data="page"
-        />
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PRESERVE -->
-  <div class="flex flex-col justify-center">
-    <div class="w-full h-[100px] items-center">
-      <div
-        class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
-      >
-        <p class="text-xl text-preserve tracking-[.5em]">PRESERVE</p>
-        <p
-          class="text-preserve w-8 h-8 pl-2 text-2xl md:text-3xl"
-          data-v-4e44e668
-        >
-          &#709;
-        </p>
-        <span
-          class="flex-1 my-auto border-[1px] bg-preserve border-preserve"
-        ></span>
-      </div>
-    </div>
-
-    <div class="my-6 overflow-auto mx-auto">
-      <div
-        class="grid grid-flow-col justify-center gap-10 h-fit max-w-screen-sm sm:max-w-screen-sm xl:max-w-screen-3xl"
-      >
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-        <ProductLineUp
-          v-for="(page, index) in ProductRepair"
-          :key="index"
-          :data="page"
-        />
-        <div
-          class="w-[320px] md:w-[160px] h-[385px] relative my-6 overflow-hidden left-[-50px]"
-        >
-          <div class="w-full aspect-square md:aspect-video bg-gray-200">
-            <img
-              alt="Placeholder"
-              id="dummy"
-              class="w-[320px] h-[385px] p-6 invisible"
-              src="/img/bottle_box.png"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </template>
 
-<style scoped>
-::-webkit-scrollbar {
-  border-radius: 2px;
-  width: 1px;
-  height: 7px;
-}
+<style lang="scss" scoped>
+$categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
+$preserve: '#ae1857';
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+@each $category in $categories {
+  .text-#{$category} {
+    color: theme('colors.' + $category);
+  }
+  .border-#{$category} {
+    border-color: theme('colors.' + $category);
+  }
+  .bg-#{$category} {
+    background-color: theme('colors.' + $category);
+  }
+  .bg-#{$category}-hover {
+    --color-repair: rgba(92, 132, 195, .7);
+    --color-prevent: rgb(113, 70, 155, .7);
+    --color-glow: rgba(247, 191, 111, .7);
+    --color-hydrate: rgba(99, 196, 180, .7);
+    --color-preserve: rgba(174, 24, 87, .7);
+    background-color: var(--color-#{$category});
+  }
 }
 </style>

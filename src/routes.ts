@@ -30,7 +30,7 @@ const routes: RouteRecordRaw[] = [
         component: () => import('./pages/articles/SearchResult.vue')
     },
     {
-        path: '/lineup',
+        path: '/product-line-up',
         component: () => import('./pages/product-line-up/ProductLineUp.vue')
     },
     {
@@ -41,10 +41,6 @@ const routes: RouteRecordRaw[] = [
         path: '/clinics',
         component: () => import('./pages/clinics/Clinics.vue')
     },
-    {
-        path: '/product-line-up',
-        component: () => import('./pages/product-line-up/ProductLineUp.vue')
-    }
 ]
 
 export default routes

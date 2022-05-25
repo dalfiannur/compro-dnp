@@ -60,13 +60,8 @@ onMounted(() => {
             <div v-show="hovered === 2" @mouseleave="hovered = null"
               class="font-questrial absolute left-0 lg:flex w-full lg:px-20 bg-white shadow-lg lg:top-32">
               <div class="lg:-ml-24 cursor-pointer" @click="$router.push('/about-us')">
-<<<<<<< HEAD
-                <div class="px-5 lg:px-24 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
-                  <a href="/about-us" class="text-4xl text-hydrate">About
-=======
                 <div class="px-5 lg:px-20 bg-gray-100 lg:w-[400px] h-full flex flex-col justify-center py-5 lg:py-14">
                   <a href="/about-us" @click.prevent="$router.push('/about-us')" class="text-4xl text-hydrate">About
->>>>>>> 66b7945f20b30ceb3ecc947bf4391224950c072b
                     Us</a>
                   <p class="mt-5 text-baseColor text-justify">
                     PT Dermedic Phar Este is

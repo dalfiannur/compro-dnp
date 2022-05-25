@@ -18,18 +18,6 @@ export default function () {
                 product: "Skin Tranquility",
                 hover: 'BG_Repair',
               },
-              {
-                img: "bottle_box",
-                type: "repair",
-                product: "Refined Night Serum",
-                hover: 'BG_Repair',
-              },
-              {
-                img: "bottle_box",
-                type: "repair",
-                product: "Skin Tranquility",
-                hover: 'BG_Repair',
-              },
         ]
     })
 

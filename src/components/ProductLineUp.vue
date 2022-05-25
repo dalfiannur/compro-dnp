@@ -12,12 +12,11 @@ const loadImage = (path: String) => {
 
 const hover = inject("hover", ref<boolean>(false));
 
-
 </script>
 
 <template>
-  <div @mouseover="hover = true" @mouseleave="hover = false" class="w-[320px] h-[435px] relative left-[-50px] my-6 overflow-hidden duration-200 hover:text-repair grayscale hover:grayscale-0">
-    <div class="w-full h-[385px]  aspect-square md:aspect-video bg-gray-200">
+  <div @mouseover="hover = true" @mouseleave="hover = false" class="w-[320px] h-[435px] relative my-6 overflow-hidden duration-200 hover:text-repair grayscale hover:grayscale-0">
+    <div class="w-full h-[385px] aspect-square md:aspect-video bg-gray-200">
 
       <div class="absolute" v-if="hover === true">
         <img class="w-[320px] h-[385px]"

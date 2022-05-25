@@ -98,7 +98,7 @@
         </div>
         <div class="absolute top-0 right-[0px] gap-10 left-1 hidden xl:flex">
           <div class="basis-full">
-            <div class="flex order-2 w-full h-20 col-span-3">
+            <div class="flex order-2 w-[565px] h-20 col-span-3">
               <div class="relative flex-1 h-14 bg-white-smoke">
                 <input
                   class="w-full h-full text-gray-600 font-din-next-lt-pro-light px-14 bg-white-smoke focus:outline-none"
