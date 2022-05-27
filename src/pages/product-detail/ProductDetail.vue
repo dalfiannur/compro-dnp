@@ -9,6 +9,8 @@ import HowToFind from '../../components/HowToFind.vue';
 import ProductBanner from './components/ProductBanner.vue';
 // @ts-ignore
 import ProductDescriptions from './components/ProductDescriptions.vue';
+// @ts-ignore
+import RelatedProductVue from '../../components/RelatedProduct.vue';
 import useGetSliderV2 from '../../composable/useGetSliderV2'
 import useGetQuery from "../../composable/useGetQuery";
 import { Product } from "../../typings/Product";
@@ -35,6 +37,9 @@ onMounted(() => {
   </div>
   <div id="banner">
     <SliderV2 :items="sliderv2" />
+  </div>
+  <div>
+    <RelatedProductVue :item="product" />
   </div>
   <div>
     <HowToFind />

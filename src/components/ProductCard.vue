@@ -21,28 +21,26 @@ const getIcon = (category: string) => {
 
 <template>
   <div
-    class="relative flex items-start flex-none h-full border border-white"
+    class="relative flex items-start flex-none border border-white w-full"
     :class="{ 
       ['border-' + hoverCategory]: isHovered && isSeries && hoverCategory === item?.category.slug,
     }"
     @mouseenter="innerHovered = true"
     @mouseleave="innerHovered = false"
   >
-    <div v-if="item">
+    <div v-if="item" class="w-full">
       <div
-        class="relative p-10 aspect-[4/5]"
+        class="relative w-full flex justify-center items-center py-[50%] max-h-[300px]"
         :class="{ 'bg-white-smoke': isSeries, ['bg-' + selectedCategory]: !isSeries, }"
       >
         <img
-          class="object-cover w-full h-full filter"
+          class="w-full max-h-[400px] object-contain aspect-square filter"
           :src="item.images[0].imageSourceUrl"
         />
         <div
           class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
           :class="{
-            ['bg-' + selectedCategory]:
-              innerHovered && !isSeries && hoverCategory === item?.category.slug,
-            'bg-opacity-70': !isSeries && isHovered,
+            ['bg-' + selectedCategory + '-hover']:innerHovered && !isSeries,
           }"
         >
           <img

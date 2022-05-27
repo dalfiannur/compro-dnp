@@ -1,5 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
+import useGetQueries from '../composable/useGetQueries';
+import ProductCardVue from './ProductCard.vue';
+import { Product } from "../typings/Product";
+import ProductBanner from '../pages/product-detail/components/ProductBanner.vue';
+
+
+const { data: product } = useGetQueries<Product>("product", {
+  autoFetch: true,
+  perPage: 3,
+});
 
 const items = ref<any[]>([
     {
@@ -38,18 +48,6 @@ const items = ref<any[]>([
             }
         ]
     },
-    {
-        id: 4,
-        name: 'Caffein Hydrate 1',
-        category: {
-            slug: 'hydrate'
-        },
-        images: [
-            {
-                imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
-            }
-        ]
-    },
 ])
 
 </script>
@@ -59,8 +57,8 @@ const items = ref<any[]>([
         <div class="text-center my-14">
             <h1 class="font-questrial text-2xl text-gray-1">Related Product</h1>
         </div>
-        <div class="flex flex-wrap lg:mx-20 justify-center gap-6">
-            <div class="w-72" v-for="(item, index) in items" :key="index">
+        <div class="flex flex-wrap lg:mx-20 my-10 justify-center gap-6">
+            <div class="w-72" v-for="(item, index) in product" :key="index">
                 <div class="font-questrial">
                     <div class="aspect-square w-full bg-white-smoke">
                         <img class="p-8" :src="item.images[0].imageSourceUrl" alt="">
