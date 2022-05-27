@@ -37,27 +37,32 @@ const getIcon = (category: string) => {
           class="w-full max-h-[400px] object-contain aspect-square filter"
           :src="item.images[0].imageSourceUrl"
         />
-        <div
-          class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
-          :class="{
-            ['bg-' + selectedCategory + '-hover']:innerHovered && !isSeries,
-          }"
-        >
-          <img
-            v-if="!isSeries"
-            :src="getIcon(item.category.slug)"
-            class="hidden w-14 h-14 border sm:border-2 lg:border-[3px] rounded-full border-white"
-            :class="{ '!block': innerHovered }"
-          />
-          <h5
-            class="hidden mt-2 text-2xl text-center text-white"
+          <div
+            class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full cursor-pointer"
             :class="{
-              '!block': innerHovered,
+              ['bg-' + selectedCategory + '-hover']:innerHovered && !isSeries,
             }"
           >
-            {{ item.usedAs }}
-          </h5>
-        </div>
+          <transition name="icon-fadein">
+              <img
+                v-if="!isSeries && innerHovered"
+                :src="getIcon(item.category.slug)"
+                class="hidden w-14 h-14 animate__fadeInUp"
+                :class="{ '!block': innerHovered }"
+              />
+          </transition>
+          <transition name="text-fadein">
+            <h5 v-if="innerHovered"
+              class="hidden mt-2 text-2xl text-center text-white"
+              :class="{
+                '!block': innerHovered,
+              }"
+            >
+              {{ item.usedAs }}
+            </h5>
+          </transition>
+            
+          </div>
       </div>
       <div
         class="mt-10 text-2xl text-center h-14 font-din-next-lt-pro-light"
@@ -106,43 +111,32 @@ $preserve: '#ae1857';
 </style>
 
 <style scoped>
-.shutter-out-vertical {
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  background: #e1e1e1;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+.icon-fadein-enter-active {
+  transition: all 0.35s ease-out;
 }
-.shutter-out-vertical:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #2098D1;
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -webkit-transform-origin: 50%;
-  transform-origin: 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+
+.icon-fadein-leave-active {
+  transition: all 0.35s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.shutter-out-vertical:hover, .shutter-out-vertical:focus, .shutter-out-vertical:active {
-  color: white;
+
+.icon-fadein-enter-from,
+.icon-fadein-leave-to {
+  transform: translateY(60px);
+  opacity: 0;
 }
-.shutter-out-vertical:hover:before, .shutter-out-vertical:focus:before, .shutter-out-vertical:active:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
+
+.text-fadein-enter-active {
+  transition: all 0.35s ease-in-out;
+  transition-delay: 0.2s;
+}
+
+.text-fadein-leave-active {
+  transition: all 0.35s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.text-fadein-enter-from,
+.text-fadein-leave-to {
+  transform: translateY(40px);
+  opacity: 0;
 }
 </style>

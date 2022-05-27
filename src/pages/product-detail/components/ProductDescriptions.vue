@@ -29,7 +29,7 @@ watch(data, () => {
 
 <template>
   <div v-if="data">
-    <div class="flex flex-col-reverse md:flex-row mt-20 font-questrial">
+    <div class="flex flex-col-reverse lg:flex-row mt-8 lg:mt-20 font-questrial">
       <div class="flex-1">
         <div class="flex mx-0 lg:mr-10 mb-10">
           <div class="mt-2">
@@ -70,9 +70,7 @@ watch(data, () => {
           </div>
         </div>
       </div>
-
-      
-      <ProductImage :data="data" class="lg:block "/>
+      <ProductImage :data="data" class="lg:block mb-10 lg:mb-0 lg:mr-20 xl:mr-24"/>
     </div>
 
     <div class="mt-20 font-questrial">

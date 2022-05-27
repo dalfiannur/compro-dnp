@@ -87,7 +87,7 @@ const sortLatest = () => {
       ></span>
       <div class="m-0">
         <button class="text-white w-8 h-8 pr-4 text-lg" data-v-4e44e668>
-          &lt;
+          &#60;
         </button>
         <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
           1

@@ -24,9 +24,9 @@ const getBG = (category: string) => {
           class="relative w-full flex justify-center items-center py-[50%] max-h-[300px]"
           :class="[ 'bg-white-smoke' ]"
         >
-        
-        <transition>
-          <img v-if="hovered === true"
+
+        <transition name="fade">
+          <img v-if="hovered"
             class="absolute w-full h-full max-h-[400px] aspect-square"
             :src="getBG(item.category.slug)"
           />
@@ -71,13 +71,13 @@ $preserve: '#ae1857';
     background-color: var(--color-#{$category});
   }
 }
-.v-enter-active,
-.v-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.25s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

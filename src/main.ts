@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import routes from './routes'
 import './main.css'
+import 'animate.css';
 
 const router = createRouter({
     history: createWebHistory(),

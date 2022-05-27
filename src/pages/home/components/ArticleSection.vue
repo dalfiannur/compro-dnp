@@ -51,7 +51,7 @@ const sortLatest = () => {
         </div>
       </div>
 
-      <div class="grid grid-cols-1 gap-20 p-1 py-8 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-20 p-1 py-8 md:grid-cols-2 xl:grid-cols-3">
         <ArticleCard v-for="(page, index) in articles" :key="index" :data="page" />
       </div>
       <div class="flex flex-wrap justify-between w-full gap-4 p-2 sm:p-0">

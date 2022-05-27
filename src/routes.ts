@@ -21,10 +21,10 @@ const routes: RouteRecordRaw[] = [
         path: '/articles',
         component: () => import('./pages/articles/Articles.vue')
     },
-    // {
-    //     path: '/articles',
-    //     component: () => import('./pages/articles/Pagination.vue')
-    // },
+    {
+        path: '/pagination',
+        component: () => import('./pages/articles/Pagination.vue')
+    },
     {
         path: '/search',
         component: () => import('./pages/articles/SearchResult.vue')

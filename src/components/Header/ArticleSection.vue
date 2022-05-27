@@ -129,7 +129,7 @@
               @click.prevent="$router.push('/search')" 
               class="flex items-center justify-center text-white w-14 h-14 bg-hydrate"
             >
-              <img src="/img/search.svg" class="w-8 h-8"/>
+              <img src="/img/search.svg" class="w-6 h-6 ml-[0.35rem] mt-[0.15rem]"/>
             </button>
           </div>
         </div>
