@@ -20,6 +20,7 @@ const { data: series } = useGetProductSeries();
 
 const repairQuery = new URLSearchParams();
 repairQuery.set("category", "repair");
+
 const { data: repair } = useGetQueries<Product>("product", {
   autoFetch: true,
   query: repairQuery,

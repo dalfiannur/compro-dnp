@@ -126,7 +126,7 @@ watch(data, () => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   #how-to-use ul, #description ul {
     list-style: disc;
     text-align: justify;

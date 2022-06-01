@@ -21,16 +21,16 @@ const routes: RouteRecordRaw[] = [
         path: '/articles',
         component: () => import('./pages/articles/Articles.vue')
     },
-    // {
-    //     path: '/articles',
-    //     component: () => import('./pages/articles/Pagination.vue')
-    // },
+    {
+        path: '/pagination',
+        component: () => import('./pages/articles/Pagination.vue')
+    },
     {
         path: '/search',
         component: () => import('./pages/articles/SearchResult.vue')
     },
     {
-        path: '/lineup',
+        path: '/product-line-up',
         component: () => import('./pages/product-line-up/ProductLineUp.vue')
     },
     {
@@ -41,10 +41,6 @@ const routes: RouteRecordRaw[] = [
         path: '/clinics',
         component: () => import('./pages/clinics/Clinics.vue')
     },
-    {
-        path: '/product-line-up',
-        component: () => import('./pages/product-line-up/ProductLineUp.vue')
-    }
 ]
 
 export default routes
