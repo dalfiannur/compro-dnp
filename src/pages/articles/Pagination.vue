@@ -22,6 +22,18 @@ const { data: articles } = useGetQueries<Article>("articles", {
   perPage: 3,
   query,
 });
+const { data: featured } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 3
+});
+const { data: TopArticles } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 3
+});
+const { data: LatestArticles } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 3
+});
 
 const sortPopular = () => {
   sortBy.value = "popular";
@@ -62,16 +74,43 @@ const sortLatest = () => {
         >
       </div>
 
-      <div id="article" class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3">
-<!--        <ArticleCard-->
-<!--          v-for="(page, index) in ArticlePagination"-->
-<!--          :key="index"-->
-<!--          :data="page"-->
-<!--        />-->
+      <div class="flex justify-center p-2 mx-auto my-12 md:p-4">
+    <div class="justify-between flex-1 p-2 md:p-6 font-din-next-lt-pro-light text-gray-1">
+      <p class="text-3xl text-center md:text-left">Top Articles</p>
+      <div class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3">
+        <ArticleCard
+          v-for="(page, index) in TopArticles"
+          :key="page.slug"
+          :data="page"
+        />
+      </div>
+      <div class="flex flex-wrap justify-between w-full gap-4 p-2 sm:p-0">
+        <span class="flex-1 my-auto border border-hydrate"></span>
+        <a class="text-hydrate" href="/"> See More </a>
       </div>
     </div>
   </div>
 
+  <div class="flex justify-center p-2 mx-auto my-12 md:p-4">
+    <div class="justify-between flex-1 p-2 md:p-6 font-din-next-lt-pro-light text-gray-1">
+      <p class="text-3xl text-center md:text-left">Latest Articles</p>
+      <div class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3">
+        <ArticleCard
+          v-for="(page, index) in LatestArticles"
+          :key="index"
+          :data="page"
+        />
+      </div>
+      <!-- <div class="flex flex-wrap justify-between w-full gap-4 p-2 sm:p-0">
+        <span class="flex-1 my-auto border border-hydrate"></span>
+        <button class="text-hydrate" href="#"> See More </button>
+      </div> -->
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
   <div class="bg-hydrate w-full h-[150px] items-center">
     <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
       <span
@@ -89,20 +128,13 @@ const sortLatest = () => {
         <button class="text-white w-8 h-8 pr-4 text-lg" data-v-4e44e668>
           &#60;
         </button>
+        <div>
+          <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
+            1
+          </button>  
+        </div>
         <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
           1
-        </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          2
-        </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          3
-        </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          4
-        </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          5
         </button>
         <button class="text-white w-8 h-8 pl-4 text-lg" data-v-4e44e668>
           &gt;
