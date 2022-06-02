@@ -4,8 +4,10 @@ import HowToFind from '../../components/HowToFind.vue'
 
 <template>
     <div>
-        <div class="flex items-center bg-banner pl-12 pr-36 sm:px-36 h-80 sm:h-[30rem] w-full bg-cover bg-bottom">
-            <h2 class="text-5xl sm:text-6xl font-inter text-white">About Us</h2>
+        <div style="background: url('img/about-us.png')">
+            <div class="flex items-center bg-banner pl-12 pr-36 sm:px-36 h-80 sm:h-[30rem] w-full bg-cover bg-bottom">
+                <h2 class="text-5xl sm:text-6xl font-inter text-white">About Us</h2>
+            </div>
         </div>
 
         <div class="flex justify-center mt-12 sm:mt-20">
@@ -79,8 +81,7 @@ import HowToFind from '../../components/HowToFind.vue'
 .bg-banner {
     background-image: linear-gradient(90deg,
             rgb(99 196 180) 5%,
-            rgba(255, 255, 255, 0) 100%), 
-            url('img/about-us.png')
+            rgba(255, 255, 255, 0) 100%);
 }
 
 
@@ -88,8 +89,7 @@ import HowToFind from '../../components/HowToFind.vue'
     .bg-banner {
         background-image: linear-gradient(110deg,
                 rgb(99 196 180) 5%,
-                rgba(255, 255, 255, 0) 60%), 
-                url('img/about-us.png')
+                rgba(255, 255, 255, 0) 60%);
     }
 }
 </style>
