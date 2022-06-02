@@ -102,7 +102,7 @@ const goTo = (key: number) => {
       <div class="h-[55vh] flex items-end overflow-hidden">
         <div class="w-[100%] h-[60%] bg-white-smoke max-h-[500px] relative flex justify-end">
           <Transition :name="slideTo + '-left-side'" v-for="(item, index) in items" :key="item.id">
-            <img v-show="index === active" :src="item.images[0].imageSourceUrl"
+            <img v-show="index+1 === active" :src="item.images[0].imageSourceUrl"
               class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-left -mb-24"
               @click="$router.push('/products/' + items[0].id)" />
           </Transition>
@@ -114,7 +114,7 @@ const goTo = (key: number) => {
       <div class="h-[55vh] flex items-end overflow-hidden">
         <div class="w-full h-[60%] bg-white-smoke max-h-[500px] relative flex justify-start">
           <Transition :name="slideTo + '-right-side'" v-for="(item, index) in items" :key="item.id">
-            <img v-show="index === active" :src="item.images[0].imageSourceUrl"
+            <img v-show="index-1 === active" :src="item.images[0].imageSourceUrl"
               class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-right -mb-24"
               @click="$router.push('/products/' + items[0].id)" />
           </Transition>

@@ -152,7 +152,8 @@ watch(data, () => {
     color: #71469b;
     fill: #71469b;
   }
-
+</style>
+<style lang="scss">
   $categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
 
   @each $category in $categories {

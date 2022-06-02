@@ -113,7 +113,7 @@
 
     timeout = setTimeout(() => {
       setSearch(search.value)
-    }, 1500)
+    }, 0)
   }
 </script>
 

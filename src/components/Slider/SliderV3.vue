@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed, watch } from "vue";
 import { Article } from "../../typings/Article";
 
 interface Prop {
@@ -47,6 +47,10 @@ function stopSliderTimer() {
   clearInterval(slideInterval.value);
 }
 
+onMounted(() => {
+  console.log(getSlideCount.value)
+})
+
 onMounted(function () {
   startSlideTimer();
 });
@@ -57,44 +61,6 @@ onBeforeUnmount(function () {
 const swiper = computed(() => {
   return direction.value === "right" ? "slide-out" : "slide-in";
 });
-
-function load() {
-  const size = window.outerWidth;
-  document.querySelectorAll(".description").forEach((item, index) => {
-    Ellipsis(index, item.innerHTML, size).then((text) => {
-      item.innerHTML = text;
-    });
-    console.log(size);
-  });
-}
-
-onMounted(() => {
-  console.log(currentSlide.value);
-  load();
-  window.addEventListener("resize", () => {
-    load();
-  });
-});
-
-function Ellipsis(index: number, str: string, size: number) {
-  // If the length of str is less than or equal to num
-  // just return str--don't truncate it.
-  return Promise.resolve(() => {
-    if (size <= 1280) {
-      return 150;
-    }
-    return 200;
-  }).then((num) => {
-    if (str.length <= num()) {
-      return data[index].content;
-    }
-
-    const word = str.slice(0, num()).split(" ");
-    word.pop();
-    // Return str truncated with '...' concatenated to the end of str.
-    return word.join(" ") + " " + "...";
-  });
-}
 
 const createLink = (slug: string) => {
   return `/articles/${slug}`;
