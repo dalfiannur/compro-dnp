@@ -5,6 +5,7 @@ import { useRouter } from "vue-router";
 
 // Import Components
 import Button from "../home/components/ProductList/Button.vue";
+import Banner from "./Banner.vue";
 
 // Import Composable
 import useGetProductSeries from "../../composable/useGetProductSeries";
@@ -141,8 +142,8 @@ const SelectData : {[key: string] : any} = {
 </script>
 
 <template>
-<div class="bg-hydrate h-[60vh] mb-20">
-
+<div class="mb-20">
+  <Banner />
 </div>
 
 <div v-for="item in data" :key="item.slug">
@@ -152,6 +153,7 @@ const SelectData : {[key: string] : any} = {
       >
         <p class="text-xl font-questrial uppercase tracking-[.5em]"
         :class="[ 'text-' + item.category.slug ]"
+        v-bind:id="item.category.slug"
         >
           {{ item.category.name }}
         </p>
