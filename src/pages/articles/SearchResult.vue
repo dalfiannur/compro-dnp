@@ -89,7 +89,7 @@ const handleSearch = (e: KeyboardEvent) => {
       </div>
       <div class="bg-gray-50 p-8 md:p-16 lg:p-20">
         <h2 class="text-2xl text-hydrate font-inter">Articles</h2>
-        <SearchResultArticle />
+        <SearchResultArticle :items="articles" />
       </div>
     </div>
   </div>
