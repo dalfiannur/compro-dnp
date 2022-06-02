@@ -22,7 +22,7 @@ const routes: RouteRecordRaw[] = [
         component: () => import('./pages/articles/Articles.vue')
     },
     {
-        path: '/pagination',
+        path: '/article-pagination',
         component: () => import('./pages/articles/Pagination.vue')
     },
     {
