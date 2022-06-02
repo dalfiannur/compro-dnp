@@ -20,7 +20,21 @@ const sortBy = ref<string>("latest");
 const query = new URLSearchParams();
 const { pages, data: articles, fetcher, setPage: setPageQuery } = useGetQueries<Article>("articles", {
   autoFetch: true,
-  perPage: 6,
+  perPage: 3,
+  query,
+});
+const { data: featured } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 3
+});
+const { data: TopArticles } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 3,
+  query,
+});
+const { data: LatestArticles } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 3,
   query,
 });
 
@@ -46,6 +60,7 @@ watch(currentPage, (page) => {
   setPageQuery(page);
   fetcher()
 })
+
 </script>
 
 <template>
@@ -66,11 +81,13 @@ watch(currentPage, (page) => {
       </div>
 
       <div id="article" class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3 mt-5">
-        <ArticleCard v-for="(article, index) in articles" :key="index" :data="article" />
+        <ArticleCard v-for="article in articles" :key="article.slug" :data="article" />
       </div>
+      
     </div>
   </div>
 
+  <!-- Pagination -->
   <div class="bg-hydrate w-full h-[150px] items-center">
     <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
       <span class="
@@ -87,7 +104,7 @@ watch(currentPage, (page) => {
           &#60;
         </button>
 
-        <button v-for="page in range" class="text-white w-8 h-8 text-lg text-center" :disabled="currentPage === page"
+        <button v-for="page in range" :key="page" class="text-white w-8 h-8 text-lg text-center" :disabled="currentPage === page"
           :class="{ 'underline text-xl font-bold': page === currentPage }" @click="setPage(page)">
           {{ page === 'dots' ? '...' : page }}
         </button>

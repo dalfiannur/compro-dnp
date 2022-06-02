@@ -11,6 +11,7 @@ import useGetProductSeries from "../../composable/useGetProductSeries";
 import useGetQueries from "../../composable/useGetQueries";
 import { Product } from "../../typings/Product";
 import LineupCard from "./LineupCard.vue";
+import RelatedProduct from "../../components/RelatedProduct.vue";
 
 const emit = defineEmits(["categoryChange"]);
 
@@ -172,6 +173,12 @@ const SelectData : {[key: string] : any} = {
 
   </div>
 </div>
+
+<div id="related-product" class="my-10">
+  <RelatedProduct />
+</div>
+
+
 </template>
 
 <style lang="scss" scoped>

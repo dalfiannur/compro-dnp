@@ -26,7 +26,7 @@ const createLink = () => {
       </h1>
     </header>
 
-    <footer class="flex items-end justify-between p-1 mx-2 leading-none md:p-3 sm:p-4">
+    <footer class="flex flex-grow items-end justify-between p-1 mx-2 leading-none md:p-3 sm:p-4">
       <p class="p-2 text-gray-1 font-questrial md:text-lg sm:text-sm">
         by {{ data.user.name }} -
         {{ new Date(data.createdAt).toLocaleDateString("ID-id") }}
