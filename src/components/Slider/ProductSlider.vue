@@ -77,7 +77,7 @@ const goTo = (key: number) => {
               <Transition :name="slideTo" v-for="(item, index) in items" :key="item.name">
                 <div v-show="active === index" class="absolute top-0 flex flex-col justify-end h-full selected-slide">
                   <img class="h-[40vh] cursor-pointer max-h-[400px]" :src="item.images[1].imageSourceUrl"
-                    @click="$router.push('/products/' + item.id)" />
+                    @click="$router.push('/products/' + item.slug)" />
                 </div>
               </Transition>
             </div>
@@ -104,7 +104,7 @@ const goTo = (key: number) => {
           <Transition :name="slideTo + '-left-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index+1 === active" :src="item.images[0].imageSourceUrl"
               class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-left -mb-24"
-              @click="$router.push('/products/' + items[0].id)" />
+              @click="$router.push('/products/' + items[0].slug)" />
           </Transition>
         </div>
       </div>
@@ -116,7 +116,7 @@ const goTo = (key: number) => {
           <Transition :name="slideTo + '-right-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index-1 === active" :src="item.images[0].imageSourceUrl"
               class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-right -mb-24"
-              @click="$router.push('/products/' + items[0].id)" />
+              @click="$router.push('/products/' + items[0].slug)" />
           </Transition>
         </div>
       </div>
