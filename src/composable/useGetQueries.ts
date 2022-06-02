@@ -101,6 +101,7 @@ export default function useGetQueries<T>(path: string, option?: Option) {
     setPerPage,
     setSearch,
     onSuccess,
-    onError
+    onError,
+    pages
   }
 }
