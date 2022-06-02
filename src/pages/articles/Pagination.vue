@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 // Import Composable
 // import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
@@ -11,15 +11,16 @@ import SliderV3 from "../../components/Slider/SliderV3.vue";
 import HowToFind from "../../components/HowToFind.vue";
 import ArticleCard from "../../components/ArticleCard.vue";
 import useGetQueries from "../../composable/useGetQueries";
+import { usePaginator } from '../../hooks/use-paginator';
 
 const { data: ArticlePagination } = useGetArticlePagination();
 
 const sortBy = ref<string>("latest");
 
 const query = new URLSearchParams();
-const { data: articles } = useGetQueries<Article>("articles", {
+const { pages, data: articles, fetcher, setPage: setPageQuery } = useGetQueries<Article>("articles", {
   autoFetch: true,
-  perPage: 3,
+  perPage: 6,
   query,
 });
 
@@ -34,6 +35,17 @@ const sortLatest = () => {
   query.set("sortBy", "createdAt");
   query.set("asc", "false");
 };
+
+const { range, currentPage, setPage, onNext, onPrev, setTotal } = usePaginator({})
+
+watch(pages, (total) => {
+  setTotal(total);
+})
+
+watch(currentPage, (page) => {
+  setPageQuery(page);
+  fetcher()
+})
 </script>
 
 <template>
@@ -44,38 +56,24 @@ const sortLatest = () => {
   <div class="my-12 mx-auto p-2 md:p-4 justify-center flex">
     <div class="flex-1 justify-between p-2 md:p-6 text-gray-1">
       <div class="flex flex-wrap justify-center text-2xl font-questrial">
-        <a
-          class="pr-3 hover:text-hydrate"
-          href="#"
-          @click.prevent="sortLatest"
-          :class="{ 'text-hydrate': sortBy === 'latest' }"
-        >
+        <a class="pr-3 hover:text-hydrate" href="#" @click.prevent="sortLatest"
+          :class="{ 'text-hydrate': sortBy === 'latest' }">
           Latest
         </a>
         <p class="px-8 text-2xl">|</p>
-        <a
-          class="pl-3 hover:text-hydrate"
-          href="#"
-          @click.prevent="sortPopular"
-          :class="{ 'text-hydrate': sortBy === 'popular' }"
-          >Popular</a
-        >
+        <a class="pl-3 hover:text-hydrate" href="#" @click.prevent="sortPopular"
+          :class="{ 'text-hydrate': sortBy === 'popular' }">Popular</a>
       </div>
 
-      <div id="article" class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3">
-<!--        <ArticleCard-->
-<!--          v-for="(page, index) in ArticlePagination"-->
-<!--          :key="index"-->
-<!--          :data="page"-->
-<!--        />-->
+      <div id="article" class="grid grid-cols-1 gap-20 p-1 md:grid-cols-3 mt-5">
+        <ArticleCard v-for="(article, index) in articles" :key="index" :data="article" />
       </div>
     </div>
   </div>
 
   <div class="bg-hydrate w-full h-[150px] items-center">
     <div class="flex flex-wrap justify-between h-full items-center gap-4 px-12">
-      <span
-        class="
+      <span class="
           flex-1
           my-auto
           border-[1.5px]
@@ -83,28 +81,18 @@ const sortLatest = () => {
           border-white
           hidden
           md:block
-        "
-      ></span>
+        "></span>
       <div class="m-0">
-        <button class="text-white w-8 h-8 pr-4 text-lg" data-v-4e44e668>
+        <button class="text-white w-8 h-8 text-lg text-center" @click="onPrev">
           &#60;
         </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          1
+
+        <button v-for="page in range" class="text-white w-8 h-8 text-lg text-center" :disabled="currentPage === page"
+          :class="{ 'underline text-xl font-bold': page === currentPage }" @click="setPage(page)">
+          {{ page === 'dots' ? '...' : page }}
         </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          2
-        </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          3
-        </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          4
-        </button>
-        <button class="border-2 w-8 h-8 m-1 sm:m-2 text-white" href="#">
-          5
-        </button>
-        <button class="text-white w-8 h-8 pl-4 text-lg" data-v-4e44e668>
+
+        <button class="text-white w-8 h-8 text-lg text-center" @click="onNext">
           &gt;
         </button>
       </div>
