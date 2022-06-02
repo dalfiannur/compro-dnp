@@ -141,12 +141,16 @@ const SelectData : {[key: string] : any} = {
 </script>
 
 <template>
+<div class="bg-hydrate h-[60vh] mb-20">
+
+</div>
+
 <div v-for="item in data" :key="item.slug">
   <div class="w-full h-[100px] items-center">
       <div
         class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
       >
-        <p class="text-xl uppercase tracking-[.5em]"
+        <p class="text-xl font-questrial uppercase tracking-[.5em]"
         :class="[ 'text-' + item.category.slug ]"
         >
           {{ item.category.name }}
