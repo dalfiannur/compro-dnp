@@ -3,28 +3,68 @@
 @tailwind utilities;
 
 @layer {
-    @font-face {
-        font-family: 'questrial';
-        src: url('./assets/fonts/Questrial-Regular.ttf') format('truetype');
-    }
+  @font-face {
+    font-family: "questrial";
+    src: url("./assets/fonts/Questrial-Regular.ttf") format("truetype");
+  }
 
-    @font-face {
-        font-family: 'din-next-lt-pro-bold';
-        src: url('./assets/fonts/DINNextLTPro-Bold.otf') format('opentype');
-    }
+  @font-face {
+    font-family: "din-next-lt-pro-bold";
+    src: url("./assets/fonts/DINNextLTPro-Bold.otf") format("opentype");
+  }
 
-    @font-face {
-        font-family: 'din-next-lt-pro-light';
-        src: url('./assets/fonts/DINNextLTPro-Light.otf') format('opentype');
-    }
+  @font-face {
+    font-family: "din-next-lt-pro-light";
+    src: url("./assets/fonts/DINNextLTPro-Light.otf") format("opentype");
+  }
 
-    @font-face {
-        font-family: 'inter';
-        src: url('./assets/fonts/Inter.ttf') format('truetype');
-    }
+  @font-face {
+    font-family: "inter";
+    src: url("./assets/fonts/Inter.ttf") format("truetype");
+  }
 }
 
 :root {
-    --color-repair: '92 132 195';
-    --color-hydrate: rgb(99,196,180);
+  --color-primary: #73c0b8;
+  --color-primary-light: #8cc8c0;
+  --color-repair: #5985c5;
+  --color-prevent: #71469b;
+  --color-glow: #f7bf6f;
+  --color-hydrate: #77c6bc;
+  --color-white-smoke: #f2f2f2;
+  --color-baseColor: #818181;
+  --color-gray-1: #666867;
+  --color-preserve: #ae1857;
+}
+
+.border-repair {
+    border-color: var(--color-repair);
+}
+.border-prevent {
+    border-color: var(--color-prevent);
+}
+.border-glow {
+    border-color: var(--color-glow);
+}
+.border-hydrate {
+    border-color: var(--color-hydrate);
+}
+.border-preserve {
+    border-color: var(--color-preserve);
+}
+
+.text-repair {
+    color: var(--color-repair);
+}
+.text-prevent {
+    color: var(--color-prevent);
+}
+.text-glow {
+    color: var(--color-glow);
+}
+.text-hydrate {
+    color: var(--color-hydrate);
+}
+.text-preserve {
+    color: var(--color-preserve);
 }
