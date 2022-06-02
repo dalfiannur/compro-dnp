@@ -116,7 +116,7 @@ const goTo = (key: number) => {
           <Transition :name="slideTo + '-right-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index-1 === active" :src="item.images[0].imageSourceUrl"
               class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-right -mb-24"
-              @click="$router.push('/products/' + items[0].slug)" />
+              @click="$router.push('/products/' + items[0].id)" />
           </Transition>
         </div>
       </div>

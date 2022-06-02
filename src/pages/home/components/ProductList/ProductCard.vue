@@ -65,7 +65,7 @@ const getIcon = (category: string) => {
           </div>
       </div>
       <div
-        class="mt-10 text-2xl text-center h-14 font-din-next-lt-pro-light"
+        class="mt-10 text-2xl text-center h-14 font-questrial"
         :class="{
           ['text-' + hoverCategory]: innerHovered && hoverCategory === item.category.slug,
         }"

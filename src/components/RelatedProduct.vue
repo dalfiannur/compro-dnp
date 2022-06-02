@@ -14,37 +14,37 @@ const { data: product } = useGetQueries<Product>("product", {
 const items = ref<any[]>([
     {
         id: 1,
-        name: 'Caffein Repair 1',
+        name: 'Dummy',
         category: {
             slug: 'repair'
         },
         images: [
             {
-                imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
+                imageSourceUrl: '/img/Dummy1.png'
             }
         ]
     },
     {
         id: 2,
-        name: 'Caffein Prevent 1',
+        name: 'Dummy Cream',
         category: {
             slug: 'prevent'
         },
         images: [
             {
-                imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
+                imageSourceUrl: '/img/Dummy2.png'
             }
         ]
     },
     {
         id: 3,
-        name: 'Caffein Glow 1',
+        name: 'Dummy Spray',
         category: {
             slug: 'glow'
         },
         images: [
             {
-                imageSourceUrl: '/img/prevent-antioxidant-resveratrol-a.png'
+                imageSourceUrl: '/img/Dummy3.png'
             }
         ]
     },
@@ -58,10 +58,10 @@ const items = ref<any[]>([
             <h1 class="font-questrial text-2xl text-gray-1">Related Product</h1>
         </div>
         <div class="flex flex-wrap lg:mx-20 my-10 justify-center gap-6">
-            <div class="w-72" v-for="(item, index) in product" :key="index">
+            <div class="w-72" v-for="(item, index) in items" :key="index">
                 <div class="font-questrial">
-                    <div class="aspect-square w-full bg-white-smoke">
-                        <img class="p-8" :src="item.images[0].imageSourceUrl" alt="">
+                    <div class="flex aspect-square w-full bg-white-smoke justify-center">
+                        <img class="object-cover p-8 h-full" :src="item.images[0].imageSourceUrl" alt="">
                     </div>
                     <div class="flex lg:hidden w-fuull h-20 items-center justify-center gap-5 bg-hydrate">
                         <img class="w-12" src="/img/hydrate.svg" />

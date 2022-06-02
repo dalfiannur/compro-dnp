@@ -168,13 +168,12 @@ const SelectData : {[key: string] : any} = {
   <LineupCard :items="SelectData[item.category.slug]" @hover="cardHoverHandler" @blur="cardBlurHandler"/>
   <div class="flex items-center gap-10 px-20 mt-10">
     <div class="flex-1">
-      <hr />
     </div>
 
   </div>
 </div>
 
-<div id="related-product" class="my-10">
+<div id="related-product" class="my-20">
   <RelatedProduct />
 </div>
 

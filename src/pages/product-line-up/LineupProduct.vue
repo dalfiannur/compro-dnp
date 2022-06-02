@@ -37,13 +37,14 @@ const getBG = (category: string) => {
             :src="item.images[0].imageSourceUrl"  
           />
         </div>
+        <div
+          class="mt-10 text-2xl text-center h-14 font-questrial text-gray-500"
+          :class="{[ 'text-' + item.category.slug ]: !hovered === false}"
+        >
+          {{ item.name }}
+        </div>
       </a>
-      <div
-        class="mt-10 text-2xl text-center h-14 font-din-next-lt-pro-light"
-        :class="[ 'text-' + item.category.slug ]"
-      >
-        {{ item.name }}
-      </div>
+      
     </div>
   </div>
 </template>
