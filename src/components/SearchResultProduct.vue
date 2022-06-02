@@ -12,7 +12,7 @@ const { items } = toRefs(props);
 <template>
     <div v-for="item in items" :key="item.id" class="w-full mt-6 md:mt-12">
         <div class="flex flex-col sm:flex-row w-full">
-            <div class="h-52 w-full sm:w-[30%] lg:w-[25%] flex-none bg-hydrate" :class="[`bg-${item.category.slug}`]">
+            <div class="h-52 w-full sm:w-[30%] lg:w-[25%] flex-none" :class="[`bg-${item.category.slug}`]">
                 <img class="h-full w-full p-4 object-contain" :src="`/img/${item.category.slug}-series.png`" />
             </div>
             <div

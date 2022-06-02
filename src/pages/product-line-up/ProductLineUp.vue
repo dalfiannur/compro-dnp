@@ -143,7 +143,7 @@ const SelectData : {[key: string] : any} = {
 
 <template>
 <div class="mb-20">
-  <Banner />
+  <Banner  />
 </div>
 
 <div v-for="item in data" :key="item.slug">
