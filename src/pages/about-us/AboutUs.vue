@@ -79,7 +79,8 @@ import HowToFind from '../../components/HowToFind.vue'
 .bg-banner {
     background-image: linear-gradient(90deg,
             rgb(99 196 180) 5%,
-            rgba(255, 255, 255, 0) 100%), url(img/about-us.png)
+            rgba(255, 255, 255, 0) 100%), 
+            url('img/about-us.png')
 }
 
 
@@ -87,7 +88,8 @@ import HowToFind from '../../components/HowToFind.vue'
     .bg-banner {
         background-image: linear-gradient(110deg,
                 rgb(99 196 180) 5%,
-                rgba(255, 255, 255, 0) 60%), url(img/about-us.png)
+                rgba(255, 255, 255, 0) 60%), 
+                url('img/about-us.png')
     }
 }
 </style>
