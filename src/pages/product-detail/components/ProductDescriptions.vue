@@ -128,7 +128,7 @@ watch(data, () => {
 
 <style lang="scss">
   #how-to-use ul, #description ul {
-    list-style: disc;
+    list-style: disc!important;;
     text-align: justify;
     margin-left: 1rem;
   }

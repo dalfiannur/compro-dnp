@@ -104,8 +104,9 @@
                 placeholder="Search..."
                 class="w-[500px] bg-gray-200 h-14 focus:outline-none px-5"
                 @keyup="handleSearch"
+                @keypress.enter="$router.push('/search?search=' + search)"
               />
-              <transition name="fade">
+              <!-- <transition name="fade">
                 <div v-if="search && search.length > 3"
                      class="absolute w-full p-5 bg-gray-300">
                   <a
@@ -122,11 +123,10 @@
                     <a class="text-sm text-hydrate">Product</a>
                   </div>
                 </div>
-              </transition>
+              </transition> -->
             </div>
-            <button 
-              :href="'/search'" 
-              @click.prevent="$router.push('/search')" 
+            <button  
+              @click.prevent="$router.push('/search?search=' + search)" 
               class="flex items-center justify-center text-white w-14 h-14 bg-hydrate"
             >
               <img src="/img/search.svg" class="w-6 h-6 ml-[0.35rem] mt-[0.15rem]"/>
