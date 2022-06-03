@@ -37,13 +37,11 @@ const handleSearch = (e: KeyboardEvent) => {
   }
 }
 
-onMounted(() => {
-  const s = useRoute().query.search?.toString();
-  if (s) {
-    search.value = s;
-    runSearch()
-  }
-})
+const s = useRoute().query.search?.toString();
+if (s) {
+  search.value = s;
+  runSearch()
+}
 </script>
 
 <template>
