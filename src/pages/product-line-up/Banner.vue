@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="bg-hydrate lg:h-[50vh] 2xl:h-[60vh]">
+  <div class="bg-hydrate lg:h-[50vh] 2xl:h-[60vh] overflow-hidden">
     <div
       class="relative py-5 flex items-center justify-center h-full w-full flex-grow"
     >
