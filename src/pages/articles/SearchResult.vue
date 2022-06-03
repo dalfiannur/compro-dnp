@@ -6,6 +6,7 @@ import { Product } from "../../typings/Product";
 import ArticleSection from "../home/components/ArticleSection.vue";
 import SearchResultArticle from "../../components/SearchResultArticle.vue";
 import SearchResultProduct from "../../components/SearchResultProduct.vue"
+import { useRoute } from "vue-router";
 
 type Prop = {
   hovered: number | null
@@ -23,6 +24,7 @@ const { setSearch: setSearchProduct, data: products } = useGetQueries<Product>('
 });
 
 const search = ref<string | null>(null);
+search.value = useRoute().query.search;
 
 const handleSearch = (e: KeyboardEvent) => {
   if (e.code === 'Enter') {
@@ -32,6 +34,12 @@ const handleSearch = (e: KeyboardEvent) => {
     }
   }
 }
+
+function runSearch() {
+  setSearchArticle(search.value as string);
+  setSearchProduct(search.value as string);
+}
+runSearch()
 </script>
 
 <template>
@@ -47,7 +55,7 @@ const handleSearch = (e: KeyboardEvent) => {
           class="w-full bg-white h-14 focus:outline-none px-5" @keyup="handleSearch" />
 
       </div>
-      <button :href="'/search'" @click.prevent="$router.push('/search')"
+      <button :href="'/search'" @click.prevent="runSearch"
         class="flex items-center justify-center text-white w-14 h-14 bg-hydrate">
         <img src="/img/search.svg" class="w-6 h-6 ml-[0.35rem] mt-[0.15rem]" />
       </button>
