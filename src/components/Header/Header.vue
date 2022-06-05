@@ -80,7 +80,7 @@ onMounted(() => {
                 </p>
                 <div class="flex gap-5 mt-5">
                   <div>
-                    <a target="_blank" href="https://wa.me/6282261050567?text=Hallo"
+                    <a target="_blank" href="###"
                       class="flex items-center justify-center rounded-full w-12 h-12 bg-hydrate">
                       <img src="/img/whatsapp.svg" class="w-7 h-7 text-white" />
                     </a>
