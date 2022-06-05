@@ -11,17 +11,19 @@ const { items } = toRefs(props);
 
 <template>
     <div v-for="item in items" :key="item.id" class="w-full mt-6 md:mt-12">
-        <div class="flex flex-col sm:flex-row w-full">
-            <div class="h-52 w-full sm:w-[30%] lg:w-[25%] flex-none" :class="[`bg-${item.category.slug}`]">
-                <img class="h-full w-full p-4 object-contain" :src="`/img/${item.category.slug}-series.png`" />
+        <a :href="'/products/' + item.slug">
+            <div class="flex flex-col sm:flex-row w-full">
+                <div class="h-52 w-full sm:w-[30%] lg:w-[25%] flex-none" :class="[`bg-${item.category.slug}`]">
+                    <img class="h-full w-full p-4 object-contain" :src="`/img/${item.category.slug}-series.png`" />
+                </div>
+                <div
+                    class="flex-1 h-40 sm:h-52 w-full flex flex-col justify-center bg-white-smoke font-questrial p-8 lg:p-14 text-center sm:text-left">
+                    <h2 class="text-2xl sm:text-4xl" :class="`text-${item.category.slug}`">{{ item.name }}</h2>
+                    <div class="text-sm sm:text-base text-baseColor mt-4 max-w-sm mx-auto sm:mx-0 product-description"
+                        v-html="item.description" />
+                </div>
             </div>
-            <div
-                class="flex-1 h-40 sm:h-52 w-full flex flex-col justify-center bg-white-smoke font-questrial p-8 lg:p-14 text-center sm:text-left">
-                <h2 class="text-2xl sm:text-4xl" :class="`text-${item.category.slug}`">{{ item.name }}</h2>
-                <div class="text-sm sm:text-base text-baseColor mt-4 max-w-sm mx-auto sm:mx-0 product-description"
-                    v-html="item.description" />
-            </div>
-        </div>
+        </a>
         <div class="flex flex-col sm:flex-row align-middle justify-start gap-1 sm:gap-6 mt-0 md:mt-6 font-questrial"
             :class="[`text-${item.category.slug}`]">
             <div class="w-full sm:w-[30%] lg:w-[25%] uppercase text-center tracking-[0.5em] font-inter border-[1px] py-2 pl-2"

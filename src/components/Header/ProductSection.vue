@@ -161,8 +161,9 @@
                   v-model="search"
                   placeholder="Search..."
                   @keyup="handleSearch"
+                  @keypress.enter="$router.push('/search?search=' + search)"
                 />
-                <Transition name="fade">
+                <!-- <Transition name="fade">
                   <div
                     class="absolute w-full bg-gray-200 top-12 px-14"
                     v-show="search && search.length > 3"
@@ -182,9 +183,9 @@
                       </li>
                     </ul>
                   </div>
-                </Transition>
+                </Transition> -->
               </div>
-              <button class="flex items-center justify-center w-14 h-14 bg-hydrate">
+              <button @click="$router.push('/search?search=' + search)" class="flex items-center justify-center w-14 h-14 bg-hydrate cursor-pointer">
                 <div>
                 
                 </div>
