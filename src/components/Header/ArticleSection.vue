@@ -40,6 +40,10 @@
       }
     }, 1500)
   }
+  const goToSearch = () => {
+    const domain = window.location.origin;
+    window.location.assign(domain + "/search?search=" + search.value);
+  }
 </script>
 
 <template>
@@ -104,7 +108,7 @@
                 placeholder="Search..."
                 class="w-[500px] bg-gray-200 h-14 focus:outline-none px-5"
                 @keyup="handleSearch"
-                @keypress.enter="$router.push('/search?search=' + search)"
+                @keypress.enter="goToSearch"
               />
               <!-- <transition name="fade">
                 <div v-if="search && search.length > 3"
@@ -126,7 +130,7 @@
               </transition> -->
             </div>
             <button  
-              @click.prevent="$router.push('/search?search=' + search)" 
+              @click.prevent="goToSearch" 
               class="flex items-center justify-center text-white w-14 h-14 bg-hydrate"
             >
               <img src="/img/search.svg" class="w-6 h-6 ml-[0.35rem] mt-[0.15rem]"/>

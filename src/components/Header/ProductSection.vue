@@ -115,6 +115,10 @@
       setSearch(search.value)
     }, 0)
   }
+  const goToSearch = () => {
+    const domain = window.location.origin;
+    window.location.assign(domain + "/search?search=" + search.value);
+  }
 </script>
 
 <template>
@@ -161,7 +165,7 @@
                   v-model="search"
                   placeholder="Search..."
                   @keyup="handleSearch"
-                  @keypress.enter="$router.push('/search?search=' + search)"
+                  @keypress.enter="goToSearch"
                 />
                 <!-- <Transition name="fade">
                   <div
@@ -185,7 +189,7 @@
                   </div>
                 </Transition> -->
               </div>
-              <button @click="$router.push('/search?search=' + search)" class="flex items-center justify-center w-14 h-14 bg-hydrate cursor-pointer">
+              <button @click="goToSearch" class="flex items-center justify-center w-14 h-14 bg-hydrate cursor-pointer">
                 <div>
                 
                 </div>
