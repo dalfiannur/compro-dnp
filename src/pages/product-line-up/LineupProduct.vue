@@ -10,10 +10,6 @@ const props = defineProps<Prop>();
 const { item } = toRefs(props);
 const hovered = inject("hovered", ref<boolean>(false));
 
-
-const getBG = (category: string) => {
-  return `/img/BG_${category.charAt(0).toUpperCase() + category.slice(1)}.png`;
-};
 </script>
 
 <template>
@@ -26,9 +22,9 @@ const getBG = (category: string) => {
         >
 
         <transition name="fade">
-          <img v-if="hovered"
+          <div v-show="hovered"
             class="absolute w-full h-full max-h-[400px] aspect-square"
-            :src="getBG(item.category.slug)"
+            :class="['bg-hover-' + item.category.slug]"            
           />
         </transition>
           
@@ -71,7 +67,13 @@ $preserve: '#ae1857';
     --color-preserve: rgba(174, 24, 87, .7);
     background-color: var(--color-#{$category});
   }
+  .bg-hover-#{$category} {
+    background: url('/img/BG_' + $category + '.png');
+    background-size: cover;
+    background-position: center center;
+  }
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.25s ease;
