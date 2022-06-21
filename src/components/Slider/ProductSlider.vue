@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { clear } from "console";
+import { keys } from "lodash";
+import { ref, onMounted, watch } from "vue";
 import { Product } from "../../typings/Product";
 
 interface Prop {
@@ -13,33 +15,88 @@ const active = ref<number>(2);
 const slideTo = ref<string>("next");
 let timeout: NodeJS.Timer
 
-const next = (key: number) => {
+const next = (key: number, duration: number = 700) => {
   slideTo.value = "next";
   const loop = () => {
     if (active.value < key) {
       active.value = active.value + 1;
       timeout = setTimeout(() => {
         loop();
-      }, 700);
+      }, duration);
     }
   };
   loop();
 };
 
-const prev = (key: number) => {
+const prev = (key: number, duration: number = 700) => {
   slideTo.value = "prev";
   const loop = () => {
     if (active.value > key) {
       active.value = active.value - 1;
       timeout = setTimeout(() => {
         loop();
-      }, 700);
+      }, duration);
     }
   };
   loop();
 };
 
+let startTimeout:NodeJS.Timer 
+
+function pause() {
+  clearTimeout(timeout)
+  clearTimeout(startTimeout)
+}
+
+function start() {
+  clearTimeout(timeout)
+  clearTimeout(startTimeout)
+  if (slideTo.value === "next") {
+    startTimeout=setTimeout(() => {
+      next(4, 2800);
+    }, 2800); 
+    // next(value + 1);
+  }
+  if (slideTo.value === "prev") {
+    startTimeout=setTimeout(() => {
+      prev(0, 2800);
+    }, 2800);
+  }
+  console.log(active.value)
+}
+
+onMounted(() => {
+  setTimeout(() => {
+    if (active.value < 4) {
+      next(4, 2800);
+    }
+  }, 2800);
+})
+
+watch (active, (value) => {
+  if (value === 0) {
+    startTimeout=setTimeout(() => {
+      next(4, 2800);
+    }, 2800); 
+    // next(value + 1);
+  }
+  if (value === 4) {
+    setTimeout(() => {
+      prev(0, 2800);
+    }, 2800);
+  }
+  console.log(value)
+})
+
 let running = false;
+
+function conditionalFunc(key: number) {
+  if (key >= activeSlides.value) {
+    next(key);
+  } else {
+    prev(key);
+  }
+} 
 
 const goTo = (key: number) => {
   clearTimeout(timeout)
@@ -49,12 +106,8 @@ const goTo = (key: number) => {
     running = true
   }
 
+  conditionalFunc(key)
 
-  if (key >= activeSlides.value) {
-    next(key);
-  } else {
-    prev(key);
-  }
   running = false
 
   activeSlides.value = key;
@@ -77,7 +130,9 @@ const goTo = (key: number) => {
               <Transition :name="slideTo" v-for="(item, index) in items" :key="item.name">
                 <div v-show="active === index" class="absolute top-0 flex flex-col justify-end h-full selected-slide">
                   <img class="h-[40vh] cursor-pointer max-h-[400px]" :src="item.images[1].imageSourceUrl"
-                    @click="$router.push('/products/' + item.slug)" />
+                    @click="$router.push('/products/' + item.slug)"
+                    @mouseenter="pause"
+                    @mouseleave="start" />
                 </div>
               </Transition>
             </div>
@@ -90,7 +145,7 @@ const goTo = (key: number) => {
               <div v-for="(item, index) in items" :key="item.id"
                 class="flex items-center justify-center w-6 h-6 border border-white cursor-pointer"
                 @click="goTo(index)">
-                <div v-if="activeSlides === index" class="w-3 h-3 bg-white" />
+                <div v-if="active === index" class="w-3 h-3 bg-white" />
               </div>
             </div>
           </div>
