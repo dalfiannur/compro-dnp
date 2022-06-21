@@ -5,7 +5,7 @@ import { useRouter } from "vue-router";
 
 // Import Components
 import Button from "../home/components/ProductList/Button.vue";
-import Banner from "./Banner.vue";
+import SliderV4 from "../../components/Slider/SliderV4/SliderV4.vue";
 
 // Import Composable
 import useGetProductSeries from "../../composable/useGetProductSeries";
@@ -143,26 +143,19 @@ const SelectData : {[key: string] : any} = {
 
 <template>
 <div class="mb-20">
-  <Banner  />
+  <SliderV4/>
 </div>
 
 <div v-for="item in data" :key="item.slug">
   <div class="w-full h-[100px] items-center">
       <div
-        class="flex flex-wrap justify-between h-full items-center gap-4 px-12"
+        class="flex flex-wrap justify-between h-full items-center gap-4 pl-5 pr-5 lg:pr-20 lg:pl-12"
       >
         <p class="text-xl font-questrial uppercase tracking-[.5em]"
         :class="[ 'text-' + item.category.slug ]"
         v-bind:id="item.category.slug"
         >
           {{ item.category.name }}
-        </p>
-        <p
-          class="w-8 h-8 pl-2 text-2xl md:text-3xl"
-          :class="[ 'text-' + item.category.slug ]"
-          data-v-4e44e668
-        >
-          &#709;
         </p>
         <span
           class="flex-1 my-auto border-[1px]"

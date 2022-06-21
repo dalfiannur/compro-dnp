@@ -3,6 +3,7 @@ import { defineProps } from 'vue'
 
 interface Prop {
     name: string;
+    href: string;
 }
 
 const props = defineProps<Prop>()
@@ -11,6 +12,6 @@ const props = defineProps<Prop>()
 
 <template>
     <button
-        class="text-sm text-white font-questrial uppercase tracking-[0.6em] border-2 h-10 w-full mt-4"
-    >{{ name }}</button>
+        class="text-sm border border-white font-questrial text-white uppercase tracking-[0.6em] border-1 h-10 w-full mt-4"><a
+            :href="href">{{ name }}</a></button>
 </template>
