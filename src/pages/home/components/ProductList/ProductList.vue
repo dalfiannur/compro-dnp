@@ -122,8 +122,7 @@ const handleCardClick = (item: Product) => {
     selectedCategory.value = item.category.slug;
     transition()
   } else {
-    // router.push("/products/" + item.slug);
-    window.location.href = "/products/" + item.slug
+    router.push("/products/" + item.slug);
   }
 };
 </script>
