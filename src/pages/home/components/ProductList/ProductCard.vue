@@ -99,11 +99,11 @@ $preserve: '#ae1857';
     background-color: theme('colors.' + $category);
   }
   .bg-#{$category}-hover {
-    --color-repair: rgba(92, 132, 195, .7);
-    --color-prevent: rgb(113, 70, 155, .7);
-    --color-glow: rgba(247, 191, 111, .7);
-    --color-hydrate: rgba(99, 196, 180, .7);
-    --color-preserve: rgba(174, 24, 87, .7);
+    --color-repair: rgba(57, 100, 170, 0.7);
+    --color-prevent: rgba(78, 43, 112, 0.7);
+    --color-glow: rgba(212, 144, 47, 0.7);
+    --color-hydrate: rgba(56, 153, 137, 0.7);
+    --color-preserve: rgba(129, 16, 63, 0.7);
     background-color: var(--color-#{$category});
   }
 }
