@@ -20,7 +20,7 @@ const next = (key: number) => {
       active.value = active.value + 1;
       timeout = setTimeout(() => {
         loop();
-      }, 1000);
+      }, 700);
     }
   };
   loop();
@@ -33,7 +33,7 @@ const prev = (key: number) => {
       active.value = active.value - 1;
       timeout = setTimeout(() => {
         loop();
-      }, 1000);
+      }, 700);
     }
   };
   loop();
@@ -143,7 +143,7 @@ const goTo = (key: number) => {
 .prev-enter-active,
 .next-leave-active,
 .prev-leave-active {
-  transition: all 0.9s ease-out;
+  transition: all 0.7s ease-out;
 }
 
 .next-leave-to,
@@ -160,11 +160,11 @@ const goTo = (key: number) => {
 Right Side
 */
 .next-right-side-enter-active {
-  transition: all 0.7s ease-out 0.3s;
+  transition: all 0.7s ease-out;
 }
 
 .prev-right-side-enter-active {
-  transition: all 1s ease-out;
+  transition: all 0.7s ease-out;
 }
 
 .next-right-side-leave-active {
@@ -191,11 +191,11 @@ Right Side
 Left Side
 */
 .next-left-side-enter-active {
-  transition: all 0.7s ease-out 0.3s;
+  transition: all 0.7s ease-out;
 }
 
 .prev-left-side-enter-active {
-  transition: all 1s ease-out;
+  transition: all 0.7s ease-out;
 }
 
 .next-left-side-leave-active {
@@ -214,7 +214,7 @@ Left Side
 
 .next-left-side-enter-from,
 .prev-left-side-leave-to {
-  transform: translateX(150%) rotate(0deg);
+  transform: translateX(150%);
   bottom: 0rem;
 }
 </style>

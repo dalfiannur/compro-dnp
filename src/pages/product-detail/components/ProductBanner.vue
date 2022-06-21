@@ -54,13 +54,13 @@ console.log(data.value.category)
 <template>
   <div
     v-if="data"
-    class="relative py-5 flex items-center justify-center lg:justify-start h-80 lg:h-96 w-full flex-grow"
+    class="relative py-5 flex items-center justify-center lg:justify-start h-80 lg:h-96 xl:h-[26rem] 2xl:h-[32rem] w-full flex-grow"
     :class="['bg-' + data.category.slug]"
   >
 
-    <div class="absolute w-60 lg:w-72 -rotate-90 border-[0.13rem] border-white -left-[6.2rem] lg:-left-[7.7rem]">
+    <div class="absolute w-60 lg:w-72 2xl:w-96 -rotate-90 border-[0.13rem] border-white -left-[6.2rem] lg:-left-[7.7rem] 2xl:-left-[10.4rem]">
       <div class="my-2.5 uppercase font-questrial tracking-[0.5rem] text-white">
-        <p class="text-center text-base">
+        <p class="text-center text-base xl:text-xl 2xl:text-2xl">
           {{ data.category.name }}
         </p>
       </div>
@@ -76,9 +76,9 @@ console.log(data.value.category)
     </div>
 
     <div class="items-center lg:flex text-center lg:text-left lg:ml-64">
-      <h2 v-html="productName" class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-questrial font-normal text-white max-w-[420px]" />
+      <h2 v-html="productName" class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-questrial font-normal text-white max-w-[420px]" />
 
-      <p v-html="productUsedAs" class="text-lg lg:text-xl xl:text-3xl font-questrial font-normal text-white mt-6 lg:ml-12" />
+      <p v-html="productUsedAs" class="text-lg lg:text-xl xl:text-3xl 2xl:text-4xl font-questrial font-normal text-white mt-6 lg:ml-12 xl:ml-20 2xl:ml-48" />
 
     </div>
   </div>
