@@ -40,21 +40,21 @@ onMounted(() => {
         class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-28 md:flex-row lg:top-0 md:static"
         v-show="menu.open">
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 0 ? null : 0" @mouseover="hovered = 0"
-            class="font-semibold text-gray-1 font-din-next-lt-pro-light">
+          <a href="/product-line-up" @mouseover="hovered = 0"  @mouseleave="hovered = null"
+            class="font-semibold text-gray-1 font-din-next-lt-pro-light h-[50px] ">
             Products
           </a>
           <ProductSection :hovered="hovered" @mouseover="hovered = 0" @mouseleave="hovered = null" />
         </li>
 
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 1 ? null : 1" @mouseover="hovered = 1"
+          <a href="/articles" @mouseover="hovered = 1" @mouseleave="hovered = null"
             class="font-semibold text-gray-1 font-din-next-lt-pro-light">Articles</a>
           <ArticleSection :hovered="hovered" @mouseover="hovered = 1" @mouseleave="hovered = null" />
         </li>
 
         <li>
-          <a href="#" @click.prevent="hovered = hovered === 2 ? null : 2" @mouseover="hovered = 2"
+          <a href="about-us" @mouseover="hovered = 2"
             class="font-semibold text-gray-1 font-din-next-lt-pro-light">About Us</a>
           <Transition name="fade">
             <div v-show="hovered === 2" @mouseleave="hovered = null"
