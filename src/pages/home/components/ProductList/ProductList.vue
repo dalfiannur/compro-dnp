@@ -140,7 +140,7 @@ const handleCardClick = (item: Product) => {
       <hr />
     </div>
     <div>
-      <a href="/product-line-up" class="text-xl text-hydrate">See
+      <a href="/product-line-up" @click.prevent="$router.push('/product-line-up')" class="text-xl text-hydrate">See
         More</a>
     </div>
   </div>
