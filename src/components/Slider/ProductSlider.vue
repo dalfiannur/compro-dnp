@@ -46,6 +46,7 @@ let startTimeout:NodeJS.Timer
 function pause() {
   clearTimeout(timeout)
   clearTimeout(startTimeout)
+  clearTimeout(watchTimeout)
 }
 
 function start() {
@@ -53,13 +54,22 @@ function start() {
   clearTimeout(startTimeout)
   if (slideTo.value === "next") {
     startTimeout=setTimeout(() => {
-      next(4, 2800);
+      if (active.value < 4){
+        next(4, 2800);
+      } else {
+        prev(0, 2800);
+      }
+      
     }, 2800); 
     // next(value + 1);
   }
   if (slideTo.value === "prev") {
     startTimeout=setTimeout(() => {
-      prev(0, 2800);
+      if (active.value > 0){
+        prev(0, 2800);
+      } else {
+        next(4, 2800);
+      }
     }, 2800);
   }
   console.log(active.value)
@@ -73,15 +83,17 @@ onMounted(() => {
   }, 2800);
 })
 
+let watchTimeout:NodeJS.Timer
+
 watch (active, (value) => {
   if (value === 0) {
-    startTimeout=setTimeout(() => {
+    watchTimeout=setTimeout(() => {
       next(4, 2800);
     }, 2800); 
     // next(value + 1);
   }
   if (value === 4) {
-    setTimeout(() => {
+    watchTimeout=setTimeout(() => {
       prev(0, 2800);
     }, 2800);
   }
