@@ -26,7 +26,7 @@ const { data, title } = defineProps<Prop>()
     }" />
     <ul class="hidden xl:block text-justify text-gray-600">
       <li v-for="used in data" :key="used">
-        <a :href="'/products/' + used.slug" @click.prevent="$router.push('/products/' + used.slug)">{{ used.name }}</a>
+        <a :href="'/products/' + used.slug" @click="$router.push('/products/' + used.slug)">{{ used.name }}</a>
       </li>
     </ul>
   </div>
