@@ -172,9 +172,9 @@ const SelectData : {[key: string] : any} = {
   </div>
 </div>
 
-<div id="related-product" class="my-20">
+<!-- <div id="related-product" class="my-20">
   <RelatedProduct />
-</div>
+</div> -->
 
 
 </template>
