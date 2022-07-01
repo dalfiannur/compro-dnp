@@ -2,8 +2,6 @@
 import { ref, watch } from "vue";
 
 // Import Composable
-// import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
-import useGetArticlePagination from "../../composable/useGetArticlePagination";
 import { Article } from "../../typings/Article";
 
 // Import Components
@@ -12,8 +10,6 @@ import HowToFind from "../../components/HowToFind.vue";
 import ArticleCard from "../../components/ArticleCard.vue";
 import useGetQueries from "../../composable/useGetQueries";
 import { usePaginator } from '../../hooks/use-paginator';
-
-const { data: ArticlePagination } = useGetArticlePagination();
 
 const sortBy = ref<string>("latest");
 
