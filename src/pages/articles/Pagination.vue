@@ -23,31 +23,19 @@ const { pages, data: articles, fetcher, setPage: setPageQuery } = useGetQueries<
   perPage: 3,
   query,
 });
-const { data: featured } = useGetQueries<Article>('articles', {
-  autoFetch: true,
-  perPage: 3
-});
-const { data: TopArticles } = useGetQueries<Article>('articles', {
-  autoFetch: true,
-  perPage: 3,
-  query,
-});
-const { data: LatestArticles } = useGetQueries<Article>('articles', {
-  autoFetch: true,
-  perPage: 3,
-  query,
-});
 
 const sortPopular = () => {
   sortBy.value = "popular";
-  query.set("sortBy", "createdAt");
-  query.set("asc", "true");
+  query.set("orderBy", "viewCount");
+  query.set("orderSort", "desc");
+  fetcher()
 };
 
 const sortLatest = () => {
   sortBy.value = "latest";
-  query.set("sortBy", "createdAt");
-  query.set("asc", "false");
+  query.set("orderBy", "createdAt");
+  query.set("orderSort", "desc");
+  fetcher()
 };
 
 const { range, currentPage, setPage, onNext, onPrev, setTotal } = usePaginator({})
