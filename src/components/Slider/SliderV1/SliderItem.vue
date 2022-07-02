@@ -60,7 +60,14 @@ const transitionEffect = computed(() => {
             :href="data.link"
             v-show="currentSlide === index"
         >
-            <div class="absolute left-0 flex flex-col justify-center h-full max-w-[60%] pl-[12%]">
+            <div class="relative flex items-end justify-end h-full">
+                <img 
+                    :src="data.imageSourceUrl"
+                    :alt="`slide-${index}`"
+                    class="block h-full"
+                />
+            </div>
+            <!-- <div class="absolute left-0 flex flex-col justify-center h-full max-w-[60%] pl-[12%]">
                 <h2 class="md:text-5xl xl:text-6xl text-white font-din-next-lt-pro-light" v-html="dataTitle" ></h2>
                 <h2 class="mt-5 text-sm md:text-2xl xl:text-3xl text-white font-din-next-lt-pro-light">{{ data.subTitle }}</h2>
             </div>
@@ -70,7 +77,7 @@ const transitionEffect = computed(() => {
                     :alt="`slide-${index}`"
                     class="block h-full"
                 />
-            </div>
+            </div> -->
         </div>
     </transition>
 </template>
