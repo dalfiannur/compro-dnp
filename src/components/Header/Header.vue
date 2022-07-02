@@ -40,7 +40,7 @@ onMounted(() => {
         class="absolute left-0 flex flex-col w-full gap-5 p-5 bg-white md:w-fit md:p-0 md:gap-20 top-28 md:flex-row lg:top-0 md:static"
         v-show="menu.open">
         <li>
-          <a href="/product-line-up" @click.prevent="$router.push('/product-line-up')" @mouseover="hovered = 0"  @mouseleave="hovered = null"
+          <a href="/product-line-up" @mouseover="hovered = 0"  @mouseleave="hovered = null"
             class="font-semibold text-gray-1 font-din-next-lt-pro-light h-[50px] ">
             Products
           </a>
@@ -48,7 +48,7 @@ onMounted(() => {
         </li>
 
         <li>
-          <a href="/articles" @click.prevent="$router.push('/articles')" @mouseover="hovered = 1" @mouseleave="hovered = null"
+          <a href="/articles" @mouseover="hovered = 1" @mouseleave="hovered = null"
             class="font-semibold text-gray-1 font-din-next-lt-pro-light">Articles</a>
           <ArticleSection :hovered="hovered" @mouseover="hovered = 1" @mouseleave="hovered = null" />
         </li>

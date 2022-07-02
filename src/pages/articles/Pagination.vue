@@ -2,6 +2,8 @@
 import { ref, watch } from "vue";
 
 // Import Composable
+// import useGetFeaturedProduct from "../../composable/useGetFeaturedProduct";
+import useGetArticlePagination from "../../composable/useGetArticlePagination";
 import { Article } from "../../typings/Article";
 
 // Import Components
@@ -11,27 +13,41 @@ import ArticleCard from "../../components/ArticleCard.vue";
 import useGetQueries from "../../composable/useGetQueries";
 import { usePaginator } from '../../hooks/use-paginator';
 
+const { data: ArticlePagination } = useGetArticlePagination();
+
 const sortBy = ref<string>("latest");
 
 const query = new URLSearchParams();
 const { pages, data: articles, fetcher, setPage: setPageQuery } = useGetQueries<Article>("articles", {
   autoFetch: true,
-  perPage: 3,
+  perPage: 9,
+  query,
+});
+const { data: featured } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 3
+});
+const { data: TopArticles } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 9,
+  query,
+});
+const { data: LatestArticles } = useGetQueries<Article>('articles', {
+  autoFetch: true,
+  perPage: 9,
   query,
 });
 
 const sortPopular = () => {
   sortBy.value = "popular";
-  query.set("orderBy", "viewCount");
-  query.set("orderSort", "desc");
-  fetcher()
+  query.set("sortBy", "createdAt");
+  query.set("asc", "true");
 };
 
 const sortLatest = () => {
   sortBy.value = "latest";
-  query.set("orderBy", "createdAt");
-  query.set("orderSort", "desc");
-  fetcher()
+  query.set("sortBy", "createdAt");
+  query.set("asc", "false");
 };
 
 const { range, currentPage, setPage, onNext, onPrev, setTotal } = usePaginator({})

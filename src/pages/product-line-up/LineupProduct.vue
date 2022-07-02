@@ -13,7 +13,7 @@ const hovered = inject("hovered", ref<boolean>(false));
 </script>
 
 <template>
-  <div class="relative flex items-start flex-none border border-white w-full" @mouseover="hovered = true" @mouseleave="hovered = false">
+  <div class="relative flex items-start flex-none border border-white w-full min-h-[400px] min-w-[400px]" @mouseover="hovered = true" @mouseleave="hovered = false">
     <div v-if="item" class="w-full">
       <a :href="'/products/' + item.slug">
         <div
@@ -33,16 +33,17 @@ const hovered = inject("hovered", ref<boolean>(false));
             :src="item.images[0].imageSourceUrl"  
           />
         </div>
-        <div
-          class="mt-10 text-2xl text-center h-14 font-questrial text-gray-500"
-          :class="{[ 'text-' + item.category.slug ]: !hovered === false}"
-        >
-          {{ item.name }}
-        </div>
       </a>
-      
+      <div
+        class="mt-10 text-2xl text-center h-14 font-din-next-lt-pro-light"
+        :class="[ 'text-' + item.category.slug ]"
+      >
+        {{ item.name }}
+      </div>
     </div>
   </div>
+
+  
 </template>
 
 <style lang="scss" scoped>
