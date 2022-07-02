@@ -53,7 +53,7 @@ const getIcon = (category: string) => {
           </transition>
           <transition name="text-fadein">
             <h5 v-if="innerHovered"
-              class="hidden mt-2 text-2xl text-center text-white"
+              class="hidden mt-2 text-2xl text-center text-white w-[275px]"
               :class="{
                 '!block': innerHovered,
               }"

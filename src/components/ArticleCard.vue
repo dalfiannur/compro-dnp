@@ -13,7 +13,7 @@ const createLink = () => {
 
 <template>
   <article
-    class="articles flex flex-col mx-auto overflow-hidden duration-200 hover:text-emerald-400"
+    class="articles flex flex-col mx-auto overflow-hidden duration-200 hover:text-hydrate"
     style="background-color: rgb(236 237 239)">
     <div class="images w-full h-full md:h-fit sm:h-fit aspect-video">
       <a :href="createLink()">
@@ -22,7 +22,7 @@ const createLink = () => {
     </div>
     <header class="flex justify-between w-full p-2 leading-tight md:p-4">
       <h1 class="my-auto text-base md:text-2xl ms:my-0 sm:text-lg sm:my-0">
-        <p class="px-3 font-questrial">{{ data.title }}</p>
+        <p class="px-3 font-questrial ">{{ data.title }}</p>
       </h1>
     </header>
 

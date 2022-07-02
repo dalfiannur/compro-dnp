@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
 import HowToFind from '../../components/HowToFind.vue'
+import RelatedProduct from '../../components/RelatedProduct.vue'
 import useGetQuery from "../../composable/useGetQuery";
 import { Article } from "../../typings/Article";
 import { useRoute } from 'vue-router'
@@ -86,10 +87,24 @@ const generateDate = (dateString: string) => {
             </svg>
           </a>
         </div>
+        
+      </div>
+      <div class="flex flex-wrap justify-between w-full gap-4 mt-6">
+        <span class="flex-1 my-auto border border-hydrate"></span>
+        <a
+          href="/articles"
+          @click.prevent="$router.push('/articles')"
+          class="text-hydrate"
+        >
+          See More Article
+        </a>
       </div>
     </div>
   </div>
 
+  <div id="related-product" class="mt-20 mb-20">
+    <RelatedProduct />
+  </div>
   <div id="how-to-find" class="mt-20 mb-20">
     <HowToFind />
   </div>

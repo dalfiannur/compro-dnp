@@ -64,7 +64,7 @@ onMounted(() => {
       </div>
     </div>
     <div class="p-6 text-center bg-stone-900">
-      <span>Copyright © 2022 DPE LAB.All right reserved | PT Dhermedic Par Este</span>
+      <span>Copyright © 2022 DPE LAB.All right reserved | PT Dermedic Phar Este</span>
     </div>
   </footer>
 

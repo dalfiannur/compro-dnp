@@ -20,7 +20,7 @@ const sortBy = ref<string>("latest");
 const query = new URLSearchParams();
 const { pages, data: articles, fetcher, setPage: setPageQuery } = useGetQueries<Article>("articles", {
   autoFetch: true,
-  perPage: 3,
+  perPage: 9,
   query,
 });
 const { data: featured } = useGetQueries<Article>('articles', {
@@ -29,12 +29,12 @@ const { data: featured } = useGetQueries<Article>('articles', {
 });
 const { data: TopArticles } = useGetQueries<Article>('articles', {
   autoFetch: true,
-  perPage: 3,
+  perPage: 9,
   query,
 });
 const { data: LatestArticles } = useGetQueries<Article>('articles', {
   autoFetch: true,
-  perPage: 3,
+  perPage: 9,
   query,
 });
 
