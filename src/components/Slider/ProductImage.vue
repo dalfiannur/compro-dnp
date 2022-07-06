@@ -96,7 +96,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex justify-center w-full h-full px-10 lg:w-[450px] xl:w-[40vw] 2xl:w-[45vw] " v-if="data">
+    <div class="flex justify-center w-full h-full px-10 lg:w-[450px] xl:w-[35vw] " v-if="data">
         <div class="relative h-full w-[500px] sm:w-full bg-white-smoke justify-center items-center">
 
             <div class="justify-center w-full">

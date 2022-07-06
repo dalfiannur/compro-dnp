@@ -13,23 +13,23 @@ const hovered = inject("hovered", ref<boolean>(false));
 </script>
 
 <template>
-  <div class="relative flex items-start flex-none border border-white w-full min-h-[400px] min-w-[400px]" @mouseover="hovered = true" @mouseleave="hovered = false">
+  <div class="relative flex items-start flex-none border border-white w-full xl:min-h-[350px] xl:min-w-[310px] 2xl:min-h-[400px] 2xl:min-w-[400px]" @mouseover="hovered = true" @mouseleave="hovered = false">
     <div v-if="item" class="w-full">
       <a :href="'/products/' + item.slug">
         <div
-          class="relative w-full flex justify-center items-center py-[50%] max-h-[300px]"
+          class="relative w-full flex justify-center items-center py-[50%] xl:min-h-[350px] xl:min-w-[310px] 2xl:min-h-[400px] 2xl:min-w-[400px]"
           :class="[ 'bg-white-smoke' ]"
         >
 
         <transition name="fade">
           <div v-show="hovered"
-            class="absolute w-full h-full max-h-[400px] aspect-square"
+            class="absolute w-full h-full xl:min-h-[350px] xl:min-w-[310px] 2xl:min-h-[400px] 2xl:min-w-[400px] aspect-square"
             :class="['bg-hover-' + item.category.slug]"            
           />
         </transition>
           
           <img
-            class="absolute w-full max-h-[400px] object-contain aspect-square filter"
+            class="absolute w-full xl:max-h-[310px] 2xl:max-h-[400px] object-contain aspect-square filter"
             :src="item.images[0].imageSourceUrl"  
           />
         </div>

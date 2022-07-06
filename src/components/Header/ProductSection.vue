@@ -129,7 +129,7 @@
     >
       <div class="w-full xl:w-[360px] xl:-ml-24">
         <div class="flex items-center h-full pl-4 sm:pl-9 py-4 xl:pl-24 xl:py-0 bg-gray-100">
-          <a @click.prevent="$router.push('/product-line-up')" class="text-4xl text-hydrate">Explore Our Products</a>
+          <a href="/product-line-up" @click.prevent="$router.push('/product-line-up')" class="text-4xl text-hydrate">Explore Our Products</a>
         </div>
       </div>
       <div class="relative flex-1">

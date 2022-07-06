@@ -34,22 +34,22 @@ const category = computed(() => items.value.length > 0 ? items.value[0].category
     </div>
 
     <!-- 2 -->
-    <div v-else-if="items.length === 2" class="grid grid-cols-2 md:grid-cols-4 gap-10">
-      <div class="flex flex-col justify-end">
+    <div v-else-if="items.length === 2" class="grid grid-cols-4 xl:gap-[12rem] 2xl:gap-[17.5remz]">
+      <!-- <div class="flex-col justify-end">
         <div class="flex-1" :class="['bg-white-smoke']" />
-        <div class="h-14 mt-10 w-full" />
-      </div>
+        <div class="h-14 mt-10" />
+      </div> -->
       <div class="w-full" v-for="item in items" :key="item.slug">
         <ProductCard :item="item" @click="$emit('click', item)" />
       </div>
-      <div class="flex flex-col justify-end">
+      <!-- <div class="flex flex-col justify-end">
         <div class="flex-1" :class="['bg-white-smoke']" />
-        <div class="h-14 mt-10 w-full" />
-      </div>
+        <div class="h-14 mt-10" />
+      </div> -->
     </div>
 
     <!-- 3 -->
-    <div v-else-if="items.length === 3" class="grid grid-cols-2 md:grid-cols-5 gap-10">
+    <div v-else-if="items.length === 3" class="grid grid-cols-5 gap-10">
       <div class="hidden md:flex flex-col justify-end">
         <div class="flex-1" :class="['bg-white-smoke']" />
         <div class="h-14 mt-10 w-full" />
@@ -69,7 +69,7 @@ const category = computed(() => items.value.length > 0 ? items.value[0].category
     </div>
 
     <!-- 4 -->
-    <div v-else-if="items.length === 4" class="grid grid-flow-col grid-cols-4 gap-10 scroll-mx-[25px] overflow-auto">
+    <div v-else-if="items.length === 4" class="grid grid-cols-4 xl:gap-[12rem] 2xl:gap-[17.5remz] scroll-mx-[25px] overflow-auto">
       <div class="" v-for="item in items" :key="item.slug">
         <ProductCard :item="item" @click="$emit('click', item)" />
       </div>
