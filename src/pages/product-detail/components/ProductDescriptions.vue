@@ -29,7 +29,7 @@ watch(data, () => {
 
 <template>
   <div v-if="data">
-    <div class="flex flex-col-reverse lg:flex-row mt-8 lg:mt-20 font-questrial">
+    <div class="flex flex-col-reverse lg:flex-row mt-8 lg:mt-20 mx-0 xl:mx-10 2xl:mx-36 font-questrial">
       <div class="flex-1">
         <div class="flex mx-0 lg:mr-10 mb-10">
           <div class="mt-2">
@@ -37,7 +37,7 @@ watch(data, () => {
               <polygon class="cls-1" points="90.39 17.58 0 17.58 0 16.58 87.86 16.58 70.96 0.73 71.64 0 90.39 17.58"/>
             </svg>
           </div>
-          <div class="text-2xl mx-4 lg:mx-6" :class="`${'text-' + data.category.slug}`">Description</div>
+          <div class="text-2xl mx-4 lg:mx-6 " :class="`${'text-' + data.category.slug}`">Description</div>
           <span class="lg:hidden flex-grow border-t border-gray-400 mt-4"></span>
         </div>
         <div class="mx-16 lg:ml-28 lg:mr-10 text-justify">
@@ -70,10 +70,10 @@ watch(data, () => {
           </div>
         </div>
       </div>
-      <ProductImage :data="data" class="lg:block mb-10 lg:mb-0 lg:mr-20 xl:mr-24"/>
+      <ProductImage :data="data" class="lg:block mb-10 lg:mb-0 lg:mr-20 xl:mr-36"/>
     </div>
 
-    <div class="mt-20 font-questrial">
+    <div class="mt-20 font-questrial mx-0 xl:mx-10 2xl:mx-36">
       <div class="flex mx-0 mb-10">
         <div class="mt-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-12 lg:ml-10" :class="['fill-' + data.category.slug]" viewBox="0 0 90.39 17.58">
@@ -99,7 +99,7 @@ watch(data, () => {
       </div>
     </div>
 
-    <div class="my-20 font-questrial">
+    <div class="my-20 font-questrial mx-0 xl:mx-10 2xl:mx-36">
       <div class="flex mx-0 mb-10">
         <div class="mt-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-12 lg:ml-10" :class="['fill-' + data.category.slug]" viewBox="0 0 90.39 17.58">
