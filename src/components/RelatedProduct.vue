@@ -87,8 +87,8 @@ const items = ref<any[]>([
         <div class="text-center my-14">
             <h1 class="font-questrial text-2xl text-gray-1">Related Product</h1>
         </div>
-        <div class="flex flex-wrap lg:mx-20 my-10 justify-center gap-6">
-            <div class="w-72" v-for="(item, index) in hydrate" :key="index">
+        <div class="flex flex-wrap w-full my-10 mx-8 gap-[15rem]">
+            <div class="xl:w-48 2xl:w-72" v-for="(item, index) in hydrate" :key="index">
                 <LineupProduct 
                     :item="item" 
                     @click="$emit('click', item)" 
@@ -96,7 +96,7 @@ const items = ref<any[]>([
                     @mouseleave="$emit('blur', item.category.slug)"
                 />
             </div>
-            <div class="w-72" v-for="(item, index) in prevent" :key="index">
+            <div class="xl:w-48 2xl:w-72" v-for="(item, index) in prevent" :key="index">
                 <LineupProduct 
                     :item="item" 
                     @click="$emit('click', item)" 
@@ -104,7 +104,7 @@ const items = ref<any[]>([
                     @mouseleave="$emit('blur', item.category.slug)"
                 />
             </div>
-            <div class="w-72" v-for="(item, index) in glow" :key="index">
+            <div class="xl:w-48 2xl:w-72" v-for="(item, index) in glow" :key="index">
                 <LineupProduct 
                     :item="item" 
                     @click="$emit('click', item)" 
