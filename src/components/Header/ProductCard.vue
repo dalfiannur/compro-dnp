@@ -26,7 +26,14 @@ const { data, title } = defineProps<Prop>()
     }" />
     <ul class="hidden xl:block text-justify text-gray-600">
       <li v-for="used in data" :key="used">
-        <a :href="'/products/' + used.slug">{{ used.name }}</a>
+        <a :href="'/products/' + used.slug" :class="{
+          'hover:text-repair': title.toLowerCase() === 'repair',
+          'hover:text-prevent': title.toLowerCase() === 'prevent',
+          'hover:text-glow': title.toLowerCase() === 'glow',
+          'hover:text-hydrate': title.toLowerCase() === 'hydrate',
+          'hover:text-preserve': title.toLowerCase() === 'preserve',
+        }">{{ used.name }}
+        </a>
       </li>
     </ul>
   </div>
