@@ -52,7 +52,8 @@ module.exports = {
       'white-smoke': '#f2f2f2',
       'baseColor': '#818181',
       'gray-1': '#666867',
-      preserve: '#ae1857'
+      preserve: '#ae1857',
+      'gray-2': '#cfcfce'
     }),
     columns: {
       auto: 'auto',
