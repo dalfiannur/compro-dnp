@@ -28,7 +28,7 @@ import ProductButton from './ProductButton.vue';
             </div>
             <div class="relative w-full md:w-6/12 lg:w-7/12">
                 <img class="md:absolute right-0 top-1/4 md:-translate-y-1/2 max-h-[500px] max-w-full"
-                    src="/img/BannerLineUp.png" alt="product-line-up" />
+                    src="/img/BannerLineUp2.png" alt="product-line-up" />
             </div>
         </div>
     </div>

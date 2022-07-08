@@ -151,4 +151,24 @@ $categories: 'repair', 'prevent', 'glow', 'hydrate', 'preserve';
     background-color: theme('colors.' + $category);
   }
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  margin-top: 10px;
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cfcfce;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(182, 175, 175);
+}
 </style>
