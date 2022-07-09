@@ -15,7 +15,7 @@ const hovered = inject("hovered", ref<boolean>(false));
 <template>
   <div class="relative flex items-start flex-none border border-white w-full xl:min-h-[350px] xl:min-w-[310px] 2xl:min-h-[400px] 2xl:min-w-[400px]" @mouseover="hovered = true" @mouseleave="hovered = false">
     <div v-if="item" class="w-full">
-      <a :href="'/products/' + item.slug">
+      <router-link :to="'/products/' + item.slug">
         <div
           class="relative w-full flex justify-center items-center py-[50%] xl:min-h-[350px] xl:min-w-[310px] 2xl:min-h-[400px] 2xl:min-w-[400px]"
           :class="[ 'bg-white-smoke' ]"
@@ -33,7 +33,7 @@ const hovered = inject("hovered", ref<boolean>(false));
             :src="item.images[0].imageSourceUrl"  
           />
         </div>
-      </a>
+      </router-link>
       <div
         class="mt-10 text-2xl text-center h-14 font-din-next-lt-pro-light"
         :class="[ 'text-' + item.category.slug ]"
