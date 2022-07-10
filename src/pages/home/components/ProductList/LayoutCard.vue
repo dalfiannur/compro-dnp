@@ -109,7 +109,7 @@ const category = computed(() =>
     <!-- 4 -->
     <div
       v-else-if="items.length === 4"
-      class="grid grid-cols-5 gap-10"
+      class="grid grid-cols-4 gap-10"
     >
       <div class="" v-for="item in items" :key="item.slug">
         <ProductCard :item="item" @click="$emit('click', item)" />
