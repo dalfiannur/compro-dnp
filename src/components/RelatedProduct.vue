@@ -43,8 +43,8 @@ const { data: hydrate } = useGetQueries<Product>("product", {
         <div class="text-center my-14">
             <h1 class="font-questrial text-2xl text-gray-1">Related Product</h1>
         </div>
-        <div class="flex flex-col sm:flex-row justify-center align-middle my-10 gap-[2rem] xl:gap-[10rem] xl:mr-[8rem]">
-            <div class="w-48 xl:w-48 2xl:w-72 mx-auto sm:mx-0" v-for="(item, index) in prevent" :key="index">
+        <div class="flex flex-col sm:flex-row justify-center align-middle my-10 gap-10 xl:gap-16">
+            <div class="w-52 xl:w-64 2xl:w-72 mx-auto sm:mx-0" v-for="(item, index) in prevent" :key="index">
                 <LineupProduct 
                     :item="item" 
                     @click="$emit('click', item)" 
@@ -52,7 +52,7 @@ const { data: hydrate } = useGetQueries<Product>("product", {
                     @mouseleave="$emit('blur', item.category.slug)"
                 />
             </div>
-            <div class="w-48 xl:w-48 2xl:w-72 mx-auto sm:mx-0" v-for="(item, index) in hydrate" :key="index">
+            <div class="w-52 xl:w-64 2xl:w-72 mx-auto sm:mx-0" v-for="(item, index) in hydrate" :key="index">
                 <LineupProduct 
                     :item="item" 
                     @click="$emit('click', item)" 
@@ -60,7 +60,7 @@ const { data: hydrate } = useGetQueries<Product>("product", {
                     @mouseleave="$emit('blur', item.category.slug)"
                 />
             </div>
-            <div class="w-48 xl:w-48 2xl:w-72 mx-auto sm:mx-0" v-for="(item, index) in glow" :key="index">
+            <div class="w-52 xl:w-64 2xl:w-72 mx-auto sm:mx-0" v-for="(item, index) in glow" :key="index">
                 <LineupProduct 
                     :item="item" 
                     @click="$emit('click', item)" 
