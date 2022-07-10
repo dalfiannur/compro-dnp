@@ -19,7 +19,6 @@
             <div class="flex items-center w-full md:w-fit">
                 <a
                     href="/clinics"
-                    @click.prevent
                     @click="$router.push('/clinics')"
                     class="w-full py-5 px-20 text-lg text-center border px-auto md:w-fit xl:px-24 xl:text-3xl border-hydrate text-hydrate hover:bg-hydrate hover:text-white font-questrial"
                 >Find Us</a>

@@ -23,10 +23,6 @@
             </p>
         </div>
         
-
-        <div class="flex w-[60vw] 2xl:w-[60vw] h-full">
-            <img src="/img/BannerLineUp.png" class="object-cover h-full w-">
-        </div>
       </div>
     </div>
   </div>

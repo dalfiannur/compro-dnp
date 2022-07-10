@@ -171,7 +171,9 @@ const goTo = (key: number) => {
           <Transition :name="slideTo + '-left-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index+1 === active" :src="item.images[0].imageSourceUrl"
               class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-left -mb-24 z-10"
-              @click="goTo(index)" />
+              @click="goTo(index)"
+              @mouseenter="pause"
+              @mouseleave="start" />
           </Transition>
         </div>
       </div>
@@ -183,7 +185,9 @@ const goTo = (key: number) => {
           <Transition :name="slideTo + '-right-side'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index-1 === active" :src="item.images[0].imageSourceUrl"
               class="absolute h-[40vh] object-contain cursor-pointer max-h-[550px] slide-right -mb-24 z-10"
-              @click="goTo(index)" />
+              @click="goTo(index)"
+              @mouseenter="pause"
+              @mouseleave="start" />
           </Transition>
         </div>
       </div>

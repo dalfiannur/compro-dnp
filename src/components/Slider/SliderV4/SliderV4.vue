@@ -6,7 +6,7 @@ import ProductButton from './ProductButton.vue';
 </script>
 
 <template>
-    <div class="h-min w-full bg-hydrate p-8 md:p-12">
+    <div class="h-min w-full banner p-8 md:p-10">
         <h2 class="text-5xl md:text-6xl text-white font-questrial mt-6 md:ml-12">
             DPE Product
             <br />Line Up
@@ -26,11 +26,15 @@ import ProductButton from './ProductButton.vue';
                 <p class="text-base text-white font-questrial mt-12 mb-4">Caffeine is a powerful antioxidant and
                     anti-aging. While combined with green tea and polyphenol, caffeince can also.</p>
             </div>
-            <div class="relative w-full md:w-6/12 lg:w-7/12">
-                <img class="md:absolute right-0 top-1/4 md:-translate-y-1/2 max-h-[500px] max-w-full"
-                    src="/img/BannerLineUp2.png" alt="product-line-up" />
-            </div>
         </div>
     </div>
 </template>
+
+<style>
+.banner {
+    background: url('/img/BannerLineUp.png');
+    background-size: 100vw;
+    background-position: center;
+}
+</style>
 
