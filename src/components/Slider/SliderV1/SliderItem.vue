@@ -24,10 +24,10 @@ const transitionEffect = computed(() => {
 <template>
     <transition :name="transitionEffect">
         <div
-            class="absolute top-0 bottom-0 left-0 right-0 gradient"
+            class="absolute top-0 bottom-0 left-0 right-0"
             v-show="currentSlide === index"
         >
-            <div class="relative flex items-end justify-end h-full">
+            <div class="relative flex items-center justify-center w-full h-full">
                 <img 
                     :src="data.imageSourceUrl"
                     :alt="`slide-${index}`"
@@ -50,14 +50,6 @@ const transitionEffect = computed(() => {
 </template>
 
 <style scoped>
-.gradient {
-    background: linear-gradient(
-        100deg,
-        rgba(99, 196, 180, 1) 20%,
-        rgba(99, 196, 180, 0) 90%,
-        rgba(255, 255, 255, 0) 100%
-    );
-}
 .slide-in-enter-active,
 .slide-in-leave-active,
 .slide-out-enter-active,

@@ -20,17 +20,17 @@ const { data: mainBanners } = useGetQueries<MainBanner>('main-banners', {
 const imagesSlider = ref<any[]>([
   {
     id: 1,
-    ImageSourceUrl: '/img/BANNER-01.png',
+    imageSourceUrl: '/img/BANNER-01.png',
     createdAt: '0'
   },
   {
     id: 2,
-    ImageSourceUUrl: '/img/BANNER-02.png',
+    imageSourceUrl: '/img/BANNER-02.png',
     createdAt: '0'
   },
   {
     id: 3,
-    ImageSourceUrl: '/img/BANNER-03.png',
+    imageSourceUrl: '/img/BANNER-03.png',
     createdAt: '0'
   }
 ])

@@ -16,6 +16,9 @@
   const slideInterval = ref<NodeJS.Timer>();
   const direction = ref("right");
   let isSliding = false;
+  
+  const banner = ref<any>();
+  const bannerHeight = ref(0);
 
   function setCurrentSlide(index: number) {
     currentSlide.value = index
@@ -59,19 +62,27 @@
     }, 1000);
   }
 
-  onMounted(function () {
-    // startSlideTimer()
-  });
-
   onBeforeUnmount(function () {
     stopSliderTimer()
   })
+  onMounted(function () {
+  // startSlideTimer()
+  console.log(bannerHeight)
+  setTimeout(() => {
+    bannerHeight.value = banner.value.offsetWidth / 2.3;
+    console.log(bannerHeight.value);
+  }, 500);
+});
 
 </script>
 
 <template>
   <div class="flex justify-center">
-    <div class="relative w-full h-[60vh] max-h-[200px] md:max-h-[none] overflow-hidden">
+    <div 
+      ref="banner"
+      class="relative w-full max-h-[200px] md:max-h-[none] overflow-hidden"
+      :style="`height: ${bannerHeight}px;`"
+      >
       <SliderItem
         v-for="(item, index) in items"
         :data="item"
