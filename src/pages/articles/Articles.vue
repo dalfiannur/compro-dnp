@@ -38,9 +38,9 @@ const { data: LatestArticles } = useGetQueries<Article>('articles', {
           :data="page"
         />
       </div>
-      <div class="flex flex-wrap justify-between w-full gap-4 mt-6 p-2 sm:p-0">
+      <div class="flex flex-wrap justify-between w-full mt-6 p-2 sm:p-0">
         <span class="flex-1 my-auto border border-hydrate"></span>
-        <a class="text-hydrate text-lg" href="/article-pagination"> See More </a>
+        <a class="text-hydrate text-lg border-0 p-1 shadow-md px-5 hover:border-4 hover:shadow-none hover:border-hydrate active:bg-hydrate active:text-white" href="/article-pagination"> See More </a>
       </div>
     </div>
   </div>
@@ -55,9 +55,9 @@ const { data: LatestArticles } = useGetQueries<Article>('articles', {
           :data="page"
         />
       </div>
-      <div class="flex flex-wrap justify-between w-full gap-4 mt-6 p-2 sm:p-0">
+      <div class="flex flex-wrap justify-between w-full mt-6 p-2 sm:p-0">
         <span class="flex-1 my-auto border border-hydrate"></span>
-        <a class="text-hydrate text-lg" href="/article-pagination"> See More </a>
+        <a class="text-hydrate text-lg border-0 p-1 shadow-md px-5 hover:border-4 hover:shadow-none hover:border-hydrate active:bg-hydrate active:text-white" href="/article-pagination"> See More </a>
       </div>
     </div>
   </div>

@@ -15,38 +15,6 @@ const { direction, data } = toRefs(props);
 
 const input = ref<any>(null)
 
-const dataTitle = computed(() => {
-  return Ellipsis(data.value.title)
-})
-
-function load() {
-  if (input.value) {
-    input.value.innerHTML
-    console.log(input.value.innerHTML)
-  }
-}
-
-watch(data, () => {
-  load()
-})
-
-function Ellipsis(str: string) {
-  
-  const lenStr = str.length
-  const word = str.split(' ')
-
-  let count = 0;
-  for (let i = 0; i < word.length; i++)   {
-      count += word[i].length
-      if ( count > lenStr / 2) {
-          word[i] += "<br>"
-          break
-      }
-  }
-  console.log(" Word1 " + word)
-  return word.join(' ')
-}
-
 const transitionEffect = computed(() => {
     return direction.value === 'right' ? 'slide-out' : 'slide-in'
 })
@@ -57,7 +25,6 @@ const transitionEffect = computed(() => {
     <transition :name="transitionEffect">
         <div
             class="absolute top-0 bottom-0 left-0 right-0 gradient"
-            :href="data.link"
             v-show="currentSlide === index"
         >
             <div class="relative flex items-end justify-end h-full">

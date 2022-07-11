@@ -9,12 +9,31 @@ import useGetQueries from "../../composable/useGetQueries";
 import { MainBanner } from "../../typings/MainBanner";
 import ArticleSection from "./components/ArticleSection.vue";
 import {Product} from "../../typings/Product";
+import { ImageSource } from "mapbox-gl";
+import { ref } from "@vue/reactivity";
 
 // Initial Composable
 const { data: mainBanners } = useGetQueries<MainBanner>('main-banners', {
   autoFetch: true,
   perPage: 5
 });
+const imagesSlider = ref<any[]>([
+  {
+    id: 1,
+    ImageSourceUrl: '/img/BANNER-01.png',
+    createdAt: '0'
+  },
+  {
+    id: 2,
+    ImageSourceUUrl: '/img/BANNER-02.png',
+    createdAt: '0'
+  },
+  {
+    id: 3,
+    ImageSourceUrl: '/img/BANNER-03.png',
+    createdAt: '0'
+  }
+])
 const { data: featuredProducts } = useGetQueries<Product>('product', {
   autoFetch: true,
   perPage: 5
@@ -23,7 +42,7 @@ const { data: featuredProducts } = useGetQueries<Product>('product', {
 
 <template>
   <div id="banner" class="">
-    <BannerSlider :items="mainBanners" />
+    <BannerSlider :items="imagesSlider" />
   </div>
 
   <div id="product-slider" class="pt-10 md:pt-0">

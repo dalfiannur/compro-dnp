@@ -89,12 +89,12 @@ const generateDate = (dateString: string) => {
         </div>
         
       </div>
-      <div class="flex flex-wrap justify-between w-full gap-4 mt-6">
+      <div class="flex flex-wrap justify-between w-full mt-6">
         <span class="flex-1 my-auto border border-hydrate"></span>
         <a
           href="/articles"
           @click.prevent="$router.push('/articles')"
-          class="text-hydrate"
+          class="text-hydrate border-0 p-2 shadow-md px-5 hover:border-4 hover:shadow-none hover:border-hydrate active:bg-hydrate active:text-white"
         >
           See More Article
         </a>
