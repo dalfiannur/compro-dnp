@@ -104,8 +104,14 @@ const cardBlurHandler = () => {
 };
 
 const handleButtonClick = (slug: string) => {
-  isSeries.value = false;
-  selectedCategory.value = slug;
+  if (isSeries.value){
+    isSeries.value = false;
+    selectedCategory.value = slug;
+  } else {
+    //@ts-ignore
+    isSeries.value = true;
+    selectedCategory.value = "series";
+  }
   transition()
 };
 const handleButtonHover = (slug: string) => {
