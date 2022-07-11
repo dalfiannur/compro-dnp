@@ -13,10 +13,10 @@ import { ImageSource } from "mapbox-gl";
 import { ref } from "@vue/reactivity";
 
 // Initial Composable
-const { data: mainBanners } = useGetQueries<MainBanner>('main-banners', {
-  autoFetch: true,
-  perPage: 5
-});
+// const { data: mainBanners } = useGetQueries<MainBanner>('main-banners', {
+//   autoFetch: true,
+//   perPage: 5
+// });
 const imagesSlider = ref<any[]>([
   {
     id: 1,
