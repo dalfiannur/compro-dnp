@@ -55,22 +55,22 @@ function start() {
   if (slideTo.value === "next") {
     startTimeout=setTimeout(() => {
       if (active.value < 4){
-        next(4, 2800);
+        next(4, 4200);
       } else {
-        prev(0, 2800);
+        prev(0, 4200);
       }
       
-    }, 2800); 
+    }, 4200); 
     // next(value + 1);
   }
   if (slideTo.value === "prev") {
     startTimeout=setTimeout(() => {
       if (active.value > 0){
-        prev(0, 2800);
+        prev(0, 4200);
       } else {
-        next(4, 2800);
+        next(4, 4200);
       }
-    }, 2800);
+    }, 4200);
   }
   console.log(active.value)
 }
@@ -78,9 +78,9 @@ function start() {
 onMounted(() => {
   setTimeout(() => {
     if (active.value < 4) {
-      next(4, 2800);
+      next(4, 4200);
     }
-  }, 2800);
+  }, 4200);
 })
 
 let watchTimeout:NodeJS.Timer
@@ -88,14 +88,14 @@ let watchTimeout:NodeJS.Timer
 watch (active, (value) => {
   if (value === 0) {
     watchTimeout=setTimeout(() => {
-      next(4, 2800);
-    }, 2800); 
+      next(4, 4200);
+    }, 4200); 
     // next(value + 1);
   }
   if (value === 4) {
     watchTimeout=setTimeout(() => {
-      prev(0, 2800);
-    }, 2800);
+      prev(0, 4200);
+    }, 4200);
   }
   console.log(value)
 })

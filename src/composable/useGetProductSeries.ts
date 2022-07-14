@@ -70,7 +70,7 @@ export default function useGetProductSeries() {
       },
       images: [
         {
-          imageSourceUrl: '/img/hydrate-series.png'
+          imageSourceUrl: '/img/preserve-series.png'
         }
       ]
     },
