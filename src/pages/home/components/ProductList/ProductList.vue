@@ -107,10 +107,13 @@ const handleButtonClick = (slug: string) => {
   if (isSeries.value){
     isSeries.value = false;
     selectedCategory.value = slug;
-  } else {
+  } else if (slug === selectedCategory.value){
     //@ts-ignore
     isSeries.value = true;
     selectedCategory.value = "series";
+  } else {
+    isSeries.value = false;
+    selectedCategory.value = slug;
   }
   transition()
 };
