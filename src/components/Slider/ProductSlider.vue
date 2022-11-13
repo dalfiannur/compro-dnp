@@ -189,6 +189,11 @@ const goTo = (key: number) => {
               @mouseenter="pause"
               @mouseleave="start" />
           </Transition>
+          <Transition :name="slideTo + '-right-shadow'" v-for="(item,index) in items" :key="item.id">
+            <img v-show="index-1 === active" src="/img/shadow.png" 
+              class="absolute -mb-36 w-[90%] -ml-10 shadow-right"
+            />
+          </Transition>
         </div>
       </div>
     </div>
@@ -207,6 +212,9 @@ const goTo = (key: number) => {
 
 .slide-right {
   transform: rotate(-30deg);
+  bottom: 8rem;
+}
+.shadow-right {
   bottom: 8rem;
 }
 
@@ -246,6 +254,24 @@ Right Side
   transition: all 0.7s ease-out;
 }
 
+
+.next-right-shadow-enter-active {
+  transition: all 0.7s ease-out;
+}
+
+.prev-right-shadow-enter-active {
+  transition: all 0.7s ease-out;
+}
+
+.next-right-shadow-leave-active {
+  transition: all 0.7s ease-out;
+}
+
+.prev-right-shadow-leave-active {
+  transition: all 0.7s ease-out;
+}
+
+
 .next-right-side-leave-to,
 .prev-right-side-enter-from {
   transform: translateX(-150%);
@@ -256,6 +282,17 @@ Right Side
 .prev-right-side-leave-to {
   transform: translateX(150%) rotate(-45deg);
   bottom: 20rem;
+}
+
+
+.next-right-shadow-leave-to,
+.prev-right-shadow-enter-from {
+  transform: translateX(-150%);
+}
+
+.next-right-shadow-enter-from,
+.prev-right-shadow-leave-to {
+  transform: translateX(150%);
 }
 
 /**
