@@ -197,17 +197,10 @@ const goTo = (key: number) => {
               @mouseenter="pause"
               @mouseleave="start" />
           </Transition>
-<<<<<<< HEAD
-          <Transition :name="slideTo + '-right-shadow'" v-for="(item,index) in items" :key="item.id">
-            <img v-show="index-1 === active" src="/img/shadow.png" 
-              class="absolute -mb-36 w-[90%] -ml-10 shadow-right"
-            />
-=======
           <Transition :name="slideTo + '-right-shadow'" v-for="(item, index) in items" :key="item.id">
             <img v-show="index-1 === active" 
               src="/img/shadow.png"
               class="absolute w-[90%] -mb-4 -ml-5 shadow-right"/>
->>>>>>> 3d8167c9558602e894ffbb6eb756072b40ceef86
           </Transition>
         </div>
       </div>
@@ -308,43 +301,14 @@ Right Side
 }
 
 
-<<<<<<< HEAD
 .next-right-shadow-leave-to,
 .prev-right-shadow-enter-from {
   transform: translateX(-150%);
-=======
-
-
-.next-right-shadow-enter-active {
-  transition: all 0.7s ease-out;
-}
-
-.prev-right-shadow-enter-active {
-  transition: all 0.7s ease-out;
-}
-
-.next-right-shadow-leave-active {
-  transition: all 0.7s ease-out;
-}
-
-.prev-right-shadow-leave-active {
-  transition: all 0.7s ease-out;
-}
-
-.next-right-shadow-leave-to,
-.prev-right-shadow-enter-from {
-  transform: translateX(-150%);
-  bottom: 0;
->>>>>>> 3d8167c9558602e894ffbb6eb756072b40ceef86
 }
 
 .next-right-shadow-enter-from,
 .prev-right-shadow-leave-to {
   transform: translateX(150%);
-<<<<<<< HEAD
-=======
-  bottom: 0;
->>>>>>> 3d8167c9558602e894ffbb6eb756072b40ceef86
 }
 
 /**

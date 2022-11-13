@@ -1,19 +1,24 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed, watch } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed, watch, toRefs } from "vue";
 import { Article } from "../../typings/Article";
 
 interface Prop {
   data: Article[];
 }
 
-const { data } = defineProps<Prop>();
+const props = defineProps<Prop>();
+const { data } = toRefs<Prop>(props)
+
+watch(data, (value) => {
+  console.log(data.value.length)
+})
 
 const loadImage = (path: String) => {
   return "/img/" + path + ".jpg";
 };
 
 const currentSlide = ref(0);
-const getSlideCount = ref<number | undefined>(data.length);
+const getSlideCount = computed(() => data.value.length);
 const slideInterval = ref<any>(0);
 const direction = ref<string>("right");
 
@@ -27,11 +32,11 @@ const nextSlide = () => {
   setCurrentSlide(index);
   direction.value = "right";
   startSlideTimer();
+  console.log(index)
 };
 
 const prevSlide = () => {
-  const index =
-    currentSlide.value > 0 ? currentSlide.value - 1 : data.length - 1;
+  const index = currentSlide.value > 0 ? currentSlide.value - 1 : data.value.length - 1;
   setCurrentSlide(index);
   direction.value = "left";
   startSlideTimer();
