@@ -141,10 +141,13 @@ const goTo = (key: number) => {
             <div class="relative flex justify-center w-full h-full max-h-[400px] overflow-hidden">
               <Transition :name="slideTo" v-for="(item, index) in items" :key="item.name">
                 <div v-show="active === index" class="absolute top-0 flex flex-col justify-end h-full selected-slide">
-                  <img class="h-[40vh] cursor-pointer max-h-[400px]" :src="item.images[1].imageSourceUrl"
+                  <img class="h-[40vh] cursor-pointer max-h-[400px] z-10" :src="item.images[1].imageSourceUrl"
                     @click="$router.push('/products/' + item.slug)"
                     @mouseenter="pause"
                     @mouseleave="start" />
+                  <img 
+                    src="/img/shadow.png"
+                    class="absolute w-full-mb-10"/>
                 </div>
               </Transition>
             </div>
@@ -175,6 +178,11 @@ const goTo = (key: number) => {
               @mouseenter="pause"
               @mouseleave="start" />
           </Transition>
+          <Transition :name="slideTo + '-left-shadow'" v-for="(item, index) in items" :key="item.id">
+            <img v-show="index+1 === active" 
+              src="/img/shadow.png"
+              class="absolute w-[90%] -mb-4 -mr-5 shadow-left"/>
+          </Transition>
         </div>
       </div>
     </div>
@@ -189,10 +197,17 @@ const goTo = (key: number) => {
               @mouseenter="pause"
               @mouseleave="start" />
           </Transition>
+<<<<<<< HEAD
           <Transition :name="slideTo + '-right-shadow'" v-for="(item,index) in items" :key="item.id">
             <img v-show="index-1 === active" src="/img/shadow.png" 
               class="absolute -mb-36 w-[90%] -ml-10 shadow-right"
             />
+=======
+          <Transition :name="slideTo + '-right-shadow'" v-for="(item, index) in items" :key="item.id">
+            <img v-show="index-1 === active" 
+              src="/img/shadow.png"
+              class="absolute w-[90%] -mb-4 -ml-5 shadow-right"/>
+>>>>>>> 3d8167c9558602e894ffbb6eb756072b40ceef86
           </Transition>
         </div>
       </div>
@@ -216,6 +231,14 @@ const goTo = (key: number) => {
 }
 .shadow-right {
   bottom: 8rem;
+}
+
+.shadow-left {
+  bottom: 0;
+}
+
+.shadow-right {
+  bottom: 0;
 }
 
 .next-enter-active,
@@ -285,14 +308,43 @@ Right Side
 }
 
 
+<<<<<<< HEAD
 .next-right-shadow-leave-to,
 .prev-right-shadow-enter-from {
   transform: translateX(-150%);
+=======
+
+
+.next-right-shadow-enter-active {
+  transition: all 0.7s ease-out;
+}
+
+.prev-right-shadow-enter-active {
+  transition: all 0.7s ease-out;
+}
+
+.next-right-shadow-leave-active {
+  transition: all 0.7s ease-out;
+}
+
+.prev-right-shadow-leave-active {
+  transition: all 0.7s ease-out;
+}
+
+.next-right-shadow-leave-to,
+.prev-right-shadow-enter-from {
+  transform: translateX(-150%);
+  bottom: 0;
+>>>>>>> 3d8167c9558602e894ffbb6eb756072b40ceef86
 }
 
 .next-right-shadow-enter-from,
 .prev-right-shadow-leave-to {
   transform: translateX(150%);
+<<<<<<< HEAD
+=======
+  bottom: 0;
+>>>>>>> 3d8167c9558602e894ffbb6eb756072b40ceef86
 }
 
 /**
@@ -324,5 +376,36 @@ Left Side
 .prev-left-side-leave-to {
   transform: translateX(150%);
   bottom: 0rem;
+}
+
+
+
+
+.next-left-shadow-enter-active {
+  transition: all 0.7s ease-out;
+}
+
+.prev-left-shadow-enter-active {
+  transition: all 0.7s ease-out;
+}
+
+.next-left-shadow-leave-active {
+  transition: all 0.7s ease-out;
+}
+
+.prev-left-shadow-leave-active {
+  transition: all 0.7s ease-out;
+}
+
+.next-left-shadow-leave-to,
+.prev-left-shadow-enter-from {
+  transform: translateX(-150%);
+  bottom: 0;
+}
+
+.next-left-shadow-enter-from,
+.prev-left-shadow-leave-to {
+  transform: translateX(150%);
+  bottom: 0;
 }
 </style>
