@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { inject, ref, toRefs } from "vue";
 import { Product } from "../../../../typings/Product";
+import fa from "@faker-js/faker/locales/fa";
 
 interface Prop {
   item?: Product;
+  showSeries?: Boolean;
 }
 
-const props = defineProps<Prop>();
+const props = withDefaults(defineProps<Prop>(), {
+  showSeries: () => false
+});
 const { item } = toRefs(props);
 const innerHovered = ref<boolean>(false);
 const isHovered = inject("isHovered", ref<boolean>(false));
@@ -22,7 +26,7 @@ const getIcon = (category: string) => {
 <template>
   <div
     class="relative flex items-start flex-none border border-white w-full"
-    :class="{ 
+    :class="{
       ['border-' + hoverCategory]: isHovered && isSeries && hoverCategory === item?.category.slug,
     }"
     @mouseenter="innerHovered = true"
@@ -61,10 +65,11 @@ const getIcon = (category: string) => {
               {{ item.usedAs }}
             </h5>
           </transition>
-            
+
           </div>
       </div>
       <div
+        v-if="showSeries"
         class="mt-10 text-2xl text-center h-14 font-questrial"
         :class="{
           ['text-' + hoverCategory]: innerHovered && hoverCategory === item.category.slug,
