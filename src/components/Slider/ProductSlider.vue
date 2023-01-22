@@ -41,7 +41,7 @@ const prev = (key: number, duration: number = 700) => {
   loop();
 };
 
-let startTimeout:NodeJS.Timer 
+let startTimeout:NodeJS.Timer
 
 function pause() {
   clearTimeout(timeout)
@@ -49,56 +49,56 @@ function pause() {
   clearTimeout(watchTimeout)
 }
 
-function start() {
-  clearTimeout(timeout)
-  clearTimeout(startTimeout)
-  if (slideTo.value === "next") {
-    startTimeout=setTimeout(() => {
-      if (active.value < 4){
-        next(4, 4200);
-      } else {
-        prev(0, 4200);
-      }
-      
-    }, 4200); 
-    // next(value + 1);
-  }
-  if (slideTo.value === "prev") {
-    startTimeout=setTimeout(() => {
-      if (active.value > 0){
-        prev(0, 4200);
-      } else {
-        next(4, 4200);
-      }
-    }, 4200);
-  }
-  console.log(active.value)
-}
+// function start() {
+//   clearTimeout(timeout)
+//   clearTimeout(startTimeout)
+//   if (slideTo.value === "next") {
+//     startTimeout=setTimeout(() => {
+//       if (active.value < 4){
+//         next(4, 4200);
+//       } else {
+//         prev(0, 4200);
+//       }
+//
+//     }, 4200);
+//     // next(value + 1);
+//   }
+//   if (slideTo.value === "prev") {
+//     startTimeout=setTimeout(() => {
+//       if (active.value > 0){
+//         prev(0, 4200);
+//       } else {
+//         next(4, 4200);
+//       }
+//     }, 4200);
+//   }
+//   console.log(active.value)
+// }
 
-onMounted(() => {
-  setTimeout(() => {
-    if (active.value < 4) {
-      next(4, 4200);
-    }
-  }, 4200);
-})
+// onMounted(() => {
+//   setTimeout(() => {
+//     if (active.value < 4) {
+//       next(4, 4200);
+//     }
+//   }, 4200);
+// })
 
 let watchTimeout:NodeJS.Timer
 
-watch (active, (value) => {
-  if (value === 0) {
-    watchTimeout=setTimeout(() => {
-      next(4, 4200);
-    }, 4200); 
-    // next(value + 1);
-  }
-  if (value === 4) {
-    watchTimeout=setTimeout(() => {
-      prev(0, 4200);
-    }, 4200);
-  }
-  console.log(value)
-})
+// watch (active, (value) => {
+//   if (value === 0) {
+//     watchTimeout=setTimeout(() => {
+//       next(4, 4200);
+//     }, 4200);
+//     // next(value + 1);
+//   }
+//   if (value === 4) {
+//     watchTimeout=setTimeout(() => {
+//       prev(0, 4200);
+//     }, 4200);
+//   }
+//   console.log(value)
+// })
 
 let running = false;
 
@@ -108,7 +108,7 @@ function conditionalFunc(key: number) {
   } else {
     prev(key);
   }
-} 
+}
 
 const goTo = (key: number) => {
   clearTimeout(timeout)
@@ -145,7 +145,7 @@ const goTo = (key: number) => {
                     @click="$router.push('/products/' + item.slug)"
                     @mouseenter="pause"
                     @mouseleave="start" />
-                  <img 
+                  <img
                     src="/img/shadow.png"
                     class="absolute w-full-mb-10"/>
                 </div>
@@ -179,7 +179,7 @@ const goTo = (key: number) => {
               @mouseleave="start" />
           </Transition>
           <Transition :name="slideTo + '-left-shadow'" v-for="(item, index) in items" :key="item.id">
-            <img v-show="index+1 === active" 
+            <img v-show="index+1 === active"
               src="/img/shadow.png"
               class="absolute w-[90%] -mb-4 -mr-5 shadow-left"/>
           </Transition>
@@ -198,7 +198,7 @@ const goTo = (key: number) => {
               @mouseleave="start" />
           </Transition>
           <Transition :name="slideTo + '-right-shadow'" v-for="(item, index) in items" :key="item.id">
-            <img v-show="index-1 === active" 
+            <img v-show="index-1 === active"
               src="/img/shadow.png"
               class="absolute w-[90%] -mb-4 -ml-5 shadow-right"/>
           </Transition>
